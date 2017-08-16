@@ -1,38 +1,32 @@
-FROM openjdk:8u121-alpine
-MAINTAINER Dave Chevell
+#!/bin/bash
+set -euo pipefail
 
-ENV RUN_USER            daemon
-ENV RUN_GROUP           daemon
+# Setup Catalina Opts
+: ${CATALINA_CONNECTOR_PROXYNAME:=}
+: ${CATALINA_CONNECTOR_PROXYPORT:=}
+: ${CATALINA_CONNECTOR_SCHEME:=http}
+: ${CATALINA_CONNECTOR_SECURE:=false}
 
-ENV JIRA_HOME          /var/atlassian/application-data/jira
-ENV JIRA_INSTALL_DIR   /opt/atlassian/jira
+: ${CATALINA_OPTS:=}
 
-VOLUME ["${JIRA_HOME}"]
+: ${JAVA_OPTS:=}
 
-# Expose HTTP port
-EXPOSE 8080
+CATALINA_OPTS="${CATALINA_OPTS} -DcatalinaConnectorProxyName=${CATALINA_CONNECTOR_PROXYNAME}"
+CATALINA_OPTS="${CATALINA_OPTS} -DcatalinaConnectorProxyPort=${CATALINA_CONNECTOR_PROXYPORT}"
+CATALINA_OPTS="${CATALINA_OPTS} -DcatalinaConnectorScheme=${CATALINA_CONNECTOR_SCHEME}"
+CATALINA_OPTS="${CATALINA_OPTS} -DcatalinaConnectorSecure=${CATALINA_CONNECTOR_SECURE}"
 
-WORKDIR $JIRA_HOME
+export JAVA_OPTS="${JAVA_OPTS} ${CATALINA_OPTS}"
 
-CMD ["/entrypoint.sh", "-fg"]
-ENTRYPOINT ["/sbin/tini", "--"]
 
-RUN apk update -qq \
-    && update-ca-certificates \
-    && apk add ca-certificates wget curl openssh bash procps openssl perl ttf-dejavu tini \
-    && rm -rf /var/lib/{apt,dpkg,cache,log}/ /tmp/* /var/tmp/*
-
-COPY entrypoint.sh              /entrypoint.sh
-
-ARG JIRA_VERSION=7.0.0
-ARG DOWNLOAD_URL=https://www.atlassian.com/software/jira/downloads/binary/atlassian-jira-software-${JIRA_VERSION}.tar.gz
-
-COPY . /tmp
-
-RUN mkdir -p                             ${JIRA_INSTALL_DIR} \
-    && curl -L --silent                  ${DOWNLOAD_URL} | tar -xz --strip-components=1 -C "$JIRA_INSTALL_DIR" \
-    && chown -R ${RUN_USER}:${RUN_GROUP} ${JIRA_INSTALL_DIR}/ \
-    && sed -i -e 's/^JVM_SUPPORT_RECOMMENDED_ARGS=""$/\${JVM_SUPPORT_RECOMMENDED_ARGS:=""}/g' ${JIRA_INSTALL_DIR}/bin/setenv.sh \
-    && sed -i -e 's/^JVM_\(.*\)_MEMORY="\(.*\)"$/\${JVM_\1_MEMORY:=\2}/g' ${JIRA_INSTALL_DIR}/bin/setenv.sh \
-    && sed -i -e 's/grep "java version"/grep -E "(openjdk|java) version"/g' ${JIRA_INSTALL_DIR}/bin/check-java.sh \
-    && sed -i -e 's/port="8080"/port="8080" secure="${catalinaConnectorSecure}" scheme="${catalinaConnectorScheme}" proxyName="${catalinaConnectorProxyName}" proxyPort="${catalinaConnectorProxyPort}"/' ${JIRA_INSTALL_DIR}/conf/server.xml
+# Start Bamboo as the correct user
+if [ "${UID}" -eq 0 ]; then
+    echo "User is currently root. Will change directories to daemon control, then downgrade permission to daemon"
+    mkdir -p "${JIRA_HOME}/lib" &&
+        chmod -R 700 "${JIRA_HOME}" &&
+        chown -R "${RUN_USER}:${RUN_GROUP}" "${JIRA_HOME}"
+    # Now drop privileges
+    exec su -s /bin/bash "${RUN_USER}" -c "$JIRA_INSTALL_DIR/bin/start-jira.sh $@"
+else
+    exec "$JIRA_INSTALL_DIR/bin/start-jira.sh" "$@"
+fi
