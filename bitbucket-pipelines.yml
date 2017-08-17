@@ -12,8 +12,8 @@ pipelines:
             - export BASE_VERSION=7
             - export DOCKER_REPO=dchevell/jira-software
             - export DOCKERFILE_VERSION_STRING=JIRA_VERSION
-            - export GIT_USER=bambooagent
-            - export GIT_EMAIL=build-agent@atlassian.com
+            - export GIT_USER=pipelinesagent
+            - export GIT_EMAIL=pipelines-agent@atlassian.com
             - export MAC_PRODUCT_KEY=jira-software
             - python /usr/src/app/create_release.py
   branches:
@@ -25,7 +25,7 @@ pipelines:
             - export BASE_VERSION=7
             - export DOCKER_REPO=dchevell/jira-software
             - export DOCKERFILE_VERSION_STRING=JIRA_VERSION
-            - export GIT_USER=bambooagent
-            - export GIT_EMAIL=build-agent@atlassian.com
+            - export GIT_USER=pipelinesagent
+            - export GIT_EMAIL=pipelines-agent@atlassian.com
             - export MAC_PRODUCT_KEY=jira-software
             - python /usr/src/app/update_release.py
