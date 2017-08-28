@@ -21,8 +21,10 @@ export JAVA_OPTS="${JAVA_OPTS} ${CATALINA_OPTS}"
 
 # Start Bamboo as the correct user
 if [ "${UID}" -eq 0 ]; then
-    echo "User is currently root. Will change directories to ${RUN_USER} control, then downgrade permission to ${RUN_USER}"
-    if ! stat -c "%u:%U:%a" "${JIRA_HOME}" | grep -q "$(id -u ${RUN_USER}):${RUN_USER}:700"; then
+    echo "User is currently root. Will change directory ownership to ${RUN_USER}:${RUN_GROUP}, then downgrade permission to ${RUN_USER}"
+    PERMISSIONS_SIGNATURE=$(stat -c "%u:%U:%a" "${JIRA_HOME}")
+    EXPECTED_PERMISSIONS=$(id -u ${RUN_USER}):${RUN_USER}:700
+    if [ "${PERMISSIONS_SIGNATURE}" != "${EXPECTED_PERMISSIONS}" ]; then
         chmod -R 700 "${JIRA_HOME}" &&
             chown -R "${RUN_USER}:${RUN_GROUP}" "${JIRA_HOME}"
     fi
