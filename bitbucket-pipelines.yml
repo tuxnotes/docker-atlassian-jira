@@ -4,7 +4,7 @@ clone:
 
 pipelines:
   custom:
-    create-release:
+    create-release-base-7:
       - step:
           script:
             - git fetch --all
