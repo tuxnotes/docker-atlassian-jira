@@ -93,7 +93,13 @@ Read more about data recovery and backups: [https://confluence.atlassian.com/adm
 
 The `latest` tag matches the most recent release of Atlassian JIRA Software. Thus `dchevell/jira-software:latest` will use the newest version of JIRA available.
 
-Alternatively you can use a specific minor version of JIRA Software by using a version number tag: `dchevell/jira-software:7.5.0`. All versions from 7.0+ are available
+Alternatively you can use a specific major, major.minor, or major.minor.patch version of JIRA Software by using a version number tag: 
+
+* `dchevell/jira-servicedesk:7`
+* `dchevell/jira-servicedesk:7.5`
+* `dchevell/jira-servicedesk:7.5.0`
+
+All versions from 7.0+ are available
 
 # Support
 
