@@ -95,9 +95,9 @@ The `latest` tag matches the most recent release of Atlassian JIRA Software. Thu
 
 Alternatively you can use a specific major, major.minor, or major.minor.patch version of JIRA Software by using a version number tag: 
 
-* `dchevell/jira-servicedesk:7`
-* `dchevell/jira-servicedesk:7.5`
-* `dchevell/jira-servicedesk:7.5.0`
+* `dchevell/jira-software:7`
+* `dchevell/jira-software:7.5`
+* `dchevell/jira-software:7.5.0`
 
 All versions from 7.0+ are available
 
