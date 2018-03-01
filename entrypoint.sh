@@ -64,7 +64,7 @@ if [ "${CLUSTERED}" == "true" ]; then
 fi
 
 
-# Start Bamboo as the correct user
+# Start Jira as the correct user
 if [ "${UID}" -eq 0 ]; then
     echo "User is currently root. Will change directories to daemon control, then downgrade permission to daemon"
     mkdir -p "${JIRA_HOME}/lib" &&
