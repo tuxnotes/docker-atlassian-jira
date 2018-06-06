@@ -69,6 +69,54 @@ Example:
 
     $> docker run -e JVM_SUPPORT_RECOMMENDED_ARGS=-Djavax.net.ssl.trustStore=/var/atlassian/application-data/jira/cacerts -v jiraVolume:/var/atlassian/application-data/jira --name="jira" -d -p 8080:8080 dchevell/jira-software
     
+## Data Center configuration
+
+This docker image can be run as part of a [Data Center](https://confluence.atlassian.com/enterprise/jira-data-center-472219731.html) cluster. You can specify the following properties to start Jira as a Data Center node, instead of manually configuring a cluster.properties file, See [Installing Jira Data Center](https://confluence.atlassian.com/adminjiraserver071/installing-jira-data-center-802592197.html) for more information on each property and its possible configuration.
+
+* `CLUSTERED` (default: false)
+
+   Set 'true' to enable clustering configuration to be used. This will create a **cluster.properties** file inside the container's `$JIRA_HOME` directory. 
+
+* `JIRA_NODE_ID` (default: jira_node_<container-id>)
+
+   The unique ID for the node. By default, this will include the first eight characters of the Docker container ID, but can be overridden with a custom value.
+
+* `JIRA_SHARED_HOME` (default: $JIRA_HOME/shared)
+
+   The location of the shared home directory for all Jira nodes.
+
+* `EHCACHE_PEER_DISCOVERY` (default: default)
+
+   Describes how nodes find each other.
+
+* `EHCACHE_LISTENER_HOSTNAME` (default: NONE)
+
+   The hostname of the current node for cache communication. Jira Data Center will resolve this this internally if the parameter isn't set. 
+
+* `EHCACHE_LISTENER_PORT` (default: 40001)
+
+   The port the node is going to be listening to.
+
+* `EHCACHE_LISTENER_SOCKETTIMEOUTMILLIS` (default: 2000)
+
+   The default timeout for the Ehcache listener.
+
+* `EHCACHE_MULTICAST_ADDRESS` (default: NONE)
+
+   A valid multicast group address. Required when EHCACHE_PEER_DISCOVERY is set to 'automatic' insted of 'default'.
+
+* `EHCACHE_MULTICAST_PORT` (default: NONE)
+
+   The dedicated port for the multicast heartbeat traffic.Required when EHCACHE_PEER_DISCOVERY is set to 'automatic' insted of 'default'.
+
+* `EHCACHE_MULTICAST_TIMETOLIVE` (default: NONE)
+
+   A value between 0 and 255 which determines how far the packets will propagate. Required when EHCACHE_PEER_DISCOVERY is set to 'automatic' insted of 'default'.
+
+* `EHCACHE_MULTICAST_HOSTNAME` (default: NONE)
+
+   The hostname or IP of the interface to be used for sending and receiving multicast packets. Required when EHCACHE_PEER_DISCOVERY is set to 'automatic' insted of 'default'.
+
 # Upgrade
 
 To upgrade to a more recent version of JIRA you can simply stop the `jira` container and start a new one based on a more recent image:
