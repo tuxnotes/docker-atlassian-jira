@@ -19,8 +19,12 @@ CATALINA_OPTS="${CATALINA_OPTS} -DcatalinaConnectorSecure=${CATALINA_CONNECTOR_S
 export JAVA_OPTS="${JAVA_OPTS} ${CATALINA_OPTS}"
 
 # Setup Data Center configuration
-CONTAINER_ID=$(cat /proc/self/cgroup | grep systemd | awk -F'/' '{print $3}')
+if [ ! -f "/etc/container_id" ]; then
+  uuidgen > /etc/container_id
+fi
+CONTAINER_ID=$(cat /etc/container_id)
 CONTAINER_SHORT_ID=${CONTAINER_ID::8}
+
 : ${CLUSTERED:=false}
 : ${JIRA_NODE_ID:=jira_node_${CONTAINER_SHORT_ID}}
 : ${JIRA_SHARED_HOME:=${JIRA_HOME}/shared}
