@@ -18,7 +18,7 @@ WORKDIR $JIRA_HOME
 CMD ["/entrypoint.sh", "-fg"]
 ENTRYPOINT ["/sbin/tini", "--"]
 
-RUN apk add --no-cache wget curl openssh bash procps openssl perl ttf-dejavu tini util-linux \
+RUN apk add --no-cache wget curl openssh bash procps openssl perl ttf-dejavu tini util-linux libc6-compat \
     && rm -rf /var/lib/{apt,dpkg,cache,log}/ /tmp/* /var/tmp/*
 
 COPY entrypoint.sh              /entrypoint.sh
