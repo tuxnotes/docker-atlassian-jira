@@ -56,6 +56,10 @@ If JIRA is run behind a reverse proxy server as [described here](https://conflue
 * `CATALINA_CONNECTOR_SECURE` (default: false)
 
    Set 'true' if CATALINA_CONNECTOR_SCHEME is 'https'.
+   
+* `CATALINA_CONTEXT_PATH` (default: NONE)
+
+   The context path the application is served over.
 
 ## JVM configuration
 
