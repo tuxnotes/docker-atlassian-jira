@@ -83,7 +83,7 @@ This docker image can be run as part of a [Data Center](https://confluence.atlas
 
 * `JIRA_NODE_ID` (default: jira_node_<container-id>)
 
-   The unique ID for the node. By default, this will include the first eight characters of the Docker container ID, but can be overridden with a custom value.
+   The unique ID for the node. By default, this includes a randomly generated ID unique to each container, but can be overridden with a custom value.
 
 * `JIRA_SHARED_HOME` (default: $JIRA_HOME/shared)
 
