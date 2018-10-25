@@ -16,6 +16,18 @@ pipelines:
             - export GIT_EMAIL=pipelines-agent@atlassian.com
             - export MAC_PRODUCT_KEY=jira-software
             - python /usr/src/app/create_release.py
+    create-release-base-8:
+      - step:
+          script:
+            - git fetch --all
+            - export BASE_BRANCH=base-8
+            - export BASE_VERSION=8
+            - export DOCKER_REPO=dchevell/jira-software
+            - export DOCKERFILE_VERSION_STRING=JIRA_VERSION
+            - export GIT_USER=pipelinesagent
+            - export GIT_EMAIL=pipelines-agent@atlassian.com
+            - export MAC_PRODUCT_KEY=jira-software
+            - python /usr/src/app/create_release.py
   branches:
     base-7:
       - step:
@@ -23,6 +35,18 @@ pipelines:
             - git fetch --all
             - export BASE_BRANCH=base-7
             - export BASE_VERSION=7
+            - export DOCKER_REPO=dchevell/jira-software
+            - export DOCKERFILE_VERSION_STRING=JIRA_VERSION
+            - export GIT_USER=pipelinesagent
+            - export GIT_EMAIL=pipelines-agent@atlassian.com
+            - export MAC_PRODUCT_KEY=jira-software
+            - python /usr/src/app/update_release.py
+    base-8:
+      - step:
+          script:
+            - git fetch --all
+            - export BASE_BRANCH=base-8
+            - export BASE_VERSION=8
             - export DOCKER_REPO=dchevell/jira-software
             - export DOCKERFILE_VERSION_STRING=JIRA_VERSION
             - export GIT_USER=pipelinesagent
