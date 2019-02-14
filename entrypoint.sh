@@ -21,7 +21,7 @@ CATALINA_OPTS="${CATALINA_OPTS} -DcatalinaContextPath=${CATALINA_CONTEXT_PATH}"
 export JAVA_OPTS="${JAVA_OPTS} ${CATALINA_OPTS}"
 
 # Setup Data Center configuration
-if [ ! -f "/etc/container_id" ]; then
+if [ ! -s "/etc/container_id" ]; then
   uuidgen > /etc/container_id
 fi
 CONTAINER_ID=$(cat /etc/container_id)
