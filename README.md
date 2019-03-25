@@ -1,4 +1,4 @@
-![Atlassian JIRA](https://www.atlassian.com/dam/wac/legacy/jira_logo_landing.png)
+![Atlassian JIRA](https://wac-cdn.atlassian.com/dam/jcr:e348b562-4152-4cdc-8a55-3d297e509cc8/Jira%20Software-blue.svg?cdnVersion=le)
 
 JIRA Software is a software development tool used by agile teams.
 
