@@ -1,4 +1,4 @@
-image: dchevell/docker-release-maker:latest
+image: dchevell/docker-release-maker:dev
 clone:
   depth: full
 
