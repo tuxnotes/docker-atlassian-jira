@@ -1,51 +1,31 @@
-image: dchevell/docker-release-maker:dev
-clone:
-  depth: full
+image: atlassian/docker-release-maker:latest
 
 pipelines:
   custom:
-    create-release-base-7:
-      - step:
-          script:
-            - git remote set-url origin ${BITBUCKET_GIT_HTTP_ORIGIN}
-            - git fetch --all
-            - export BASE_BRANCH='base-7'
-            - export MAC_PRODUCT_KEY='jira-software'
-            - export DOCKERFILE_VERSION_STRING='JIRA_VERSION'
-            - export DEFAULT_RELEASE='true'
-            - export ADDITIONAL_TAG_SUFFIXES='alpine'
-            - python /usr/src/app/run.py --create
     create-release-base-8:
       - step:
+          services:
+            - docker
           script:
-            - git remote set-url origin ${BITBUCKET_GIT_HTTP_ORIGIN}
-            - git fetch --all
-            - export BASE_BRANCH='base-8'
-            - export MAC_PRODUCT_KEY='jira-software'
-            - export DOCKERFILE_VERSION_STRING='JIRA_VERSION'
+            - export BASE_VERSION='8'
             - export DEFAULT_RELEASE='true'
-            - export ADDITIONAL_TAG_SUFFIXES='ubuntu'
+            - export DOCKER_REPO='dchevell/jira-software'
+            - export DOCKERFILE_VERSION_ARG='JIRA_VERSION'
+            - export MAC_PRODUCT_KEY='jira-software'
+            - export TAG_SUFFIXES='jdk8,ubuntu'
+            - docker login --username ${DOCKER_USERNAME} --password ${DOCKER_PASSWORD}
             - python /usr/src/app/run.py --create
   branches:
-    base-7:
-      - step:
-          script:
-            - git remote set-url origin ${BITBUCKET_GIT_HTTP_ORIGIN}
-            - git fetch --all
-            - export BASE_BRANCH='base-7'
-            - export MAC_PRODUCT_KEY='jira-software'
-            - export DOCKERFILE_VERSION_STRING='JIRA_VERSION'
-            - export DEFAULT_RELEASE='true'
-            - export ADDITIONAL_TAG_SUFFIXES='alpine'
-            - python /usr/src/app/run.py --update
     base-8:
       - step:
+          services:
+            - docker
           script:
-            - git remote set-url origin ${BITBUCKET_GIT_HTTP_ORIGIN}
-            - git fetch --all
-            - export BASE_BRANCH='base-8'
-            - export MAC_PRODUCT_KEY='jira-software'
-            - export DOCKERFILE_VERSION_STRING='JIRA_VERSION'
+            - export BASE_VERSION='8'
             - export DEFAULT_RELEASE='true'
-            - export ADDITIONAL_TAG_SUFFIXES='ubuntu'
+            - export DOCKER_REPO='dchevell/jira-software'
+            - export DOCKERFILE_VERSION_ARG='JIRA_VERSION'
+            - export MAC_PRODUCT_KEY='jira-software'
+            - export TAG_SUFFIXES='jdk8,ubuntu'
+            - docker login --username ${DOCKER_USERNAME} --password ${DOCKER_PASSWORD}
             - python /usr/src/app/run.py --update
