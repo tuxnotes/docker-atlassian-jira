@@ -26,7 +26,8 @@ RUN chmod +x /tini
 
 COPY entrypoint.sh              			/entrypoint.sh
 
-ARG JIRA_VERSION=8.0.0
+# Version must be set at build time
+ARG JIRA_VERSION
 ARG DOWNLOAD_URL=https://product-downloads.atlassian.com/software/jira/downloads/atlassian-jira-software-${JIRA_VERSION}.tar.gz
 
 RUN mkdir -p                             ${JIRA_INSTALL_DIR} \
