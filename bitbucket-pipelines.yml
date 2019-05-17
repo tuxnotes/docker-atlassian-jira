@@ -1,4 +1,4 @@
-image: atlassian/docker-release-maker:latest
+image: atlassian/docker-release-maker:build-concurrently
 
 pipelines:
   custom:
@@ -8,6 +8,7 @@ pipelines:
             - docker
           script:
             - export BASE_VERSION='8'
+            - export CONCURRENT_BUILDS='4'
             - export DEFAULT_RELEASE='true'
             - export DOCKER_REPO='dchevell/jira-software'
             - export DOCKERFILE_VERSION_ARG='JIRA_VERSION'
@@ -22,6 +23,7 @@ pipelines:
             - docker
           script:
             - export BASE_VERSION='8'
+            - export CONCURRENT_BUILDS='4'
             - export DEFAULT_RELEASE='true'
             - export DOCKER_REPO='dchevell/jira-software'
             - export DOCKERFILE_VERSION_ARG='JIRA_VERSION'
