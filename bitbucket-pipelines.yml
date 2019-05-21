@@ -2,7 +2,7 @@ image: atlassian/docker-release-maker:build-concurrently
 
 pipelines:
   custom:
-    create-release-base-8:
+    base-8-create-releases:
       - step:
           services:
             - docker
@@ -16,6 +16,17 @@ pipelines:
             - export TAG_SUFFIXES='jdk8,ubuntu'
             - docker login --username ${DOCKER_USERNAME} --password ${DOCKER_PASSWORD}
             - python /usr/src/app/run.py --create
+    base-8-create-custom-release:
+      - variables:
+          - name: JIRA_VERSION
+          - name: DOCKER_TAG
+      - step:
+          services:
+            - docker
+          script:
+            - docker login --username ${DOCKER_USERNAME} --password ${DOCKER_PASSWORD}
+            - docker build -t dchevell/jira-software:${DOCKER_TAG} --build-arg JIRA_VERSION=${JIRA_VERSION} .
+            - docker push dchevell/jira-software:${DOCKER_TAG}
   branches:
     base-8:
       - step:
