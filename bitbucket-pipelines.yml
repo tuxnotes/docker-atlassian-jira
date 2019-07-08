@@ -1,4 +1,4 @@
-image: atlassian/docker-release-maker:build-concurrently
+image: atlassian/docker-release-maker:latest
 
 pipelines:
   custom:
@@ -14,7 +14,7 @@ pipelines:
             - export DOCKERFILE_VERSION_ARG='JIRA_VERSION'
             - export MAC_PRODUCT_KEY='jira-software'
             - export TAG_SUFFIXES='jdk8,ubuntu'
-            - docker login --username ${DOCKER_USERNAME} --password ${DOCKER_PASSWORD}
+            - echo ${DOCKER_PASSWORD} | docker login --username ${DOCKER_USERNAME} --password-stdin
             - python /usr/src/app/run.py --create
     base-8-create-custom-release:
       - variables:
@@ -24,7 +24,7 @@ pipelines:
           services:
             - docker
           script:
-            - docker login --username ${DOCKER_USERNAME} --password ${DOCKER_PASSWORD}
+            - echo ${DOCKER_PASSWORD} | docker login --username ${DOCKER_USERNAME} --password-stdin
             - docker build -t dchevell/jira-software:${DOCKER_TAG} --build-arg JIRA_VERSION=${JIRA_VERSION} .
             - docker push dchevell/jira-software:${DOCKER_TAG}
   branches:
@@ -40,5 +40,5 @@ pipelines:
             - export DOCKERFILE_VERSION_ARG='JIRA_VERSION'
             - export MAC_PRODUCT_KEY='jira-software'
             - export TAG_SUFFIXES='jdk8,ubuntu'
-            - docker login --username ${DOCKER_USERNAME} --password ${DOCKER_PASSWORD}
+            - echo ${DOCKER_PASSWORD} | docker login --username ${DOCKER_USERNAME} --password-stdin
             - python /usr/src/app/run.py --update
