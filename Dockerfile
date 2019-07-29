@@ -24,7 +24,9 @@ ARG TINI_VERSION=v0.18.0
 ADD https://github.com/krallin/tini/releases/download/${TINI_VERSION}/tini /tini
 RUN chmod +x /tini
 
-COPY entrypoint.sh              			/entrypoint.sh
+COPY entrypoint.sh					/entrypoint.sh
+COPY templater.sh					/opt/atlassian/bin/templater.sh
+COPY dbconfig.xml.j2					/opt/atlassian/etc/dbconfig.xml.j2
 
 ARG JIRA_VERSION
 ARG ARTEFACT_NAME=atlassian-jira-software

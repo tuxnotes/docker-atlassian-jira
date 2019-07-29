@@ -1,6 +1,10 @@
 #!/bin/bash
 set -euo pipefail
 
+function log {
+    echo '[Entrypoint]' $*
+}
+
 # Setup Catalina Opts
 : ${CATALINA_CONNECTOR_PROXYNAME:=}
 : ${CATALINA_CONNECTOR_PROXYPORT:=}
@@ -21,8 +25,8 @@ CATALINA_OPTS="${CATALINA_OPTS} -DcatalinaContextPath=${CATALINA_CONTEXT_PATH}"
 export JAVA_OPTS="${JAVA_OPTS} ${CATALINA_OPTS}"
 
 # Setup Data Center configuration
-if [ ! -s "/etc/container_id" ]; then
-  uuidgen > /etc/container_id
+if [[ ! -s "/etc/container_id" ]]; then
+    uuidgen > /etc/container_id
 fi
 CONTAINER_ID=$(cat /etc/container_id)
 CONTAINER_SHORT_ID=${CONTAINER_ID::8}
@@ -41,13 +45,13 @@ CONTAINER_SHORT_ID=${CONTAINER_ID::8}
 
 # Cleanly set/unset values in cluster.properties
 function set_cluster_property {
-    if [ -z $2 ]; then
+    if [[ -z $2 ]]; then
         if [ -f "${JIRA_HOME}/cluster.properties" ]; then
             sed -i -e "/^${1}/d" "${JIRA_HOME}/cluster.properties"
         fi
         return
     fi
-    if [ ! -f "${JIRA_HOME}/cluster.properties" ]; then
+    if [[ ! -f "${JIRA_HOME}/cluster.properties" ]]; then
         echo "${1}=${2}" >> "${JIRA_HOME}/cluster.properties"
     elif grep "^${1}" "${JIRA_HOME}/cluster.properties"; then
         sed -i -e "s#^${1}=.*#${1}=${2}#g" "${JIRA_HOME}/cluster.properties"
@@ -56,7 +60,8 @@ function set_cluster_property {
     fi
 }
 
-if [ "${CLUSTERED}" == "true" ]; then
+if [[ "${CLUSTERED}" == "true" ]]; then
+    log "Generating ${JIRA_HOME}/cluster.properties"
     set_cluster_property "jira.node.id" "${JIRA_NODE_ID}"
     set_cluster_property "jira.shared.home" "${JIRA_SHARED_HOME}"
     set_cluster_property "ehcache.peer.discovery" "${EHCACHE_PEER_DISCOVERY}"
@@ -70,12 +75,48 @@ if [ "${CLUSTERED}" == "true" ]; then
 fi
 
 
+# Setup dbconfig.xml if the database details have been passed in.
+: ${ATL_JDBC_URL:=}
+
+if [[ ! -z "$ATL_JDBC_URL" ]]; then
+    # Generate the template variables. We lower-case these vars to be
+    # compatible with the Ansible templates in
+    # https://bitbucket.org/atlassian/dc-deployments-automation
+
+    # Must be supplied
+    export atl_jdbc_url=${ATL_JDBC_URL}
+    export atl_db_driver=${ATL_DB_DRIVER}
+    export atl_jdbc_user=${ATL_JDBC_USER}
+    export atl_jdbc_password=${ATL_JDBC_PASSWORD}
+    export atl_db_type=${ATL_DB_TYPE}
+
+    # Defaults, can be overridden
+    export atl_db_maxidle=${ATL_DB_MAXIDLE:=20}
+    export atl_db_maxwaitmillis=${ATL_DB_MAXWAITMILLIS:=30000}
+    export atl_db_minevictableidletimemillis=${ATL_DB_MINEVICTABLEIDLETIMEMILLIS:=5000}
+    export atl_db_minidle=${ATL_DB_MINIDLE:=10}
+    export atl_db_poolmaxsize=${ATL_DB_POOLMAXSIZE:=100}
+    export atl_db_poolminsize=${ATL_DB_POOLMINSIZE:=20}
+    export atl_db_removeabandoned=${ATL_DB_REMOVEABANDONED:=true}
+    export atl_db_removeabandonedtimeout=${ATL_DB_REMOVEABANDONEDTIMEOUT:=300}
+    export atl_db_testonborrow=${ATL_DB_TESTONBORROW:=false}
+    export atl_db_testwhileidle=${ATL_DB_TESTWHILEIDLE:=true}
+    export atl_db_timebetweenevictionrunsmillis=${ATL_DB_TIMEBETWEENEVICTIONRUNSMILLIS:=30000}
+
+    log "Generating ${JIRA_HOME}/dbconfig.xml"
+    /opt/atlassian/bin/templater.sh \
+        /opt/atlassian/etc/dbconfig.xml.j2 \
+        > ${JIRA_HOME}/dbconfig.xml
+fi
+
+
+
 # Start Jira as the correct user
-if [ "${UID}" -eq 0 ]; then
-    echo "User is currently root. Will change directory ownership to ${RUN_USER}:${RUN_GROUP}, then downgrade permission to ${RUN_USER}"
+if [[ "${UID}" -eq 0 ]]; then
+    log "User is currently root. Will change directory ownership to ${RUN_USER}:${RUN_GROUP}, then downgrade permission to ${RUN_USER}"
     PERMISSIONS_SIGNATURE=$(stat -c "%u:%U:%a" "${JIRA_HOME}")
     EXPECTED_PERMISSIONS=$(id -u ${RUN_USER}):${RUN_USER}:700
-    if [ "${PERMISSIONS_SIGNATURE}" != "${EXPECTED_PERMISSIONS}" ]; then
+    if [[ "${PERMISSIONS_SIGNATURE}" != "${EXPECTED_PERMISSIONS}" ]]; then
         chmod -R 700 "${JIRA_HOME}" &&
             chown -R "${RUN_USER}:${RUN_GROUP}" "${JIRA_HOME}"
     fi

@@ -10,7 +10,7 @@ This Docker container makes it easy to get an instance of JIRA Software up and r
 
 # Quick Start
 
-For the `JIRA_HOME` directory that is used to store application data (amongst other things) we recommend mounting a host directory as a [data volume](https://docs.docker.com/engine/tutorials/dockervolumes/#/data-volumes), or via a named volume if using a docker version >= 1.9. 
+For the `JIRA_HOME` directory that is used to store application data (amongst other things) we recommend mounting a host directory as a [data volume](https://docs.docker.com/engine/tutorials/dockervolumes/#/data-volumes), or via a named volume if using a docker version >= 1.9.
 
 To get started you can use a data volume, or named volumes. In this example we'll use named volumes.
 
@@ -21,7 +21,7 @@ To get started you can use a data volume, or named volumes. In this example we'l
 **Success**. JIRA is now available on [http://localhost:8080](http://localhost:8080)*
 
 Please ensure your container has the necessary resources allocated to it. We recommend 2GiB of memory allocated to accommodate the application server. See [System Requirements](https://confluence.atlassian.com/adminjiraserver071/jira-applications-installation-requirements-802592164.html) for further information.
-    
+
 
 _* Note: If you are using `docker-machine` on Mac OS X, please use `open http://$(docker-machine ip default):8080` instead._
 
@@ -56,7 +56,7 @@ If JIRA is run behind a reverse proxy server as [described here](https://conflue
 * `CATALINA_CONNECTOR_SECURE` (default: false)
 
    Set 'true' if CATALINA_CONNECTOR_SCHEME is 'https'.
-   
+
 * `CATALINA_CONTEXT_PATH` (default: NONE)
 
    The context path the application is served over.
@@ -68,18 +68,73 @@ If you need to pass additional JVM arguments to JIRA, such as specifying a custo
 * `JVM_SUPPORT_RECOMMENDED_ARGS`
 
    Additional JVM arguments for JIRA
-   
+
 Example:
 
     $> docker run -e JVM_SUPPORT_RECOMMENDED_ARGS=-Djavax.net.ssl.trustStore=/var/atlassian/application-data/jira/cacerts -v jiraVolume:/var/atlassian/application-data/jira --name="jira" -d -p 8080:8080 dchevell/jira-software
-    
+
+## Database configuration
+
+It is optionally possible to configure the database from the environment,
+avoiding the need to do so through the web startup screen.
+
+The following variables are all must all be supplied if using this feature:
+
+* `ATL_JDBC_URL`
+
+   The database URL; this is database-specific.
+
+* `ATL_JDBC_USER`
+
+   The database user to connect as.
+
+* `ATL_JDBC_PASSWORD`
+
+   The password for the database user.
+
+* `ATL_DB_DRIVER`
+
+   The JDBC driver class; supported drivers are:
+
+   * `com.microsoft.sqlserver.jdbc.SQLServerDriver`
+   * `com.mysql.jdbc.Driver`
+   * `oracle.jdbc.OracleDriver`
+   * `org.postgresql.Driver`
+   
+   The driver must match the DB type (see next entry).
+
+* `ATL_DB_TYPE`
+
+   The type of database; valid supported values are:
+
+   * `mssql`
+   * `mysql`
+   * `oracle10g`
+   * `postgres72`
+
+The following variables are for the Tomcat JDBC connection pool, and are
+optional. For more information on these see: https://tomcat.apache.org/tomcat-7.0-doc/jdbc-pool.html
+
+* `ATL_DB_MAXIDLE` (default: 20)
+* `ATL_DB_MAXWAITMILLIS` (default: 30000)
+* `ATL_DB_MINEVICTABLEIDLETIMEMILLIS` (default: 5000)
+* `ATL_DB_MINIDLE` (default: 10)
+* `ATL_DB_POOLMAXSIZE` (default: 100)
+* `ATL_DB_POOLMINSIZE` (default: 20)
+* `ATL_DB_REMOVEABANDONED` (default: true)
+* `ATL_DB_REMOVEABANDONEDTIMEOUT` (default: 300)
+* `ATL_DB_TESTONBORROW` (default: false)
+* `ATL_DB_TESTWHILEIDLE` (default: true)
+* `ATL_DB_TIMEBETWEENEVICTIONRUNSMILLIS` (default: 30000)
+
+
 ## Data Center configuration
 
 This docker image can be run as part of a [Data Center](https://confluence.atlassian.com/enterprise/jira-data-center-472219731.html) cluster. You can specify the following properties to start Jira as a Data Center node, instead of manually configuring a cluster.properties file, See [Installing Jira Data Center](https://confluence.atlassian.com/adminjiraserver071/installing-jira-data-center-802592197.html) for more information on each property and its possible configuration.
 
 * `CLUSTERED` (default: false)
 
-   Set 'true' to enable clustering configuration to be used. This will create a **cluster.properties** file inside the container's `$JIRA_HOME` directory. 
+   Set 'true' to enable clustering configuration to be used. This will create a **cluster.properties** file inside the container's `$JIRA_HOME` directory.
 
 * `JIRA_NODE_ID` (default: jira_node_<container-id>)
 
@@ -95,7 +150,7 @@ This docker image can be run as part of a [Data Center](https://confluence.atlas
 
 * `EHCACHE_LISTENER_HOSTNAME` (default: NONE)
 
-   The hostname of the current node for cache communication. Jira Data Center will resolve this this internally if the parameter isn't set. 
+   The hostname of the current node for cache communication. Jira Data Center will resolve this this internally if the parameter isn't set.
 
 * `EHCACHE_LISTENER_PORT` (default: 40001)
 
@@ -145,7 +200,7 @@ Read more about data recovery and backups: [https://confluence.atlassian.com/adm
 
 The `latest` tag matches the most recent release of Atlassian JIRA Software. Thus `dchevell/jira-software:latest` will use the newest version of JIRA available.
 
-Alternatively you can use a specific major, major.minor, or major.minor.patch version of JIRA Software by using a version number tag: 
+Alternatively you can use a specific major, major.minor, or major.minor.patch version of JIRA Software by using a version number tag:
 
 * `dchevell/jira-software:7`
 * `dchevell/jira-software:7.5`
