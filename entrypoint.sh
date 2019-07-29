@@ -88,9 +88,9 @@ if [[ ! -z "$ATL_JDBC_URL" ]]; then
     export atl_db_driver=${ATL_DB_DRIVER}
     export atl_jdbc_user=${ATL_JDBC_USER}
     export atl_jdbc_password=${ATL_JDBC_PASSWORD}
+    export atl_db_type=${ATL_DB_TYPE}
 
     # Defaults, can be overridden
-    export atl_db_type=${ATL_DB_TYPE:=postgres72}
     export atl_db_maxidle=${ATL_DB_MAXIDLE:=20}
     export atl_db_maxwaitmillis=${ATL_DB_MAXWAITMILLIS:=30000}
     export atl_db_minevictableidletimemillis=${ATL_DB_MINEVICTABLEIDLETIMEMILLIS:=5000}
