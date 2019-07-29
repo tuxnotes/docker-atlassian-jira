@@ -24,7 +24,6 @@ ARG TINI_VERSION=v0.18.0
 ADD https://github.com/krallin/tini/releases/download/${TINI_VERSION}/tini /tini
 RUN chmod +x /tini
 
-RUN mkdir -p /opt/atlassian/bin/ /opt/atlassian/etc/
 COPY entrypoint.sh					/entrypoint.sh
 COPY templater.sh					/opt/atlassian/bin/templater.sh
 COPY dbconfig.xml.j2					/opt/atlassian/etc/dbconfig.xml.j2
