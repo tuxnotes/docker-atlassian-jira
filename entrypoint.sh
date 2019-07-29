@@ -90,6 +90,7 @@ if [[ ! -z "$ATL_JDBC_URL" ]]; then
     export atl_jdbc_password=${ATL_JDBC_PASSWORD}
 
     # Defaults, can be overridden
+    export atl_db_type=${ATL_DB_TYPE:=postgres72}
     export atl_db_maxidle=${ATL_DB_MAXIDLE:=20}
     export atl_db_maxwaitmillis=${ATL_DB_MAXWAITMILLIS:=30000}
     export atl_db_minevictableidletimemillis=${ATL_DB_MINEVICTABLEIDLETIMEMILLIS:=5000}
@@ -102,6 +103,7 @@ if [[ ! -z "$ATL_JDBC_URL" ]]; then
     export atl_db_testwhileidle=${ATL_DB_TESTWHILEIDLE:=true}
     export atl_db_timebetweenevictionrunsmillis=${ATL_DB_TIMEBETWEENEVICTIONRUNSMILLIS:=30000}
 
+    log "Generating ${JIRA_HOME}/dbconfig.xml"
     /opt/atlassian/bin/templater.sh \
         /opt/atlassian/etc/dbconfig.xml.j2 \
         > ${JIRA_HOME}/dbconfig.xml
