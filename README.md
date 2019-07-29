@@ -100,6 +100,8 @@ The following variables are all must all be supplied if using this feature:
    * `com.mysql.jdbc.Driver`
    * `oracle.jdbc.OracleDriver`
    * `org.postgresql.Driver`
+   
+   The driver must match the DB type (see next entry).
 
 * `ATL_DB_TYPE`
 
