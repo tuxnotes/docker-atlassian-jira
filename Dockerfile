@@ -26,7 +26,7 @@ RUN chmod +x /tini
 
 COPY entrypoint.sh					/entrypoint.sh
 COPY templater.sh					/opt/atlassian/bin/templater.sh
-COPY dbconfig.xml.j2					/opt/atlassian/etc/dbconfig.xml.j2
+COPY config/dbconfig.xml.j2				/opt/atlassian/etc/dbconfig.xml.j2
 
 # Version must be set at build time
 ARG JIRA_VERSION
