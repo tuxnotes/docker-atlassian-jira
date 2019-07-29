@@ -104,6 +104,7 @@ The following variables are all must all be supplied if using this feature:
 * `ATL_DB_TYPE`
 
    The type of database; valid supported values are:
+
    * `mssql`
    * `mysql`
    * `oracle10g`
