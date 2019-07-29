@@ -25,7 +25,7 @@ CATALINA_OPTS="${CATALINA_OPTS} -DcatalinaContextPath=${CATALINA_CONTEXT_PATH}"
 export JAVA_OPTS="${JAVA_OPTS} ${CATALINA_OPTS}"
 
 # Setup Data Center configuration
-if [ ! -s "/etc/container_id" ]; then
+if [[ ! -s "/etc/container_id" ]]; then
     uuidgen > /etc/container_id
 fi
 CONTAINER_ID=$(cat /etc/container_id)
@@ -45,13 +45,13 @@ CONTAINER_SHORT_ID=${CONTAINER_ID::8}
 
 # Cleanly set/unset values in cluster.properties
 function set_cluster_property {
-    if [ -z $2 ]; then
+    if [[ -z $2 ]]; then
         if [ -f "${JIRA_HOME}/cluster.properties" ]; then
             sed -i -e "/^${1}/d" "${JIRA_HOME}/cluster.properties"
         fi
         return
     fi
-    if [ ! -f "${JIRA_HOME}/cluster.properties" ]; then
+    if [[ ! -f "${JIRA_HOME}/cluster.properties" ]]; then
         echo "${1}=${2}" >> "${JIRA_HOME}/cluster.properties"
     elif grep "^${1}" "${JIRA_HOME}/cluster.properties"; then
         sed -i -e "s#^${1}=.*#${1}=${2}#g" "${JIRA_HOME}/cluster.properties"
@@ -60,7 +60,7 @@ function set_cluster_property {
     fi
 }
 
-if [ "${CLUSTERED}" == "true" ]; then
+if [[ "${CLUSTERED}" == "true" ]]; then
     log "Generating ${JIRA_HOME}/cluster.properties"
     set_cluster_property "jira.node.id" "${JIRA_NODE_ID}"
     set_cluster_property "jira.shared.home" "${JIRA_SHARED_HOME}"
@@ -110,11 +110,11 @@ fi
 
 
 # Start Jira as the correct user
-if [ "${UID}" -eq 0 ]; then
+if [[ "${UID}" -eq 0 ]]; then
     log "User is currently root. Will change directory ownership to ${RUN_USER}:${RUN_GROUP}, then downgrade permission to ${RUN_USER}"
     PERMISSIONS_SIGNATURE=$(stat -c "%u:%U:%a" "${JIRA_HOME}")
     EXPECTED_PERMISSIONS=$(id -u ${RUN_USER}):${RUN_USER}:700
-    if [ "${PERMISSIONS_SIGNATURE}" != "${EXPECTED_PERMISSIONS}" ]; then
+    if [[ "${PERMISSIONS_SIGNATURE}" != "${EXPECTED_PERMISSIONS}" ]]; then
         chmod -R 700 "${JIRA_HOME}" &&
             chown -R "${RUN_USER}:${RUN_GROUP}" "${JIRA_HOME}"
     fi
