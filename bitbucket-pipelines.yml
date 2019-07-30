@@ -92,6 +92,7 @@ pipelines:
   branches:
     base-8:
       - step:
+          name: Jira Software
           services:
             - docker
           script:
@@ -106,10 +107,11 @@ pipelines:
             - echo ${DOCKER_PASSWORD} | docker login --username ${DOCKER_USERNAME} --password-stdin
             - python /usr/src/app/run.py --update
       - step:
+          name: Jira Service Desk
           services:
             - docker
           script:
-            - export BASE_VERSION='8'
+            - export BASE_VERSION='4'
             - export CONCURRENT_BUILDS='4'
             - export DEFAULT_RELEASE='true'
             - export DOCKER_REPO='dchevell/jira-servicedesk'
@@ -120,6 +122,7 @@ pipelines:
             - echo ${DOCKER_PASSWORD} | docker login --username ${DOCKER_USERNAME} --password-stdin
             - python /usr/src/app/run.py --update
       - step:
+          name: Jira Core
           services:
             - docker
           script:
