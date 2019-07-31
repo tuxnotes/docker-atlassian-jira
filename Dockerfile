@@ -25,8 +25,8 @@ ADD https://github.com/krallin/tini/releases/download/${TINI_VERSION}/tini /tini
 RUN chmod +x /tini
 
 COPY entrypoint.sh					/entrypoint.sh
-COPY templater.sh					/opt/atlassian/bin/templater.sh
-COPY dbconfig.xml.j2					/opt/atlassian/etc/dbconfig.xml.j2
+COPY scripts/*						/opt/atlassian/bin/
+COPY config/*						/opt/atlassian/etc/
 
 ARG JIRA_VERSION
 ARG ARTEFACT_NAME=atlassian-jira-software
@@ -34,9 +34,13 @@ ARG DOWNLOAD_URL=https://product-downloads.atlassian.com/software/jira/downloads
 
 RUN mkdir -p                             ${JIRA_INSTALL_DIR} \
     && curl -L --silent                  ${DOWNLOAD_URL} | tar -xz --strip-components=1 -C "${JIRA_INSTALL_DIR}" \
-    && chown -R ${RUN_USER}:${RUN_GROUP} ${JIRA_INSTALL_DIR}/ \
+    && chmod -R "u=rwX,g=rX,o=rX"        ${JIRA_INSTALL_DIR}/ \
+    && chown -R root.                    ${JIRA_INSTALL_DIR}/ \
+    && chown -R ${RUN_USER}:${RUN_GROUP} ${JIRA_INSTALL_DIR}/logs \
+    && chown -R ${RUN_USER}:${RUN_GROUP} ${JIRA_INSTALL_DIR}/temp \
+    && chown -R ${RUN_USER}:${RUN_GROUP} ${JIRA_INSTALL_DIR}/work \
+    \
     && sed -i -e 's/^JVM_SUPPORT_RECOMMENDED_ARGS=""$/: \${JVM_SUPPORT_RECOMMENDED_ARGS:=""}/g' ${JIRA_INSTALL_DIR}/bin/setenv.sh \
     && sed -i -e 's/^JVM_\(.*\)_MEMORY="\(.*\)"$/: \${JVM_\1_MEMORY:=\2}/g' ${JIRA_INSTALL_DIR}/bin/setenv.sh \
-    && sed -i -e 's/port="8080"/port="8080" secure="${catalinaConnectorSecure}" scheme="${catalinaConnectorScheme}" proxyName="${catalinaConnectorProxyName}" proxyPort="${catalinaConnectorProxyPort}"/' ${JIRA_INSTALL_DIR}/conf/server.xml \
-    && sed -i -e 's/Context path=""/Context path="${catalinaContextPath}"/' ${JIRA_INSTALL_DIR}/conf/server.xml \
+    \
     && touch /etc/container_id && chmod 666 /etc/container_id
