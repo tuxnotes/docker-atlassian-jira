@@ -44,12 +44,12 @@ If JIRA is run behind a reverse proxy server (e.g. a load-balancer or nginx serv
 then you need to specify extra options to make JIRA aware of the setup. They can
 be controlled via the below environment variables.
 
-*  `ATL_PROXY_NAME` (default: NONE)
+* `ATL_PROXY_NAME` (default: NONE)
 
    The reverse proxy's fully qualified hostname. `CATALINA_CONNECTOR_PROXYNAME`
    is also supported for backwards compatability.
 
-* `ALT_PROXY_PORT` (default: NONE)
+* `ATL_PROXY_PORT` (default: NONE)
 
    The reverse proxy's port number via which JIRA is
    accessed. `CATALINA_CONNECTOR_PROXYPORT` is also supported for backwards
