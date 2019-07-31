@@ -125,7 +125,7 @@ if [[ "${CLUSTERED}" == "true" ]]; then
     set_cluster_property "ehcache.peer.discovery" "${EHCACHE_PEER_DISCOVERY}"
     set_cluster_property "ehcache.listener.hostName" "${EHCACHE_LISTENER_HOSTNAME}"
     set_cluster_property "ehcache.listener.port" "${EHCACHE_LISTENER_PORT}"
-    set_cluster_property "ehcache.listener.socketTimeoutMillis" "${EHCACHE_LISTENER_PORT}"
+    set_cluster_property "ehcache.listener.socketTimeoutMillis" "${EHCACHE_LISTENER_SOCKETTIMEOUTMILLIS}"
     set_cluster_property "ehcache.multicast.address" "${EHCACHE_MULTICAST_ADDRESS}"
     set_cluster_property "ehcache.multicast.port" "${EHCACHE_MULTICAST_PORT}"
     set_cluster_property "ehcache.multicast.timeToLive" "${EHCACHE_MULTICAST_TIMETOLIVE}"
