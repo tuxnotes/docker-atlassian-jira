@@ -91,7 +91,7 @@ pipelines:
               --build-arg JIRA_VERSION=${JIRA_VERSION} .
             - docker push dchevell/jira-core:${DOCKER_TAG}
   branches:
-    base-8:
+    master:
       - step:
           name: Jira Software
           services:
