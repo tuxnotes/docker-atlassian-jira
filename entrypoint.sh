@@ -6,25 +6,83 @@ function log {
 }
 
 # Setup Catalina Opts
+
+: ${CATALINA_OPTS:=}
+: ${JAVA_OPTS:=}
+
+export JAVA_OPTS="${JAVA_OPTS} ${CATALINA_OPTS}"
+
+
+######################################################################
+# Generate server.xml for Tomcat.  We lower-case these vars to be
+# compatible with the Ansible templates in
+# https://bitbucket.org/atlassian/dc-deployments-automation
+
+# Previous names for parameters, preserved for backwards compatability
 : ${CATALINA_CONNECTOR_PROXYNAME:=}
 : ${CATALINA_CONNECTOR_PROXYPORT:=}
 : ${CATALINA_CONNECTOR_SCHEME:=http}
 : ${CATALINA_CONNECTOR_SECURE:=false}
 : ${CATALINA_CONTEXT_PATH:=}
 
-: ${CATALINA_OPTS:=}
+# Use new var name, or previous var name, or default...
+export atl_proxy_name=${ATL_PROXY_NAME:=$CATALINA_CONNECTOR_PROXYNAME}
+export atl_proxy_port=${ATL_PROXY_PORT:=$CATALINA_CONNECTOR_PROXYPORT}
+export atl_tomcat_secure=${ATL_TOMCAT_SECURE:=$CATALINA_CONNECTOR_SECURE}
+export atl_tomcat_scheme=${ATL_TOMCAT_SCHEME:=$CATALINA_CONNECTOR_SCHEME}
+export atl_tomcat_contextpath=${ATL_TOMCAT_CONTEXTPATH:=$CATALINA_CONTEXT_PATH}
 
-: ${JAVA_OPTS:=}
+export atl_tomcat_port=${ATL_TOMCAT_PORT:=8080}
+export atl_tomcat_mgmt_port=${ATL_TOMCAT_MGMT_PORT:=8005}
+export atl_tomcat_maxthreads=${ATL_TOMCAT_MAXTHREADS:=200}
+export atl_tomcat_minsparethreads=${ATL_TOMCAT_MINSPARETHREADS:=10}
+export atl_tomcat_connectiontimeout=${ATL_TOMCAT_CONNECTIONTIMEOUT:=20000}
+export atl_tomcat_enablelookups=${ATL_TOMCAT_ENABLELOOKUPS:=false}
+export atl_tomcat_protocol=${ATL_TOMCAT_PROTOCOL:=HTTP/1.1}
+export atl_tomcat_redirectport=${ATL_TOMCAT_REDIRECTPORT:=8443}
+export atl_tomcat_acceptcount=${ATL_TOMCAT_ACCEPTCOUNT:=10}
 
-CATALINA_OPTS="${CATALINA_OPTS} -DcatalinaConnectorProxyName=${CATALINA_CONNECTOR_PROXYNAME}"
-CATALINA_OPTS="${CATALINA_OPTS} -DcatalinaConnectorProxyPort=${CATALINA_CONNECTOR_PROXYPORT}"
-CATALINA_OPTS="${CATALINA_OPTS} -DcatalinaConnectorScheme=${CATALINA_CONNECTOR_SCHEME}"
-CATALINA_OPTS="${CATALINA_OPTS} -DcatalinaConnectorSecure=${CATALINA_CONNECTOR_SECURE}"
-CATALINA_OPTS="${CATALINA_OPTS} -DcatalinaContextPath=${CATALINA_CONTEXT_PATH}"
+log "Generating ${JIRA_INSTALL_DIR}/conf/server.xml"
+/opt/atlassian/bin/templater.sh \
+    /opt/atlassian/etc/server.xml.j2 \
+    > ${JIRA_INSTALL_DIR}/conf/server.xml
 
-export JAVA_OPTS="${JAVA_OPTS} ${CATALINA_OPTS}"
 
+######################################################################
+# Generate dbconfig.xml if the database details have been passed in.
+
+: ${ATL_JDBC_URL:=}
+if [[ ! -z "$ATL_JDBC_URL" ]]; then
+    # Must be supplied
+    export atl_jdbc_url=${ATL_JDBC_URL}
+    export atl_db_driver=${ATL_DB_DRIVER}
+    export atl_jdbc_user=${ATL_JDBC_USER}
+    export atl_jdbc_password=${ATL_JDBC_PASSWORD}
+    export atl_db_type=${ATL_DB_TYPE}
+
+    # Defaults, can be overridden
+    export atl_db_maxidle=${ATL_DB_MAXIDLE:=20}
+    export atl_db_maxwaitmillis=${ATL_DB_MAXWAITMILLIS:=30000}
+    export atl_db_minevictableidletimemillis=${ATL_DB_MINEVICTABLEIDLETIMEMILLIS:=5000}
+    export atl_db_minidle=${ATL_DB_MINIDLE:=10}
+    export atl_db_poolmaxsize=${ATL_DB_POOLMAXSIZE:=100}
+    export atl_db_poolminsize=${ATL_DB_POOLMINSIZE:=20}
+    export atl_db_removeabandoned=${ATL_DB_REMOVEABANDONED:=true}
+    export atl_db_removeabandonedtimeout=${ATL_DB_REMOVEABANDONEDTIMEOUT:=300}
+    export atl_db_testonborrow=${ATL_DB_TESTONBORROW:=false}
+    export atl_db_testwhileidle=${ATL_DB_TESTWHILEIDLE:=true}
+    export atl_db_timebetweenevictionrunsmillis=${ATL_DB_TIMEBETWEENEVICTIONRUNSMILLIS:=30000}
+
+    log "Generating ${JIRA_HOME}/dbconfig.xml"
+    /opt/atlassian/bin/templater.sh \
+        /opt/atlassian/etc/dbconfig.xml.j2 \
+        > ${JIRA_HOME}/dbconfig.xml
+fi
+
+
+######################################################################
 # Setup Data Center configuration
+
 if [[ ! -s "/etc/container_id" ]]; then
     uuidgen > /etc/container_id
 fi
@@ -75,42 +133,7 @@ if [[ "${CLUSTERED}" == "true" ]]; then
 fi
 
 
-# Setup dbconfig.xml if the database details have been passed in.
-: ${ATL_JDBC_URL:=}
-
-if [[ ! -z "$ATL_JDBC_URL" ]]; then
-    # Generate the template variables. We lower-case these vars to be
-    # compatible with the Ansible templates in
-    # https://bitbucket.org/atlassian/dc-deployments-automation
-
-    # Must be supplied
-    export atl_jdbc_url=${ATL_JDBC_URL}
-    export atl_db_driver=${ATL_DB_DRIVER}
-    export atl_jdbc_user=${ATL_JDBC_USER}
-    export atl_jdbc_password=${ATL_JDBC_PASSWORD}
-    export atl_db_type=${ATL_DB_TYPE}
-
-    # Defaults, can be overridden
-    export atl_db_maxidle=${ATL_DB_MAXIDLE:=20}
-    export atl_db_maxwaitmillis=${ATL_DB_MAXWAITMILLIS:=30000}
-    export atl_db_minevictableidletimemillis=${ATL_DB_MINEVICTABLEIDLETIMEMILLIS:=5000}
-    export atl_db_minidle=${ATL_DB_MINIDLE:=10}
-    export atl_db_poolmaxsize=${ATL_DB_POOLMAXSIZE:=100}
-    export atl_db_poolminsize=${ATL_DB_POOLMINSIZE:=20}
-    export atl_db_removeabandoned=${ATL_DB_REMOVEABANDONED:=true}
-    export atl_db_removeabandonedtimeout=${ATL_DB_REMOVEABANDONEDTIMEOUT:=300}
-    export atl_db_testonborrow=${ATL_DB_TESTONBORROW:=false}
-    export atl_db_testwhileidle=${ATL_DB_TESTWHILEIDLE:=true}
-    export atl_db_timebetweenevictionrunsmillis=${ATL_DB_TIMEBETWEENEVICTIONRUNSMILLIS:=30000}
-
-    log "Generating ${JIRA_HOME}/dbconfig.xml"
-    /opt/atlassian/bin/templater.sh \
-        /opt/atlassian/etc/dbconfig.xml.j2 \
-        > ${JIRA_HOME}/dbconfig.xml
-fi
-
-
-
+######################################################################
 # Start Jira as the correct user
 if [[ "${UID}" -eq 0 ]]; then
     log "User is currently root. Will change directory ownership to ${RUN_USER}:${RUN_GROUP}, then downgrade permission to ${RUN_USER}"

@@ -26,7 +26,8 @@ RUN chmod +x /tini
 
 COPY entrypoint.sh					/entrypoint.sh
 COPY templater.sh					/opt/atlassian/bin/templater.sh
-COPY dbconfig.xml.j2					/opt/atlassian/etc/dbconfig.xml.j2
+COPY config/dbconfig.xml.j2				/opt/atlassian/etc/dbconfig.xml.j2
+COPY config/server.xml.j2				/opt/atlassian/etc/server.xml.j2
 
 ARG JIRA_VERSION
 ARG ARTEFACT_NAME=atlassian-jira-software
@@ -37,6 +38,4 @@ RUN mkdir -p                             ${JIRA_INSTALL_DIR} \
     && chown -R ${RUN_USER}:${RUN_GROUP} ${JIRA_INSTALL_DIR}/ \
     && sed -i -e 's/^JVM_SUPPORT_RECOMMENDED_ARGS=""$/: \${JVM_SUPPORT_RECOMMENDED_ARGS:=""}/g' ${JIRA_INSTALL_DIR}/bin/setenv.sh \
     && sed -i -e 's/^JVM_\(.*\)_MEMORY="\(.*\)"$/: \${JVM_\1_MEMORY:=\2}/g' ${JIRA_INSTALL_DIR}/bin/setenv.sh \
-    && sed -i -e 's/port="8080"/port="8080" secure="${catalinaConnectorSecure}" scheme="${catalinaConnectorScheme}" proxyName="${catalinaConnectorProxyName}" proxyPort="${catalinaConnectorProxyPort}"/' ${JIRA_INSTALL_DIR}/conf/server.xml \
-    && sed -i -e 's/Context path=""/Context path="${catalinaContextPath}"/' ${JIRA_INSTALL_DIR}/conf/server.xml \
     && touch /etc/container_id && chmod 666 /etc/container_id
