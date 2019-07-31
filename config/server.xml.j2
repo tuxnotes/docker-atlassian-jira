@@ -18,7 +18,6 @@
                connectionTimeout="{{ atl_tomcat_connectiontimeout }}"
                enableLookups="{{ atl_tomcat_enablelookups }}"
                protocol="{{ atl_tomcat_protocol }}"
-               redirectPort="{{ atl_tomcat_redirectport }}"
                acceptCount="{{ atl_tomcat_acceptcount }}"
                secure="{{ atl_tomcat_secure }}"
                scheme="{{ atl_tomcat_scheme }}"
@@ -31,18 +30,6 @@
                maxHttpHeaderSize="8192"
                useBodyEncodingForURI="true"
                disableUploadTimeout="true" />
-
-    <Connector port="{{ atl_tomcat_redirectport }}"
-               protocol="{{ atl_tomcat_protocol }}"
-               connectionTimeout="{{ atl_tomcat_connectiontimeout }}"
-
-               relaxedPathChars="[]|"
-               relaxedQueryChars="[]|{}^\`&quot;&lt;&gt;"
-               maxHttpHeaderSize="65536"
-               URIEncoding="UTF-8"
-               useBodyEncodingForURI="true"
-               compression="on"
-               compressableMimeType="text/html,text/xml,text/plain,text/css,application/json,application/javascript,application/x-javascript" />
 
     <Engine name="Catalina"
             defaultHost="localhost">
