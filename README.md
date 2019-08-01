@@ -16,7 +16,7 @@ volume](https://docs.docker.com/engine/tutorials/dockervolumes/#/data-volumes),
 or via a named volume if using a docker version >= 1.9.
 
 Additionally, if running Jira in Data Center mode it is required that a shared
-filessytem is mounted. The mountpoint (inside the container) can be configured
+filesystem is mounted. The mountpoint (inside the container) can be configured
 with `JIRA_SHARED_HOME`.
 
 To get started you can use a data volume, or named volumes. In this example
@@ -66,8 +66,7 @@ be controlled via the below environment variables.
 * `ATL_TOMCAT_PORT` (default: 8080)
 
     The port for Tomcat/Jira to listen on. Depending on your container
-    deployment method this port may need to be
-    [exposed and published][docker-expose].
+    deployment method this port may need to be [exposed and published][docker-expose].
 
 * `ATL_TOMCAT_SCHEME` (default: http)
 
@@ -235,7 +234,7 @@ for more information on each property and its possible configuration.
 By default the Jira logs are written inside the container, under
 `${JIRA_HOME}/logs/`. If you wish to expose this outside the container (e.g. to
 be aggregated by logging system) this directory can be a data volume or bind
-mount. Additional, Tomcat-specific logs are written to
+mount. Additionally, Tomcat-specific logs are written to
 `/opt/atlassian/jira/logs/`.
 
 # Upgrades
