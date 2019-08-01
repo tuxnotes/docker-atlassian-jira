@@ -202,6 +202,12 @@ for more information on each property and its possible configuration.
    The port the node is going to be listening to. Depending on your container
    deployment method this port may need to be [exposed and published][docker-expose].
 
+* `EHCACHE_OBJECT_PORT` (default: dynamic)
+
+   The port number on which the remote objects bound in the registry receive
+   calls. This defaults to a free port if not specified. This port may need to
+   be [exposed and published][docker-expose].
+
 * `EHCACHE_LISTENER_SOCKETTIMEOUTMILLIS` (default: 2000)
 
    The default timeout for the Ehcache listener.
