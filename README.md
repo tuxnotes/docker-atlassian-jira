@@ -65,8 +65,9 @@ be controlled via the below environment variables.
 
 * `ATL_TOMCAT_PORT` (default: 8080)
 
-    The port for Tomcat/Jira to listen on. Depending on your container
-    deployment method this port may need to be [exposed and published][docker-expose].
+   The port for Tomcat/Jira to listen on. Depending on your container
+   deployment method this port may need to be 
+   [exposed and published][docker-expose].
 
 * `ATL_TOMCAT_SCHEME` (default: http)
 
@@ -208,26 +209,26 @@ for more information on each property and its possible configuration.
 * `EHCACHE_MULTICAST_ADDRESS` (default: NONE)
 
    A valid multicast group address. Required when EHCACHE_PEER_DISCOVERY is set
-   to 'automatic' insted of 'default'.
+   to 'automatic' instead of 'default'.
 
 * `EHCACHE_MULTICAST_PORT` (default: NONE)
 
    The dedicated port for the multicast heartbeat traffic. Required when
-   EHCACHE_PEER_DISCOVERY is set to 'automatic' insted of 'default'.  Depending
+   EHCACHE_PEER_DISCOVERY is set to 'automatic' instead of 'default'.  Depending
    on your container deployment method this port may need to be
    [exposed and published][docker-expose].
 
 * `EHCACHE_MULTICAST_TIMETOLIVE` (default: NONE)
 
    A value between 0 and 255 which determines how far the packets will
-   propagate. Required when EHCACHE_PEER_DISCOVERY is set to 'automatic' insted
+   propagate. Required when EHCACHE_PEER_DISCOVERY is set to 'automatic' instead
    of 'default'.
 
 * `EHCACHE_MULTICAST_HOSTNAME` (default: NONE)
 
    The hostname or IP of the interface to be used for sending and receiving
    multicast packets. Required when EHCACHE_PEER_DISCOVERY is set to 'automatic'
-   insted of 'default'.
+   instead of 'default'.
 
 # Logging
 
