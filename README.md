@@ -186,7 +186,8 @@ for more information on each property and its possible configuration.
 * `JIRA_SHARED_HOME` (default: $JIRA_HOME/shared)
 
    The location of the shared home directory for all Jira nodes. **Note**: This
-   must be real shared filesystem that is mounted inside the container.
+   must be real shared filesystem that is mounted inside the
+   container. Additionally, see the note about UIDs.
 
 * `EHCACHE_PEER_DISCOVERY` (default: default)
 
@@ -229,6 +230,17 @@ for more information on each property and its possible configuration.
    The hostname or IP of the interface to be used for sending and receiving
    multicast packets. Required when EHCACHE_PEER_DISCOVERY is set to 'automatic'
    instead of 'default'.
+
+### Shared directory and user IDs
+
+By default the Jira application runs as the user `jira`, with a UID and GID
+of 2001. Consequently this UID must have write access to the shared
+filesystem. If for some reason a different UID must be used, there are a number
+of options available:
+
+* The Docker image can be rebuilt with a different UID.
+* Under Linux, the UID can be remapped using 
+  [user namespace remapping](https://docs.docker.com/engine/security/userns-remap/).
 
 # Logging
 
