@@ -72,6 +72,7 @@ if [[ ! -z "$ATL_JDBC_URL" ]]; then
     export atl_db_testonborrow=${ATL_DB_TESTONBORROW:=false}
     export atl_db_testwhileidle=${ATL_DB_TESTWHILEIDLE:=true}
     export atl_db_timebetweenevictionrunsmillis=${ATL_DB_TIMEBETWEENEVICTIONRUNSMILLIS:=30000}
+    export atl_db_validationquery=${ATL_DB_VALIDATIONQUERY:=select 1}
 
     log "Generating ${JIRA_HOME}/dbconfig.xml"
     /opt/atlassian/bin/templater.sh \
@@ -95,6 +96,7 @@ CONTAINER_SHORT_ID=${CONTAINER_ID::8}
 : ${EHCACHE_PEER_DISCOVERY:=}
 : ${EHCACHE_LISTENER_HOSTNAME:=}
 : ${EHCACHE_LISTENER_PORT:=}
+: ${EHCACHE_OBJECT_PORT:=}
 : ${EHCACHE_LISTENER_SOCKETTIMEOUTMILLIS:=}
 : ${EHCACHE_MULTICAST_ADDRESS:=}
 : ${EHCACHE_MULTICAST_PORT:=}
@@ -124,6 +126,7 @@ if [[ "${CLUSTERED}" == "true" ]]; then
     set_cluster_property "jira.shared.home" "${JIRA_SHARED_HOME}"
     set_cluster_property "ehcache.peer.discovery" "${EHCACHE_PEER_DISCOVERY}"
     set_cluster_property "ehcache.listener.hostName" "${EHCACHE_LISTENER_HOSTNAME}"
+    set_cluster_property "ehcache.object.port" "${EHCACHE_OBJECT_PORT}"
     set_cluster_property "ehcache.listener.port" "${EHCACHE_LISTENER_PORT}"
     set_cluster_property "ehcache.listener.socketTimeoutMillis" "${EHCACHE_LISTENER_SOCKETTIMEOUTMILLIS}"
     set_cluster_property "ehcache.multicast.address" "${EHCACHE_MULTICAST_ADDRESS}"
