@@ -1,7 +1,9 @@
 FROM adoptopenjdk/openjdk8:slim
 
-ENV RUN_USER            					daemon
-ENV RUN_GROUP           					daemon
+ENV RUN_USER							jira
+ENV RUN_GROUP							jira
+ENV RUN_UID							2001
+ENV RUN_GID							2001
 
 # https://confluence.atlassian.com/display/JSERVERM/Important+directories+and+files
 ENV JIRA_HOME          						/var/atlassian/application-data/jira
@@ -32,7 +34,10 @@ ARG JIRA_VERSION
 ARG ARTEFACT_NAME=atlassian-jira-software
 ARG DOWNLOAD_URL=https://product-downloads.atlassian.com/software/jira/downloads/${ARTEFACT_NAME}-${JIRA_VERSION}.tar.gz
 
-RUN mkdir -p                             ${JIRA_INSTALL_DIR} \
+RUN groupadd --gid ${RUN_GID} ${RUN_GROUP} \
+    && useradd --uid ${RUN_UID} --gid ${RUN_GID} --home-dir ${JIRA_HOME} ${RUN_USER} \
+    \
+    && mkdir -p                             ${JIRA_INSTALL_DIR} \
     && curl -L --silent                  ${DOWNLOAD_URL} | tar -xz --strip-components=1 -C "${JIRA_INSTALL_DIR}" \
     && chmod -R "u=rwX,g=rX,o=rX"        ${JIRA_INSTALL_DIR}/ \
     && chown -R root.                    ${JIRA_INSTALL_DIR}/ \
@@ -43,4 +48,4 @@ RUN mkdir -p                             ${JIRA_INSTALL_DIR} \
     && sed -i -e 's/^JVM_SUPPORT_RECOMMENDED_ARGS=""$/: \${JVM_SUPPORT_RECOMMENDED_ARGS:=""}/g' ${JIRA_INSTALL_DIR}/bin/setenv.sh \
     && sed -i -e 's/^JVM_\(.*\)_MEMORY="\(.*\)"$/: \${JVM_\1_MEMORY:=\2}/g' ${JIRA_INSTALL_DIR}/bin/setenv.sh \
     \
-    && touch /etc/container_id && chmod 666 /etc/container_id
+    && touch /etc/container_id && chmod 666 /etc/container_id \
