@@ -201,7 +201,23 @@ def test_cluster_properties_params(docker_cli, image):
     assert properties.get('ehcache.multicast.port') == environment.get('EHCACHE_MULTICAST_PORT')
     assert properties.get('ehcache.multicast.timeToLive') == environment.get('EHCACHE_MULTICAST_TIMETOLIVE')
     assert properties.get('ehcache.multicast.hostName') == environment.get('EHCACHE_MULTICAST_HOSTNAME')
-    
+
+
+def test_jvm_args(docker_cli, image):
+    environment = {
+        'JVM_MINIMUM_MEMORY': '383m',
+        'JVM_MAXIMUM_MEMORY': '2047m',
+        'JVM_SUPPORT_RECOMMENDED_ARGS': '-verbose:gc',
+    }
+    container = docker_cli.containers.run(image, environment=environment, detach=True)
+    time.sleep(0.5) # JVM doesn't start immediately when container runs
+    procs = container.exec_run('ps aux')
+    procs_list = procs.output.decode().split('\n')
+    jvm = [proc for proc in procs_list if 'java' in proc][0]
+    assert f'-Xms{environment.get("JVM_MINIMUM_MEMORY")}' in jvm
+    assert f'-Xmx{environment.get("JVM_MAXIMUM_MEMORY")}' in jvm
+    assert environment.get('JVM_SUPPORT_RECOMMENDED_ARGS') in jvm
+
 
 def test_first_run_state(docker_cli, image):
     container = docker_cli.containers.run(image, ports={8080: 8080}, detach=True)
