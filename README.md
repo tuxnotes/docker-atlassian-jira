@@ -2,7 +2,7 @@
 
 JIRA Software is a software development tool used by agile teams.
 
-Learn more about JIRA Software: <https://www.atlassian.com/software/jira>
+Learn more about JIRA Software: [https://www.atlassian.com/software/jira](https://www.atlassian.com/software/jira)
 
 # Overview
 
