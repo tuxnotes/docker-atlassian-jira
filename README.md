@@ -10,9 +10,17 @@ This Docker container makes it easy to get an instance of JIRA Software up and r
 
 # Quick Start
 
-For the `JIRA_HOME` directory that is used to store application data (amongst other things) we recommend mounting a host directory as a [data volume](https://docs.docker.com/engine/tutorials/dockervolumes/#/data-volumes), or via a named volume if using a docker version >= 1.9.
+For the `JIRA_HOME` directory that is used to store application data (amongst
+other things) we recommend mounting a host directory as a [data
+volume](https://docs.docker.com/engine/tutorials/dockervolumes/#/data-volumes),
+or via a named volume if using a docker version >= 1.9.
 
-To get started you can use a data volume, or named volumes. In this example we'll use named volumes.
+Additionally, if running Jira in Data Center mode it is required that a shared
+filesystem is mounted. The mountpoint (inside the container) can be configured
+with `JIRA_SHARED_HOME`.
+
+To get started you can use a data volume, or named volumes. In this example
+we'll use named volumes.
 
     $> docker volume create --name jiraVolume
     $> docker run -v jiraVolume:/var/atlassian/application-data/jira --name="jira" -d -p 8080:8080 dchevell/jira-software
@@ -55,6 +63,12 @@ be controlled via the below environment variables.
    accessed. `CATALINA_CONNECTOR_PROXYPORT` is also supported for backwards
    compatability.
 
+* `ATL_TOMCAT_PORT` (default: 8080)
+
+   The port for Tomcat/Jira to listen on. Depending on your container
+   deployment method this port may need to be 
+   [exposed and published][docker-expose].
+
 * `ATL_TOMCAT_SCHEME` (default: http)
 
    The protocol via which JIRA is accessed. `CATALINA_CONNECTOR_SCHEME` is also
@@ -73,7 +87,6 @@ be controlled via the below environment variables.
 The following Tomcat/Catalina options are also supported. For more information,
 see https://tomcat.apache.org/tomcat-7.0-doc/config/index.html.
 
-* `ATL_TOMCAT_PORT` (default: 8080)
 * `ATL_TOMCAT_MGMT_PORT` (default: 8005)
 * `ATL_TOMCAT_MAXTHREADS` (default: 200)
 * `ATL_TOMCAT_MINSPARETHREADS` (default: 10)
@@ -151,19 +164,29 @@ optional. For more information on these see: https://tomcat.apache.org/tomcat-7.
 
 ## Data Center configuration
 
-This docker image can be run as part of a [Data Center](https://confluence.atlassian.com/enterprise/jira-data-center-472219731.html) cluster. You can specify the following properties to start Jira as a Data Center node, instead of manually configuring a cluster.properties file, See [Installing Jira Data Center](https://confluence.atlassian.com/adminjiraserver071/installing-jira-data-center-802592197.html) for more information on each property and its possible configuration.
+This docker image can be run as part of a 
+[Data Center](https://confluence.atlassian.com/enterprise/jira-data-center-472219731.html)
+cluster. You can specify the following properties to start Jira as a Data Center
+node, instead of manually configuring a cluster.properties file, See 
+[Installing Jira Data Center](https://confluence.atlassian.com/adminjiraserver071/installing-jira-data-center-802592197.html)
+for more information on each property and its possible configuration.
+
+### Cluster configuration
 
 * `CLUSTERED` (default: false)
 
-   Set 'true' to enable clustering configuration to be used. This will create a **cluster.properties** file inside the container's `$JIRA_HOME` directory.
+   Set 'true' to enable clustering configuration to be used. This will create a
+   `cluster.properties` file inside the container's `$JIRA_HOME` directory.
 
 * `JIRA_NODE_ID` (default: jira_node_<container-id>)
 
-   The unique ID for the node. By default, this includes a randomly generated ID unique to each container, but can be overridden with a custom value.
+   The unique ID for the node. By default, this includes a randomly generated ID
+   unique to each container, but can be overridden with a custom value.
 
 * `JIRA_SHARED_HOME` (default: $JIRA_HOME/shared)
 
-   The location of the shared home directory for all Jira nodes.
+   The location of the shared home directory for all Jira nodes. **Note**: This
+   must be real shared filesystem that is mounted inside the container.
 
 * `EHCACHE_PEER_DISCOVERY` (default: default)
 
@@ -171,11 +194,13 @@ This docker image can be run as part of a [Data Center](https://confluence.atlas
 
 * `EHCACHE_LISTENER_HOSTNAME` (default: NONE)
 
-   The hostname of the current node for cache communication. Jira Data Center will resolve this this internally if the parameter isn't set.
+   The hostname of the current node for cache communication. Jira Data Center
+   will resolve this this internally if the parameter isn't set.
 
 * `EHCACHE_LISTENER_PORT` (default: 40001)
 
-   The port the node is going to be listening to.
+   The port the node is going to be listening to. Depending on your container
+   deployment method this port may need to be [exposed and published][docker-expose].
 
 * `EHCACHE_LISTENER_SOCKETTIMEOUTMILLIS` (default: 2000)
 
@@ -183,21 +208,37 @@ This docker image can be run as part of a [Data Center](https://confluence.atlas
 
 * `EHCACHE_MULTICAST_ADDRESS` (default: NONE)
 
-   A valid multicast group address. Required when EHCACHE_PEER_DISCOVERY is set to 'automatic' insted of 'default'.
+   A valid multicast group address. Required when EHCACHE_PEER_DISCOVERY is set
+   to 'automatic' instead of 'default'.
 
 * `EHCACHE_MULTICAST_PORT` (default: NONE)
 
-   The dedicated port for the multicast heartbeat traffic.Required when EHCACHE_PEER_DISCOVERY is set to 'automatic' insted of 'default'.
+   The dedicated port for the multicast heartbeat traffic. Required when
+   EHCACHE_PEER_DISCOVERY is set to 'automatic' instead of 'default'.  Depending
+   on your container deployment method this port may need to be
+   [exposed and published][docker-expose].
 
 * `EHCACHE_MULTICAST_TIMETOLIVE` (default: NONE)
 
-   A value between 0 and 255 which determines how far the packets will propagate. Required when EHCACHE_PEER_DISCOVERY is set to 'automatic' insted of 'default'.
+   A value between 0 and 255 which determines how far the packets will
+   propagate. Required when EHCACHE_PEER_DISCOVERY is set to 'automatic' instead
+   of 'default'.
 
 * `EHCACHE_MULTICAST_HOSTNAME` (default: NONE)
 
-   The hostname or IP of the interface to be used for sending and receiving multicast packets. Required when EHCACHE_PEER_DISCOVERY is set to 'automatic' insted of 'default'.
+   The hostname or IP of the interface to be used for sending and receiving
+   multicast packets. Required when EHCACHE_PEER_DISCOVERY is set to 'automatic'
+   instead of 'default'.
 
-# Upgrade
+# Logging
+
+By default the Jira logs are written inside the container, under
+`${JIRA_HOME}/logs/`. If you wish to expose this outside the container (e.g. to
+be aggregated by logging system) this directory can be a data volume or bind
+mount. Additionally, Tomcat-specific logs are written to
+`/opt/atlassian/jira/logs/`.
+
+# Upgrades
 
 To upgrade to a more recent version of JIRA you can simply stop the `jira` container and start a new one based on a more recent image:
 
@@ -232,3 +273,5 @@ All versions from 7.0+ are available
 # Support
 
 This Docker container is unsupported and is intended for illustration purposes only.
+
+[docker-expose]: https://docs.docker.com/v17.09/engine/userguide/networking/default_network/binding/
