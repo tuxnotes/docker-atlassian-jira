@@ -11,7 +11,7 @@ pipelines:
             - export BASE_VERSION='8'
             - export CONCURRENT_BUILDS='4'
             - export DEFAULT_RELEASE='true'
-            - export DOCKER_REPO='dchevell/jira-software'
+            - export DOCKER_REPO='atlassian/jira-software'
             - export DOCKERFILE_BUILDARGS='ARTEFACT_NAME=atlassian-jira-software'
             - export DOCKERFILE_VERSION_ARG='JIRA_VERSION'
             - export MAC_PRODUCT_KEY='jira-software'
@@ -26,7 +26,7 @@ pipelines:
             - export BASE_VERSION='4'
             - export CONCURRENT_BUILDS='4'
             - export DEFAULT_RELEASE='true'
-            - export DOCKER_REPO='dchevell/jira-servicedesk'
+            - export DOCKER_REPO='atlassian/jira-servicedesk'
             - export DOCKERFILE_BUILDARGS='ARTEFACT_NAME=atlassian-servicedesk'
             - export DOCKERFILE_VERSION_ARG='JIRA_VERSION'
             - export MAC_PRODUCT_KEY='jira-servicedesk'
@@ -41,7 +41,7 @@ pipelines:
             - export BASE_VERSION='8'
             - export CONCURRENT_BUILDS='4'
             - export DEFAULT_RELEASE='true'
-            - export DOCKER_REPO='dchevell/jira-core'
+            - export DOCKER_REPO='atlassian/jira-core'
             - export DOCKERFILE_BUILDARGS='ARTEFACT_NAME=atlassian-jira-core'
             - export DOCKERFILE_VERSION_ARG='JIRA_VERSION'
             - export MAC_PRODUCT_KEY='jira'
@@ -58,10 +58,10 @@ pipelines:
           script:
             - echo ${DOCKER_PASSWORD} | docker login --username ${DOCKER_USERNAME} --password-stdin
             - >
-              docker build -t dchevell/jira-software:${DOCKER_TAG} 
+              docker build -t atlassian/jira-software:${DOCKER_TAG} 
               --build-arg ARTEFACT_NAME=atlassian-jira-software
               --build-arg JIRA_VERSION=${JIRA_VERSION} .
-            - docker push dchevell/jira-software:${DOCKER_TAG}
+            - docker push atlassian/jira-software:${DOCKER_TAG}
     jsd-custom-release:
       - variables:
           - name: JIRA_VERSION
@@ -72,10 +72,10 @@ pipelines:
           script:
             - docker login --username ${DOCKER_USERNAME} --password ${DOCKER_PASSWORD}
             - >
-              docker build -t dchevell/jira-servicedesk:${DOCKER_TAG}
+              docker build -t atlassian/jira-servicedesk:${DOCKER_TAG}
               --build-arg ARTEFACT_NAME=atlassian-servicedesk
               --build-arg JIRA_VERSION=${JIRA_VERSION} .
-            - docker push dchevell/jira-servicedesk:${DOCKER_TAG}
+            - docker push atlassian/jira-servicedesk:${DOCKER_TAG}
     jc-custom-release:
       - variables:
           - name: JIRA_VERSION
@@ -86,10 +86,10 @@ pipelines:
           script:
             - docker login --username ${DOCKER_USERNAME} --password ${DOCKER_PASSWORD}
             - >
-              docker build -t dchevell/jira-core:${DOCKER_TAG} 
+              docker build -t atlassian/jira-core:${DOCKER_TAG} 
               --build-arg ARTEFACT_NAME=atlassian-jira-core
               --build-arg JIRA_VERSION=${JIRA_VERSION} .
-            - docker push dchevell/jira-core:${DOCKER_TAG}
+            - docker push atlassian/jira-core:${DOCKER_TAG}
   branches:
     master:
       - step:
@@ -100,7 +100,7 @@ pipelines:
             - export BASE_VERSION='8'
             - export CONCURRENT_BUILDS='4'
             - export DEFAULT_RELEASE='true'
-            - export DOCKER_REPO='dchevell/jira-software'
+            - export DOCKER_REPO='atlassian/jira-software'
             - export DOCKERFILE_BUILDARGS='ARTEFACT_NAME=atlassian-jira-software'
             - export DOCKERFILE_VERSION_ARG='JIRA_VERSION'
             - export MAC_PRODUCT_KEY='jira-software'
@@ -115,7 +115,7 @@ pipelines:
             - export BASE_VERSION='4'
             - export CONCURRENT_BUILDS='4'
             - export DEFAULT_RELEASE='true'
-            - export DOCKER_REPO='dchevell/jira-servicedesk'
+            - export DOCKER_REPO='atlassian/jira-servicedesk'
             - export DOCKERFILE_BUILDARGS='ARTEFACT_NAME=atlassian-servicedesk'
             - export DOCKERFILE_VERSION_ARG='JIRA_VERSION'
             - export MAC_PRODUCT_KEY='jira-servicedesk'
@@ -130,7 +130,7 @@ pipelines:
             - export BASE_VERSION='8'
             - export CONCURRENT_BUILDS='4'
             - export DEFAULT_RELEASE='true'
-            - export DOCKER_REPO='dchevell/jira-core'
+            - export DOCKER_REPO='atlassian/jira-core'
             - export DOCKERFILE_BUILDARGS='ARTEFACT_NAME=atlassian-jira-core'
             - export DOCKERFILE_VERSION_ARG='JIRA_VERSION'
             - export MAC_PRODUCT_KEY='jira'

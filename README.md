@@ -1,12 +1,26 @@
-![Atlassian JIRA](https://wac-cdn.atlassian.com/dam/jcr:e348b562-4152-4cdc-8a55-3d297e509cc8/Jira%20Software-blue.svg?cdnVersion=le)
+![Atlassian Jira Software](https://wac-cdn.atlassian.com/dam/jcr:826c97dc-1f5c-4955-bfcc-ea17d6b0c095/jira%20software-icon-gradient-blue.svg?cdnVersion=492)![Atlassian Jira Service Desk](https://wac-cdn.atlassian.com/dam/jcr:8e0905be-0ee7-4652-ba3a-4e3db1143969/jira%20service%20desk-icon-gradient-blue.svg?cdnVersion=492)![Atlassian Jira Core](https://wac-cdn.atlassian.com/dam/jcr:f89f1ce5-60f1-47c2-b9f5-657de4940d31/jira%20core-icon-gradient-blue.svg?cdnVersion=492)
 
-JIRA Software is a software development tool used by agile teams.
+Jira Software is a software development tool used by agile teams. 
 
-Learn more about JIRA Software: <https://www.atlassian.com/software/jira>
+* Check out [atlassian/jira-software](http://hub.docker.com/r/atlassian/jira-software/) on Docker Hub
+* Learn more about Jira Software: [https://www.atlassian.com/software/jira](https://www.atlassian.com/software/jira)
+
+Jira Service Desk is a fully featured service desk tool used by modern IT teams. 
+
+* Check out [atlassian/jira-servicedesk](http://hub.docker.com/r/atlassian/jira-servicedesk/) on Docker Hub
+* Learn more about JIRA Service Desk: [https://www.atlassian.com/software/jira/service-desk](https://www.atlassian.com/software/jira/service-desk)
+
+Jira Core is a project and task management solution built for business teams. 
+
+* Check out [atlassian/jira-core](http://hub.docker.com/r/atlassian/jira-core/) on Docker Hub
+* Learn more about JIRA Core: [https://www.atlassian.com/software/jira/core](https://www.atlassian.com/software/jira/core)
+
 
 # Overview
 
-This Docker container makes it easy to get an instance of JIRA Software up and running.
+This Docker container makes it easy to get an instance of Jira Software, Service Desk or Core up and running.
+
+Note: Jira Software will be referenced in the examples provided.
 
 # Quick Start
 
@@ -23,10 +37,10 @@ To get started you can use a data volume, or named volumes. In this example
 we'll use named volumes.
 
     $> docker volume create --name jiraVolume
-    $> docker run -v jiraVolume:/var/atlassian/application-data/jira --name="jira" -d -p 8080:8080 dchevell/jira-software
+    $> docker run -v jiraVolume:/var/atlassian/application-data/jira --name="jira" -d -p 8080:8080 atlassian/jira-software
 
 
-**Success**. JIRA is now available on [http://localhost:8080](http://localhost:8080)*
+**Success**. Jira is now available on [http://localhost:8080](http://localhost:8080)*
 
 Please ensure your container has the necessary resources allocated to it. We recommend 2GiB of memory allocated to accommodate the application server. See [System Requirements](https://confluence.atlassian.com/adminjiraserver071/jira-applications-installation-requirements-802592164.html) for further information.
 
@@ -35,7 +49,7 @@ _* Note: If you are using `docker-machine` on Mac OS X, please use `open http://
 
 ## Memory / Heap Size
 
-If you need to override JIRA's default memory allocation, you can control the minimum heap (Xms) and maximum heap (Xmx) via the below environment variables.
+If you need to override Jira's default memory allocation, you can control the minimum heap (Xms) and maximum heap (Xmx) via the below environment variables.
 
 * `JVM_MINIMUM_MEMORY` (default: 384m)
 
@@ -47,9 +61,9 @@ If you need to override JIRA's default memory allocation, you can control the mi
 
 ## Reverse Proxy Settings
 
-If JIRA is run behind a reverse proxy server (e.g. a load-balancer or nginx server) as 
+If Jira is run behind a reverse proxy server (e.g. a load-balancer or nginx server) as 
 [described here](https://confluence.atlassian.com/adminjiraserver072/integrating-jira-with-apache-using-ssl-828788158.html),
-then you need to specify extra options to make JIRA aware of the setup. They can
+then you need to specify extra options to make Jira aware of the setup. They can
 be controlled via the below environment variables.
 
 * `ATL_PROXY_NAME` (default: NONE)
@@ -59,7 +73,7 @@ be controlled via the below environment variables.
 
 * `ATL_PROXY_PORT` (default: NONE)
 
-   The reverse proxy's port number via which JIRA is
+   The reverse proxy's port number via which Jira is
    accessed. `CATALINA_CONNECTOR_PROXYPORT` is also supported for backwards
    compatability.
 
@@ -71,7 +85,7 @@ be controlled via the below environment variables.
 
 * `ATL_TOMCAT_SCHEME` (default: http)
 
-   The protocol via which JIRA is accessed. `CATALINA_CONNECTOR_SCHEME` is also
+   The protocol via which Jira is accessed. `CATALINA_CONNECTOR_SCHEME` is also
    supported for backwards compatability.
 
 * `ATL_TOMCAT_SECURE` (default: false)
@@ -97,17 +111,19 @@ see https://tomcat.apache.org/tomcat-7.0-doc/config/index.html.
 
 ## JVM configuration
 
-If you need to pass additional JVM arguments to JIRA, such as specifying a custom trust store, you can add them via the below environment variable
+If you need to pass additional JVM arguments to Jira, such as specifying a custom trust store, you can add them via the below environment variable
 
 * `JVM_SUPPORT_RECOMMENDED_ARGS`
 
-   Additional JVM arguments for JIRA
+   Additional JVM arguments for Jira
 
 Example:
 
-    $> docker run -e JVM_SUPPORT_RECOMMENDED_ARGS=-Djavax.net.ssl.trustStore=/var/atlassian/application-data/jira/cacerts -v jiraVolume:/var/atlassian/application-data/jira --name="jira" -d -p 8080:8080 dchevell/jira-software
+    $> docker run -e JVM_SUPPORT_RECOMMENDED_ARGS=-Djavax.net.ssl.trustStore=/var/atlassian/application-data/jira/cacerts -v jiraVolume:/var/atlassian/application-data/jira --name="jira" -d -p 8080:8080 atlassian/jira-software
 
 ## Database configuration
+
+*Jira Software and Jira Service Desk only*
 
 It is optionally possible to configure the database from the environment,
 avoiding the need to do so through the web startup screen.
@@ -258,7 +274,7 @@ mount. Additionally, Tomcat-specific logs are written to
 
 # Upgrades
 
-To upgrade to a more recent version of JIRA you can simply stop the `jira` container and start a new one based on a more recent image:
+To upgrade to a more recent version of Jira you can simply stop the `jira` container and start a new one based on a more recent image:
 
     $> docker stop jira
     $> docker rm jira
@@ -270,26 +286,31 @@ _Note: Please make sure that you **don't** accidentally remove the `jira` contai
 
 # Backup
 
-For evaluations you can use the built-in database that will store its files in the JIRA home directory. In that case it is sufficient to create a backup archive of the docker volume.
+For evaluations you can use the built-in database that will store its files in the Jira home directory. In that case it is sufficient to create a backup archive of the docker volume.
 
-If you're using an external database, you can configure JIRA to make a backup automatically each night. This will back up the current state, including the database to the `jiraVolume` docker volume, which can then be archived. Alternatively you can backup the database separately, and continue to create a backup archive of the docker volume to back up the JIRA Home directory.
+If you're using an external database, you can configure Jira to make a backup automatically each night. This will back up the current state, including the database to the `jiraVolume` docker volume, which can then be archived. Alternatively you can backup the database separately, and continue to create a backup archive of the docker volume to back up the Jira Home directory.
 
 Read more about data recovery and backups: [https://confluence.atlassian.com/adminjiraserver071/backing-up-data-802592964.html](https://confluence.atlassian.com/adminjiraserver071/backing-up-data-802592964.html)
 
 # Versioning
 
-The `latest` tag matches the most recent release of Atlassian JIRA Software. Thus `dchevell/jira-software:latest` will use the newest version of JIRA available.
+The `latest` tag matches the most recent release of Atlassian Jira Software, Jira Core or Jira Service Desk. Thus `atlassian/jira-software:latest` will use the newest version of Jira available.
 
-Alternatively you can use a specific major, major.minor, or major.minor.patch version of JIRA Software by using a version number tag:
+Alternatively you can use a specific major, major.minor, or major.minor.patch version of Jira by using a version number tag:
 
-* `dchevell/jira-software:7`
-* `dchevell/jira-software:7.5`
-* `dchevell/jira-software:7.5.0`
+* `atlassian/jira-software:8`
+* `atlassian/jira-software:8.3`
+* `atlassian/jira-software:8.3.0`
 
-All versions from 7.0+ are available
+* `atlassian/jira-servicedesk:4`
+* `atlassian/jira-servicedesk:4.3`
+* `atlassian/jira-servicedesk:4.3.0`
 
-# Support
+* `atlassian/jira-core:8`
+* `atlassian/jira-core:8.3`
+* `atlassian/jira-core:8.3.0`
 
-This Docker container is unsupported and is intended for illustration purposes only.
+All versions from 8.0+ are available
+
 
 [docker-expose]: https://docs.docker.com/v17.09/engine/userguide/networking/default_network/binding/
