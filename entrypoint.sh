@@ -86,6 +86,7 @@ fi
 
 # If we're supplied a container ID we use that for everything,
 # otherwise generate a long and short UUID.
+: ${CONTAINER_ID:=}
 if [[ -z ${CONTAINER_ID} ]]; then
      if [[ ! -s "/etc/container_id" ]]; then
          uuidgen > /etc/container_id
