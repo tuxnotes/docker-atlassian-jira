@@ -84,11 +84,19 @@ fi
 ######################################################################
 # Setup Data Center configuration
 
-if [[ ! -s "/etc/container_id" ]]; then
-    uuidgen > /etc/container_id
+# If we're supplied a container ID we use that for everything,
+# otherwise generate a long and short UUID.
+if [[ -z ${CONTAINER_ID} ]]; then
+     if [[ ! -s "/etc/container_id" ]]; then
+         uuidgen > /etc/container_id
+     fi
+     CONTAINER_ID=$(cat /etc/container_id)
+     CONTAINER_SHORT_ID=${CONTAINER_ID::8}
+else
+    echo ${CONTAINER_ID} > /etc/container_id
+    CONTAINER_SHORT_ID=${CONTAINER_ID}
 fi
-CONTAINER_ID=$(cat /etc/container_id)
-CONTAINER_SHORT_ID=${CONTAINER_ID::8}
+log "Container ID is ${CONTAINER_ID}"
 
 : ${CLUSTERED:=false}
 : ${JIRA_NODE_ID:=jira_node_${CONTAINER_SHORT_ID}}
