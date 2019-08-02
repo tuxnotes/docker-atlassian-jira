@@ -213,7 +213,7 @@ def test_jvm_args(docker_cli, image):
     time.sleep(0.5) # JVM doesn't start immediately when container runs
     procs = container.exec_run('ps aux')
     procs_list = procs.output.decode().split('\n')
-    jvm = [proc for proc in procs_list if 'java' in proc][0]
+    jvm = [proc for proc in procs_list if '-Datlassian.standalone=JIRA' in proc][0]
     assert f'-Xms{environment.get("JVM_MINIMUM_MEMORY")}' in jvm
     assert f'-Xmx{environment.get("JVM_MAXIMUM_MEMORY")}' in jvm
     assert environment.get('JVM_SUPPORT_RECOMMENDED_ARGS') in jvm
