@@ -23,7 +23,7 @@ To get started you can use a data volume, or named volumes. In this example
 we'll use named volumes.
 
     $> docker volume create --name jiraVolume
-    $> docker run -v jiraVolume:/var/atlassian/application-data/jira --name="jira" -d -p 8080:8080 dchevell/jira-software
+    $> docker run -v jiraVolume:/var/atlassian/application-data/jira --name="jira" -d -p 8080:8080 atlassian/jira-software
 
 
 **Success**. JIRA is now available on [http://localhost:8080](http://localhost:8080)*
@@ -105,7 +105,7 @@ If you need to pass additional JVM arguments to JIRA, such as specifying a custo
 
 Example:
 
-    $> docker run -e JVM_SUPPORT_RECOMMENDED_ARGS=-Djavax.net.ssl.trustStore=/var/atlassian/application-data/jira/cacerts -v jiraVolume:/var/atlassian/application-data/jira --name="jira" -d -p 8080:8080 dchevell/jira-software
+    $> docker run -e JVM_SUPPORT_RECOMMENDED_ARGS=-Djavax.net.ssl.trustStore=/var/atlassian/application-data/jira/cacerts -v jiraVolume:/var/atlassian/application-data/jira --name="jira" -d -p 8080:8080 atlassian/jira-software
 
 ## Database configuration
 
@@ -260,13 +260,13 @@ Read more about data recovery and backups: [https://confluence.atlassian.com/adm
 
 # Versioning
 
-The `latest` tag matches the most recent release of Atlassian JIRA Software. Thus `dchevell/jira-software:latest` will use the newest version of JIRA available.
+The `latest` tag matches the most recent release of Atlassian JIRA Software. Thus `atlassian/jira-software:latest` will use the newest version of JIRA available.
 
 Alternatively you can use a specific major, major.minor, or major.minor.patch version of JIRA Software by using a version number tag:
 
-* `dchevell/jira-software:7`
-* `dchevell/jira-software:7.5`
-* `dchevell/jira-software:7.5.0`
+* `atlassian/jira-software:7`
+* `atlassian/jira-software:7.5`
+* `atlassian/jira-software:7.5.0`
 
 All versions from 7.0+ are available
 
