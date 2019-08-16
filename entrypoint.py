@@ -47,6 +47,9 @@ env = {k.lower(): v
 gen_cfg('server.xml.j2',
         f"{env['jira_install_dir']}/conf/server.xml", env)
 
+gen_cfg('dbconfig.xml.j2',
+        f"{env['jira_home']}/dbconfig.xml", env)
+
 
 ######################################################################
 # Start Jira as the correct user
