@@ -19,7 +19,7 @@ CMD ["/entrypoint.py", "-fg"]
 ENTRYPOINT ["/tini", "--"]
 
 RUN apt-get update \
-	&& apt-get install -y --no-install-recommends fontconfig uuid-runtime python3 python3-jinja2 \
+	&& apt-get install -y --no-install-recommends fontconfig python3 python3-jinja2 \
 	&& apt-get clean autoclean && apt-get autoremove -y && rm -rf /var/lib/apt/lists/*
 
 ARG TINI_VERSION=v0.18.0

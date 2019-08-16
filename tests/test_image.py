@@ -163,10 +163,9 @@ def test_cluster_properties_defaults(docker_cli, image):
     cluster_properties = get_fileobj_from_container(container, '/var/atlassian/application-data/jira/cluster.properties')
     properties_str = cluster_properties.read().decode().strip().split('\n')
     properties = dict(item.split("=") for item in properties_str)
-    container_id = get_fileobj_from_container(container, '/etc/container_id')
-    container_short_id = container_id.read().decode().split('-')[0]
+    container_id = get_fileobj_from_container(container, '/etc/container_id').read().decode().strip()
 
-    assert properties.get('jira.node.id') == f'jira_node_{container_short_id}'
+    assert properties.get('jira.node.id') == container_id
     assert properties.get('jira.shared.home') == '/var/atlassian/application-data/jira/shared'
 
 

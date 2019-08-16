@@ -5,6 +5,8 @@ import os
 import shutil
 import logging
 import jinja2 as j2
+import uuid
+import base64
 
 
 ######################################################################
@@ -37,8 +39,13 @@ def gen_cfg(tmpl, target, env, user='root', group='root', mode=0o644):
 # support CATALINA variables from older versions of the Docker images
 # for backwards compatability, if the new version is not set.
 env = {k.lower(): v
-       for k, v in os.environ.items()
-       if k.startswith(('ATL_', 'JIRA_', 'RUN_', 'CATALINA_'))}
+       for k, v in os.environ.items()}
+
+env['uuid'] = uuid.uuid4().hex
+with open('/etc/container_id') as fd:
+    lcid = fd.read()
+    if lcid != '':
+        env['local_container_id'] = lcid
 
 
 ######################################################################
@@ -49,6 +56,13 @@ gen_cfg('server.xml.j2',
 
 gen_cfg('dbconfig.xml.j2',
         f"{env['jira_home']}/dbconfig.xml", env)
+
+gen_cfg('container_id.j2',
+        '/etc/container_id', env)
+
+if env.get('clustered') == 'true':
+    gen_cfg('cluster.properties.j2',
+            f"{env['jira_home']}/cluster.properties", env)
 
 
 ######################################################################

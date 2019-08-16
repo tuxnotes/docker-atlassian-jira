@@ -1,0 +1,11 @@
+jira.node.id={{ jira_node_id | default(container_id) | default(uuid) }}
+jira.shared.home={{ jira_shared_home | default(jira_home+'/shared') }}
+ehcache.peer.discovery={{ ehcache_peer_discovery }}
+ehcache.listener.hostName={{ ehcache_listener_hostname }}
+ehcache.object.port={{ ehcache_object_port }}
+ehcache.listener.port={{ ehcache_listener_port }}
+ehcache.listener.socketTimeoutMillis={{ ehcache_listener_sockettimeoutmillis }}
+ehcache.multicast.address={{ ehcache_multicast_address }}
+ehcache.multicast.port={{ ehcache_multicast_port }}
+ehcache.multicast.timeToLive={{ ehcache_multicast_timetolive }}
+ehcache.multicast.hostName={{ ehcache_multicast_hostname }}
