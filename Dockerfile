@@ -15,20 +15,16 @@ WORKDIR $JIRA_HOME
 # Expose HTTP port
 EXPOSE 8080
 
-CMD ["/entrypoint.sh", "-fg"]
+CMD ["/entrypoint.py", "-fg"]
 ENTRYPOINT ["/tini", "--"]
 
 RUN apt-get update \
-	&& apt-get install -y --no-install-recommends fontconfig uuid-runtime \
+	&& apt-get install -y --no-install-recommends fontconfig uuid-runtime python3 python3-jinja2 \
 	&& apt-get clean autoclean && apt-get autoremove -y && rm -rf /var/lib/apt/lists/*
 
 ARG TINI_VERSION=v0.18.0
 ADD https://github.com/krallin/tini/releases/download/${TINI_VERSION}/tini /tini
 RUN chmod +x /tini
-
-COPY entrypoint.sh					/entrypoint.sh
-COPY scripts/*						/opt/atlassian/bin/
-COPY config/*						/opt/atlassian/etc/
 
 ARG JIRA_VERSION
 ARG ARTEFACT_NAME=atlassian-jira-software
@@ -48,4 +44,8 @@ RUN groupadd --gid ${RUN_GID} ${RUN_GROUP} \
     && sed -i -e 's/^JVM_SUPPORT_RECOMMENDED_ARGS=""$/: \${JVM_SUPPORT_RECOMMENDED_ARGS:=""}/g' ${JIRA_INSTALL_DIR}/bin/setenv.sh \
     && sed -i -e 's/^JVM_\(.*\)_MEMORY="\(.*\)"$/: \${JVM_\1_MEMORY:=\2}/g' ${JIRA_INSTALL_DIR}/bin/setenv.sh \
     \
-    && touch /etc/container_id && chmod 666 /etc/container_id \
+    && touch /etc/container_id && chmod 666 /etc/container_id
+
+COPY entrypoint.py					/entrypoint.py
+COPY scripts/*						/opt/atlassian/bin/
+COPY config/*						/opt/atlassian/etc/
