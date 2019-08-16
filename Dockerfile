@@ -47,5 +47,4 @@ RUN groupadd --gid ${RUN_GID} ${RUN_GROUP} \
     && touch /etc/container_id && chmod 666 /etc/container_id
 
 COPY entrypoint.py					/entrypoint.py
-COPY scripts/*						/opt/atlassian/bin/
 COPY config/*						/opt/atlassian/etc/
