@@ -312,5 +312,9 @@ Alternatively you can use a specific major, major.minor, or major.minor.patch ve
 
 All versions from 8.0+ are available
 
+# License
+
+Copyright © 2019 Atlassian Corporation Pty Ltd.
+Licensed under the Apache License, Version 2.0.
 
 [docker-expose]: https://docs.docker.com/v17.09/engine/userguide/networking/default_network/binding/
