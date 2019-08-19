@@ -26,12 +26,12 @@ def get_fileobj_from_container(container, filepath):
 def test_server_xml_defaults(docker_cli, image):
     container = docker_cli.containers.run(image, detach=True)
     server_xml = get_fileobj_from_container(container, '/opt/atlassian/jira/conf/server.xml')
-    xml = etree.parse(server_xml) 
+    xml = etree.parse(server_xml)
     connector = xml.find('.//Connector')
     context = xml.find('.//Context')
-    
+
     assert connector.get('port') == '8080'
-    assert connector.get('maxThreads') == '200'
+    assert connector.get('maxThreads') == '100'
     assert connector.get('minSpareThreads') == '10'
     assert connector.get('connectionTimeout') == '20000'
     assert connector.get('enableLookups') == 'false'
@@ -65,9 +65,9 @@ def test_server_xml_params(docker_cli, image):
     server = xml.getroot()
     connector = xml.find('.//Connector')
     context = xml.find('.//Context')
-    
+
     assert server.get('port') == environment.get('ATL_TOMCAT_MGMT_PORT')
-    
+
     assert connector.get('port') == environment.get('ATL_TOMCAT_PORT')
     assert connector.get('maxThreads') == environment.get('ATL_TOMCAT_MAXTHREADS')
     assert connector.get('minSpareThreads') == environment.get('ATL_TOMCAT_MINSPARETHREADS')
@@ -79,10 +79,10 @@ def test_server_xml_params(docker_cli, image):
     assert connector.get('scheme') == environment.get('ATL_TOMCAT_SCHEME')
     assert connector.get('proxyName') == environment.get('ATL_PROXY_NAME')
     assert connector.get('proxyPort') == environment.get('ATL_PROXY_PORT')
-    
+
     assert context.get('path') == environment.get('ATL_TOMCAT_CONTEXTPATH')
 
-    
+
 def test_dbconfig_xml_defaults(docker_cli, image):
     environment = {
         'ATL_DB_TYPE': 'postgres72',
@@ -94,7 +94,7 @@ def test_dbconfig_xml_defaults(docker_cli, image):
     container = docker_cli.containers.run(image, environment=environment, detach=True)
     dbconfig_xml = get_fileobj_from_container(container, '/var/atlassian/application-data/jira/dbconfig.xml')
     xml = etree.parse(dbconfig_xml)
-    
+
     assert xml.findtext('.//pool-min-size') == '20'
     assert xml.findtext('.//pool-max-size') == '100'
     assert xml.findtext('.//pool-min-idle') == '10'
@@ -134,7 +134,7 @@ def test_dbconfig_xml_params(docker_cli, image):
     container = docker_cli.containers.run(image, environment=environment, detach=True)
     dbconfig_xml = get_fileobj_from_container(container, '/var/atlassian/application-data/jira/dbconfig.xml')
     xml = etree.parse(dbconfig_xml)
-    
+
     assert xml.findtext('.//database-type') == environment.get('ATL_DB_TYPE')
     assert xml.findtext('.//driver-class') == environment.get('ATL_DB_DRIVER')
     assert xml.findtext('.//url') == environment.get('ATL_JDBC_URL')
@@ -163,10 +163,9 @@ def test_cluster_properties_defaults(docker_cli, image):
     cluster_properties = get_fileobj_from_container(container, '/var/atlassian/application-data/jira/cluster.properties')
     properties_str = cluster_properties.read().decode().strip().split('\n')
     properties = dict(item.split("=") for item in properties_str)
-    container_id = get_fileobj_from_container(container, '/etc/container_id')
-    container_short_id = container_id.read().decode().split('-')[0]
-    
-    assert properties.get('jira.node.id') == f'jira_node_{container_short_id}'
+    container_id = get_fileobj_from_container(container, '/etc/container_id').read().decode().strip()
+
+    assert properties.get('jira.node.id') == container_id
     assert properties.get('jira.shared.home') == '/var/atlassian/application-data/jira/shared'
 
 
@@ -183,7 +182,7 @@ def test_cluster_properties_params(docker_cli, image):
         'EHCACHE_MULTICAST_ADDRESS': '1.2.3.4',
         'EHCACHE_MULTICAST_PORT': '40004',
         'EHCACHE_MULTICAST_TIMETOLIVE': '1000',
-        'EHCACHE_MULTICAST_HOSTNAME': 'jiradc1.local',     
+        'EHCACHE_MULTICAST_HOSTNAME': 'jiradc1.local',
     }
     container = docker_cli.containers.run(image, environment=environment, detach=True)
     cluster_properties = get_fileobj_from_container(container, '/var/atlassian/application-data/jira/cluster.properties')
@@ -233,4 +232,3 @@ def test_first_run_state(docker_cli, image):
                 return
         time.sleep(1)
     raise TimeoutError
-    

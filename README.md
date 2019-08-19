@@ -102,7 +102,7 @@ The following Tomcat/Catalina options are also supported. For more information,
 see https://tomcat.apache.org/tomcat-7.0-doc/config/index.html.
 
 * `ATL_TOMCAT_MGMT_PORT` (default: 8005)
-* `ATL_TOMCAT_MAXTHREADS` (default: 200)
+* `ATL_TOMCAT_MAXTHREADS` (default: 100)
 * `ATL_TOMCAT_MINSPARETHREADS` (default: 10)
 * `ATL_TOMCAT_CONNECTIONTIMEOUT` (default: 20000)
 * `ATL_TOMCAT_ENABLELOOKUPS` (default: false)
@@ -312,5 +312,9 @@ Alternatively you can use a specific major, major.minor, or major.minor.patch ve
 
 All versions from 8.0+ are available
 
+# License
+
+Copyright © 2019 Atlassian Corporation Pty Ltd.
+Licensed under the Apache License, Version 2.0.
 
 [docker-expose]: https://docs.docker.com/v17.09/engine/userguide/networking/default_network/binding/
