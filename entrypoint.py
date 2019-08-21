@@ -23,7 +23,11 @@ jenv = j2.Environment(
     loader=j2.FileSystemLoader('/opt/atlassian/etc/'),
     autoescape=j2.select_autoescape(['xml']))
 
-def gen_cfg(tmpl, target, env, user='root', group='root', mode=0o644):
+def gen_cfg(tmpl, target, env, user='root', group='root', mode=0o644, overwrite=True):
+    if not overwrite and os.path.exists(target):
+        logging.info(f"{target} exists; skipping.")
+        return
+
     logging.info(f"Generating {target} from template {tmpl}")
     cfg = jenv.get_template(tmpl).render(env)
     with open(target, 'w') as fd:
@@ -54,15 +58,17 @@ with open('/etc/container_id') as fd:
 gen_cfg('server.xml.j2',
         f"{env['jira_install_dir']}/conf/server.xml", env)
 
-gen_cfg('dbconfig.xml.j2',
-        f"{env['jira_home']}/dbconfig.xml", env)
-
 gen_cfg('container_id.j2',
         '/etc/container_id', env)
 
+gen_cfg('dbconfig.xml.j2',
+        f"{env['jira_home']}/dbconfig.xml", env,
+        overwrite=False)
+
 if env.get('clustered') == 'true':
     gen_cfg('cluster.properties.j2',
-            f"{env['jira_home']}/cluster.properties", env)
+            f"{env['jira_home']}/cluster.properties", env,
+            overwrite=False)
 
 
 ######################################################################
