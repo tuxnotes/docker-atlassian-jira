@@ -63,11 +63,13 @@ gen_cfg('container_id.j2',
 
 gen_cfg('dbconfig.xml.j2',
         f"{env['jira_home']}/dbconfig.xml", env,
+        user=env['run_user'], group=env['run_group'],
         overwrite=False)
 
 if env.get('clustered') == 'true':
     gen_cfg('cluster.properties.j2',
             f"{env['jira_home']}/cluster.properties", env,
+            user=env['run_user'], group=env['run_group'],
             overwrite=False)
 
 
