@@ -21,21 +21,15 @@ if DOCKER_TOKEN is None:
     token = r.json().get('token')
     DOCKER_TOKEN = os.environ.setdefault('DOCKER_TOKEN', token)
 
+logging.info(f'Updating Docker Hub description for {DOCKER_REPO}')
 with open(README_FILE) as f:
     full_description = f.read()
-
+data = {'registry': 'registry-1.docker.io', 'full_description': full_description}
 headers = {'Authorization': f'JWT {DOCKER_TOKEN}'}
-
-data = {
-    'registry': 'registry-1.docker.io',
-    'full_description': full_description
-}
-
-logging.info(f'Patching Docker Hub description for {DOCKER_REPO}')
 r = requests.patch(f'https://cloud.docker.com/v2/repositories/{DOCKER_REPO}/',
-                   headers=headers, json=data)
+                   json=data, headers=headers)
 
 if r.status_code == requests.codes.ok:
-    logging.info(f'Successfully pushed {README_FILE} for {DOCKER_REPO}')
+    logging.info(f'Successfully updated {README_FILE} for {DOCKER_REPO}')
 else:
-    logging.info(f'Unable to push {README_FILE} for {DOCKER_REPO}, response code: {r.status_code}')
+    logging.info(f'Unable to update {README_FILE} for {DOCKER_REPO}, response code: {r.status_code}')
