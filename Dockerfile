@@ -32,6 +32,7 @@ ARG DOWNLOAD_URL=https://product-downloads.atlassian.com/software/jira/downloads
 
 RUN groupadd --gid ${RUN_GID} ${RUN_GROUP} \
     && useradd --uid ${RUN_UID} --gid ${RUN_GID} --home-dir ${JIRA_HOME} ${RUN_USER} \
+    && echo PATH=$PATH > /etc/environment \
     \
     && mkdir -p                             ${JIRA_INSTALL_DIR} \
     && curl -L --silent                  ${DOWNLOAD_URL} | tar -xz --strip-components=1 -C "${JIRA_INSTALL_DIR}" \
