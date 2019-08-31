@@ -31,7 +31,7 @@ ARG ARTEFACT_NAME=atlassian-jira-software
 ARG DOWNLOAD_URL=https://product-downloads.atlassian.com/software/jira/downloads/${ARTEFACT_NAME}-${JIRA_VERSION}.tar.gz
 
 RUN groupadd --gid ${RUN_GID} ${RUN_GROUP} \
-    && useradd --uid ${RUN_UID} --gid ${RUN_GID} --home-dir ${JIRA_HOME} ${RUN_USER} \
+    && useradd --uid ${RUN_UID} --gid ${RUN_GID} --home-dir ${JIRA_HOME} --shell /bin/bash ${RUN_USER} \
     && echo PATH=$PATH > /etc/environment \
     \
     && mkdir -p                             ${JIRA_INSTALL_DIR} \
