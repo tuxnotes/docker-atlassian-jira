@@ -232,3 +232,9 @@ def test_first_run_state(docker_cli, image):
                 return
         time.sleep(1)
     raise TimeoutError
+
+
+def test_java_in_jira_user_path(docker_cli, image):
+    container = docker_cli.containers.run(image, detach=True)
+    proc = container.exec_run('su -c "which java" jira')
+    assert len(proc.output) > 0
