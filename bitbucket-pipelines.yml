@@ -8,7 +8,8 @@ pipelines:
           services:
             - docker
           script:
-            - export BASE_VERSION='8'
+            - export START_VERSION='7.13'
+            - export END_VERSION='9'
             - export CONCURRENT_BUILDS='4'
             - export DEFAULT_RELEASE='true'
             - export DOCKER_REPO='atlassian/jira-software'
@@ -23,7 +24,8 @@ pipelines:
           services:
             - docker
           script:
-            - export BASE_VERSION='4'
+            - export START_VERSION='3.16'
+            - export END_VERSION='5'
             - export CONCURRENT_BUILDS='4'
             - export DEFAULT_RELEASE='true'
             - export DOCKER_REPO='atlassian/jira-servicedesk'
@@ -38,7 +40,8 @@ pipelines:
           services:
             - docker
           script:
-            - export BASE_VERSION='8'
+            - export START_VERSION='7.13'
+            - export END_VERSION='9'
             - export CONCURRENT_BUILDS='4'
             - export DEFAULT_RELEASE='true'
             - export DOCKER_REPO='atlassian/jira-core'
@@ -97,7 +100,8 @@ pipelines:
           services:
             - docker
           script:
-            - export BASE_VERSION='8'
+            - export START_VERSION='7.13'
+            - export END_VERSION='9'
             - export CONCURRENT_BUILDS='4'
             - export DEFAULT_RELEASE='true'
             - export DOCKER_REPO='atlassian/jira-software'
@@ -112,7 +116,8 @@ pipelines:
           services:
             - docker
           script:
-            - export BASE_VERSION='4'
+            - export START_VERSION='3.16'
+            - export END_VERSION='5'
             - export CONCURRENT_BUILDS='4'
             - export DEFAULT_RELEASE='true'
             - export DOCKER_REPO='atlassian/jira-servicedesk'
@@ -127,7 +132,8 @@ pipelines:
           services:
             - docker
           script:
-            - export BASE_VERSION='8'
+            - export START_VERSION='7.13'
+            - export END_VERSION='9'
             - export CONCURRENT_BUILDS='4'
             - export DEFAULT_RELEASE='true'
             - export DOCKER_REPO='atlassian/jira-core'
