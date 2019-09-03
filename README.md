@@ -39,8 +39,8 @@ with `JIRA_SHARED_HOME`.
 To get started you can use a data volume, or named volumes. In this example
 we'll use named volumes.
 
-    $> docker volume create --name jiraVolume
-    $> docker run -v jiraVolume:/var/atlassian/application-data/jira --name="jira" -d -p 8080:8080 atlassian/jira-software
+    docker volume create --name jiraVolume
+    docker run -v jiraVolume:/var/atlassian/application-data/jira --name="jira" -d -p 8080:8080 atlassian/jira-software
 
 
 **Success**. Jira is now available on [http://localhost:8080](http://localhost:8080)*
@@ -137,7 +137,7 @@ If you need to pass additional JVM arguments to Jira, such as specifying a custo
 
 Example:
 
-    $> docker run -e JVM_SUPPORT_RECOMMENDED_ARGS=-Djavax.net.ssl.trustStore=/var/atlassian/application-data/jira/cacerts -v jiraVolume:/var/atlassian/application-data/jira --name="jira" -d -p 8080:8080 atlassian/jira-software
+    docker run -e JVM_SUPPORT_RECOMMENDED_ARGS=-Djavax.net.ssl.trustStore=/var/atlassian/application-data/jira/cacerts -v jiraVolume:/var/atlassian/application-data/jira --name="jira" -d -p 8080:8080 atlassian/jira-software
 
 ## Database configuration
 
@@ -332,9 +332,9 @@ mount. Additionally, Tomcat-specific logs are written to
 
 To upgrade to a more recent version of Jira you can simply stop the `jira` container and start a new one based on a more recent image:
 
-    $> docker stop jira
-    $> docker rm jira
-    $> docker run ... (See above)
+    docker stop jira
+    docker rm jira
+    docker run ... (See above)
 
 As your data is stored in the data volume directory on the host it will still  be available after the upgrade.
 
