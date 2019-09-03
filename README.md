@@ -15,6 +15,8 @@ Jira Core is a project and task management solution built for business teams.
 * Check out [atlassian/jira-core](http://hub.docker.com/r/atlassian/jira-core/) on Docker Hub
 * Learn more about JIRA Core: [https://www.atlassian.com/software/jira/core](https://www.atlassian.com/software/jira/core)
 
+# Contents
+
 [TOC]
 
 # Overview
