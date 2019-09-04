@@ -178,14 +178,18 @@ The following variables are all must all be supplied if using this feature:
    * `oracle10g`
    * `postgres72`
 
-Note: Due to licensing restrictions Jira does not ship with a MySQL JDBC driver. To use
-MySQL you will need to copy a suitable driver into the container and restart it. For 
-example, to copy a driver into a container named "jira", you would do the following:
+Note: Due to licensing restrictions Jira does not ship with a MySQL or
+Oracle JDBC drivers. To use these databases you will need to copy a suitable
+driver into the container and restart it. For example, to copy the MySQL driver
+into a container named "jira", you would do the following:
 
     docker cp mysql-connector-java.x.y.z.jar jira:/opt/atlassian/jira/lib
     docker restart jira
 
-For more information see [Connecting Jira applications to MySQL 5.7](https://confluence.atlassian.com/adminjiraserver/connecting-jira-applications-to-mysql-5-7-966063305.html)
+For more information see the page 
+[Startup check: JIRA database driver missing](https://confluence.atlassian.com/jirakb/startup-check-jira-database-driver-missing-873872169.html).
+
+### Optional database settings
 
 The following variables are for the Tomcat JDBC connection pool, and are
 optional. For more information on these see: https://tomcat.apache.org/tomcat-7.0-doc/jdbc-pool.html
