@@ -300,7 +300,7 @@ needs.
 * Modify or replace the [Jinja](https://jinja.palletsprojects.com/) templates
   under `config`; _NOTE_: The files must have the `.j2` extensions. However you
   don't have to use template variables if you don't wish.
-* Build the new image with e.g: `docker build --tag my-jira-8-image --build-var JIRA_VERSION=8.x.x .`
+* Build the new image with e.g: `docker build --tag my-jira-8-image --build-arg JIRA_VERSION=8.x.x .`
 * Optionally push to a registry, and deploy.
 
 #### Build a new image from the existing one
