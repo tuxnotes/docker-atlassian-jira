@@ -15,6 +15,9 @@ Jira Core is a project and task management solution built for business teams.
 * Check out [atlassian/jira-core](http://hub.docker.com/r/atlassian/jira-core/) on Docker Hub
 * Learn more about JIRA Core: [https://www.atlassian.com/software/jira/core](https://www.atlassian.com/software/jira/core)
 
+# Contents
+
+[TOC]
 
 # Overview
 
@@ -36,16 +39,31 @@ with `JIRA_SHARED_HOME`.
 To get started you can use a data volume, or named volumes. In this example
 we'll use named volumes.
 
-    $> docker volume create --name jiraVolume
-    $> docker run -v jiraVolume:/var/atlassian/application-data/jira --name="jira" -d -p 8080:8080 atlassian/jira-software
+    docker volume create --name jiraVolume
+    docker run -v jiraVolume:/var/atlassian/application-data/jira --name="jira" -d -p 8080:8080 atlassian/jira-software
 
 
 **Success**. Jira is now available on [http://localhost:8080](http://localhost:8080)*
 
-Please ensure your container has the necessary resources allocated to it. We recommend 2GiB of memory allocated to accommodate the application server. See [System Requirements](https://confluence.atlassian.com/adminjiraserver071/jira-applications-installation-requirements-802592164.html) for further information.
+Please ensure your container has the necessary resources allocated to it. We
+recommend 2GiB of memory allocated to accommodate the application server. See
+[System Requirements](https://confluence.atlassian.com/adminjiraserver071/jira-applications-installation-requirements-802592164.html)
+for further information.
 
 
-_* Note: If you are using `docker-machine` on Mac OS X, please use `open http://$(docker-machine ip default):8080` instead._
+_* Note: If you are using `docker-machine` on Mac OS X, please use `open
+http://$(docker-machine ip default):8080` instead._
+
+# Configuring Jira
+
+This Docker image is intended to be configured from its environment; the
+provided information is used to generate the application configuration files
+from templates. This allows containers to be repeatably created and destroyed
+on-the-fly, as required in advanced cluster configurations. Most aspects of the
+deployment can be configured in this manner; the necessary environment variables
+are documented below. However, if your particular deployment scenario is not
+covered by these settings, it is possible to override the provided templates
+with your own; see the section _Advanced Configuration_ below.
 
 ## Memory / Heap Size
 
@@ -119,7 +137,7 @@ If you need to pass additional JVM arguments to Jira, such as specifying a custo
 
 Example:
 
-    $> docker run -e JVM_SUPPORT_RECOMMENDED_ARGS=-Djavax.net.ssl.trustStore=/var/atlassian/application-data/jira/cacerts -v jiraVolume:/var/atlassian/application-data/jira --name="jira" -d -p 8080:8080 atlassian/jira-software
+    docker run -e JVM_SUPPORT_RECOMMENDED_ARGS=-Djavax.net.ssl.trustStore=/var/atlassian/application-data/jira/cacerts -v jiraVolume:/var/atlassian/application-data/jira --name="jira" -d -p 8080:8080 atlassian/jira-software
 
 ## Database configuration
 
@@ -264,6 +282,44 @@ of options available:
 * Under Linux, the UID can be remapped using 
   [user namespace remapping](https://docs.docker.com/engine/security/userns-remap/).
 
+## Advanced Configuration
+
+As mentioned at the top of this section, the settings from the environment are
+used to populate the application configuration on the container startup. However
+in some cases you may wish to customise the settings in ways that are not
+supported by the environment variables above. In this case, it is possible to
+modify the base templates to add your own configuration. There are three main
+ways of doing this; modify our repository to your own image, build a new image
+from the existing one, or provide new templates at startup. We will briefly
+outline this methods here, but practice how you do this will depend on your
+needs.
+
+#### Building your own image
+
+* Clone the Atlassian repository at https://bitbucket.org/atlassian-docker/docker-atlassian-jira/
+* Modify or replace the [Jinja](https://jinja.palletsprojects.com/) templates
+  under `config`; _NOTE_: The files must have the `.j2` extensions. However you
+  don't have to use template variables if you don't wish.
+* Build the new image with e.g: `docker build --tag my-jira-8-image --build-arg JIRA_VERSION=8.x.x .`
+* Optionally push to a registry, and deploy.
+
+#### Build a new image from the existing one
+
+* Create a new `Dockerfile`, which starts with the line e.g: `FROM
+  atlassian/jira-software:latest`.
+* Use a `COPY` line to overwrite the provided templates.
+* Build, push and deploy the new image as above.
+
+#### Overwrite the templates at runtime
+
+There are two main ways of doing this:
+
+* If your container is going to be long-lived, you can create it, modify the
+  installed templates under `/opt/atlassian/etc/`, and then run it.
+* Alternatively, you can create a volume containing your alternative templates,
+  and mount it over the provided templates at runtime 
+  with `--volume my-config:/opt/atlassian/etc/`.
+
 # Logging
 
 By default the Jira logs are written inside the container, under
@@ -276,9 +332,9 @@ mount. Additionally, Tomcat-specific logs are written to
 
 To upgrade to a more recent version of Jira you can simply stop the `jira` container and start a new one based on a more recent image:
 
-    $> docker stop jira
-    $> docker rm jira
-    $> docker run ... (See above)
+    docker stop jira
+    docker rm jira
+    docker run ... (See above)
 
 As your data is stored in the data volume directory on the host it will still  be available after the upgrade.
 
