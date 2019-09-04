@@ -56,10 +56,12 @@ with open('/etc/container_id') as fd:
 # Generate all configuration files for Jira
 
 gen_cfg('server.xml.j2',
-        f"{env['jira_install_dir']}/conf/server.xml", env)
+        f"{env['jira_install_dir']}/conf/server.xml", env,
+        user=env['run_user'], group=env['run_group'])
 
 gen_cfg('container_id.j2',
-        '/etc/container_id', env)
+        '/etc/container_id', env,
+        user=env['run_user'], group=env['run_group'])
 
 gen_cfg('dbconfig.xml.j2',
         f"{env['jira_home']}/dbconfig.xml", env,
