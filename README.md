@@ -366,7 +366,7 @@ Alternatively you can use a specific major, major.minor, or major.minor.patch ve
 * `atlassian/jira-core:8.3`
 * `atlassian/jira-core:8.3.0`
 
-All versions from 8.0+ are available
+All versions from 7.13+ are available
 
 # License
 
