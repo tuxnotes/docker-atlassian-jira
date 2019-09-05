@@ -59,9 +59,11 @@ with open('/etc/container_id') as fd:
 ######################################################################
 # Generate all configuration files for Jira
 
-gen_cfg('server.xml.j2',
-        f"{env['jira_install_dir']}/conf/server.xml", env,
-        user=env['run_user'], group=env['run_group'])
+if os.getuid() == 0:
+    gen_cfg('server.xml.j2',
+            f"{env['jira_install_dir']}/conf/server.xml", env)
+else:
+    logging.warning("Container not started as root. Tomcat boostrapping will be skipped.")
 
 gen_cfg('container_id.j2',
         '/etc/container_id', env,

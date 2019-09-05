@@ -1,6 +1,7 @@
 import pytest
 
 import io
+import logging
 import tarfile
 import time
 import xml.etree.ElementTree as etree
@@ -248,3 +249,4 @@ def test_non_root_user(docker_cli, image):
     procs = container.exec_run('ps aux')
     procs_list = procs.output.decode().split('\n')
     jvm = [proc for proc in procs_list if '-Datlassian.standalone=JIRA' in proc][0]
+    assert b'WARNING' in container.logs()
