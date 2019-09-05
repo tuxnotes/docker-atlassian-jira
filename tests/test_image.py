@@ -238,3 +238,13 @@ def test_java_in_jira_user_path(docker_cli, image):
     container = docker_cli.containers.run(image, detach=True)
     proc = container.exec_run('su -c "which java" jira')
     assert len(proc.output) > 0
+
+
+def test_non_root_user(docker_cli, image):
+    RUN_UID = 2001
+    RUN_GID = 2001
+    container = docker_cli.containers.run(image, user=f'{RUN_UID}:{RUN_GID}', detach=True)
+    time.sleep(0.5) # JVM doesn't start immediately when container runs
+    procs = container.exec_run('ps aux')
+    procs_list = procs.output.decode().split('\n')
+    jvm = [proc for proc in procs_list if '-Datlassian.standalone=JIRA' in proc][0]
