@@ -1,16 +1,16 @@
 ![Atlassian Jira Software](https://wac-cdn.atlassian.com/dam/jcr:826c97dc-1f5c-4955-bfcc-ea17d6b0c095/jira%20software-icon-gradient-blue.svg?cdnVersion=492)![Atlassian Jira Service Desk](https://wac-cdn.atlassian.com/dam/jcr:8e0905be-0ee7-4652-ba3a-4e3db1143969/jira%20service%20desk-icon-gradient-blue.svg?cdnVersion=492)![Atlassian Jira Core](https://wac-cdn.atlassian.com/dam/jcr:f89f1ce5-60f1-47c2-b9f5-657de4940d31/jira%20core-icon-gradient-blue.svg?cdnVersion=492)
 
-Jira Software is a software development tool used by agile teams. 
+Jira Software is a software development tool used by agile teams.
 
 * Check out [atlassian/jira-software](http://hub.docker.com/r/atlassian/jira-software/) on Docker Hub
 * Learn more about Jira Software: [https://www.atlassian.com/software/jira](https://www.atlassian.com/software/jira)
 
-Jira Service Desk is a fully featured service desk tool used by modern IT teams. 
+Jira Service Desk is a fully featured service desk tool used by modern IT teams.
 
 * Check out [atlassian/jira-servicedesk](http://hub.docker.com/r/atlassian/jira-servicedesk/) on Docker Hub
 * Learn more about JIRA Service Desk: [https://www.atlassian.com/software/jira/service-desk](https://www.atlassian.com/software/jira/service-desk)
 
-Jira Core is a project and task management solution built for business teams. 
+Jira Core is a project and task management solution built for business teams.
 
 * Check out [atlassian/jira-core](http://hub.docker.com/r/atlassian/jira-core/) on Docker Hub
 * Learn more about JIRA Core: [https://www.atlassian.com/software/jira/core](https://www.atlassian.com/software/jira/core)
@@ -79,7 +79,7 @@ If you need to override Jira's default memory allocation, you can control the mi
 
 ## Reverse Proxy Settings
 
-If Jira is run behind a reverse proxy server (e.g. a load-balancer or nginx server) as 
+If Jira is run behind a reverse proxy server (e.g. a load-balancer or nginx server) as
 [described here](https://confluence.atlassian.com/adminjiraserver072/integrating-jira-with-apache-using-ssl-828788158.html),
 then you need to specify extra options to make Jira aware of the setup. They can
 be controlled via the below environment variables.
@@ -98,7 +98,7 @@ be controlled via the below environment variables.
 * `ATL_TOMCAT_PORT` (default: 8080)
 
    The port for Tomcat/Jira to listen on. Depending on your container
-   deployment method this port may need to be 
+   deployment method this port may need to be
    [exposed and published][docker-expose].
 
 * `ATL_TOMCAT_SCHEME` (default: http)
@@ -166,7 +166,7 @@ The following variables are all must all be supplied if using this feature:
    * `com.mysql.jdbc.Driver`
    * `oracle.jdbc.OracleDriver`
    * `org.postgresql.Driver`
-   
+
    The driver must match the DB type (see next entry).
 
 * `ATL_DB_TYPE`
@@ -209,10 +209,10 @@ optional. For more information on these see: https://tomcat.apache.org/tomcat-7.
 
 ## Data Center configuration
 
-This docker image can be run as part of a 
+This docker image can be run as part of a
 [Data Center](https://confluence.atlassian.com/enterprise/jira-data-center-472219731.html)
 cluster. You can specify the following properties to start Jira as a Data Center
-node, instead of manually configuring a cluster.properties file, See 
+node, instead of manually configuring a cluster.properties file, See
 [Installing Jira Data Center](https://confluence.atlassian.com/adminjiraserver071/installing-jira-data-center-802592197.html)
 for more information on each property and its possible configuration.
 
@@ -292,8 +292,18 @@ filesystem. If for some reason a different UID must be used, there are a number
 of options available:
 
 * The Docker image can be rebuilt with a different UID.
-* Under Linux, the UID can be remapped using 
+* Under Linux, the UID can be remapped using
   [user namespace remapping](https://docs.docker.com/engine/security/userns-remap/).
+
+To preserve strict permissions for certain configuration files, this container starts as
+`root` to perform bootstrapping before running Jira under a non-privileged user account.
+If you wish to start the container as a non-root user, please note that Tomcat
+configuration will be skipped and a warning will be logged. You may still apply custom
+configuration in this situation by mounting a custom server.xml file directly to
+`/opt/atlassian/jira/conf/server.xml`
+
+Database and Clustering bootstrapping will work as expected when starting this container
+as a non-root user.
 
 ## Advanced Configuration
 
@@ -330,7 +340,7 @@ There are two main ways of doing this:
 * If your container is going to be long-lived, you can create it, modify the
   installed templates under `/opt/atlassian/etc/`, and then run it.
 * Alternatively, you can create a volume containing your alternative templates,
-  and mount it over the provided templates at runtime 
+  and mount it over the provided templates at runtime
   with `--volume my-config:/opt/atlassian/etc/`.
 
 # Logging

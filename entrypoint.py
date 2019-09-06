@@ -15,8 +15,12 @@ import base64
 logging.basicConfig(level=logging.DEBUG)
 
 def set_perms(path, user, group, mode):
-    shutil.chown(path, user=user, group=group)
-    os.chmod(path, mode)
+    for dirpath, dirnames, filenames in os.walk(path):
+        shutil.chown(dirpath, user=user, group=group)
+        os.chmod(dirpath, mode)
+        for filename in filenames:
+            shutil.chown(os.path.join(dirpath, filename), user=user, group=group)
+            os.chmod(os.path.join(dirpath, filename), mode)
 
 # Setup Jinja2 for templating
 jenv = j2.Environment(
@@ -55,11 +59,15 @@ with open('/etc/container_id') as fd:
 ######################################################################
 # Generate all configuration files for Jira
 
-gen_cfg('server.xml.j2',
-        f"{env['jira_install_dir']}/conf/server.xml", env)
+if os.getuid() == 0:
+    gen_cfg('server.xml.j2',
+            f"{env['jira_install_dir']}/conf/server.xml", env)
+else:
+    logging.warning("Container not started as root. Tomcat boostrapping will be skipped.")
 
 gen_cfg('container_id.j2',
-        '/etc/container_id', env)
+        '/etc/container_id', env,
+        user=env['run_user'], group=env['run_group'])
 
 gen_cfg('dbconfig.xml.j2',
         f"{env['jira_home']}/dbconfig.xml", env,

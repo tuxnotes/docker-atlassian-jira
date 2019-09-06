@@ -9,7 +9,6 @@ ENV RUN_GID							2001
 ENV JIRA_HOME          						/var/atlassian/application-data/jira
 ENV JIRA_INSTALL_DIR   						/opt/atlassian/jira
 
-VOLUME ["${JIRA_HOME}"]
 WORKDIR $JIRA_HOME
 
 # Expose HTTP port
@@ -45,7 +44,10 @@ RUN groupadd --gid ${RUN_GID} ${RUN_GROUP} \
     && sed -i -e 's/^JVM_SUPPORT_RECOMMENDED_ARGS=""$/: \${JVM_SUPPORT_RECOMMENDED_ARGS:=""}/g' ${JIRA_INSTALL_DIR}/bin/setenv.sh \
     && sed -i -e 's/^JVM_\(.*\)_MEMORY="\(.*\)"$/: \${JVM_\1_MEMORY:=\2}/g' ${JIRA_INSTALL_DIR}/bin/setenv.sh \
     \
-    && touch /etc/container_id && chmod 666 /etc/container_id
+    && touch /etc/container_id && chown  ${RUN_USER}:${RUN_GROUP} /etc/container_id \
+    && chown -R ${RUN_USER}:${RUN_GROUP} ${JIRA_HOME}
+
+VOLUME ["${JIRA_HOME}"] # Must be declared after setting perms
 
 COPY entrypoint.py					/entrypoint.py
 COPY config/*						/opt/atlassian/etc/
