@@ -168,6 +168,15 @@ def test_cluster_properties_defaults(docker_cli, image):
 
     assert properties.get('jira.node.id') == container_id
     assert properties.get('jira.shared.home') == '/var/atlassian/application-data/jira/shared'
+    assert properties.get('ehcache.peer.discovery') is None
+    assert properties.get('ehcache.listener.hostName') is None
+    assert properties.get('ehcache.listener.port') is None
+    assert properties.get('ehcache.object.port') is None
+    assert properties.get('ehcache.listener.socketTimeoutMillis') is None
+    assert properties.get('ehcache.multicast.address') is None
+    assert properties.get('ehcache.multicast.port') is None
+    assert properties.get('ehcache.multicast.timeToLive') is None
+    assert properties.get('ehcache.multicast.hostName') is None
 
 
 def test_cluster_properties_params(docker_cli, image):
