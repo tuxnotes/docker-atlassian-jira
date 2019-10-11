@@ -17,7 +17,27 @@ Jira Core is a project and task management solution built for business teams.
 
 # Contents
 
-[TOC]
+- [Contents](#contents)
+- [Overview](#overview)
+- [Quick Start](#quick-start)
+- [Configuring Jira](#configuring-jira)
+  - [Memory / Heap Size](#memory--heap-size)
+  - [Reverse Proxy Settings](#reverse-proxy-settings)
+  - [JVM configuration](#jvm-configuration)
+  - [Database configuration](#database-configuration)
+    - [Optional database settings](#optional-database-settings)
+  - [Data Center configuration](#data-center-configuration)
+    - [Cluster configuration](#cluster-configuration)
+    - [Shared directory and user IDs](#shared-directory-and-user-ids)
+  - [Advanced Configuration](#advanced-configuration)
+      - [Building your own image](#building-your-own-image)
+      - [Build a new image from the existing one](#build-a-new-image-from-the-existing-one)
+      - [Overwrite the templates at runtime](#overwrite-the-templates-at-runtime)
+- [Logging](#logging)
+- [Upgrades](#upgrades)
+- [Backup](#backup)
+- [Versioning](#versioning)
+- [License](#license)
 
 # Overview
 
