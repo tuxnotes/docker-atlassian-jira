@@ -178,7 +178,20 @@ The following variables are all must all be supplied if using this feature:
    * `oracle10g`
    * `postgres72`
 
-Note: Due to licensing restrictions Jira does not ship with a MySQL or
+The following variables may be optionally supplied when configuring the
+database from the environment:
+
+* `ATL_DB_SCHEMA_NAME`
+
+   The schema name of the database. Depending on the value of `ATL_DB_TYPE`,
+   the following default values are used if no schema name is specified:
+
+   * `mssql`: `dbo`
+   * `mysql`: `public`
+   * `oracle10g`: NONE
+   * `postgres72`: `public`
+
+Note: Due to licensing restrictions Jira does not ship with MySQL or
 Oracle JDBC drivers. To use these databases you will need to copy a suitable
 driver into the container and restart it. For example, to copy the MySQL driver
 into a container named "jira", you would do the following:
@@ -186,7 +199,7 @@ into a container named "jira", you would do the following:
     docker cp mysql-connector-java.x.y.z.jar jira:/opt/atlassian/jira/lib
     docker restart jira
 
-For more information see the page 
+For more information see the page
 [Startup check: JIRA database driver missing](https://confluence.atlassian.com/jirakb/startup-check-jira-database-driver-missing-873872169.html).
 
 ### Optional database settings
