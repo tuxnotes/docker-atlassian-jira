@@ -3,7 +3,13 @@
 <jira-database-config>
   <name>defaultDS</name>
   <delegator-name>default</delegator-name>
-  <schema-name>public</schema-name>
+  {% set schema_names = {
+    "mssql": "dbo",
+    "mysql": "public",
+    "oracle10g": "",
+    "postgres72": "public"
+  } %}
+  <schema-name>{{ atl_db_schema_name | default(schema_names.get(atl_db_type, '')) }}</schema-name>
   <database-type>{{ atl_db_type }}</database-type>
   <jdbc-datasource>
     <url>{{ atl_jdbc_url }}</url>

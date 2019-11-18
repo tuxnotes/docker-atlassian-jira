@@ -111,6 +111,25 @@ def test_dbconfig_xml_defaults(docker_cli, image):
     assert xml.findtext('.//pool-test-while-idle') == 'true'
     assert xml.findtext('.//pool-test-on-borrow') == 'false'
 
+@pytest.mark.parametrize('atl_db_type', ['mssql', 'mysql', 'oracle10g', 'postgres72', 'dummyvalue'])
+def test_dbconfig_xml_default_schema_names(docker_cli, image, atl_db_type):
+    default_schema_names = {
+        'mssql': 'dbo',
+        'mysql': 'public',
+        'oracle10g': '',
+        'postgres72': 'public',
+    }
+    schema_name = default_schema_names.get(atl_db_type, '')
+    
+    environment = {
+        'ATL_DB_TYPE': atl_db_type,
+    }
+    
+    container = docker_cli.containers.run(image, environment=environment, detach=True)
+    dbconfig_xml = get_fileobj_from_container(container, '/var/atlassian/application-data/jira/dbconfig.xml')
+    xml = etree.parse(dbconfig_xml)
+    
+    assert xml.findtext('.//schema-name') == schema_name
 
 def test_dbconfig_xml_params(docker_cli, image):
     environment = {
@@ -119,6 +138,7 @@ def test_dbconfig_xml_params(docker_cli, image):
         'ATL_JDBC_URL': 'jdbc:postgresql://mypostgres.mycompany.org:5432/jiradb',
         'ATL_JDBC_USER': 'jiradbuser',
         'ATL_JDBC_PASSWORD': 'jiradbpassword',
+        'ATL_DB_SCHEMA_NAME': 'private',
         'ATL_DB_MAXIDLE': '21',
         'ATL_DB_MAXWAITMILLIS': '30001',
         'ATL_DB_MINEVICTABLEIDLETIMEMILLIS': '5001',
@@ -141,6 +161,7 @@ def test_dbconfig_xml_params(docker_cli, image):
     assert xml.findtext('.//url') == environment.get('ATL_JDBC_URL')
     assert xml.findtext('.//username') == environment.get('ATL_JDBC_USER')
     assert xml.findtext('.//password') == environment.get('ATL_JDBC_PASSWORD')
+    assert xml.findtext('.//schema-name') == environment.get('ATL_DB_SCHEMA_NAME')
 
     assert xml.findtext('.//pool-min-size') == environment.get('ATL_DB_POOLMINSIZE')
     assert xml.findtext('.//pool-max-size') == environment.get('ATL_DB_POOLMAXSIZE')
