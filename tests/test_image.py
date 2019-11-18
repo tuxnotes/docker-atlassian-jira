@@ -1,33 +1,15 @@
 import pytest
 
-import io
-import logging
-import tarfile
-import time
-import xml.etree.ElementTree as etree
-
-import requests
-
-
-# Helper function to get a file-like object from an image
-def get_fileobj_from_container(container, filepath):
-    time.sleep(0.5) # Give container a moment if just started
-    stream, stat = container.get_archive(filepath)
-    f = io.BytesIO()
-    for chunk in stream:
-        f.write(chunk)
-    f.seek(0)
-    with tarfile.open(fileobj=f, mode='r') as tar:
-        filename = tar.getmembers()[0].name
-        file = tar.extractfile(filename)
-    return file
+from helpers import get_app_home, get_app_install_dir, get_bootstrap_proc, get_procs, \
+    parse_properties, parse_xml, run_image, wait_for_http_response, wait_for_proc
 
 
 
 def test_server_xml_defaults(docker_cli, image):
-    container = docker_cli.containers.run(image, detach=True)
-    server_xml = get_fileobj_from_container(container, '/opt/atlassian/jira/conf/server.xml')
-    xml = etree.parse(server_xml)
+    container = run_image(docker_cli, image)
+    _jvm = wait_for_proc(container, get_bootstrap_proc(container))
+    
+    xml = parse_xml(container, f'{get_app_install_dir(container)}/conf/server.xml')
     connector = xml.find('.//Connector')
     context = xml.find('.//Context')
 
@@ -52,7 +34,7 @@ def test_server_xml_params(docker_cli, image):
         'ATL_TOMCAT_MINSPARETHREADS': '11',
         'ATL_TOMCAT_CONNECTIONTIMEOUT': '20001',
         'ATL_TOMCAT_ENABLELOOKUPS': 'true',
-        'ATL_TOMCAT_PROTOCOL': 'HTTP/2',
+        'ATL_TOMCAT_PROTOCOL': 'org.apache.coyote.http11.Http11Protocol',
         'ATL_TOMCAT_ACCEPTCOUNT': '11',
         'ATL_TOMCAT_SECURE': 'true',
         'ATL_TOMCAT_SCHEME': 'https',
@@ -60,14 +42,14 @@ def test_server_xml_params(docker_cli, image):
         'ATL_PROXY_PORT': '443',
         'ATL_TOMCAT_CONTEXTPATH': '/myjira',
     }
-    container = docker_cli.containers.run(image, environment=environment, detach=True)
-    server_xml = get_fileobj_from_container(container, '/opt/atlassian/jira/conf/server.xml')
-    xml = etree.parse(server_xml)
-    server = xml.getroot()
+    container = run_image(docker_cli, image, environment=environment)
+    _jvm = wait_for_proc(container, get_bootstrap_proc(container))
+    
+    xml = parse_xml(container, f'{get_app_install_dir(container)}/conf/server.xml')
     connector = xml.find('.//Connector')
     context = xml.find('.//Context')
 
-    assert server.get('port') == environment.get('ATL_TOMCAT_MGMT_PORT')
+    assert xml.get('port') == environment.get('ATL_TOMCAT_MGMT_PORT')
 
     assert connector.get('port') == environment.get('ATL_TOMCAT_PORT')
     assert connector.get('maxThreads') == environment.get('ATL_TOMCAT_MAXTHREADS')
@@ -92,9 +74,10 @@ def test_dbconfig_xml_defaults(docker_cli, image):
         'ATL_JDBC_USER': 'jiradbuser',
         'ATL_JDBC_PASSWORD': 'jiradbpassword',
     }
-    container = docker_cli.containers.run(image, environment=environment, detach=True)
-    dbconfig_xml = get_fileobj_from_container(container, '/var/atlassian/application-data/jira/dbconfig.xml')
-    xml = etree.parse(dbconfig_xml)
+    container = run_image(docker_cli, image, environment=environment)
+    _jvm = wait_for_proc(container, get_bootstrap_proc(container))
+    
+    xml = parse_xml(container, f'{get_app_home(container)}/dbconfig.xml')
 
     assert xml.findtext('.//pool-min-size') == '20'
     assert xml.findtext('.//pool-max-size') == '100'
@@ -111,8 +94,9 @@ def test_dbconfig_xml_defaults(docker_cli, image):
     assert xml.findtext('.//pool-test-while-idle') == 'true'
     assert xml.findtext('.//pool-test-on-borrow') == 'false'
 
+
 @pytest.mark.parametrize('atl_db_type', ['mssql', 'mysql', 'oracle10g', 'postgres72', 'dummyvalue'])
-def test_dbconfig_xml_default_schema_names(docker_cli, image, atl_db_type):
+def test_dbconfig_xml_default_schema_names(docker_cli, image, run_user, atl_db_type):
     default_schema_names = {
         'mssql': 'dbo',
         'mysql': 'public',
@@ -124,14 +108,15 @@ def test_dbconfig_xml_default_schema_names(docker_cli, image, atl_db_type):
     environment = {
         'ATL_DB_TYPE': atl_db_type,
     }
-    
-    container = docker_cli.containers.run(image, environment=environment, detach=True)
-    dbconfig_xml = get_fileobj_from_container(container, '/var/atlassian/application-data/jira/dbconfig.xml')
-    xml = etree.parse(dbconfig_xml)
+    container = run_image(docker_cli, image, user=run_user, environment=environment)
+    _jvm = wait_for_proc(container, get_bootstrap_proc(container))
+
+    xml = parse_xml(container, f'{get_app_home(container)}/dbconfig.xml')
     
     assert xml.findtext('.//schema-name') == schema_name
 
-def test_dbconfig_xml_params(docker_cli, image):
+
+def test_dbconfig_xml_params(docker_cli, image, run_user):
     environment = {
         'ATL_DB_TYPE': 'postgres72',
         'ATL_DB_DRIVER': 'org.postgresql.Driver',
@@ -152,9 +137,10 @@ def test_dbconfig_xml_params(docker_cli, image):
         'ATL_DB_TIMEBETWEENEVICTIONRUNSMILLIS': '30001',
         'ATL_DB_VALIDATIONQUERY': 'select 2',
     }
-    container = docker_cli.containers.run(image, environment=environment, detach=True)
-    dbconfig_xml = get_fileobj_from_container(container, '/var/atlassian/application-data/jira/dbconfig.xml')
-    xml = etree.parse(dbconfig_xml)
+    container = run_image(docker_cli, image, user=run_user, environment=environment)
+    _jvm = wait_for_proc(container, get_bootstrap_proc(container))
+
+    xml = parse_xml(container, f'{get_app_home(container)}/dbconfig.xml')
 
     assert xml.findtext('.//database-type') == environment.get('ATL_DB_TYPE')
     assert xml.findtext('.//driver-class') == environment.get('ATL_DB_DRIVER')
@@ -177,15 +163,15 @@ def test_dbconfig_xml_params(docker_cli, image):
     assert xml.findtext('.//pool-test-on-borrow') == environment.get('ATL_DB_TESTONBORROW')
 
 
-def test_cluster_properties_defaults(docker_cli, image):
+def test_cluster_properties_defaults(docker_cli, image, run_user):
     environment = {
         'CLUSTERED': 'true',
     }
-    container = docker_cli.containers.run(image, environment=environment, detach=True)
-    cluster_properties = get_fileobj_from_container(container, '/var/atlassian/application-data/jira/cluster.properties')
-    properties_str = cluster_properties.read().decode().strip().split('\n')
-    properties = dict(item.split("=") for item in properties_str)
-    container_id = get_fileobj_from_container(container, '/etc/container_id').read().decode().strip()
+    container = run_image(docker_cli, image, environment=environment)
+    _jvm = wait_for_proc(container, get_bootstrap_proc(container))
+    
+    properties = parse_properties(container, f'{get_app_home(container)}/cluster.properties')
+    container_id = container.file('/etc/container_id').content.decode().strip()
 
     assert properties.get('jira.node.id') == container_id
     assert properties.get('jira.shared.home') == '/var/atlassian/application-data/jira/shared'
@@ -200,7 +186,7 @@ def test_cluster_properties_defaults(docker_cli, image):
     assert properties.get('ehcache.multicast.hostName') is None
 
 
-def test_cluster_properties_params(docker_cli, image):
+def test_cluster_properties_params(docker_cli, image, run_user):
     environment = {
         'CLUSTERED': 'true',
         'JIRA_NODE_ID': 'jiradc1',
@@ -215,10 +201,10 @@ def test_cluster_properties_params(docker_cli, image):
         'EHCACHE_MULTICAST_TIMETOLIVE': '1000',
         'EHCACHE_MULTICAST_HOSTNAME': 'jiradc1.local',
     }
-    container = docker_cli.containers.run(image, environment=environment, detach=True)
-    cluster_properties = get_fileobj_from_container(container, '/var/atlassian/application-data/jira/cluster.properties')
-    properties_str = cluster_properties.read().decode().strip().split('\n')
-    properties = dict(item.split("=") for item in properties_str)
+    container = run_image(docker_cli, image, user=run_user, environment=environment)
+    _jvm = wait_for_proc(container, get_bootstrap_proc(container))
+    
+    properties = parse_properties(container, f'{get_app_home(container)}/cluster.properties')
 
     assert properties.get('jira.node.id') == environment.get('JIRA_NODE_ID')
     assert properties.get('jira.shared.home') == environment.get('JIRA_SHARED_HOME')
@@ -233,50 +219,33 @@ def test_cluster_properties_params(docker_cli, image):
     assert properties.get('ehcache.multicast.hostName') == environment.get('EHCACHE_MULTICAST_HOSTNAME')
 
 
-def test_jvm_args(docker_cli, image):
+def test_jvm_args(docker_cli, image, run_user):
     environment = {
         'JVM_MINIMUM_MEMORY': '383m',
         'JVM_MAXIMUM_MEMORY': '2047m',
         'JVM_SUPPORT_RECOMMENDED_ARGS': '-verbose:gc',
     }
-    container = docker_cli.containers.run(image, environment=environment, detach=True)
-    time.sleep(0.5) # JVM doesn't start immediately when container runs
-    procs = container.exec_run('ps aux')
-    procs_list = procs.output.decode().split('\n')
-    jvm = [proc for proc in procs_list if '-Datlassian.standalone=JIRA' in proc][0]
+    container = run_image(docker_cli, image, user=run_user, environment=environment)
+    _jvm = wait_for_proc(container, get_bootstrap_proc(container))
+    
+    procs_list = get_procs(container)
+    jvm = [proc for proc in procs_list if get_bootstrap_proc(container) in proc][0]
+    
     assert f'-Xms{environment.get("JVM_MINIMUM_MEMORY")}' in jvm
     assert f'-Xmx{environment.get("JVM_MAXIMUM_MEMORY")}' in jvm
     assert environment.get('JVM_SUPPORT_RECOMMENDED_ARGS') in jvm
 
 
-def test_first_run_state(docker_cli, image):
-    container = docker_cli.containers.run(image, ports={8080: 8080}, detach=True)
-    for i in range(20):
-        try:
-            r = requests.get('http://localhost:8080/status')
-        except requests.exceptions.ConnectionError:
-            pass
-        else:
-            if r.status_code == 200:
-                state = r.json().get('state')
-                assert state in ('STARTING', 'FIRST_RUN')
-                return
-        time.sleep(1)
-    raise TimeoutError
+def test_first_run_state(docker_cli, image, run_user):
+    PORT = 8080
+    URL = f'http://localhost:{PORT}/status'
+    
+    container = run_image(docker_cli, image, user=run_user, ports={PORT: PORT})
+    
+    wait_for_http_response(URL, expected_status=200, expected_state=('STARTING', 'FIRST_RUN'))
 
 
-def test_java_in_jira_user_path(docker_cli, image):
-    container = docker_cli.containers.run(image, detach=True)
-    proc = container.exec_run('su -c "which java" jira')
-    assert len(proc.output) > 0
-
-
-def test_non_root_user(docker_cli, image):
-    RUN_UID = 2001
-    RUN_GID = 2001
-    container = docker_cli.containers.run(image, user=f'{RUN_UID}:{RUN_GID}', detach=True)
-    time.sleep(0.5) # JVM doesn't start immediately when container runs
-    procs = container.exec_run('ps aux')
-    procs_list = procs.output.decode().split('\n')
-    jvm = [proc for proc in procs_list if '-Datlassian.standalone=JIRA' in proc][0]
-    assert b'WARNING' in container.logs()
+def test_java_in_user_path(docker_cli, image):
+    container = run_image(docker_cli, image)
+    proc = container.check_output('su -c "which java" ${RUN_USER}')
+    assert len(proc) > 0
