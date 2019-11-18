@@ -177,19 +177,12 @@ pipelines:
             - pip install -q -r shared-components/tests/requirements.txt
             - export PYTHONPATH=./shared-components/tests:$PYTHONPATH
             - export DOCKERFILE='Dockerfile'
-            - export DOCKERFILE_VERSION_ARG='JIRA_VERSION'
-            # Test JSW
             - export DOCKERFILE_BUILDARGS='ARTEFACT_NAME=atlassian-jira-software'
+            - export DOCKERFILE_VERSION_ARG='JIRA_VERSION'
             - export MAC_PRODUCT_KEY='jira-software'
             - py.test tests/
             - py.test shared-components/tests/
-            # Test JSD
-            - export DOCKERFILE_BUILDARGS='ARTEFACT_NAME=atlassian-servicedesk'
-            - export MAC_PRODUCT_KEY='jira-servicedesk'
-            - py.test tests/
-            - py.test shared-components/tests/
-            # Test JC
-            - export DOCKERFILE_BUILDARGS='ARTEFACT_NAME=atlassian-jira-core'
-            - export MAC_PRODUCT_KEY='jira'
-            - py.test tests/
-            - py.test shared-components/tests/
+definitions:
+  services:
+    docker:
+      memory: 2048
