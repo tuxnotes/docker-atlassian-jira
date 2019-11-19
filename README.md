@@ -422,15 +422,15 @@ dumps from the containerized application. For example:
 
     docker exec my_jira /opt/atlassian/support/thread-dumps.sh
 
-By default this script will collect 10 thread dumps at a 5 second interval. This can
+By default this script will collect 10 thread dumps at 5 second intervals. This can
 be overridden by passing a custom value for the count and interval, by using `-c` / `--count`
-and `-i` / `--interval` respectively. For example, to collect 20 thread dumps at a 3 second interval:
+and `-i` / `--interval` respectively. For example, to collect 20 thread dumps at 3 second intervals:
 
     docker exec my_container /opt/atlassian/support/thread-dumps.sh --count 20 --interval 3
 
 Thread dumps will be written to `$APP_HOME/thread_dumps/<date>`.
 
-Note: By default this script will capture output from top run in 'Thread-mode'. This can
+Note: By default this script will also capture output from top run in 'Thread-mode'. This can
 be disabled by passing `-n` / `--no-top`
 
 ## Heap dump

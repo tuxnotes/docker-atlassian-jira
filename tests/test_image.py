@@ -173,6 +173,8 @@ def test_cluster_properties_defaults(docker_cli, image, run_user):
     properties = parse_properties(container, f'{get_app_home(container)}/cluster.properties')
     container_id = container.file('/etc/container_id').content.decode().strip()
 
+    assert len(container_id) > 0
+    
     assert properties.get('jira.node.id') == container_id
     assert properties.get('jira.shared.home') == '/var/atlassian/application-data/jira/shared'
     assert properties.get('ehcache.peer.discovery') is None
@@ -184,6 +186,13 @@ def test_cluster_properties_defaults(docker_cli, image, run_user):
     assert properties.get('ehcache.multicast.port') is None
     assert properties.get('ehcache.multicast.timeToLive') is None
     assert properties.get('ehcache.multicast.hostName') is None
+
+
+def test_clustered_false(docker_cli, image, run_user):
+    container = run_image(docker_cli, image)
+    _jvm = wait_for_proc(container, get_bootstrap_proc(container))
+    
+    container.run_test(f'test -f {get_app_home(container)}/cluster.properties')
 
 
 def test_cluster_properties_params(docker_cli, image, run_user):
