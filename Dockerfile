@@ -14,7 +14,7 @@ WORKDIR $JIRA_HOME
 # Expose HTTP port
 EXPOSE 8080
 
-CMD ["/entrypoint.py", "-fg"]
+CMD ["/entrypoint.py"]
 ENTRYPOINT ["/tini", "--"]
 
 RUN apt-get update \
