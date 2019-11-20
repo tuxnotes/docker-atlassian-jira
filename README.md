@@ -318,6 +318,13 @@ configuration in this situation by mounting a custom server.xml file directly to
 Database and Clustering bootstrapping will work as expected when starting this container
 as a non-root user.
 
+## Container configuration
+
+* `SET_PERMISSIONS` (default: true)
+
+   Define whether to set home directory permissions on startup. Set to `false` to disable
+   this behaviour.
+
 ## Advanced Configuration
 
 As mentioned at the top of this section, the settings from the environment are
@@ -403,6 +410,45 @@ Alternatively you can use a specific major, major.minor, or major.minor.patch ve
 * `atlassian/jira-core:8.3.0`
 
 All versions from 7.13+ are available
+
+# Troubleshooting
+
+These images include built-in scripts to assist in performing common JVM diagnostic tasks.
+
+## Thread dumps
+
+`/opt/atlassian/support/thread-dumps.sh` can be run via `docker exec` to easily trigger the collection of thread
+dumps from the containerized application. For example:
+
+    docker exec my_jira /opt/atlassian/support/thread-dumps.sh
+
+By default this script will collect 10 thread dumps at 5 second intervals. This can
+be overridden by passing a custom value for the count and interval, by using `-c` / `--count`
+and `-i` / `--interval` respectively. For example, to collect 20 thread dumps at 3 second intervals:
+
+    docker exec my_container /opt/atlassian/support/thread-dumps.sh --count 20 --interval 3
+
+Thread dumps will be written to `$APP_HOME/thread_dumps/<date>`.
+
+Note: By default this script will also capture output from top run in 'Thread-mode'. This can
+be disabled by passing `-n` / `--no-top`
+
+## Heap dump
+
+`/opt/atlassian/support/heap-dump.sh` can be run via `docker exec` to easily trigger the collection of a heap
+dump from the containerized application. For example:
+
+    docker exec my_container /opt/atlassian/support/heap-dump.sh
+
+A heap dump will be written to `$APP_HOME/heap.bin`. If a file already exists at this
+location, use `-f` / `--force` to overwrite the existing heap dump file.
+
+## Manual diagnostics
+
+The `jcmd` utility is also included in these images and can be used by starting a `bash` shell
+in the running container:
+
+    docker exec -it my_container /bin/bash
 
 # License
 

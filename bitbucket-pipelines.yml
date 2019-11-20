@@ -8,6 +8,7 @@ pipelines:
           services:
             - docker
           script:
+            - git submodule update --init --recursive
             - export START_VERSION='7.13'
             - export END_VERSION='9'
             - export CONCURRENT_BUILDS='4'
@@ -24,6 +25,7 @@ pipelines:
           services:
             - docker
           script:
+            - git submodule update --init --recursive
             - export START_VERSION='3.16'
             - export END_VERSION='5'
             - export CONCURRENT_BUILDS='4'
@@ -40,6 +42,7 @@ pipelines:
           services:
             - docker
           script:
+            - git submodule update --init --recursive
             - export START_VERSION='7.13'
             - export END_VERSION='9'
             - export CONCURRENT_BUILDS='4'
@@ -59,9 +62,10 @@ pipelines:
           services:
             - docker
           script:
+            - git submodule update --init --recursive
             - echo ${DOCKER_PASSWORD} | docker login --username ${DOCKER_USERNAME} --password-stdin
             - >
-              docker build -t atlassian/jira-software:${DOCKER_TAG} 
+              docker build -t atlassian/jira-software:${DOCKER_TAG}
               --build-arg ARTEFACT_NAME=atlassian-jira-software
               --build-arg JIRA_VERSION=${JIRA_VERSION} .
             - docker push atlassian/jira-software:${DOCKER_TAG}
@@ -73,7 +77,8 @@ pipelines:
           services:
             - docker
           script:
-            - docker login --username ${DOCKER_USERNAME} --password ${DOCKER_PASSWORD}
+            - git submodule update --init --recursive
+            - echo ${DOCKER_PASSWORD} | docker login --username ${DOCKER_USERNAME} --password-stdin
             - >
               docker build -t atlassian/jira-servicedesk:${DOCKER_TAG}
               --build-arg ARTEFACT_NAME=atlassian-servicedesk
@@ -87,9 +92,10 @@ pipelines:
           services:
             - docker
           script:
-            - docker login --username ${DOCKER_USERNAME} --password ${DOCKER_PASSWORD}
+            - git submodule update --init --recursive
+            - echo ${DOCKER_PASSWORD} | docker login --username ${DOCKER_USERNAME} --password-stdin
             - >
-              docker build -t atlassian/jira-core:${DOCKER_TAG} 
+              docker build -t atlassian/jira-core:${DOCKER_TAG}
               --build-arg ARTEFACT_NAME=atlassian-jira-core
               --build-arg JIRA_VERSION=${JIRA_VERSION} .
             - docker push atlassian/jira-core:${DOCKER_TAG}
@@ -100,6 +106,7 @@ pipelines:
           services:
             - docker
           script:
+            - git submodule update --init --recursive
             - export START_VERSION='7.13'
             - export END_VERSION='9'
             - export CONCURRENT_BUILDS='4'
@@ -116,6 +123,7 @@ pipelines:
           services:
             - docker
           script:
+            - git submodule update --init --recursive
             - export START_VERSION='3.16'
             - export END_VERSION='5'
             - export CONCURRENT_BUILDS='4'
@@ -132,6 +140,7 @@ pipelines:
           services:
             - docker
           script:
+            - git submodule update --init --recursive
             - export START_VERSION='7.13'
             - export END_VERSION='9'
             - export CONCURRENT_BUILDS='4'
@@ -147,13 +156,15 @@ pipelines:
           name: Update README
           image: python:3.7-alpine3.9
           script:
+            - apk add --no-cache git
+            - git submodule update --init --recursive
             - pip install -q requests
             - export DOCKER_REPO='atlassian/jira-software'
-            - python bin/push-readme.py
+            - python shared-components/image/push-readme.py
             - export DOCKER_REPO='atlassian/jira-servicedesk'
-            - python bin/push-readme.py
+            - python shared-components/image/push-readme.py
             - export DOCKER_REPO='atlassian/jira-core'
-            - python bin/push-readme.py
+            - python shared-components/image/push-readme.py
   pull-requests:
     '**':
       - step:
@@ -161,5 +172,17 @@ pipelines:
           services:
             - docker
           script:
-            - pip install -q -r tests/test-requirements.txt
+            - apk add --no-cache git
+            - git submodule update --init --recursive
+            - pip install -q -r shared-components/tests/requirements.txt
+            - export PYTHONPATH=./shared-components/tests:$PYTHONPATH
+            - export DOCKERFILE='Dockerfile'
+            - export DOCKERFILE_BUILDARGS='ARTEFACT_NAME=atlassian-jira-software'
+            - export DOCKERFILE_VERSION_ARG='JIRA_VERSION'
+            - export MAC_PRODUCT_KEY='jira-software'
             - py.test tests/
+            - py.test shared-components/tests/
+definitions:
+  services:
+    docker:
+      memory: 2048
