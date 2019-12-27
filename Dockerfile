@@ -1,4 +1,5 @@
-FROM adoptopenjdk/openjdk8:slim
+ARG BASE_IMAGE=adoptopenjdk/openjdk8:slim
+FROM $BASE_IMAGE
 
 ENV RUN_USER                                        jira
 ENV RUN_GROUP                                       jira
