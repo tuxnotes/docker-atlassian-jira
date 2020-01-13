@@ -18,7 +18,7 @@ EXPOSE 8080
 CMD ["/entrypoint.py"]
 ENTRYPOINT ["/tini", "--"]
 
-RUN apt-get update \
+RUN apt-get update && apt-get upgrade -y \
     && apt-get install -y --no-install-recommends fontconfig python3 python3-jinja2 \
     && apt-get clean autoclean && apt-get autoremove -y && rm -rf /var/lib/apt/lists/*
 
