@@ -455,7 +455,7 @@ in the running container:
 For product support, go to
 [support.atlassian.com](https://support.atlassian.com/). 
 
-Note that these images are built on the [AdoptOpenJDK][11] images. Prior to Jira
+Note that these images are built on the [AdoptOpenJDK][aojdk] images. Prior to Jira
 7.13 OpenJDK was not a supported platform. See [the 7.13
 release-notes](https://confluence.atlassian.com/jirasoftware/jira-software-release-notes-776821069.html)
 for more information.
@@ -466,3 +466,4 @@ Copyright © 2020 Atlassian Corporation Pty Ltd.
 Licensed under the Apache License, Version 2.0.
 
 [docker-expose]: https://docs.docker.com/v17.09/engine/userguide/networking/default_network/binding/
+[aojdk]: https://adoptopenjdk.net/
