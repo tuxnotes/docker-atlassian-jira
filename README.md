@@ -450,9 +450,22 @@ in the running container:
 
     docker exec -it my_container /bin/bash
 
+# Support
+
+For product support, go to:
+
+* https://support.atlassian.com/jira-software-server/
+* https://support.atlassian.com/jira-service-desk-server/
+* https://support.atlassian.com/jira-core-server/
+
+Note that these images are built on the [AdoptOpenJDK](https://adoptopenjdk.net/) images. Prior to Jira
+7.13 OpenJDK was not a supported platform (3.16 for Service Desk). See [the 7.13
+release-notes](https://confluence.atlassian.com/jirasoftware/jira-software-release-notes-776821069.html)
+for more information.
+
 # License
 
-Copyright © 2019 Atlassian Corporation Pty Ltd.
+Copyright © 2020 Atlassian Corporation Pty Ltd.
 Licensed under the Apache License, Version 2.0.
 
 [docker-expose]: https://docs.docker.com/v17.09/engine/userguide/networking/default_network/binding/
