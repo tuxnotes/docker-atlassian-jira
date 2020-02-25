@@ -77,6 +77,10 @@ If you need to override Jira's default memory allocation, you can control the mi
 
    The maximum heap size of the JVM
 
+* `JVM_RESERVED_CODE_CACHE_SIZE` (default: 512m)
+
+    The reserved code cache size of the JVM
+
 ## Reverse Proxy Settings
 
 If Jira is run behind a reverse proxy server (e.g. a load-balancer or nginx server) as
