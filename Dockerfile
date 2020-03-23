@@ -1,4 +1,4 @@
-ARG BASE_IMAGE=adoptopenjdk/openjdk8:slim
+ARG BASE_IMAGE=adoptopenjdk:8-hotspot
 FROM $BASE_IMAGE
 
 ENV RUN_USER                                        jira
