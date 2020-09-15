@@ -15,7 +15,10 @@ services:
       - "LANG=C"
 
   jira:
-    image: jira-test
+    build:
+      context: .
+      args:
+        - JIRA_VERSION
     depends_on:
       - postgresql
     ports:
@@ -33,4 +36,18 @@ services:
           /opt/atlassian/support/waitport postgresql 5432 &&
           chown -R jira.jira  /var/atlassian/application-data/jira/ &&
           /entrypoint.py
+      '
+
+  smoketests:
+    build:
+      context: ./smoketest-image/
+    environment:
+      - 'JIRA_BASE_URL=http://jira:8080/jira'
+      - 'JIRA_ADMIN='
+      - 'JIRA_ADMIN_PWD=admin'
+      - 'JIRA_USER=user'
+      - 'JIRA_USER_PWD=password'
+    command: >
+      bash -c '
+          sleep 1000000
       '
