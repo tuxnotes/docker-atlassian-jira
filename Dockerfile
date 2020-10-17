@@ -16,15 +16,11 @@ WORKDIR $JIRA_HOME
 EXPOSE 8080
 
 CMD ["/entrypoint.py"]
-ENTRYPOINT ["/tini", "--"]
+ENTRYPOINT ["/usr/bin/tini", "--"]
 
 RUN apt-get update && apt-get upgrade -y \
-    && apt-get install -y --no-install-recommends fontconfig python3 python3-jinja2 \
+    && apt-get install -y --no-install-recommends fontconfig python3 python3-jinja2 tini \
     && apt-get clean autoclean && apt-get autoremove -y && rm -rf /var/lib/apt/lists/*
-
-ARG TINI_VERSION=v0.18.0
-ADD https://github.com/krallin/tini/releases/download/${TINI_VERSION}/tini /tini
-RUN chmod +x /tini
 
 ARG JIRA_VERSION
 ARG ARTEFACT_NAME=atlassian-jira-software
