@@ -1,19 +1,19 @@
-![Atlassian Jira Software](https://wac-cdn.atlassian.com/dam/jcr:826c97dc-1f5c-4955-bfcc-ea17d6b0c095/jira%20software-icon-gradient-blue.svg?cdnVersion=492)![Atlassian Jira Service Desk](https://wac-cdn.atlassian.com/dam/jcr:8e0905be-0ee7-4652-ba3a-4e3db1143969/jira%20service%20desk-icon-gradient-blue.svg?cdnVersion=492)![Atlassian Jira Core](https://wac-cdn.atlassian.com/dam/jcr:f89f1ce5-60f1-47c2-b9f5-657de4940d31/jira%20core-icon-gradient-blue.svg?cdnVersion=492)
+![Atlassian Jira Software](https://wac-cdn.atlassian.com/dam/jcr:826c97dc-1f5c-4955-bfcc-ea17d6b0c095/jira%20software-icon-gradient-blue.svg?cdnVersion=492)![Atlassian Jira Service Management](https://wac-cdn.atlassian.com/dam/jcr:8e0905be-0ee7-4652-ba3a-4e3db1143969/jira%20service%20desk-icon-gradient-blue.svg?cdnVersion=492)![Atlassian Jira Core](https://wac-cdn.atlassian.com/dam/jcr:f89f1ce5-60f1-47c2-b9f5-657de4940d31/jira%20core-icon-gradient-blue.svg?cdnVersion=492)
 
-Jira Software is a software development tool used by agile teams.
+Jira Software Data Center helps the world’s best agile teams plan, track, and release great software at scale.
 
 * Check out [atlassian/jira-software](http://hub.docker.com/r/atlassian/jira-software/) on Docker Hub
 * Learn more about Jira Software: [https://www.atlassian.com/software/jira](https://www.atlassian.com/software/jira)
 
-Jira Service Desk is a fully featured service desk tool used by modern IT teams.
+Jira Service Management Data Center is an enterprise ITSM solution that offers high availability, meeting your security and compliance needs so no request goes unresolved.
 
-* Check out [atlassian/jira-servicedesk](http://hub.docker.com/r/atlassian/jira-servicedesk/) on Docker Hub
-* Learn more about JIRA Service Desk: [https://www.atlassian.com/software/jira/service-desk](https://www.atlassian.com/software/jira/service-desk)
+* Check out [atlassian/jira-servicemanagement](http://hub.docker.com/r/atlassian/jira-servicemanagement/) on Docker Hub
+* Learn more about Jira Service Management: [https://www.atlassian.com/software/jira/service-management](https://www.atlassian.com/software/jira/service-management)
 
 Jira Core is a project and task management solution built for business teams.
 
 * Check out [atlassian/jira-core](http://hub.docker.com/r/atlassian/jira-core/) on Docker Hub
-* Learn more about JIRA Core: [https://www.atlassian.com/software/jira/core](https://www.atlassian.com/software/jira/core)
+* Learn more about Jira Core: [https://www.atlassian.com/software/jira/core](https://www.atlassian.com/software/jira/core)
 
 # Contents
 
@@ -21,7 +21,7 @@ Jira Core is a project and task management solution built for business teams.
 
 # Overview
 
-This Docker container makes it easy to get an instance of Jira Software, Service Desk or Core up and running.
+This Docker container makes it easy to get an instance of Jira Software, Service Management or Core up and running.
 
 Note: Jira Software will be referenced in the examples provided.
 
@@ -242,7 +242,7 @@ for more information on each property and its possible configuration.
 
 ### Cluster configuration
 
-*Jira Software and Jira Service Desk only*
+*Jira Software and Jira Service Management only*
 
 * `CLUSTERED` (default: false)
 
@@ -404,23 +404,25 @@ Read more about data recovery and backups: [https://confluence.atlassian.com/adm
 
 # Versioning
 
-The `latest` tag matches the most recent release of Atlassian Jira Software, Jira Core or Jira Service Desk. Thus `atlassian/jira-software:latest` will use the newest version of Jira available.
+The `latest` tag matches the most recent release of Atlassian Jira Software, Jira Core or Jira Service Management. Thus `atlassian/jira-software:latest` will use the newest version of Jira available.
 
 Alternatively you can use a specific major, major.minor, or major.minor.patch version of Jira by using a version number tag:
 
 * `atlassian/jira-software:8`
-* `atlassian/jira-software:8.3`
-* `atlassian/jira-software:8.3.0`
+* `atlassian/jira-software:8.14`
+* `atlassian/jira-software:8.14.0`
 
-* `atlassian/jira-servicedesk:4`
-* `atlassian/jira-servicedesk:4.3`
-* `atlassian/jira-servicedesk:4.3.0`
+* `atlassian/jira-servicemanagement:4`
+* `atlassian/jira-servicemanagement:4.14`
+* `atlassian/jira-servicemanagement:4.14.0`
 
 * `atlassian/jira-core:8`
-* `atlassian/jira-core:8.3`
-* `atlassian/jira-core:8.3.0`
+* `atlassian/jira-core:8.14`
+* `atlassian/jira-core:8.14.0`
 
-All versions from 7.13+ are available
+All Jira versions from 7.13+ (Software/Core) / 3.16+ (Service Management) are available. 
+
+Note: All Jira Service Management 4.x versions are also available as `atlassian/jira-servicedesk`. This namespace has been deprecated and versions from 5+ onwards will only be available as `atlassian/jira-servicemanagement`.
 
 # Troubleshooting
 
@@ -466,11 +468,11 @@ in the running container:
 For product support, go to:
 
 * https://support.atlassian.com/jira-software-server/
-* https://support.atlassian.com/jira-service-desk-server/
+* https://support.atlassian.com/jira-service-management-server/
 * https://support.atlassian.com/jira-core-server/
 
 Note that these images are built on the [AdoptOpenJDK](https://adoptopenjdk.net/) images. Prior to Jira
-7.13 OpenJDK was not a supported platform (3.16 for Service Desk). See [the 7.13
+7.13 OpenJDK was not a supported platform (3.16 for Service Management). See [the 7.13
 release-notes](https://confluence.atlassian.com/jirasoftware/jira-software-release-notes-776821069.html)
 for more information.
 
