@@ -39,7 +39,7 @@ pipelines:
                 - echo ${DOCKER_PASSWORD} | docker login --username ${DOCKER_USERNAME} --password-stdin
                 - python /usr/src/app/run.py --create --create-eap
           - step:
-              name: Jira Service Desk JDK 8
+              name: Jira Service Management JDK 8
               services:
                 - docker
               script:
@@ -48,15 +48,18 @@ pipelines:
                 - export END_VERSION='5'
                 - export CONCURRENT_BUILDS='4'
                 - export DEFAULT_RELEASE='true'
-                - export DOCKER_REPO='atlassian/jira-servicedesk'
+                - export DOCKER_REPO='atlassian/jira-servicemanagement'
                 - export DOCKERFILE_BUILDARGS='ARTEFACT_NAME=atlassian-servicedesk'
                 - export DOCKERFILE_VERSION_ARG='JIRA_VERSION'
                 - export MAC_PRODUCT_KEY='jira-servicedesk'
                 - export TAG_SUFFIXES='jdk8,ubuntu'
                 - echo ${DOCKER_PASSWORD} | docker login --username ${DOCKER_USERNAME} --password-stdin
                 - python /usr/src/app/run.py --create --create-eap
+                # Republish as Jira Service Desk
+                - export DOCKER_REPO='atlassian/jira-servicedesk'
+                - python /usr/src/app/run.py --create
           - step:
-              name: Jira Service Desk JDK 11
+              name: Jira Service Management JDK 11
               services:
                 - docker
               script:
@@ -65,13 +68,16 @@ pipelines:
                 - export END_VERSION='5'
                 - export CONCURRENT_BUILDS='4'
                 - export DEFAULT_RELEASE='false'
-                - export DOCKER_REPO='atlassian/jira-servicedesk'
+                - export DOCKER_REPO='atlassian/jira-servicemanagement'
                 - export DOCKERFILE_BUILDARGS='ARTEFACT_NAME=atlassian-servicedesk,BASE_IMAGE=adoptopenjdk:11-hotspot'
                 - export DOCKERFILE_VERSION_ARG='JIRA_VERSION'
                 - export MAC_PRODUCT_KEY='jira-servicedesk'
                 - export TAG_SUFFIXES='jdk11,ubuntu-jdk11'
                 - echo ${DOCKER_PASSWORD} | docker login --username ${DOCKER_USERNAME} --password-stdin
                 - python /usr/src/app/run.py --create --create-eap
+                # Republish as Jira Service Desk
+                - export DOCKER_REPO='atlassian/jira-servicedesk'
+                - python /usr/src/app/run.py --create
           - step:
               name: Jira Core JDK 8
               services:
@@ -121,7 +127,7 @@ pipelines:
               --build-arg ARTEFACT_NAME=atlassian-jira-software
               --build-arg JIRA_VERSION=${JIRA_VERSION} .
             - docker push atlassian/jira-software:${DOCKER_TAG}
-    jsd-custom-release:
+    jsm-custom-release:
       - variables:
           - name: JIRA_VERSION
           - name: DOCKER_TAG
@@ -132,10 +138,10 @@ pipelines:
             - git submodule update --init --recursive
             - echo ${DOCKER_PASSWORD} | docker login --username ${DOCKER_USERNAME} --password-stdin
             - >
-              docker build -t atlassian/jira-servicedesk:${DOCKER_TAG}
+              docker build -t atlassian/jira-servicemanagement:${DOCKER_TAG}
               --build-arg ARTEFACT_NAME=atlassian-servicedesk
               --build-arg JIRA_VERSION=${JIRA_VERSION} .
-            - docker push atlassian/jira-servicedesk:${DOCKER_TAG}
+            - docker push atlassian/jira-servicemanagement:${DOCKER_TAG}
     jc-custom-release:
       - variables:
           - name: JIRA_VERSION
@@ -189,7 +195,7 @@ pipelines:
                 - echo ${DOCKER_PASSWORD} | docker login --username ${DOCKER_USERNAME} --password-stdin
                 - python /usr/src/app/run.py --update
           - step:
-              name: Jira Service Desk JDK 8
+              name: Jira Service Management JDK 8
               services:
                 - docker
               script:
@@ -198,15 +204,18 @@ pipelines:
                 - export END_VERSION='5'
                 - export CONCURRENT_BUILDS='4'
                 - export DEFAULT_RELEASE='true'
-                - export DOCKER_REPO='atlassian/jira-servicedesk'
+                - export DOCKER_REPO='atlassian/jira-servicemanagement'
                 - export DOCKERFILE_BUILDARGS='ARTEFACT_NAME=atlassian-servicedesk'
                 - export DOCKERFILE_VERSION_ARG='JIRA_VERSION'
                 - export MAC_PRODUCT_KEY='jira-servicedesk'
                 - export TAG_SUFFIXES='jdk8,ubuntu'
                 - echo ${DOCKER_PASSWORD} | docker login --username ${DOCKER_USERNAME} --password-stdin
                 - python /usr/src/app/run.py --update
+                # Republish as Jira Service Desk
+                - export DOCKER_REPO='atlassian/jira-servicedesk'
+                - python /usr/src/app/run.py --update
           - step:
-              name: Jira Service Desk JDK 11
+              name: Jira Service Management JDK 11
               services:
                 - docker
               script:
@@ -215,12 +224,15 @@ pipelines:
                 - export END_VERSION='5'
                 - export CONCURRENT_BUILDS='4'
                 - export DEFAULT_RELEASE='false'
-                - export DOCKER_REPO='atlassian/jira-servicedesk'
+                - export DOCKER_REPO='atlassian/jira-servicemanagement'
                 - export DOCKERFILE_BUILDARGS='ARTEFACT_NAME=atlassian-servicedesk,BASE_IMAGE=adoptopenjdk:11-hotspot'
                 - export DOCKERFILE_VERSION_ARG='JIRA_VERSION'
                 - export MAC_PRODUCT_KEY='jira-servicedesk'
                 - export TAG_SUFFIXES='jdk11,ubuntu-jdk11'
                 - echo ${DOCKER_PASSWORD} | docker login --username ${DOCKER_USERNAME} --password-stdin
+                - python /usr/src/app/run.py --update
+                # Republish as Jira Service Desk
+                - export DOCKER_REPO='atlassian/jira-servicedesk'
                 - python /usr/src/app/run.py --update
           - step:
               name: Jira Core JDK 8
@@ -264,6 +276,8 @@ pipelines:
             - git submodule update --init --recursive
             - pip install -q requests
             - export DOCKER_REPO='atlassian/jira-software'
+            - python shared-components/image/push-readme.py
+            - export DOCKER_REPO='atlassian/jira-servicemanagement'
             - python shared-components/image/push-readme.py
             - export DOCKER_REPO='atlassian/jira-servicedesk'
             - python shared-components/image/push-readme.py
