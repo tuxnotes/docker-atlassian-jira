@@ -1,11 +1,10 @@
 FROM debian:buster-backports
 
 RUN apt-get update \
-    && apt-get install -y wget unzip npm default-jre chromium \
-    # NPM is fussy about being installed from backports directly, so
-    # we install the base package and then upgrade
-    && apt-get install -t buster-backports -y npm \
+    && apt-get install -y -t buster-backports wget curl unzip yarnpkg default-jre chromium \
     && apt-get clean -y
+
+RUN ln -s /usr/bin/yarnpkg /usr/bin/yarn
 
 RUN wget -q https://chromedriver.storage.googleapis.com/2.35/chromedriver_linux64.zip \
     && unzip chromedriver_linux64.zip \
@@ -13,7 +12,8 @@ RUN wget -q https://chromedriver.storage.googleapis.com/2.35/chromedriver_linux6
     && mv chromedriver /usr/local/bin/ \
     && chmod +x /usr/local/bin/chromedriver
 
-COPY dcd-builds-resources/ /dcd-builds-resources/
-WORKDIR /dcd-builds-resources/jira-dc-smoke-test-suite/
+RUN mkdir /opt/test
+COPY . /opt/test
+WORKDIR /opt/test
 
-RUN npm install
+RUN yarn install

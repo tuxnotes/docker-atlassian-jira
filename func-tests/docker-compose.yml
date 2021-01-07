@@ -49,5 +49,6 @@ services:
       - JIRA_USER_PWD=${JIRA_USER_PWD}
     command: >
       bash -c '
-          sleep 1000000
+          ./bin/jira-wait http://jira:8080/jira/ &&
+          yarn test
       '
