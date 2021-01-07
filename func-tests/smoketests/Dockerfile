@@ -1,7 +1,10 @@
 FROM debian:buster-backports
 
 RUN apt-get update \
-    && apt-get install -t buster-backports -y wget unzip npm default-jre chromium \
+    && apt-get install -y wget unzip npm default-jre chromium \
+    # NPM is fussy about being installed from backports directly, so
+    # we install the base package and then upgrade
+    && apt-get install -t buster-backports -y npm \
     && apt-get clean -y
 
 RUN wget -q https://chromedriver.storage.googleapis.com/2.35/chromedriver_linux64.zip \
