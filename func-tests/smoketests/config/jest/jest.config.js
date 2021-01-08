@@ -16,16 +16,11 @@
 
 const path = require('path');
 
-const paths = {
-//    mocksRoot: path.resolve('./src/main/dc-migration-assistant-fe/atlassian/mocks'),
-    testsRoot: path.resolve('./src'),
-};
-
 module.exports = {
     setupFiles: ['dotenv/config'],
     clearMocks: true,
     verbose: false,
-    roots: [paths.testsRoot],
+    roots: [path.resolve('./src')],
     moduleFileExtensions: ['ts', 'tsx', 'js', 'jsx', 'json'],
     transformIgnorePatterns: ['node_modules/(?!(@atlaskit)/)'],
     testMatch: ['**/__tests__/**/*.+(ts|tsx|js)', '**/?(*.)+(spec|test).+(ts|tsx|js)'],

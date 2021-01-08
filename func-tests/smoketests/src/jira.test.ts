@@ -1,10 +1,10 @@
 
 import supertest from 'supertest'
 
-let jira = "http://jira:8080/jira"
+const jira = "http://jira:8080/jira"
 
-describe('Get status', () => {
-  it('Responds with RUNNING', async () => {
+describe('Jira status endpoint', () => {
+  it('responds with RUNNING', async () => {
     supertest(jira)
       .get('/status')
       .set('Accept', 'application/json')

@@ -18,5 +18,5 @@ for i in `seq $max`; do
 
 done
 
-echo FAILED
+echo Jira failed to startup within $max seconds
 exit -1
