@@ -283,6 +283,7 @@ pipelines:
             - python shared-components/image/push-readme.py
             - export DOCKER_REPO='atlassian/jira-core'
             - python shared-components/image/push-readme.py
+
     '**':
       - step:
           image: python:3.7-alpine3.12
@@ -294,7 +295,7 @@ pipelines:
             # Run integration smoke-tests
             # FIXME: The following should ideally be invoked for each
             # released version above, but requires modifying the
-            # release scripts.
+            # release scripts so that this happens after build but before push.
             - docker build --build-arg JIRA_VERSION=8.14.0 -t test-image .
             - export TEST_TARGET_IMAGE=test-image
             - cd func-tests
