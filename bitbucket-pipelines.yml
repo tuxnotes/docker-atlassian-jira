@@ -1,4 +1,4 @@
-image: tarkasteve/docker-release-maker:DCD-1084-release-integration-3
+image: tarkasteve/docker-release-maker:DCD-1084-release-integration-4
 
 pipelines:
   custom:
@@ -286,7 +286,6 @@ pipelines:
 
     '**':
       - step:
-          image: python:3.7-alpine3.12
           services:
             - docker
           script:
