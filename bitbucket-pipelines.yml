@@ -268,9 +268,10 @@ pipelines:
                 - export TAG_SUFFIXES='jdk11,ubuntu-jdk11'
                 - echo ${DOCKER_PASSWORD} | docker login --username ${DOCKER_USERNAME} --password-stdin
                 - python /usr/src/app/run.py --update
+
       - step:
           name: Update README
-          image: python:3.7-alpine3.9
+          image: python:3.7-alpine3.12
           script:
             - apk add --no-cache git
             - git submodule update --init --recursive
@@ -284,26 +285,20 @@ pipelines:
             - export DOCKER_REPO='atlassian/jira-core'
             - python shared-components/image/push-readme.py
 
+    # Branch/PR tests
     '**':
       - step:
           image: python:3.7-alpine3.12
           services:
             - docker
           script:
-            - apk add --no-cache git docker-compose
+            - apk add --no-cache git docker-compose jq curl
             - git submodule update --init --recursive
-            # Run integration smoke-tests
-            # FIXME: The following should ideally be invoked for each
-            # released version above, but requires modifying the
-            # release scripts so that this happens after build but before push.
-            - docker build --build-arg JIRA_VERSION=8.14.0 -t test-image .
+            - export JIRA_VERSION=`curl -s https://marketplace.atlassian.com/rest/2/products/key/jira/versions/latest | jq -r .name`
+            - docker build --build-arg JIRA_VERSION=${JIRA_VERSION} -t test-image .
             - ./func-tests/run-functests test-image
-
-
-  pull-requests:
-    '**':
       - step:
-          image: python:3.7-alpine3.9
+          image: python:3.7-alpine3.12
           services:
             - docker
           script:
