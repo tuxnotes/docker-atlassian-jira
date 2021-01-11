@@ -1,4 +1,4 @@
-image: tarkasteve/docker-release-maker:DCD-1084-release-integration-5
+image: tarkasteve/docker-release-maker:DCD-1084-release-integration-6
 
 pipelines:
   custom:
