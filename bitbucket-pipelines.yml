@@ -1,4 +1,4 @@
-image: tarkasteve/docker-release-maker:DCD-1084-release-integration-2
+image: tarkasteve/docker-release-maker:DCD-1084-release-integration-3
 
 pipelines:
   custom:
@@ -296,8 +296,11 @@ pipelines:
             # FIXME: The following should ideally be invoked for each
             # released version above, but requires modifying the
             # release scripts so that this happens after build but before push.
-            - docker build --build-arg JIRA_VERSION=8.14.0 -t test-image .
-            - ./func-tests/run-functests test-image
+
+            #- docker build --build-arg JIRA_VERSION=8.14.0 -t test-image .
+            #- ./func-tests/run-functests test-image
+            - export TEST_SCRIPT=./func-tests/run-functests
+            - python /usr/src/app/run.py --test-latest
 
 
   pull-requests:
