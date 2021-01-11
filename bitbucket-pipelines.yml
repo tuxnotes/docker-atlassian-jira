@@ -283,6 +283,20 @@ pipelines:
             - python shared-components/image/push-readme.py
             - export DOCKER_REPO='atlassian/jira-core'
             - python shared-components/image/push-readme.py
+    '**':
+      - step:
+          services:
+            - docker
+          script:
+            # Run integration smoke-tests
+            # FIXME: The following should ideally be invoked for each
+            # released version above, but requires modifying the
+            # release scripts.
+            - docker build --build-arg JIRA_VERSION=8.14.0 -t test-image .
+            - export TEST_TARGET_IMAGE=test-image
+            - cd func-tests
+            - docker-compose up --abort-on-container-exit --exit-code-from smoketests
+
   pull-requests:
     '**':
       - step:
@@ -303,6 +317,7 @@ pipelines:
             - export DOCKERFILE_BUILDARGS='ARTEFACT_NAME=atlassian-jira-software,BASE_IMAGE=adoptopenjdk:11-hotspot'
             - py.test tests/
             - py.test shared-components/tests/
+
 definitions:
   services:
     docker:
