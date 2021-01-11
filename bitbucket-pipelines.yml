@@ -288,6 +288,8 @@ pipelines:
           services:
             - docker
           script:
+            - apk add --no-cache git
+            - git submodule update --init --recursive
             # Run integration smoke-tests
             # FIXME: The following should ideally be invoked for each
             # released version above, but requires modifying the
