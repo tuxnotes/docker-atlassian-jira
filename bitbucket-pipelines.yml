@@ -1,4 +1,4 @@
-image: atlassian/docker-release-maker:latest
+image: tarkasteve/docker-release-maker:DCD-1084-release-integration-2
 
 pipelines:
   custom:
