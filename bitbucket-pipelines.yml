@@ -297,10 +297,8 @@ pipelines:
             # released version above, but requires modifying the
             # release scripts so that this happens after build but before push.
             - docker build --build-arg JIRA_VERSION=8.14.0 -t test-image .
-            - export TEST_TARGET_IMAGE=test-image
-            - cd func-tests
-            - sh ./postgres/inject-license
-            - docker-compose up --abort-on-container-exit --exit-code-from smoketests
+            - ./func-tests/run-functests test-image
+
 
   pull-requests:
     '**':
