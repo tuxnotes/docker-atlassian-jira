@@ -1,0 +1,12 @@
+#!/bin/sh
+
+export TEST_TARGET_IMAGE=$1
+export DIR=`dirname $0`
+
+# Assumes this script is in the functest base dir
+cd $DIR
+
+# Assumes $JIRA_TEST_LICENSE is set
+sh ./postgres/inject-license
+
+docker-compose up --abort-on-container-exit --exit-code-from smoketests

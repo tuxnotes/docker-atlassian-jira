@@ -268,9 +268,10 @@ pipelines:
                 - export TAG_SUFFIXES='jdk11,ubuntu-jdk11'
                 - echo ${DOCKER_PASSWORD} | docker login --username ${DOCKER_USERNAME} --password-stdin
                 - python /usr/src/app/run.py --update
+
       - step:
           name: Update README
-          image: python:3.7-alpine3.9
+          image: python:3.7-alpine3.12
           script:
             - apk add --no-cache git
             - git submodule update --init --recursive
@@ -283,10 +284,11 @@ pipelines:
             - python shared-components/image/push-readme.py
             - export DOCKER_REPO='atlassian/jira-core'
             - python shared-components/image/push-readme.py
-  pull-requests:
+
+    # Branch/PR tests
     '**':
       - step:
-          image: python:3.7-alpine3.9
+          image: python:3.7-alpine3.12
           services:
             - docker
           script:
@@ -303,7 +305,18 @@ pipelines:
             - export DOCKERFILE_BUILDARGS='ARTEFACT_NAME=atlassian-jira-software,BASE_IMAGE=adoptopenjdk:11-hotspot'
             - py.test tests/
             - py.test shared-components/tests/
+      - step:
+          image: python:3.7-alpine3.12
+          services:
+            - docker
+          script:
+            - apk add --no-cache git docker-compose jq curl
+            - git submodule update --init --recursive
+            - export JIRA_VERSION=`curl -s https://marketplace.atlassian.com/rest/2/products/key/jira/versions/latest | jq -r .name`
+            - docker build --build-arg JIRA_VERSION=${JIRA_VERSION} -t test-image .
+            - ./func-tests/run-functests test-image
+
 definitions:
   services:
     docker:
-      memory: 2048
+      memory: 3072

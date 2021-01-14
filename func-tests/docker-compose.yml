@@ -16,7 +16,7 @@ services:
       - "LANG=C"
 
   jira:
-    image: ${JIRA_IMAGE}
+    image: ${TEST_TARGET_IMAGE}
     depends_on:
       - postgresql
     ports:
