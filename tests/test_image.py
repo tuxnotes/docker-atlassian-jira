@@ -1,4 +1,6 @@
 import pytest
+import os
+import shutil
 
 from helpers import get_app_home, get_app_install_dir, get_bootstrap_proc, get_procs, \
     parse_properties, parse_xml, run_image, wait_for_http_response, wait_for_proc
@@ -230,6 +232,65 @@ def test_cluster_properties_params(docker_cli, image, run_user):
     assert properties.get('ehcache.multicast.timeToLive') == environment.get('EHCACHE_MULTICAST_TIMETOLIVE')
     assert properties.get('ehcache.multicast.hostName') == environment.get('EHCACHE_MULTICAST_HOSTNAME')
 
+def test_cluster_properties_params_overwrite(docker_cli, image, run_user):
+    environment = {
+        'CLUSTERED': 'true',
+        'JIRA_NODE_ID': 'jiradc1',
+        'JIRA_SHARED_HOME': '/data/shared',
+        'EHCACHE_PEER_DISCOVERY': 'default',
+        'EHCACHE_LISTENER_HOSTNAME': 'jiradc1.local-CHANGED',
+        'EHCACHE_LISTENER_PORT': '40002',
+        'EHCACHE_OBJECT_PORT': '40003',
+        'EHCACHE_LISTENER_SOCKETTIMEOUTMILLIS': '2001',
+        'EHCACHE_MULTICAST_ADDRESS': '1.2.3.4',
+        'EHCACHE_MULTICAST_PORT': '40004',
+        'EHCACHE_MULTICAST_TIMETOLIVE': '1000',
+        'EHCACHE_MULTICAST_HOSTNAME': 'jiradc1.local',
+    }
+
+    placeholder_value = 'someValue'
+
+    helper_container = run_image(docker_cli, image, user=run_user, environment=environment, remove=True)
+    _jvm = wait_for_proc(helper_container, get_bootstrap_proc(helper_container))
+
+    docker_properties_folder_path = get_app_home(helper_container)
+    local_properties_folder_path = f'{os.getcwd()}/properties'
+
+    if not os.path.exists(os.path.dirname(f'{local_properties_folder_path}/cluster.properties')):
+        os.makedirs(os.path.dirname(f'{local_properties_folder_path}/cluster.properties'))
+
+    with open(f'{local_properties_folder_path}/cluster.properties', 'w') as f:
+        f.write(f'jira.node.id={placeholder_value}\n')
+        f.write(f'jira.shared.home={placeholder_value}\n')
+        f.write(f'ehcache.peer.discovery={placeholder_value}\n')
+        f.write('ehcache.listener.hostName=someValueBeforeChange\n')
+        f.write(f'ehcache.listener.port={placeholder_value}\n')
+        f.write(f'ehcache.object.port={placeholder_value}\n')
+        f.write(f'ehcache.listener.socketTimeoutMillis={placeholder_value}\n')
+        f.write(f'ehcache.multicast.address={placeholder_value}\n')
+        f.write(f'ehcache.multicast.port={placeholder_value}\n')
+        f.write(f'ehcache.multicast.timeToLive={placeholder_value}\n')
+        f.write(f'ehcache.multicast.hostName={placeholder_value}\n')
+
+    container = run_image(docker_cli, image, user=run_user, environment=environment,
+                          volumes={local_properties_folder_path: {'bind': docker_properties_folder_path, 'mode': 'rw'}})
+    _jvm = wait_for_proc(container, get_bootstrap_proc(container))
+
+    properties = parse_properties(container, f'{get_app_home(container)}/cluster.properties')
+
+    assert properties.get('jira.node.id') == placeholder_value
+    assert properties.get('jira.shared.home') == placeholder_value
+    assert properties.get('ehcache.peer.discovery') == placeholder_value
+    assert properties.get('ehcache.listener.hostName') == environment.get('EHCACHE_LISTENER_HOSTNAME')
+    assert properties.get('ehcache.listener.port') == placeholder_value
+    assert properties.get('ehcache.object.port') == placeholder_value
+    assert properties.get('ehcache.listener.socketTimeoutMillis') == placeholder_value
+    assert properties.get('ehcache.multicast.address') == placeholder_value
+    assert properties.get('ehcache.multicast.port') == placeholder_value
+    assert properties.get('ehcache.multicast.timeToLive') == placeholder_value
+    assert properties.get('ehcache.multicast.hostName') == placeholder_value
+
+    shutil.rmtree(local_properties_folder_path)
 
 def test_jvm_args(docker_cli, image, run_user):
     environment = {
