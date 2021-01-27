@@ -12,7 +12,7 @@ JIRA_INSTALL_DIR = env['jira_install_dir']
 JIRA_HOME = env['jira_home']
 
 def replace_key(filename, key, value):
-    with open(filename, 'rU') as f_in, tempfile.NamedTemporaryFile(
+    with open(filename, 'r', newline='\n') as f_in, tempfile.NamedTemporaryFile(
             'w', dir=os.path.dirname(filename), delete=False) as f_out:
         for line in f_in.readlines():
             if line.startswith(key):
