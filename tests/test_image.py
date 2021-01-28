@@ -258,11 +258,17 @@ def test_cluster_properties_params_overwrite(docker_cli, image, run_user):
     _jvm = wait_for_proc(container_host, get_bootstrap_proc(container_host))
     docker_properties_folder_path = get_app_home(container_host)
 
-    file_contents = fr'jira.node.id=someValue\\njira.shared.home={placeholder_value}\\nehcache.peer.discovery={placeholder_value}\\n' \
-                    fr'ehcache.listener.hostName={placeholder_value}\\nehcache.listener.port={placeholder_value}\\n' \
-                    fr'ehcache.object.port={placeholder_value}\\nehcache.listener.socketTimeoutMillis={placeholder_value}\\n' \
-                    fr'ehcache.multicast.address={placeholder_value}\\nehcache.multicast.port={placeholder_value}\\n' \
-                    fr'ehcache.multicast.timeToLive={placeholder_value}\\nehcache.multicast.hostName={placeholder_value}'
+    file_contents = fr'jira.node.id={placeholder_value}\\n' \
+                    fr'jira.shared.home={placeholder_value}\\n' \
+                    fr'ehcache.peer.discovery={placeholder_value}\\n' \
+                    fr'ehcache.listener.hostName={placeholder_value}\\n' \
+                    fr'ehcache.listener.port={placeholder_value}\\n' \
+                    fr'ehcache.object.port={placeholder_value}\\n' \
+                    fr'ehcache.listener.socketTimeoutMillis={placeholder_value}\\n' \
+                    fr'ehcache.multicast.address={placeholder_value}\\n' \
+                    fr'ehcache.multicast.port={placeholder_value}\\n' \
+                    fr'ehcache.multicast.timeToLive={placeholder_value}\\n' \
+                    fr'ehcache.multicast.hostName={placeholder_value}'
 
     exit_code, output = container.exec_run(cmd=rf"sh -c 'echo {file_contents} > {docker_properties_folder_path}/cluster.properties'")
     assert exit_code == 0
