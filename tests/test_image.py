@@ -1,4 +1,5 @@
 import pytest
+import testinfra
 
 from helpers import get_app_home, get_app_install_dir, get_bootstrap_proc, get_procs, \
     parse_properties, parse_xml, run_image, wait_for_http_response, wait_for_proc
@@ -229,6 +230,66 @@ def test_cluster_properties_params(docker_cli, image, run_user):
     assert properties.get('ehcache.multicast.port') == environment.get('EHCACHE_MULTICAST_PORT')
     assert properties.get('ehcache.multicast.timeToLive') == environment.get('EHCACHE_MULTICAST_TIMETOLIVE')
     assert properties.get('ehcache.multicast.hostName') == environment.get('EHCACHE_MULTICAST_HOSTNAME')
+
+
+# This test uses a dirty workaround for bitbucket docker volumes issues. It tests what we want to and it works!
+def test_cluster_properties_params_overwrite(docker_cli, image, run_user):
+    environment = {
+        'CLUSTERED': 'true',
+        'JIRA_NODE_ID': 'jiradc1',
+        'JIRA_SHARED_HOME': '/data/shared',
+        'EHCACHE_PEER_DISCOVERY': 'default',
+        'EHCACHE_LISTENER_HOSTNAME': 'jiradc1.local-CHANGED',
+        'EHCACHE_LISTENER_PORT': '40002',
+        'EHCACHE_OBJECT_PORT': '40003',
+        'EHCACHE_LISTENER_SOCKETTIMEOUTMILLIS': '2001',
+        'EHCACHE_MULTICAST_ADDRESS': '1.2.3.4',
+        'EHCACHE_MULTICAST_PORT': '40004',
+        'EHCACHE_MULTICAST_TIMETOLIVE': '1000',
+        'EHCACHE_MULTICAST_HOSTNAME': 'jiradc1.local',
+    }
+
+    placeholder_value = 'someValue'
+
+    container = docker_cli.containers.create(image, detach=True, user=run_user, environment=environment)
+    container_host = testinfra.get_host(f'docker://{container.id}')
+
+    container.start()
+    _jvm = wait_for_proc(container_host, get_bootstrap_proc(container_host))
+    docker_properties_folder_path = get_app_home(container_host)
+
+    file_contents = fr'jira.node.id={placeholder_value}\\n' \
+                    fr'jira.shared.home={placeholder_value}\\n' \
+                    fr'ehcache.peer.discovery={placeholder_value}\\n' \
+                    fr'ehcache.listener.hostName={placeholder_value}\\n' \
+                    fr'ehcache.listener.port={placeholder_value}\\n' \
+                    fr'ehcache.object.port={placeholder_value}\\n' \
+                    fr'ehcache.listener.socketTimeoutMillis={placeholder_value}\\n' \
+                    fr'ehcache.multicast.address={placeholder_value}\\n' \
+                    fr'ehcache.multicast.port={placeholder_value}\\n' \
+                    fr'ehcache.multicast.timeToLive={placeholder_value}\\n' \
+                    fr'ehcache.multicast.hostName={placeholder_value}'
+
+    exit_code, output = container.exec_run(cmd=rf"sh -c 'echo {file_contents} > {docker_properties_folder_path}/cluster.properties'")
+    assert exit_code == 0
+
+    container.stop(timeout=0)
+
+    container.start()
+    _jvm = wait_for_proc(container_host, get_bootstrap_proc(container_host))
+    properties = parse_properties(container_host, f'{docker_properties_folder_path}/cluster.properties')
+
+    assert properties.get('jira.node.id') == placeholder_value
+    assert properties.get('jira.shared.home') == placeholder_value
+    assert properties.get('ehcache.peer.discovery') == placeholder_value
+    assert properties.get('ehcache.listener.hostName') == environment.get('EHCACHE_LISTENER_HOSTNAME')
+    assert properties.get('ehcache.listener.port') == placeholder_value
+    assert properties.get('ehcache.object.port') == placeholder_value
+    assert properties.get('ehcache.listener.socketTimeoutMillis') == placeholder_value
+    assert properties.get('ehcache.multicast.address') == placeholder_value
+    assert properties.get('ehcache.multicast.port') == placeholder_value
+    assert properties.get('ehcache.multicast.timeToLive') == placeholder_value
+    assert properties.get('ehcache.multicast.hostName') == placeholder_value
 
 
 def test_jvm_args(docker_cli, image, run_user):
