@@ -239,7 +239,7 @@ def test_cluster_properties_params_overwrite(docker_cli, image, run_user):
         'JIRA_NODE_ID': 'jiradc1',
         'JIRA_SHARED_HOME': '/data/shared',
         'EHCACHE_PEER_DISCOVERY': 'default',
-        'EHCACHE_LISTENER_HOSTNAME': 'jiradc1.local-CHANGED',
+        'EHCACHE_LISTENER_HOSTNAME': 'jiradc1.local',
         'EHCACHE_LISTENER_PORT': '40002',
         'EHCACHE_OBJECT_PORT': '40003',
         'EHCACHE_LISTENER_SOCKETTIMEOUTMILLIS': '2001',
@@ -279,17 +279,17 @@ def test_cluster_properties_params_overwrite(docker_cli, image, run_user):
     _jvm = wait_for_proc(container_host, get_bootstrap_proc(container_host))
     properties = parse_properties(container_host, f'{docker_properties_folder_path}/cluster.properties')
 
-    assert properties.get('jira.node.id') == placeholder_value
-    assert properties.get('jira.shared.home') == placeholder_value
-    assert properties.get('ehcache.peer.discovery') == placeholder_value
+    assert properties.get('jira.node.id') == environment.get('JIRA_NODE_ID')
+    assert properties.get('jira.shared.home') == environment.get('JIRA_SHARED_HOME')
+    assert properties.get('ehcache.peer.discovery') == environment.get('EHCACHE_PEER_DISCOVERY')
     assert properties.get('ehcache.listener.hostName') == environment.get('EHCACHE_LISTENER_HOSTNAME')
-    assert properties.get('ehcache.listener.port') == placeholder_value
-    assert properties.get('ehcache.object.port') == placeholder_value
-    assert properties.get('ehcache.listener.socketTimeoutMillis') == placeholder_value
-    assert properties.get('ehcache.multicast.address') == placeholder_value
-    assert properties.get('ehcache.multicast.port') == placeholder_value
-    assert properties.get('ehcache.multicast.timeToLive') == placeholder_value
-    assert properties.get('ehcache.multicast.hostName') == placeholder_value
+    assert properties.get('ehcache.listener.port') == environment.get('EHCACHE_LISTENER_PORT')
+    assert properties.get('ehcache.object.port') == environment.get('EHCACHE_OBJECT_PORT')
+    assert properties.get('ehcache.listener.socketTimeoutMillis') == environment.get('EHCACHE_LISTENER_SOCKETTIMEOUTMILLIS')
+    assert properties.get('ehcache.multicast.address') == environment.get('EHCACHE_MULTICAST_ADDRESS')
+    assert properties.get('ehcache.multicast.port') == environment.get('EHCACHE_MULTICAST_PORT')
+    assert properties.get('ehcache.multicast.timeToLive') == environment.get('EHCACHE_MULTICAST_TIMETOLIVE')
+    assert properties.get('ehcache.multicast.hostName') == environment.get('EHCACHE_MULTICAST_HOSTNAME')
 
 
 def test_jvm_args(docker_cli, image, run_user):

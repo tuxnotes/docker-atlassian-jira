@@ -1,8 +1,6 @@
 #!/usr/bin/python3 -B
 
 import os
-import tempfile
-import re
 
 from entrypoint_helpers import env, gen_cfg, gen_container_id, str2bool, start_app
 
@@ -11,24 +9,6 @@ RUN_USER = env['run_user']
 RUN_GROUP = env['run_group']
 JIRA_INSTALL_DIR = env['jira_install_dir']
 JIRA_HOME = env['jira_home']
-
-
-def replace_key(filename, key, value):
-    with open(filename, 'r', newline='\n') as f_in, tempfile.NamedTemporaryFile(
-            'w', dir=os.path.dirname(filename), delete=False) as f_out:
-        for line in f_in.readlines():
-            regex = fr'\A{key}\s*='
-            if re.match(regex, line) is not None:
-                line = '{}={}\n'.format(line.split('=')[0], value)
-            f_out.write(line)
-    os.replace(f_out.name, filename)
-
-
-def update_properties():
-    if env.get('ehcache_listener_hostname') is not None:
-        replace_key(f'{JIRA_HOME}/cluster.properties', 'ehcache.listener.hostName',
-                    env.get('ehcache_listener_hostname'))
-
 
 gen_container_id()
 if os.stat('/etc/container_id').st_size == 0:
@@ -40,10 +20,7 @@ gen_cfg('seraph-config.xml.j2',
 gen_cfg('dbconfig.xml.j2', f'{JIRA_HOME}/dbconfig.xml',
         user=RUN_USER, group=RUN_GROUP, overwrite=False)
 if str2bool(env.get('clustered')):
-    if os.path.exists(f'{JIRA_HOME}/cluster.properties'):
-        update_properties()
-    else:
-        gen_cfg('cluster.properties.j2', f'{JIRA_HOME}/cluster.properties',
-                user=RUN_USER, group=RUN_GROUP, overwrite=False)
+    gen_cfg('cluster.properties.j2', f'{JIRA_HOME}/cluster.properties',
+            user=RUN_USER, group=RUN_GROUP, overwrite=True)
 
 start_app(f'{JIRA_INSTALL_DIR}/bin/start-jira.sh -fg', JIRA_HOME, name='Jira')
