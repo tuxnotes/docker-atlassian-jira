@@ -42,5 +42,5 @@ Run the smoke tests
 ```
 cd func-tests
 docker-compose up
-JIRA_ADMIN_PWD="passwordInLastpass" JIRA_BASEURL="http://localhost:2990/jira" npm test
+JIRA_ADMIN_PWD="passwordInLastpass" JIRA_BASEURL="http://localhost:2990/jira" npm test -- --watch
 ```
