@@ -13,7 +13,6 @@ if [[ -z $JIRA_TEST_LICENSE ]]; then
     exit 1
 fi
 
-# Assumes $JIRA_TEST_LICENSE is set
 sh ./postgres/inject-license
 
 docker-compose up --abort-on-container-exit --exit-code-from smoketests

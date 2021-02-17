@@ -2,7 +2,7 @@
 
 ## Setting up for development
 
-After clonning the repository you will need to clone the submodule:
+After cloning the repository you will need to clone the submodule:
 
 ```
 git submodule update --init --force --recursive
