@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "author": "Atlassian Pty Ltd",
   "main": "index.js",
-  "license": "Apache License V2",
+  "license": "Apache-2.0",
   "devDependencies": {
     "@types/jest": "^26.0.19",
     "@types/supertest": "^2.0.10",

@@ -1,12 +1,18 @@
 #!/bin/sh
 
-export TEST_TARGET_IMAGE=$1
+latest_image=$(docker images --format "{{.ID}} {{.CreatedAt}}" | sort -rk 2 | awk 'NR==1{print $1}')
+
+export TEST_TARGET_IMAGE=${1:-$latest_image}
 export DIR=`dirname $0`
 
-# Assumes this script is in the functest base dir
+# Assumes this script is in the func-tests base dir
 cd $DIR
 
-# Assumes $JIRA_TEST_LICENSE is set
+if [[ -z $JIRA_TEST_LICENSE ]]; then
+    echo "You need to define JIRA_TEST_LICENSE env variable"
+    exit 1
+fi
+
 sh ./postgres/inject-license
 
 docker-compose up --abort-on-container-exit --exit-code-from smoketests

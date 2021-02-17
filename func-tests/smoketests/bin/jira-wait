@@ -2,19 +2,25 @@
 
 url=$1
 max=300
+sleep_interval=5
 
 echo "Waiting for Jira to come up at $url..."
 
 for i in `seq $max`; do
     # Jira emits `302` during startup, `200` when ready:
     status=`curl -s -o /dev/null -w "%{http_code}" $url`
+    echo Jira returned $status
     if [[ $status == "200" ]]; then
-	echo OK
-	exit 0
+        echo OK
+        echo Jira is up and running
+        exit 0
+    elif [[ $status -ge "500" ]]; then
+        echo ERROR
+        echo Jira failed to start due to a server error
+        # exit -1
     fi
 
-    echo Jira returned $status
-    /bin/sleep 1
+    /bin/sleep $sleep_interval
 
 done
 
