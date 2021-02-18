@@ -298,7 +298,6 @@ pipelines:
           script:
             - apk add --no-cache git
             - git submodule update --init --recursive
-            - pip install -q -r shared-components/tests/requirements.txt
             - export PYTHONPATH=./shared-components/tests:$PYTHONPATH
             - export DOCKERFILE='Dockerfile'
             - export DOCKERFILE_BUILDARGS='ARTEFACT_NAME=atlassian-jira-software'
