@@ -476,6 +476,11 @@ Note that these images are built on the [AdoptOpenJDK](https://adoptopenjdk.net/
 release-notes](https://confluence.atlassian.com/jirasoftware/jira-software-release-notes-776821069.html)
 for more information.
 
+# Development and testing
+
+See [Development](DEVELOPMENT.md) for details on setting up a development
+environment and running tests.
+
 # License
 
 Copyright © 2020 Atlassian Corporation Pty Ltd.
