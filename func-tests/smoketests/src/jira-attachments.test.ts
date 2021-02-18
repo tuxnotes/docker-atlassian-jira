@@ -27,7 +27,7 @@ describe("Jira attachments", () => {
       .auth("admin", adminPassword)
       .type("form")
       .set("X-Atlassian-Token", "no-check")
-      .attach("file", "/tmp/adobegc.log")
+      .attach("file", filename)
       .expect("Content-Type", /json/)
       .expect(200);
 
