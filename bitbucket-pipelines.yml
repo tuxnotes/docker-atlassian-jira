@@ -277,7 +277,6 @@ pipelines:
 
       - step:
           name: Update README
-          image: python:3.7-alpine3.12
           script:
             - apk add --no-cache git
             - git submodule update --init --recursive
@@ -294,7 +293,6 @@ pipelines:
     # Branch/PR tests
     '**':
       - step:
-          image: python:3.7-alpine3.12
           services:
             - docker
           script:
@@ -312,7 +310,6 @@ pipelines:
             - py.test tests/
             - py.test shared-components/tests/
       - step:
-          image: python:3.7-alpine3.12
           services:
             - docker
           script:
