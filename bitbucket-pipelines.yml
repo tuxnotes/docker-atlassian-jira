@@ -317,7 +317,7 @@ pipelines:
               - git submodule update --init --recursive
               - export JIRA_VERSION=`curl -s https://marketplace.atlassian.com/rest/2/products/key/jira/versions/latest | jq -r .name`
               - docker build --build-arg JIRA_VERSION=${JIRA_VERSION} -t test-image .
-              - ./func-tests/run-functests test-image
+              - /usr/src/app/integration_test.sh test-image false
 
 definitions:
   services:
