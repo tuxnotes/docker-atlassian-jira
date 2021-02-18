@@ -18,6 +18,20 @@ test("Jira REST API returns a specific issue", async () =>
       );
     }));
 
+test("Jira REST API can create a ticket", async () =>
+  await request(jira)
+    .post("/rest/api/2/issue")
+    .auth("admin", adminPassword)
+    .set("Content-Type", "application/json")
+    .send({
+      fields: {
+        project: { key: "KT" },
+        summary: "New ticket" + Date.now(),
+        issuetype: { name: "Task" },
+      },
+    })
+    .expect(201));
+
 test("JQL search returns issues assigned to admin", async () =>
   await request(jira)
     .get("/rest/api/2/search?jql=assignee=admin")
