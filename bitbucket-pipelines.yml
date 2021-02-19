@@ -308,8 +308,8 @@ pipelines:
               - export DOCKERFILE_VERSION_ARG='JIRA_VERSION'
               - export MAC_PRODUCT_KEY='jira-software'
               - export TAG_SUFFIXES='jdk8,ubuntu'
-              - echo ${DOCKER_PASSWORD} | docker login --username ${DOCKER_USERNAME} --password-stdin
-              - python /usr/src/app/run.py --create --create-eap
+              - export PUSH_DOCKER_IMAGE='false'
+              - python /usr/src/app/run.py --update
         - step:
             services:
               - docker
