@@ -12,7 +12,7 @@ pipelines:
                 - git submodule update --init --recursive
                 - export START_VERSION='7.13'
                 - export END_VERSION='9'
-                - export CONCURRENT_BUILDS='4'
+                - export CONCURRENT_BUILDS='1'
                 - export DEFAULT_RELEASE='true'
                 - export DOCKER_REPO='atlassian/jira-software'
                 - export DOCKERFILE_BUILDARGS='ARTEFACT_NAME=atlassian-jira-software'
