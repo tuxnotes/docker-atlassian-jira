@@ -126,8 +126,8 @@ pipelines:
               docker build -t atlassian/jira-software:${DOCKER_TAG}
               --build-arg ARTEFACT_NAME=atlassian-jira-software
               --build-arg JIRA_VERSION=${JIRA_VERSION} .
-            - snyk auth @SNYK_TOKEN
-            - snyk container test atlassian/jira-software:${DOCKER_TAG} --severity-threshold=high
+            - export IS_RELEASE='true'
+            - /usr/src/app/integration_test.sh atlassian/jira-software:${DOCKER_TAG} IS_RELEASE
             - docker push atlassian/jira-software:${DOCKER_TAG}
     jsm-custom-release:
       - variables:
@@ -143,8 +143,8 @@ pipelines:
               docker build -t atlassian/jira-servicemanagement:${DOCKER_TAG}
               --build-arg ARTEFACT_NAME=atlassian-servicedesk
               --build-arg JIRA_VERSION=${JIRA_VERSION} .
-            - snyk auth @SNYK_TOKEN
-            - snyk container test atlassian/jira-servicemanagement:${DOCKER_TAG} --severity-threshold=high
+            - export IS_RELEASE='true'
+            - /usr/src/app/integration_test.sh atlassian/jira-servicemanagement:${DOCKER_TAG} IS_RELEASE
             - docker push atlassian/jira-servicemanagement:${DOCKER_TAG}
     jc-custom-release:
       - variables:
@@ -160,8 +160,8 @@ pipelines:
               docker build -t atlassian/jira-core:${DOCKER_TAG}
               --build-arg ARTEFACT_NAME=atlassian-jira-core
               --build-arg JIRA_VERSION=${JIRA_VERSION} .
-            - snyk auth @SNYK_TOKEN
-            - snyk container test atlassian/jira-core:${DOCKER_TAG} --severity-threshold=high
+            - export IS_RELEASE='true'
+            - /usr/src/app/integration_test.sh atlassian/jira-core:${DOCKER_TAG} IS_RELEASE
             - docker push atlassian/jira-core:${DOCKER_TAG}
   branches:
     master:
