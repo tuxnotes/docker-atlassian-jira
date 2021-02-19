@@ -294,6 +294,23 @@ pipelines:
     '**':
       - parallel:
         - step:
+            name: Jira Software JDK 8
+            services:
+              - docker
+            script:
+              - git submodule update --init --recursive
+              - export START_VERSION='7.13'
+              - export END_VERSION='9'
+              - export CONCURRENT_BUILDS='1'
+              - export DEFAULT_RELEASE='true'
+              - export DOCKER_REPO='atlassian/jira-software'
+              - export DOCKERFILE_BUILDARGS='ARTEFACT_NAME=atlassian-jira-software'
+              - export DOCKERFILE_VERSION_ARG='JIRA_VERSION'
+              - export MAC_PRODUCT_KEY='jira-software'
+              - export TAG_SUFFIXES='jdk8,ubuntu'
+              - echo ${DOCKER_PASSWORD} | docker login --username ${DOCKER_USERNAME} --password-stdin
+              - python /usr/src/app/run.py --create --create-eap
+        - step:
             services:
               - docker
             script:
