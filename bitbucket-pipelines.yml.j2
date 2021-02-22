@@ -1,0 +1,96 @@
+---
+# NOTE: This file is generated from `bitbucket-pipelines.yml.j2` via `pipelines-generator.py`.
+
+image: atlassian/docker-release-maker:latest
+
+definitions:
+  services:
+    docker:
+      memory: 4096
+
+options:
+  size: 2x
+
+pipelines:
+  branches:
+    ######################################################################
+    # Master branch: Do full release for each image flavour
+    ######################################################################
+    master:
+      - parallel:
+
+       {% for (pname, pdata) in images.items() -%}
+         {% for (jdkver, appdata) in pdata.items() -%}
+          - step:
+              name: {{ pname|capitalize() }} JDK {{ jdkver }}
+              services:
+                - docker
+              script:
+                - git submodule update --init --recursive
+                - export START_VERSION='{{ appdata.start_version }}'
+                - export END_VERSION='{{ appdata.end_version }}'
+                - export DEFAULT_RELEASE='{{ appdata.default_release|lower() }}'
+                - export DOCKERFILE_BUILDARGS='ARTEFACT_NAME=atlassian-{{ pname }},BASE_IMAGE=adoptopenjdk:{{ jdkver }}-hotspot'
+                - export DOCKERFILE_VERSION_ARG='JIRA_VERSION'
+                - export MAC_PRODUCT_KEY='{{ pname }}'
+                {% set tag_suffixes = ['jdk'+jdkver|string(), 'ubuntu-jdk'+jdkver|string()] + appdata.extra_tag_suffixes|default([]) -%}
+                - export TAG_SUFFIXES='{{ tag_suffixes|join(',') }}'
+                - export CONCURRENT_BUILDS='1'
+                - echo ${DOCKER_PASSWORD} | docker login --username ${DOCKER_USERNAME} --password-stdin
+                {% for repo in appdata.docker_repos|default(['atlassian/'+pname]) -%}
+                - export DOCKER_REPO='{{ repo }}'
+                - python /usr/src/app/run.py --update
+                {% endfor -%}
+
+           {% endfor %}
+         {% endfor %}
+
+      - step:
+          name: Update README
+          script:
+            - apk add --no-cache git
+            - git submodule update --init --recursive
+            - pip install -q requests
+            - export DOCKER_REPO='atlassian/jira-software'
+            - python shared-components/image/push-readme.py
+            - export DOCKER_REPO='atlassian/jira-servicemanagement'
+            - python shared-components/image/push-readme.py
+            - export DOCKER_REPO='atlassian/jira-servicedesk'
+            - python shared-components/image/push-readme.py
+            - export DOCKER_REPO='atlassian/jira-core'
+            - python shared-components/image/push-readme.py
+
+    ######################################################################
+    # All other branches & PRs; run unit tests & functional tests
+    # against latest app version
+    ######################################################################
+    '**':
+      - parallel:
+        - step:
+            name: Run unit tests
+            services:
+              - docker
+            script:
+              - apk add --no-cache git
+              - git submodule update --init --recursive
+              - export PYTHONPATH=./shared-components/tests:$PYTHONPATH
+              - export DOCKERFILE='Dockerfile'
+              - export DOCKERFILE_BUILDARGS='ARTEFACT_NAME=atlassian-jira-software'
+              - export DOCKERFILE_VERSION_ARG='JIRA_VERSION'
+              - export MAC_PRODUCT_KEY='jira-software'
+              - py.test tests/
+              - py.test shared-components/tests/
+              - export DOCKERFILE_BUILDARGS='ARTEFACT_NAME=atlassian-jira-software,BASE_IMAGE=adoptopenjdk:11-hotspot'
+              - py.test tests/
+              - py.test shared-components/tests/
+        - step:
+            name: Run functional tests
+            services:
+              - docker
+            script:
+              - apk add --no-cache git docker-compose jq curl
+              - git submodule update --init --recursive
+              - export JIRA_VERSION=`curl -s https://marketplace.atlassian.com/rest/2/products/key/jira/versions/latest | jq -r .name`
+              - docker build --build-arg JIRA_VERSION=${JIRA_VERSION} -t test-image .
+              - export IS_RELEASE=false
+              - /usr/src/app/integration_test.sh test-image $IS_RELEASE
