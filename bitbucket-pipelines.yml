@@ -1,6 +1,182 @@
 image: atlassian/docker-release-maker:latest
 
+definitions:
+  services:
+    docker:
+      memory: 4096
+
+options:
+  size: 2x
+
 pipelines:
+  branches:
+    ######################################################################
+    # Master branch: Do full release for each image flavour
+    ######################################################################
+    master:
+      - parallel:
+          - step:
+              name: Jira Software JDK 8
+              services:
+                - docker
+              script:
+                - git submodule update --init --recursive
+                - export START_VERSION='7.13'
+                - export END_VERSION='9'
+                - export CONCURRENT_BUILDS='1'
+                - export DEFAULT_RELEASE='true'
+                - export DOCKER_REPO='atlassian/jira-software'
+                - export DOCKERFILE_BUILDARGS='ARTEFACT_NAME=atlassian-jira-software'
+                - export DOCKERFILE_VERSION_ARG='JIRA_VERSION'
+                - export MAC_PRODUCT_KEY='jira-software'
+                - export TAG_SUFFIXES='jdk8,ubuntu'
+                - echo ${DOCKER_PASSWORD} | docker login --username ${DOCKER_USERNAME} --password-stdin
+                - python /usr/src/app/run.py --update
+          - step:
+              name: Jira Software JDK 11
+              services:
+                - docker
+              script:
+                - git submodule update --init --recursive
+                - export START_VERSION='8.2'
+                - export END_VERSION='9'
+                - export CONCURRENT_BUILDS='4'
+                - export DEFAULT_RELEASE='false'
+                - export DOCKER_REPO='atlassian/jira-software'
+                - export DOCKERFILE_BUILDARGS='ARTEFACT_NAME=atlassian-jira-software,BASE_IMAGE=adoptopenjdk:11-hotspot'
+                - export DOCKERFILE_VERSION_ARG='JIRA_VERSION'
+                - export MAC_PRODUCT_KEY='jira-software'
+                - export TAG_SUFFIXES='jdk11,ubuntu-jdk11'
+                - echo ${DOCKER_PASSWORD} | docker login --username ${DOCKER_USERNAME} --password-stdin
+                - python /usr/src/app/run.py --update
+          - step:
+              name: Jira Service Management JDK 8
+              services:
+                - docker
+              script:
+                - git submodule update --init --recursive
+                - export START_VERSION='3.16'
+                - export END_VERSION='5'
+                - export CONCURRENT_BUILDS='4'
+                - export DEFAULT_RELEASE='true'
+                - export DOCKER_REPO='atlassian/jira-servicemanagement'
+                - export DOCKERFILE_BUILDARGS='ARTEFACT_NAME=atlassian-servicedesk'
+                - export DOCKERFILE_VERSION_ARG='JIRA_VERSION'
+                - export MAC_PRODUCT_KEY='jira-servicedesk'
+                - export TAG_SUFFIXES='jdk8,ubuntu'
+                - echo ${DOCKER_PASSWORD} | docker login --username ${DOCKER_USERNAME} --password-stdin
+                - python /usr/src/app/run.py --update
+                # Republish as Jira Service Desk
+                - export DOCKER_REPO='atlassian/jira-servicedesk'
+                - python /usr/src/app/run.py --update
+          - step:
+              name: Jira Service Management JDK 11
+              services:
+                - docker
+              script:
+                - git submodule update --init --recursive
+                - export START_VERSION='4.2'
+                - export END_VERSION='5'
+                - export CONCURRENT_BUILDS='4'
+                - export DEFAULT_RELEASE='false'
+                - export DOCKER_REPO='atlassian/jira-servicemanagement'
+                - export DOCKERFILE_BUILDARGS='ARTEFACT_NAME=atlassian-servicedesk,BASE_IMAGE=adoptopenjdk:11-hotspot'
+                - export DOCKERFILE_VERSION_ARG='JIRA_VERSION'
+                - export MAC_PRODUCT_KEY='jira-servicedesk'
+                - export TAG_SUFFIXES='jdk11,ubuntu-jdk11'
+                - echo ${DOCKER_PASSWORD} | docker login --username ${DOCKER_USERNAME} --password-stdin
+                - python /usr/src/app/run.py --update
+                # Republish as Jira Service Desk
+                - export DOCKER_REPO='atlassian/jira-servicedesk'
+                - python /usr/src/app/run.py --update
+          - step:
+              name: Jira Core JDK 8
+              services:
+                - docker
+              script:
+                - git submodule update --init --recursive
+                - export START_VERSION='7.13'
+                - export END_VERSION='9'
+                - export CONCURRENT_BUILDS='4'
+                - export DEFAULT_RELEASE='true'
+                - export DOCKER_REPO='atlassian/jira-core'
+                - export DOCKERFILE_BUILDARGS='ARTEFACT_NAME=atlassian-jira-core'
+                - export DOCKERFILE_VERSION_ARG='JIRA_VERSION'
+                - export MAC_PRODUCT_KEY='jira'
+                - export TAG_SUFFIXES='jdk8,ubuntu'
+                - echo ${DOCKER_PASSWORD} | docker login --username ${DOCKER_USERNAME} --password-stdin
+                - python /usr/src/app/run.py --update
+          - step:
+              name: Jira Core JDK 11
+              services:
+                - docker
+              script:
+                - git submodule update --init --recursive
+                - export START_VERSION='8.2'
+                - export END_VERSION='9'
+                - export CONCURRENT_BUILDS='4'
+                - export DEFAULT_RELEASE='false'
+                - export DOCKER_REPO='atlassian/jira-core'
+                - export DOCKERFILE_BUILDARGS='ARTEFACT_NAME=atlassian-jira-core,BASE_IMAGE=adoptopenjdk:11-hotspot'
+                - export DOCKERFILE_VERSION_ARG='JIRA_VERSION'
+                - export MAC_PRODUCT_KEY='jira'
+                - export TAG_SUFFIXES='jdk11,ubuntu-jdk11'
+                - echo ${DOCKER_PASSWORD} | docker login --username ${DOCKER_USERNAME} --password-stdin
+                - python /usr/src/app/run.py --update
+
+      - step:
+          name: Update README
+          script:
+            - apk add --no-cache git
+            - git submodule update --init --recursive
+            - pip install -q requests
+            - export DOCKER_REPO='atlassian/jira-software'
+            - python shared-components/image/push-readme.py
+            - export DOCKER_REPO='atlassian/jira-servicemanagement'
+            - python shared-components/image/push-readme.py
+            - export DOCKER_REPO='atlassian/jira-servicedesk'
+            - python shared-components/image/push-readme.py
+            - export DOCKER_REPO='atlassian/jira-core'
+            - python shared-components/image/push-readme.py
+
+    ######################################################################
+    # All other branches & PRs; run unit tests & functional tests
+    # against latest app version
+    ######################################################################
+    '**':
+      - parallel:
+        - step:
+            name: Run unit tests
+            services:
+              - docker
+            script:
+              - apk add --no-cache git
+              - git submodule update --init --recursive
+              - export PYTHONPATH=./shared-components/tests:$PYTHONPATH
+              - export DOCKERFILE='Dockerfile'
+              - export DOCKERFILE_BUILDARGS='ARTEFACT_NAME=atlassian-jira-software'
+              - export DOCKERFILE_VERSION_ARG='JIRA_VERSION'
+              - export MAC_PRODUCT_KEY='jira-software'
+              - py.test tests/
+              - py.test shared-components/tests/
+              - export DOCKERFILE_BUILDARGS='ARTEFACT_NAME=atlassian-jira-software,BASE_IMAGE=adoptopenjdk:11-hotspot'
+              - py.test tests/
+              - py.test shared-components/tests/
+        - step:
+            name: Run functional tests
+            services:
+              - docker
+            script:
+              - apk add --no-cache git docker-compose jq curl
+              - git submodule update --init --recursive
+              - export JIRA_VERSION=`curl -s https://marketplace.atlassian.com/rest/2/products/key/jira/versions/latest | jq -r .name`
+              - docker build --build-arg JIRA_VERSION=${JIRA_VERSION} -t test-image .
+              - export IS_RELEASE=false
+              - /usr/src/app/integration_test.sh test-image $IS_RELEASE
+
+  ######################################################################
+  # Custom builds; these can only be triggered manually
+  ######################################################################
   custom:
     new-releases:
       - parallel:
@@ -163,166 +339,3 @@ pipelines:
             - export IS_RELEASE='true'
             - /usr/src/app/integration_test.sh atlassian/jira-core:${DOCKER_TAG} IS_RELEASE
             - docker push atlassian/jira-core:${DOCKER_TAG}
-  branches:
-    master:
-      - parallel:
-          - step:
-              name: Jira Software JDK 8
-              services:
-                - docker
-              script:
-                - git submodule update --init --recursive
-                - export START_VERSION='7.13'
-                - export END_VERSION='9'
-                - export CONCURRENT_BUILDS='1'
-                - export DEFAULT_RELEASE='true'
-                - export DOCKER_REPO='atlassian/jira-software'
-                - export DOCKERFILE_BUILDARGS='ARTEFACT_NAME=atlassian-jira-software'
-                - export DOCKERFILE_VERSION_ARG='JIRA_VERSION'
-                - export MAC_PRODUCT_KEY='jira-software'
-                - export TAG_SUFFIXES='jdk8,ubuntu'
-                - echo ${DOCKER_PASSWORD} | docker login --username ${DOCKER_USERNAME} --password-stdin
-                - python /usr/src/app/run.py --update
-          - step:
-              name: Jira Software JDK 11
-              services:
-                - docker
-              script:
-                - git submodule update --init --recursive
-                - export START_VERSION='8.2'
-                - export END_VERSION='9'
-                - export CONCURRENT_BUILDS='4'
-                - export DEFAULT_RELEASE='false'
-                - export DOCKER_REPO='atlassian/jira-software'
-                - export DOCKERFILE_BUILDARGS='ARTEFACT_NAME=atlassian-jira-software,BASE_IMAGE=adoptopenjdk:11-hotspot'
-                - export DOCKERFILE_VERSION_ARG='JIRA_VERSION'
-                - export MAC_PRODUCT_KEY='jira-software'
-                - export TAG_SUFFIXES='jdk11,ubuntu-jdk11'
-                - echo ${DOCKER_PASSWORD} | docker login --username ${DOCKER_USERNAME} --password-stdin
-                - python /usr/src/app/run.py --update
-          - step:
-              name: Jira Service Management JDK 8
-              services:
-                - docker
-              script:
-                - git submodule update --init --recursive
-                - export START_VERSION='3.16'
-                - export END_VERSION='5'
-                - export CONCURRENT_BUILDS='4'
-                - export DEFAULT_RELEASE='true'
-                - export DOCKER_REPO='atlassian/jira-servicemanagement'
-                - export DOCKERFILE_BUILDARGS='ARTEFACT_NAME=atlassian-servicedesk'
-                - export DOCKERFILE_VERSION_ARG='JIRA_VERSION'
-                - export MAC_PRODUCT_KEY='jira-servicedesk'
-                - export TAG_SUFFIXES='jdk8,ubuntu'
-                - echo ${DOCKER_PASSWORD} | docker login --username ${DOCKER_USERNAME} --password-stdin
-                - python /usr/src/app/run.py --update
-                # Republish as Jira Service Desk
-                - export DOCKER_REPO='atlassian/jira-servicedesk'
-                - python /usr/src/app/run.py --update
-          - step:
-              name: Jira Service Management JDK 11
-              services:
-                - docker
-              script:
-                - git submodule update --init --recursive
-                - export START_VERSION='4.2'
-                - export END_VERSION='5'
-                - export CONCURRENT_BUILDS='4'
-                - export DEFAULT_RELEASE='false'
-                - export DOCKER_REPO='atlassian/jira-servicemanagement'
-                - export DOCKERFILE_BUILDARGS='ARTEFACT_NAME=atlassian-servicedesk,BASE_IMAGE=adoptopenjdk:11-hotspot'
-                - export DOCKERFILE_VERSION_ARG='JIRA_VERSION'
-                - export MAC_PRODUCT_KEY='jira-servicedesk'
-                - export TAG_SUFFIXES='jdk11,ubuntu-jdk11'
-                - echo ${DOCKER_PASSWORD} | docker login --username ${DOCKER_USERNAME} --password-stdin
-                - python /usr/src/app/run.py --update
-                # Republish as Jira Service Desk
-                - export DOCKER_REPO='atlassian/jira-servicedesk'
-                - python /usr/src/app/run.py --update
-          - step:
-              name: Jira Core JDK 8
-              services:
-                - docker
-              script:
-                - git submodule update --init --recursive
-                - export START_VERSION='7.13'
-                - export END_VERSION='9'
-                - export CONCURRENT_BUILDS='4'
-                - export DEFAULT_RELEASE='true'
-                - export DOCKER_REPO='atlassian/jira-core'
-                - export DOCKERFILE_BUILDARGS='ARTEFACT_NAME=atlassian-jira-core'
-                - export DOCKERFILE_VERSION_ARG='JIRA_VERSION'
-                - export MAC_PRODUCT_KEY='jira'
-                - export TAG_SUFFIXES='jdk8,ubuntu'
-                - echo ${DOCKER_PASSWORD} | docker login --username ${DOCKER_USERNAME} --password-stdin
-                - python /usr/src/app/run.py --update
-          - step:
-              name: Jira Core JDK 11
-              services:
-                - docker
-              script:
-                - git submodule update --init --recursive
-                - export START_VERSION='8.2'
-                - export END_VERSION='9'
-                - export CONCURRENT_BUILDS='4'
-                - export DEFAULT_RELEASE='false'
-                - export DOCKER_REPO='atlassian/jira-core'
-                - export DOCKERFILE_BUILDARGS='ARTEFACT_NAME=atlassian-jira-core,BASE_IMAGE=adoptopenjdk:11-hotspot'
-                - export DOCKERFILE_VERSION_ARG='JIRA_VERSION'
-                - export MAC_PRODUCT_KEY='jira'
-                - export TAG_SUFFIXES='jdk11,ubuntu-jdk11'
-                - echo ${DOCKER_PASSWORD} | docker login --username ${DOCKER_USERNAME} --password-stdin
-                - python /usr/src/app/run.py --update
-
-      - step:
-          name: Update README
-          script:
-            - apk add --no-cache git
-            - git submodule update --init --recursive
-            - pip install -q requests
-            - export DOCKER_REPO='atlassian/jira-software'
-            - python shared-components/image/push-readme.py
-            - export DOCKER_REPO='atlassian/jira-servicemanagement'
-            - python shared-components/image/push-readme.py
-            - export DOCKER_REPO='atlassian/jira-servicedesk'
-            - python shared-components/image/push-readme.py
-            - export DOCKER_REPO='atlassian/jira-core'
-            - python shared-components/image/push-readme.py
-
-    # Branch/PR tests
-    '**':
-      - parallel:
-        - step:
-            name: Run unit tests
-            services:
-              - docker
-            script:
-              - apk add --no-cache git
-              - git submodule update --init --recursive
-              - export PYTHONPATH=./shared-components/tests:$PYTHONPATH
-              - export DOCKERFILE='Dockerfile'
-              - export DOCKERFILE_BUILDARGS='ARTEFACT_NAME=atlassian-jira-software'
-              - export DOCKERFILE_VERSION_ARG='JIRA_VERSION'
-              - export MAC_PRODUCT_KEY='jira-software'
-              - py.test tests/
-              - py.test shared-components/tests/
-              - export DOCKERFILE_BUILDARGS='ARTEFACT_NAME=atlassian-jira-software,BASE_IMAGE=adoptopenjdk:11-hotspot'
-              - py.test tests/
-              - py.test shared-components/tests/
-        - step:
-            name: Run functional tests
-            services:
-              - docker
-            script:
-              - apk add --no-cache git docker-compose jq curl
-              - git submodule update --init --recursive
-              - export JIRA_VERSION=`curl -s https://marketplace.atlassian.com/rest/2/products/key/jira/versions/latest | jq -r .name`
-              - docker build --build-arg JIRA_VERSION=${JIRA_VERSION} -t test-image .
-              - export IS_RELEASE=false
-              - /usr/src/app/integration_test.sh test-image $IS_RELEASE
-
-definitions:
-  services:
-    docker:
-      memory: 3072
