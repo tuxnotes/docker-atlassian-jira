@@ -1,8 +1,8 @@
 #!/usr/bin/python3
 
-from jinja2 import Template
 from pathlib import Path
 import os
+import jinja2 as j2
 
 TEMPLATE_FILE = 'bitbucket-pipelines.yml.j2'
 
@@ -70,8 +70,11 @@ images = {
 
 
 def main():
-    path = Path(os.path.join(os.path.dirname(__file__), TEMPLATE_FILE))
-    template = Template(path.read_text())
+    jenv = j2.Environment(
+        loader=j2.FileSystemLoader('.'),
+        lstrip_blocks=True,
+        trim_blocks=True)
+    template = jenv.get_template(TEMPLATE_FILE)
     generated_output = template.render(images=images)
 
     print(generated_output)
