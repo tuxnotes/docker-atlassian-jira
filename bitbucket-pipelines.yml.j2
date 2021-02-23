@@ -19,10 +19,10 @@ pipelines:
     master:
       - parallel:
 
-       {% for (pname, pdata) in images.items() -%}
+       {% for (name, pdata) in images.items() -%}
          {% for (jdkver, appdata) in pdata.items() -%}
           - step:
-              name: {{ pname|capitalize() }} JDK {{ jdkver }}
+              name: {{ name }} JDK {{ jdkver }}
               services:
                 - docker
               script:
@@ -30,14 +30,14 @@ pipelines:
                 - export START_VERSION='{{ appdata.start_version }}'
                 - export END_VERSION='{{ appdata.end_version }}'
                 - export DEFAULT_RELEASE='{{ appdata.default_release|lower() }}'
-                - export DOCKERFILE_BUILDARGS='ARTEFACT_NAME=atlassian-{{ pname }},BASE_IMAGE=adoptopenjdk:{{ jdkver }}-hotspot'
+                - export DOCKERFILE_BUILDARGS='ARTEFACT_NAME=atlassian-{{ appdata.mac_key }},BASE_IMAGE=adoptopenjdk:{{ jdkver }}-hotspot'
                 - export DOCKERFILE_VERSION_ARG='JIRA_VERSION'
-                - export MAC_PRODUCT_KEY='{{ pname }}'
+                - export MAC_PRODUCT_KEY='{{ appdata.mac_key }}'
                 {% set tag_suffixes = ['jdk'+jdkver|string(), 'ubuntu-jdk'+jdkver|string()] + appdata.extra_tag_suffixes|default([]) -%}
                 - export TAG_SUFFIXES='{{ tag_suffixes|join(',') }}'
                 - export CONCURRENT_BUILDS='1'
                 - echo ${DOCKER_PASSWORD} | docker login --username ${DOCKER_USERNAME} --password-stdin
-                {% for repo in appdata.docker_repos|default(['atlassian/'+pname]) -%}
+                {% for repo in appdata.docker_repos|default(['atlassian/'+appdata.mac_key]) -%}
                 - export DOCKER_REPO='{{ repo }}'
                 - python /usr/src/app/run.py --update
                 {% endfor -%}
