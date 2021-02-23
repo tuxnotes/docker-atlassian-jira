@@ -13,8 +13,9 @@ SOFTWARE_REPOS = ['atlassian/jira-software']
 SD_REPOS = ['atlassian/jira-servicemanagement', 'atlassian/jira-servicedesk']
 
 images = {
-    'jira-software': {
+    'Jira Software': {
         8: {
+            'mac_key': 'jira-software',
             'start_version': '7.13',
             'end_version': '9',
             'default_release': True,
@@ -22,6 +23,7 @@ images = {
             'docker_repos': SOFTWARE_REPOS,
         },
         11: {
+            'mac_key': 'jira-software',
             'start_version': '8.2',
             'end_version': '9',
             'default_release': False,
@@ -29,8 +31,9 @@ images = {
             'docker_repos': SOFTWARE_REPOS,
         }
     },
-    'jira-servicedesk': {
+    'Jira Service Management': {
         8: {
+            'mac_key': 'jira-servicedesk',
             'start_version': '3.16',
             'end_version': '5',
             'default_release': True,
@@ -45,8 +48,9 @@ images = {
             'docker_repos': SD_REPOS,
         }
     },
-    'jira': {
+    'Jira Core': {
         8: {
+            'mac_key': 'jira',
             'start_version': '7.13',
             'end_version': '9',
             'default_release': True,
