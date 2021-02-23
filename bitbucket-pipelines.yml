@@ -21,7 +21,7 @@ pipelines:
     master:
       - parallel:
 
-       - step:
+          - step:
               name: Jira Software JDK 8
               services:
                 - docker
@@ -38,7 +38,8 @@ pipelines:
                 - echo ${DOCKER_PASSWORD} | docker login --username ${DOCKER_USERNAME} --password-stdin
                 - export DOCKER_REPO='atlassian/jira-software'
                 - python /usr/src/app/run.py --update
-                - step:
+
+          - step:
               name: Jira Software JDK 11
               services:
                 - docker
@@ -55,7 +56,8 @@ pipelines:
                 - echo ${DOCKER_PASSWORD} | docker login --username ${DOCKER_USERNAME} --password-stdin
                 - export DOCKER_REPO='atlassian/jira-software'
                 - python /usr/src/app/run.py --update
-                - step:
+
+          - step:
               name: Jira Service Management JDK 8
               services:
                 - docker
@@ -74,7 +76,8 @@ pipelines:
                 - python /usr/src/app/run.py --update
                 - export DOCKER_REPO='atlassian/jira-servicedesk'
                 - python /usr/src/app/run.py --update
-                - step:
+
+          - step:
               name: Jira Service Management JDK 11
               services:
                 - docker
@@ -93,7 +96,8 @@ pipelines:
                 - python /usr/src/app/run.py --update
                 - export DOCKER_REPO='atlassian/jira-servicedesk'
                 - python /usr/src/app/run.py --update
-                - step:
+
+          - step:
               name: Jira Core JDK 8
               services:
                 - docker
@@ -110,7 +114,8 @@ pipelines:
                 - echo ${DOCKER_PASSWORD} | docker login --username ${DOCKER_USERNAME} --password-stdin
                 - export DOCKER_REPO='atlassian/jira-core'
                 - python /usr/src/app/run.py --update
-                - step:
+
+          - step:
               name: Jira Core JDK 11
               services:
                 - docker
@@ -127,7 +132,8 @@ pipelines:
                 - echo ${DOCKER_PASSWORD} | docker login --username ${DOCKER_USERNAME} --password-stdin
                 - export DOCKER_REPO='atlassian/jira-core'
                 - python /usr/src/app/run.py --update
-                - step:
+
+      - step:
           name: Update README
           script:
             - apk add --no-cache git
