@@ -153,6 +153,11 @@ pipelines:
     # against latest app version
     ######################################################################
     '**':
+      - step:
+        name: Check if pipelines config is up-to-date...
+        script:
+          - ./pipelines-generator.py > bitbucket-piplines.yml.expected && diff bitbucket-pipelines.yml bitbucket-piplines.yml.expected
+
       - parallel:
         - step:
             name: Run unit tests
