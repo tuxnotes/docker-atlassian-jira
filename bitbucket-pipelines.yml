@@ -3,7 +3,7 @@
 #
 #     python3 pipelines-generator.py > bitbucket-pipelines.yml
 
-image: atlssmith/docker-release-maker:DCKUBE-127-2
+image: atlssmith/docker-release-maker:DCKUBE-127-3
 
 definitions:
   services:
