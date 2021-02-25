@@ -109,7 +109,7 @@ pipelines:
               - export START_VERSION='{{ appdata.start_version }}'
               - export END_VERSION='{{ appdata.end_version }}'
               - export DEFAULT_RELEASE='{{ appdata.default_release|lower() }}'
-              - export DOCKERFILE_BUILDARGS='ARTEFACT_NAME=atlassian-{{ appdata.artefact }},BASE_IMAGE=adoptopenjdk:{{ jdkver }}-hotspot'
+              - export DOCKERFILE_BUILDARGS='ARTEFACT_NAME={{ appdata.artefact }},BASE_IMAGE=adoptopenjdk:{{ jdkver }}-hotspot'
               - export DOCKERFILE_VERSION_ARG='JIRA_VERSION'
               - export MAC_PRODUCT_KEY='{{ appdata.mac_key }}'
       {% set tag_suffixes = ['jdk'+jdkver|string(), 'ubuntu-jdk'+jdkver|string()] + appdata.extra_tag_suffixes|default([]) %}
