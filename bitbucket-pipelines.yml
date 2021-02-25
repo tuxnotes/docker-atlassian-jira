@@ -155,6 +155,8 @@ pipelines:
     '**':
       - step:
           name: Check if pipelines config is up-to-date...
+          services:
+            - docker
           script:
             - "./pipelines-generator.py > bitbucket-piplines.yml.expected && diff bitbucket-pipelines.yml bitbucket-piplines.yml.expected"
 
