@@ -154,9 +154,9 @@ pipelines:
     ######################################################################
     '**':
       - step:
-        name: Check if pipelines config is up-to-date...
-        script:
-          - "./pipelines-generator.py > bitbucket-piplines.yml.expected && diff bitbucket-pipelines.yml bitbucket-piplines.yml.expected"
+          name: Check if pipelines config is up-to-date...
+          script:
+            - "./pipelines-generator.py > bitbucket-piplines.yml.expected && diff bitbucket-pipelines.yml bitbucket-piplines.yml.expected"
 
       - parallel:
         - step:
