@@ -69,7 +69,7 @@ pipelines:
       - step:
         name: Check if pipelines config is up-to-date...
         script:
-          - ./pipelines-generator.py > bitbucket-piplines.yml.expected && diff bitbucket-pipelines.yml bitbucket-piplines.yml.expected
+          - "./pipelines-generator.py > bitbucket-piplines.yml.expected && diff bitbucket-pipelines.yml bitbucket-piplines.yml.expected"
 
       - parallel:
         - step:
@@ -120,7 +120,7 @@ pipelines:
       {% set tag_suffixes = ['jdk'+jdkver|string(), 'ubuntu-jdk'+jdkver|string()] + appdata.extra_tag_suffixes|default([]) %}
               - export TAG_SUFFIXES='{{ tag_suffixes|join(',') }}'
               - export CONCURRENT_BUILDS='1'
-              - export PUSH_DOCKER_IMAGE=False
+              - export PUSH_DOCKER_IMAGE='false'
               - export JOB_OFFSET='{{ offset }}'
               - export JOBS_TOTAL='{{ batches }}'
               - echo ${DOCKER_PASSWORD} | docker login --username ${DOCKER_USERNAME} --password-stdin

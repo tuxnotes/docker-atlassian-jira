@@ -156,7 +156,7 @@ pipelines:
       - step:
         name: Check if pipelines config is up-to-date...
         script:
-          - ./pipelines-generator.py > bitbucket-piplines.yml.expected && diff bitbucket-pipelines.yml bitbucket-piplines.yml.expected
+          - "./pipelines-generator.py > bitbucket-piplines.yml.expected && diff bitbucket-pipelines.yml bitbucket-piplines.yml.expected"
 
       - parallel:
         - step:
@@ -203,7 +203,7 @@ pipelines:
               - export MAC_PRODUCT_KEY='jira-software'
               - export TAG_SUFFIXES='jdk8,ubuntu-jdk8,ubuntu'
               - export CONCURRENT_BUILDS='1'
-              - export PUSH_DOCKER_IMAGE=False
+              - export PUSH_DOCKER_IMAGE='false'
               - export JOB_OFFSET='0'
               - export JOBS_TOTAL='12'
               - echo ${DOCKER_PASSWORD} | docker login --username ${DOCKER_USERNAME} --password-stdin
@@ -225,7 +225,7 @@ pipelines:
               - export MAC_PRODUCT_KEY='jira-software'
               - export TAG_SUFFIXES='jdk8,ubuntu-jdk8,ubuntu'
               - export CONCURRENT_BUILDS='1'
-              - export PUSH_DOCKER_IMAGE=False
+              - export PUSH_DOCKER_IMAGE='false'
               - export JOB_OFFSET='1'
               - export JOBS_TOTAL='12'
               - echo ${DOCKER_PASSWORD} | docker login --username ${DOCKER_USERNAME} --password-stdin
@@ -247,7 +247,7 @@ pipelines:
               - export MAC_PRODUCT_KEY='jira-software'
               - export TAG_SUFFIXES='jdk8,ubuntu-jdk8,ubuntu'
               - export CONCURRENT_BUILDS='1'
-              - export PUSH_DOCKER_IMAGE=False
+              - export PUSH_DOCKER_IMAGE='false'
               - export JOB_OFFSET='2'
               - export JOBS_TOTAL='12'
               - echo ${DOCKER_PASSWORD} | docker login --username ${DOCKER_USERNAME} --password-stdin
@@ -269,7 +269,7 @@ pipelines:
               - export MAC_PRODUCT_KEY='jira-software'
               - export TAG_SUFFIXES='jdk8,ubuntu-jdk8,ubuntu'
               - export CONCURRENT_BUILDS='1'
-              - export PUSH_DOCKER_IMAGE=False
+              - export PUSH_DOCKER_IMAGE='false'
               - export JOB_OFFSET='3'
               - export JOBS_TOTAL='12'
               - echo ${DOCKER_PASSWORD} | docker login --username ${DOCKER_USERNAME} --password-stdin
@@ -291,7 +291,7 @@ pipelines:
               - export MAC_PRODUCT_KEY='jira-software'
               - export TAG_SUFFIXES='jdk8,ubuntu-jdk8,ubuntu'
               - export CONCURRENT_BUILDS='1'
-              - export PUSH_DOCKER_IMAGE=False
+              - export PUSH_DOCKER_IMAGE='false'
               - export JOB_OFFSET='4'
               - export JOBS_TOTAL='12'
               - echo ${DOCKER_PASSWORD} | docker login --username ${DOCKER_USERNAME} --password-stdin
@@ -313,7 +313,7 @@ pipelines:
               - export MAC_PRODUCT_KEY='jira-software'
               - export TAG_SUFFIXES='jdk8,ubuntu-jdk8,ubuntu'
               - export CONCURRENT_BUILDS='1'
-              - export PUSH_DOCKER_IMAGE=False
+              - export PUSH_DOCKER_IMAGE='false'
               - export JOB_OFFSET='5'
               - export JOBS_TOTAL='12'
               - echo ${DOCKER_PASSWORD} | docker login --username ${DOCKER_USERNAME} --password-stdin
@@ -335,7 +335,7 @@ pipelines:
               - export MAC_PRODUCT_KEY='jira-software'
               - export TAG_SUFFIXES='jdk8,ubuntu-jdk8,ubuntu'
               - export CONCURRENT_BUILDS='1'
-              - export PUSH_DOCKER_IMAGE=False
+              - export PUSH_DOCKER_IMAGE='false'
               - export JOB_OFFSET='6'
               - export JOBS_TOTAL='12'
               - echo ${DOCKER_PASSWORD} | docker login --username ${DOCKER_USERNAME} --password-stdin
@@ -357,7 +357,7 @@ pipelines:
               - export MAC_PRODUCT_KEY='jira-software'
               - export TAG_SUFFIXES='jdk8,ubuntu-jdk8,ubuntu'
               - export CONCURRENT_BUILDS='1'
-              - export PUSH_DOCKER_IMAGE=False
+              - export PUSH_DOCKER_IMAGE='false'
               - export JOB_OFFSET='7'
               - export JOBS_TOTAL='12'
               - echo ${DOCKER_PASSWORD} | docker login --username ${DOCKER_USERNAME} --password-stdin
@@ -379,7 +379,7 @@ pipelines:
               - export MAC_PRODUCT_KEY='jira-software'
               - export TAG_SUFFIXES='jdk8,ubuntu-jdk8,ubuntu'
               - export CONCURRENT_BUILDS='1'
-              - export PUSH_DOCKER_IMAGE=False
+              - export PUSH_DOCKER_IMAGE='false'
               - export JOB_OFFSET='8'
               - export JOBS_TOTAL='12'
               - echo ${DOCKER_PASSWORD} | docker login --username ${DOCKER_USERNAME} --password-stdin
@@ -401,7 +401,7 @@ pipelines:
               - export MAC_PRODUCT_KEY='jira-software'
               - export TAG_SUFFIXES='jdk8,ubuntu-jdk8,ubuntu'
               - export CONCURRENT_BUILDS='1'
-              - export PUSH_DOCKER_IMAGE=False
+              - export PUSH_DOCKER_IMAGE='false'
               - export JOB_OFFSET='9'
               - export JOBS_TOTAL='12'
               - echo ${DOCKER_PASSWORD} | docker login --username ${DOCKER_USERNAME} --password-stdin
@@ -423,7 +423,7 @@ pipelines:
               - export MAC_PRODUCT_KEY='jira-software'
               - export TAG_SUFFIXES='jdk8,ubuntu-jdk8,ubuntu'
               - export CONCURRENT_BUILDS='1'
-              - export PUSH_DOCKER_IMAGE=False
+              - export PUSH_DOCKER_IMAGE='false'
               - export JOB_OFFSET='10'
               - export JOBS_TOTAL='12'
               - echo ${DOCKER_PASSWORD} | docker login --username ${DOCKER_USERNAME} --password-stdin
@@ -445,7 +445,7 @@ pipelines:
               - export MAC_PRODUCT_KEY='jira-software'
               - export TAG_SUFFIXES='jdk8,ubuntu-jdk8,ubuntu'
               - export CONCURRENT_BUILDS='1'
-              - export PUSH_DOCKER_IMAGE=False
+              - export PUSH_DOCKER_IMAGE='false'
               - export JOB_OFFSET='11'
               - export JOBS_TOTAL='12'
               - echo ${DOCKER_PASSWORD} | docker login --username ${DOCKER_USERNAME} --password-stdin
@@ -467,7 +467,7 @@ pipelines:
               - export MAC_PRODUCT_KEY='jira-software'
               - export TAG_SUFFIXES='jdk11,ubuntu-jdk11'
               - export CONCURRENT_BUILDS='1'
-              - export PUSH_DOCKER_IMAGE=False
+              - export PUSH_DOCKER_IMAGE='false'
               - export JOB_OFFSET='0'
               - export JOBS_TOTAL='12'
               - echo ${DOCKER_PASSWORD} | docker login --username ${DOCKER_USERNAME} --password-stdin
@@ -489,7 +489,7 @@ pipelines:
               - export MAC_PRODUCT_KEY='jira-software'
               - export TAG_SUFFIXES='jdk11,ubuntu-jdk11'
               - export CONCURRENT_BUILDS='1'
-              - export PUSH_DOCKER_IMAGE=False
+              - export PUSH_DOCKER_IMAGE='false'
               - export JOB_OFFSET='1'
               - export JOBS_TOTAL='12'
               - echo ${DOCKER_PASSWORD} | docker login --username ${DOCKER_USERNAME} --password-stdin
@@ -511,7 +511,7 @@ pipelines:
               - export MAC_PRODUCT_KEY='jira-software'
               - export TAG_SUFFIXES='jdk11,ubuntu-jdk11'
               - export CONCURRENT_BUILDS='1'
-              - export PUSH_DOCKER_IMAGE=False
+              - export PUSH_DOCKER_IMAGE='false'
               - export JOB_OFFSET='2'
               - export JOBS_TOTAL='12'
               - echo ${DOCKER_PASSWORD} | docker login --username ${DOCKER_USERNAME} --password-stdin
@@ -533,7 +533,7 @@ pipelines:
               - export MAC_PRODUCT_KEY='jira-software'
               - export TAG_SUFFIXES='jdk11,ubuntu-jdk11'
               - export CONCURRENT_BUILDS='1'
-              - export PUSH_DOCKER_IMAGE=False
+              - export PUSH_DOCKER_IMAGE='false'
               - export JOB_OFFSET='3'
               - export JOBS_TOTAL='12'
               - echo ${DOCKER_PASSWORD} | docker login --username ${DOCKER_USERNAME} --password-stdin
@@ -555,7 +555,7 @@ pipelines:
               - export MAC_PRODUCT_KEY='jira-software'
               - export TAG_SUFFIXES='jdk11,ubuntu-jdk11'
               - export CONCURRENT_BUILDS='1'
-              - export PUSH_DOCKER_IMAGE=False
+              - export PUSH_DOCKER_IMAGE='false'
               - export JOB_OFFSET='4'
               - export JOBS_TOTAL='12'
               - echo ${DOCKER_PASSWORD} | docker login --username ${DOCKER_USERNAME} --password-stdin
@@ -577,7 +577,7 @@ pipelines:
               - export MAC_PRODUCT_KEY='jira-software'
               - export TAG_SUFFIXES='jdk11,ubuntu-jdk11'
               - export CONCURRENT_BUILDS='1'
-              - export PUSH_DOCKER_IMAGE=False
+              - export PUSH_DOCKER_IMAGE='false'
               - export JOB_OFFSET='5'
               - export JOBS_TOTAL='12'
               - echo ${DOCKER_PASSWORD} | docker login --username ${DOCKER_USERNAME} --password-stdin
@@ -599,7 +599,7 @@ pipelines:
               - export MAC_PRODUCT_KEY='jira-software'
               - export TAG_SUFFIXES='jdk11,ubuntu-jdk11'
               - export CONCURRENT_BUILDS='1'
-              - export PUSH_DOCKER_IMAGE=False
+              - export PUSH_DOCKER_IMAGE='false'
               - export JOB_OFFSET='6'
               - export JOBS_TOTAL='12'
               - echo ${DOCKER_PASSWORD} | docker login --username ${DOCKER_USERNAME} --password-stdin
@@ -621,7 +621,7 @@ pipelines:
               - export MAC_PRODUCT_KEY='jira-software'
               - export TAG_SUFFIXES='jdk11,ubuntu-jdk11'
               - export CONCURRENT_BUILDS='1'
-              - export PUSH_DOCKER_IMAGE=False
+              - export PUSH_DOCKER_IMAGE='false'
               - export JOB_OFFSET='7'
               - export JOBS_TOTAL='12'
               - echo ${DOCKER_PASSWORD} | docker login --username ${DOCKER_USERNAME} --password-stdin
@@ -643,7 +643,7 @@ pipelines:
               - export MAC_PRODUCT_KEY='jira-software'
               - export TAG_SUFFIXES='jdk11,ubuntu-jdk11'
               - export CONCURRENT_BUILDS='1'
-              - export PUSH_DOCKER_IMAGE=False
+              - export PUSH_DOCKER_IMAGE='false'
               - export JOB_OFFSET='8'
               - export JOBS_TOTAL='12'
               - echo ${DOCKER_PASSWORD} | docker login --username ${DOCKER_USERNAME} --password-stdin
@@ -665,7 +665,7 @@ pipelines:
               - export MAC_PRODUCT_KEY='jira-software'
               - export TAG_SUFFIXES='jdk11,ubuntu-jdk11'
               - export CONCURRENT_BUILDS='1'
-              - export PUSH_DOCKER_IMAGE=False
+              - export PUSH_DOCKER_IMAGE='false'
               - export JOB_OFFSET='9'
               - export JOBS_TOTAL='12'
               - echo ${DOCKER_PASSWORD} | docker login --username ${DOCKER_USERNAME} --password-stdin
@@ -687,7 +687,7 @@ pipelines:
               - export MAC_PRODUCT_KEY='jira-software'
               - export TAG_SUFFIXES='jdk11,ubuntu-jdk11'
               - export CONCURRENT_BUILDS='1'
-              - export PUSH_DOCKER_IMAGE=False
+              - export PUSH_DOCKER_IMAGE='false'
               - export JOB_OFFSET='10'
               - export JOBS_TOTAL='12'
               - echo ${DOCKER_PASSWORD} | docker login --username ${DOCKER_USERNAME} --password-stdin
@@ -709,7 +709,7 @@ pipelines:
               - export MAC_PRODUCT_KEY='jira-software'
               - export TAG_SUFFIXES='jdk11,ubuntu-jdk11'
               - export CONCURRENT_BUILDS='1'
-              - export PUSH_DOCKER_IMAGE=False
+              - export PUSH_DOCKER_IMAGE='false'
               - export JOB_OFFSET='11'
               - export JOBS_TOTAL='12'
               - echo ${DOCKER_PASSWORD} | docker login --username ${DOCKER_USERNAME} --password-stdin
@@ -731,7 +731,7 @@ pipelines:
               - export MAC_PRODUCT_KEY='jira-servicedesk'
               - export TAG_SUFFIXES='jdk8,ubuntu-jdk8,ubuntu'
               - export CONCURRENT_BUILDS='1'
-              - export PUSH_DOCKER_IMAGE=False
+              - export PUSH_DOCKER_IMAGE='false'
               - export JOB_OFFSET='0'
               - export JOBS_TOTAL='12'
               - echo ${DOCKER_PASSWORD} | docker login --username ${DOCKER_USERNAME} --password-stdin
@@ -756,7 +756,7 @@ pipelines:
               - export MAC_PRODUCT_KEY='jira-servicedesk'
               - export TAG_SUFFIXES='jdk8,ubuntu-jdk8,ubuntu'
               - export CONCURRENT_BUILDS='1'
-              - export PUSH_DOCKER_IMAGE=False
+              - export PUSH_DOCKER_IMAGE='false'
               - export JOB_OFFSET='1'
               - export JOBS_TOTAL='12'
               - echo ${DOCKER_PASSWORD} | docker login --username ${DOCKER_USERNAME} --password-stdin
@@ -781,7 +781,7 @@ pipelines:
               - export MAC_PRODUCT_KEY='jira-servicedesk'
               - export TAG_SUFFIXES='jdk8,ubuntu-jdk8,ubuntu'
               - export CONCURRENT_BUILDS='1'
-              - export PUSH_DOCKER_IMAGE=False
+              - export PUSH_DOCKER_IMAGE='false'
               - export JOB_OFFSET='2'
               - export JOBS_TOTAL='12'
               - echo ${DOCKER_PASSWORD} | docker login --username ${DOCKER_USERNAME} --password-stdin
@@ -806,7 +806,7 @@ pipelines:
               - export MAC_PRODUCT_KEY='jira-servicedesk'
               - export TAG_SUFFIXES='jdk8,ubuntu-jdk8,ubuntu'
               - export CONCURRENT_BUILDS='1'
-              - export PUSH_DOCKER_IMAGE=False
+              - export PUSH_DOCKER_IMAGE='false'
               - export JOB_OFFSET='3'
               - export JOBS_TOTAL='12'
               - echo ${DOCKER_PASSWORD} | docker login --username ${DOCKER_USERNAME} --password-stdin
@@ -831,7 +831,7 @@ pipelines:
               - export MAC_PRODUCT_KEY='jira-servicedesk'
               - export TAG_SUFFIXES='jdk8,ubuntu-jdk8,ubuntu'
               - export CONCURRENT_BUILDS='1'
-              - export PUSH_DOCKER_IMAGE=False
+              - export PUSH_DOCKER_IMAGE='false'
               - export JOB_OFFSET='4'
               - export JOBS_TOTAL='12'
               - echo ${DOCKER_PASSWORD} | docker login --username ${DOCKER_USERNAME} --password-stdin
@@ -856,7 +856,7 @@ pipelines:
               - export MAC_PRODUCT_KEY='jira-servicedesk'
               - export TAG_SUFFIXES='jdk8,ubuntu-jdk8,ubuntu'
               - export CONCURRENT_BUILDS='1'
-              - export PUSH_DOCKER_IMAGE=False
+              - export PUSH_DOCKER_IMAGE='false'
               - export JOB_OFFSET='5'
               - export JOBS_TOTAL='12'
               - echo ${DOCKER_PASSWORD} | docker login --username ${DOCKER_USERNAME} --password-stdin
@@ -881,7 +881,7 @@ pipelines:
               - export MAC_PRODUCT_KEY='jira-servicedesk'
               - export TAG_SUFFIXES='jdk8,ubuntu-jdk8,ubuntu'
               - export CONCURRENT_BUILDS='1'
-              - export PUSH_DOCKER_IMAGE=False
+              - export PUSH_DOCKER_IMAGE='false'
               - export JOB_OFFSET='6'
               - export JOBS_TOTAL='12'
               - echo ${DOCKER_PASSWORD} | docker login --username ${DOCKER_USERNAME} --password-stdin
@@ -906,7 +906,7 @@ pipelines:
               - export MAC_PRODUCT_KEY='jira-servicedesk'
               - export TAG_SUFFIXES='jdk8,ubuntu-jdk8,ubuntu'
               - export CONCURRENT_BUILDS='1'
-              - export PUSH_DOCKER_IMAGE=False
+              - export PUSH_DOCKER_IMAGE='false'
               - export JOB_OFFSET='7'
               - export JOBS_TOTAL='12'
               - echo ${DOCKER_PASSWORD} | docker login --username ${DOCKER_USERNAME} --password-stdin
@@ -931,7 +931,7 @@ pipelines:
               - export MAC_PRODUCT_KEY='jira-servicedesk'
               - export TAG_SUFFIXES='jdk8,ubuntu-jdk8,ubuntu'
               - export CONCURRENT_BUILDS='1'
-              - export PUSH_DOCKER_IMAGE=False
+              - export PUSH_DOCKER_IMAGE='false'
               - export JOB_OFFSET='8'
               - export JOBS_TOTAL='12'
               - echo ${DOCKER_PASSWORD} | docker login --username ${DOCKER_USERNAME} --password-stdin
@@ -956,7 +956,7 @@ pipelines:
               - export MAC_PRODUCT_KEY='jira-servicedesk'
               - export TAG_SUFFIXES='jdk8,ubuntu-jdk8,ubuntu'
               - export CONCURRENT_BUILDS='1'
-              - export PUSH_DOCKER_IMAGE=False
+              - export PUSH_DOCKER_IMAGE='false'
               - export JOB_OFFSET='9'
               - export JOBS_TOTAL='12'
               - echo ${DOCKER_PASSWORD} | docker login --username ${DOCKER_USERNAME} --password-stdin
@@ -981,7 +981,7 @@ pipelines:
               - export MAC_PRODUCT_KEY='jira-servicedesk'
               - export TAG_SUFFIXES='jdk8,ubuntu-jdk8,ubuntu'
               - export CONCURRENT_BUILDS='1'
-              - export PUSH_DOCKER_IMAGE=False
+              - export PUSH_DOCKER_IMAGE='false'
               - export JOB_OFFSET='10'
               - export JOBS_TOTAL='12'
               - echo ${DOCKER_PASSWORD} | docker login --username ${DOCKER_USERNAME} --password-stdin
@@ -1006,7 +1006,7 @@ pipelines:
               - export MAC_PRODUCT_KEY='jira-servicedesk'
               - export TAG_SUFFIXES='jdk8,ubuntu-jdk8,ubuntu'
               - export CONCURRENT_BUILDS='1'
-              - export PUSH_DOCKER_IMAGE=False
+              - export PUSH_DOCKER_IMAGE='false'
               - export JOB_OFFSET='11'
               - export JOBS_TOTAL='12'
               - echo ${DOCKER_PASSWORD} | docker login --username ${DOCKER_USERNAME} --password-stdin
@@ -1031,7 +1031,7 @@ pipelines:
               - export MAC_PRODUCT_KEY='jira-servicedesk'
               - export TAG_SUFFIXES='jdk11,ubuntu-jdk11'
               - export CONCURRENT_BUILDS='1'
-              - export PUSH_DOCKER_IMAGE=False
+              - export PUSH_DOCKER_IMAGE='false'
               - export JOB_OFFSET='0'
               - export JOBS_TOTAL='12'
               - echo ${DOCKER_PASSWORD} | docker login --username ${DOCKER_USERNAME} --password-stdin
@@ -1056,7 +1056,7 @@ pipelines:
               - export MAC_PRODUCT_KEY='jira-servicedesk'
               - export TAG_SUFFIXES='jdk11,ubuntu-jdk11'
               - export CONCURRENT_BUILDS='1'
-              - export PUSH_DOCKER_IMAGE=False
+              - export PUSH_DOCKER_IMAGE='false'
               - export JOB_OFFSET='1'
               - export JOBS_TOTAL='12'
               - echo ${DOCKER_PASSWORD} | docker login --username ${DOCKER_USERNAME} --password-stdin
@@ -1081,7 +1081,7 @@ pipelines:
               - export MAC_PRODUCT_KEY='jira-servicedesk'
               - export TAG_SUFFIXES='jdk11,ubuntu-jdk11'
               - export CONCURRENT_BUILDS='1'
-              - export PUSH_DOCKER_IMAGE=False
+              - export PUSH_DOCKER_IMAGE='false'
               - export JOB_OFFSET='2'
               - export JOBS_TOTAL='12'
               - echo ${DOCKER_PASSWORD} | docker login --username ${DOCKER_USERNAME} --password-stdin
@@ -1106,7 +1106,7 @@ pipelines:
               - export MAC_PRODUCT_KEY='jira-servicedesk'
               - export TAG_SUFFIXES='jdk11,ubuntu-jdk11'
               - export CONCURRENT_BUILDS='1'
-              - export PUSH_DOCKER_IMAGE=False
+              - export PUSH_DOCKER_IMAGE='false'
               - export JOB_OFFSET='3'
               - export JOBS_TOTAL='12'
               - echo ${DOCKER_PASSWORD} | docker login --username ${DOCKER_USERNAME} --password-stdin
@@ -1131,7 +1131,7 @@ pipelines:
               - export MAC_PRODUCT_KEY='jira-servicedesk'
               - export TAG_SUFFIXES='jdk11,ubuntu-jdk11'
               - export CONCURRENT_BUILDS='1'
-              - export PUSH_DOCKER_IMAGE=False
+              - export PUSH_DOCKER_IMAGE='false'
               - export JOB_OFFSET='4'
               - export JOBS_TOTAL='12'
               - echo ${DOCKER_PASSWORD} | docker login --username ${DOCKER_USERNAME} --password-stdin
@@ -1156,7 +1156,7 @@ pipelines:
               - export MAC_PRODUCT_KEY='jira-servicedesk'
               - export TAG_SUFFIXES='jdk11,ubuntu-jdk11'
               - export CONCURRENT_BUILDS='1'
-              - export PUSH_DOCKER_IMAGE=False
+              - export PUSH_DOCKER_IMAGE='false'
               - export JOB_OFFSET='5'
               - export JOBS_TOTAL='12'
               - echo ${DOCKER_PASSWORD} | docker login --username ${DOCKER_USERNAME} --password-stdin
@@ -1181,7 +1181,7 @@ pipelines:
               - export MAC_PRODUCT_KEY='jira-servicedesk'
               - export TAG_SUFFIXES='jdk11,ubuntu-jdk11'
               - export CONCURRENT_BUILDS='1'
-              - export PUSH_DOCKER_IMAGE=False
+              - export PUSH_DOCKER_IMAGE='false'
               - export JOB_OFFSET='6'
               - export JOBS_TOTAL='12'
               - echo ${DOCKER_PASSWORD} | docker login --username ${DOCKER_USERNAME} --password-stdin
@@ -1206,7 +1206,7 @@ pipelines:
               - export MAC_PRODUCT_KEY='jira-servicedesk'
               - export TAG_SUFFIXES='jdk11,ubuntu-jdk11'
               - export CONCURRENT_BUILDS='1'
-              - export PUSH_DOCKER_IMAGE=False
+              - export PUSH_DOCKER_IMAGE='false'
               - export JOB_OFFSET='7'
               - export JOBS_TOTAL='12'
               - echo ${DOCKER_PASSWORD} | docker login --username ${DOCKER_USERNAME} --password-stdin
@@ -1231,7 +1231,7 @@ pipelines:
               - export MAC_PRODUCT_KEY='jira-servicedesk'
               - export TAG_SUFFIXES='jdk11,ubuntu-jdk11'
               - export CONCURRENT_BUILDS='1'
-              - export PUSH_DOCKER_IMAGE=False
+              - export PUSH_DOCKER_IMAGE='false'
               - export JOB_OFFSET='8'
               - export JOBS_TOTAL='12'
               - echo ${DOCKER_PASSWORD} | docker login --username ${DOCKER_USERNAME} --password-stdin
@@ -1256,7 +1256,7 @@ pipelines:
               - export MAC_PRODUCT_KEY='jira-servicedesk'
               - export TAG_SUFFIXES='jdk11,ubuntu-jdk11'
               - export CONCURRENT_BUILDS='1'
-              - export PUSH_DOCKER_IMAGE=False
+              - export PUSH_DOCKER_IMAGE='false'
               - export JOB_OFFSET='9'
               - export JOBS_TOTAL='12'
               - echo ${DOCKER_PASSWORD} | docker login --username ${DOCKER_USERNAME} --password-stdin
@@ -1281,7 +1281,7 @@ pipelines:
               - export MAC_PRODUCT_KEY='jira-servicedesk'
               - export TAG_SUFFIXES='jdk11,ubuntu-jdk11'
               - export CONCURRENT_BUILDS='1'
-              - export PUSH_DOCKER_IMAGE=False
+              - export PUSH_DOCKER_IMAGE='false'
               - export JOB_OFFSET='10'
               - export JOBS_TOTAL='12'
               - echo ${DOCKER_PASSWORD} | docker login --username ${DOCKER_USERNAME} --password-stdin
@@ -1306,7 +1306,7 @@ pipelines:
               - export MAC_PRODUCT_KEY='jira-servicedesk'
               - export TAG_SUFFIXES='jdk11,ubuntu-jdk11'
               - export CONCURRENT_BUILDS='1'
-              - export PUSH_DOCKER_IMAGE=False
+              - export PUSH_DOCKER_IMAGE='false'
               - export JOB_OFFSET='11'
               - export JOBS_TOTAL='12'
               - echo ${DOCKER_PASSWORD} | docker login --username ${DOCKER_USERNAME} --password-stdin
@@ -1331,7 +1331,7 @@ pipelines:
               - export MAC_PRODUCT_KEY='jira'
               - export TAG_SUFFIXES='jdk8,ubuntu-jdk8,ubuntu'
               - export CONCURRENT_BUILDS='1'
-              - export PUSH_DOCKER_IMAGE=False
+              - export PUSH_DOCKER_IMAGE='false'
               - export JOB_OFFSET='0'
               - export JOBS_TOTAL='12'
               - echo ${DOCKER_PASSWORD} | docker login --username ${DOCKER_USERNAME} --password-stdin
@@ -1353,7 +1353,7 @@ pipelines:
               - export MAC_PRODUCT_KEY='jira'
               - export TAG_SUFFIXES='jdk8,ubuntu-jdk8,ubuntu'
               - export CONCURRENT_BUILDS='1'
-              - export PUSH_DOCKER_IMAGE=False
+              - export PUSH_DOCKER_IMAGE='false'
               - export JOB_OFFSET='1'
               - export JOBS_TOTAL='12'
               - echo ${DOCKER_PASSWORD} | docker login --username ${DOCKER_USERNAME} --password-stdin
@@ -1375,7 +1375,7 @@ pipelines:
               - export MAC_PRODUCT_KEY='jira'
               - export TAG_SUFFIXES='jdk8,ubuntu-jdk8,ubuntu'
               - export CONCURRENT_BUILDS='1'
-              - export PUSH_DOCKER_IMAGE=False
+              - export PUSH_DOCKER_IMAGE='false'
               - export JOB_OFFSET='2'
               - export JOBS_TOTAL='12'
               - echo ${DOCKER_PASSWORD} | docker login --username ${DOCKER_USERNAME} --password-stdin
@@ -1397,7 +1397,7 @@ pipelines:
               - export MAC_PRODUCT_KEY='jira'
               - export TAG_SUFFIXES='jdk8,ubuntu-jdk8,ubuntu'
               - export CONCURRENT_BUILDS='1'
-              - export PUSH_DOCKER_IMAGE=False
+              - export PUSH_DOCKER_IMAGE='false'
               - export JOB_OFFSET='3'
               - export JOBS_TOTAL='12'
               - echo ${DOCKER_PASSWORD} | docker login --username ${DOCKER_USERNAME} --password-stdin
@@ -1419,7 +1419,7 @@ pipelines:
               - export MAC_PRODUCT_KEY='jira'
               - export TAG_SUFFIXES='jdk8,ubuntu-jdk8,ubuntu'
               - export CONCURRENT_BUILDS='1'
-              - export PUSH_DOCKER_IMAGE=False
+              - export PUSH_DOCKER_IMAGE='false'
               - export JOB_OFFSET='4'
               - export JOBS_TOTAL='12'
               - echo ${DOCKER_PASSWORD} | docker login --username ${DOCKER_USERNAME} --password-stdin
@@ -1441,7 +1441,7 @@ pipelines:
               - export MAC_PRODUCT_KEY='jira'
               - export TAG_SUFFIXES='jdk8,ubuntu-jdk8,ubuntu'
               - export CONCURRENT_BUILDS='1'
-              - export PUSH_DOCKER_IMAGE=False
+              - export PUSH_DOCKER_IMAGE='false'
               - export JOB_OFFSET='5'
               - export JOBS_TOTAL='12'
               - echo ${DOCKER_PASSWORD} | docker login --username ${DOCKER_USERNAME} --password-stdin
@@ -1463,7 +1463,7 @@ pipelines:
               - export MAC_PRODUCT_KEY='jira'
               - export TAG_SUFFIXES='jdk8,ubuntu-jdk8,ubuntu'
               - export CONCURRENT_BUILDS='1'
-              - export PUSH_DOCKER_IMAGE=False
+              - export PUSH_DOCKER_IMAGE='false'
               - export JOB_OFFSET='6'
               - export JOBS_TOTAL='12'
               - echo ${DOCKER_PASSWORD} | docker login --username ${DOCKER_USERNAME} --password-stdin
@@ -1485,7 +1485,7 @@ pipelines:
               - export MAC_PRODUCT_KEY='jira'
               - export TAG_SUFFIXES='jdk8,ubuntu-jdk8,ubuntu'
               - export CONCURRENT_BUILDS='1'
-              - export PUSH_DOCKER_IMAGE=False
+              - export PUSH_DOCKER_IMAGE='false'
               - export JOB_OFFSET='7'
               - export JOBS_TOTAL='12'
               - echo ${DOCKER_PASSWORD} | docker login --username ${DOCKER_USERNAME} --password-stdin
@@ -1507,7 +1507,7 @@ pipelines:
               - export MAC_PRODUCT_KEY='jira'
               - export TAG_SUFFIXES='jdk8,ubuntu-jdk8,ubuntu'
               - export CONCURRENT_BUILDS='1'
-              - export PUSH_DOCKER_IMAGE=False
+              - export PUSH_DOCKER_IMAGE='false'
               - export JOB_OFFSET='8'
               - export JOBS_TOTAL='12'
               - echo ${DOCKER_PASSWORD} | docker login --username ${DOCKER_USERNAME} --password-stdin
@@ -1529,7 +1529,7 @@ pipelines:
               - export MAC_PRODUCT_KEY='jira'
               - export TAG_SUFFIXES='jdk8,ubuntu-jdk8,ubuntu'
               - export CONCURRENT_BUILDS='1'
-              - export PUSH_DOCKER_IMAGE=False
+              - export PUSH_DOCKER_IMAGE='false'
               - export JOB_OFFSET='9'
               - export JOBS_TOTAL='12'
               - echo ${DOCKER_PASSWORD} | docker login --username ${DOCKER_USERNAME} --password-stdin
@@ -1551,7 +1551,7 @@ pipelines:
               - export MAC_PRODUCT_KEY='jira'
               - export TAG_SUFFIXES='jdk8,ubuntu-jdk8,ubuntu'
               - export CONCURRENT_BUILDS='1'
-              - export PUSH_DOCKER_IMAGE=False
+              - export PUSH_DOCKER_IMAGE='false'
               - export JOB_OFFSET='10'
               - export JOBS_TOTAL='12'
               - echo ${DOCKER_PASSWORD} | docker login --username ${DOCKER_USERNAME} --password-stdin
@@ -1573,7 +1573,7 @@ pipelines:
               - export MAC_PRODUCT_KEY='jira'
               - export TAG_SUFFIXES='jdk8,ubuntu-jdk8,ubuntu'
               - export CONCURRENT_BUILDS='1'
-              - export PUSH_DOCKER_IMAGE=False
+              - export PUSH_DOCKER_IMAGE='false'
               - export JOB_OFFSET='11'
               - export JOBS_TOTAL='12'
               - echo ${DOCKER_PASSWORD} | docker login --username ${DOCKER_USERNAME} --password-stdin
@@ -1595,7 +1595,7 @@ pipelines:
               - export MAC_PRODUCT_KEY='jira'
               - export TAG_SUFFIXES='jdk11,ubuntu-jdk11'
               - export CONCURRENT_BUILDS='1'
-              - export PUSH_DOCKER_IMAGE=False
+              - export PUSH_DOCKER_IMAGE='false'
               - export JOB_OFFSET='0'
               - export JOBS_TOTAL='12'
               - echo ${DOCKER_PASSWORD} | docker login --username ${DOCKER_USERNAME} --password-stdin
@@ -1617,7 +1617,7 @@ pipelines:
               - export MAC_PRODUCT_KEY='jira'
               - export TAG_SUFFIXES='jdk11,ubuntu-jdk11'
               - export CONCURRENT_BUILDS='1'
-              - export PUSH_DOCKER_IMAGE=False
+              - export PUSH_DOCKER_IMAGE='false'
               - export JOB_OFFSET='1'
               - export JOBS_TOTAL='12'
               - echo ${DOCKER_PASSWORD} | docker login --username ${DOCKER_USERNAME} --password-stdin
@@ -1639,7 +1639,7 @@ pipelines:
               - export MAC_PRODUCT_KEY='jira'
               - export TAG_SUFFIXES='jdk11,ubuntu-jdk11'
               - export CONCURRENT_BUILDS='1'
-              - export PUSH_DOCKER_IMAGE=False
+              - export PUSH_DOCKER_IMAGE='false'
               - export JOB_OFFSET='2'
               - export JOBS_TOTAL='12'
               - echo ${DOCKER_PASSWORD} | docker login --username ${DOCKER_USERNAME} --password-stdin
@@ -1661,7 +1661,7 @@ pipelines:
               - export MAC_PRODUCT_KEY='jira'
               - export TAG_SUFFIXES='jdk11,ubuntu-jdk11'
               - export CONCURRENT_BUILDS='1'
-              - export PUSH_DOCKER_IMAGE=False
+              - export PUSH_DOCKER_IMAGE='false'
               - export JOB_OFFSET='3'
               - export JOBS_TOTAL='12'
               - echo ${DOCKER_PASSWORD} | docker login --username ${DOCKER_USERNAME} --password-stdin
@@ -1683,7 +1683,7 @@ pipelines:
               - export MAC_PRODUCT_KEY='jira'
               - export TAG_SUFFIXES='jdk11,ubuntu-jdk11'
               - export CONCURRENT_BUILDS='1'
-              - export PUSH_DOCKER_IMAGE=False
+              - export PUSH_DOCKER_IMAGE='false'
               - export JOB_OFFSET='4'
               - export JOBS_TOTAL='12'
               - echo ${DOCKER_PASSWORD} | docker login --username ${DOCKER_USERNAME} --password-stdin
@@ -1705,7 +1705,7 @@ pipelines:
               - export MAC_PRODUCT_KEY='jira'
               - export TAG_SUFFIXES='jdk11,ubuntu-jdk11'
               - export CONCURRENT_BUILDS='1'
-              - export PUSH_DOCKER_IMAGE=False
+              - export PUSH_DOCKER_IMAGE='false'
               - export JOB_OFFSET='5'
               - export JOBS_TOTAL='12'
               - echo ${DOCKER_PASSWORD} | docker login --username ${DOCKER_USERNAME} --password-stdin
@@ -1727,7 +1727,7 @@ pipelines:
               - export MAC_PRODUCT_KEY='jira'
               - export TAG_SUFFIXES='jdk11,ubuntu-jdk11'
               - export CONCURRENT_BUILDS='1'
-              - export PUSH_DOCKER_IMAGE=False
+              - export PUSH_DOCKER_IMAGE='false'
               - export JOB_OFFSET='6'
               - export JOBS_TOTAL='12'
               - echo ${DOCKER_PASSWORD} | docker login --username ${DOCKER_USERNAME} --password-stdin
@@ -1749,7 +1749,7 @@ pipelines:
               - export MAC_PRODUCT_KEY='jira'
               - export TAG_SUFFIXES='jdk11,ubuntu-jdk11'
               - export CONCURRENT_BUILDS='1'
-              - export PUSH_DOCKER_IMAGE=False
+              - export PUSH_DOCKER_IMAGE='false'
               - export JOB_OFFSET='7'
               - export JOBS_TOTAL='12'
               - echo ${DOCKER_PASSWORD} | docker login --username ${DOCKER_USERNAME} --password-stdin
@@ -1771,7 +1771,7 @@ pipelines:
               - export MAC_PRODUCT_KEY='jira'
               - export TAG_SUFFIXES='jdk11,ubuntu-jdk11'
               - export CONCURRENT_BUILDS='1'
-              - export PUSH_DOCKER_IMAGE=False
+              - export PUSH_DOCKER_IMAGE='false'
               - export JOB_OFFSET='8'
               - export JOBS_TOTAL='12'
               - echo ${DOCKER_PASSWORD} | docker login --username ${DOCKER_USERNAME} --password-stdin
@@ -1793,7 +1793,7 @@ pipelines:
               - export MAC_PRODUCT_KEY='jira'
               - export TAG_SUFFIXES='jdk11,ubuntu-jdk11'
               - export CONCURRENT_BUILDS='1'
-              - export PUSH_DOCKER_IMAGE=False
+              - export PUSH_DOCKER_IMAGE='false'
               - export JOB_OFFSET='9'
               - export JOBS_TOTAL='12'
               - echo ${DOCKER_PASSWORD} | docker login --username ${DOCKER_USERNAME} --password-stdin
@@ -1815,7 +1815,7 @@ pipelines:
               - export MAC_PRODUCT_KEY='jira'
               - export TAG_SUFFIXES='jdk11,ubuntu-jdk11'
               - export CONCURRENT_BUILDS='1'
-              - export PUSH_DOCKER_IMAGE=False
+              - export PUSH_DOCKER_IMAGE='false'
               - export JOB_OFFSET='10'
               - export JOBS_TOTAL='12'
               - echo ${DOCKER_PASSWORD} | docker login --username ${DOCKER_USERNAME} --password-stdin
@@ -1837,7 +1837,7 @@ pipelines:
               - export MAC_PRODUCT_KEY='jira'
               - export TAG_SUFFIXES='jdk11,ubuntu-jdk11'
               - export CONCURRENT_BUILDS='1'
-              - export PUSH_DOCKER_IMAGE=False
+              - export PUSH_DOCKER_IMAGE='false'
               - export JOB_OFFSET='11'
               - export JOBS_TOTAL='12'
               - echo ${DOCKER_PASSWORD} | docker login --username ${DOCKER_USERNAME} --password-stdin
