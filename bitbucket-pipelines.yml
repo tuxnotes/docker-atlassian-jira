@@ -200,7 +200,7 @@ pipelines:
               - export CONCURRENT_BUILDS='1'
               - export PUSH_DOCKER_IMAGE=False
               - export JOB_OFFSET='0'
-              = export JOBS_TOTAL='12'
+              - export JOBS_TOTAL='12'
               - echo ${DOCKER_PASSWORD} | docker login --username ${DOCKER_USERNAME} --password-stdin
               - export DOCKER_REPO='atlassian/jira-software'
               - python /usr/src/app/run.py --update
@@ -222,7 +222,7 @@ pipelines:
               - export CONCURRENT_BUILDS='1'
               - export PUSH_DOCKER_IMAGE=False
               - export JOB_OFFSET='1'
-              = export JOBS_TOTAL='12'
+              - export JOBS_TOTAL='12'
               - echo ${DOCKER_PASSWORD} | docker login --username ${DOCKER_USERNAME} --password-stdin
               - export DOCKER_REPO='atlassian/jira-software'
               - python /usr/src/app/run.py --update
@@ -244,7 +244,7 @@ pipelines:
               - export CONCURRENT_BUILDS='1'
               - export PUSH_DOCKER_IMAGE=False
               - export JOB_OFFSET='2'
-              = export JOBS_TOTAL='12'
+              - export JOBS_TOTAL='12'
               - echo ${DOCKER_PASSWORD} | docker login --username ${DOCKER_USERNAME} --password-stdin
               - export DOCKER_REPO='atlassian/jira-software'
               - python /usr/src/app/run.py --update
@@ -266,7 +266,7 @@ pipelines:
               - export CONCURRENT_BUILDS='1'
               - export PUSH_DOCKER_IMAGE=False
               - export JOB_OFFSET='3'
-              = export JOBS_TOTAL='12'
+              - export JOBS_TOTAL='12'
               - echo ${DOCKER_PASSWORD} | docker login --username ${DOCKER_USERNAME} --password-stdin
               - export DOCKER_REPO='atlassian/jira-software'
               - python /usr/src/app/run.py --update
@@ -288,7 +288,7 @@ pipelines:
               - export CONCURRENT_BUILDS='1'
               - export PUSH_DOCKER_IMAGE=False
               - export JOB_OFFSET='4'
-              = export JOBS_TOTAL='12'
+              - export JOBS_TOTAL='12'
               - echo ${DOCKER_PASSWORD} | docker login --username ${DOCKER_USERNAME} --password-stdin
               - export DOCKER_REPO='atlassian/jira-software'
               - python /usr/src/app/run.py --update
@@ -310,7 +310,7 @@ pipelines:
               - export CONCURRENT_BUILDS='1'
               - export PUSH_DOCKER_IMAGE=False
               - export JOB_OFFSET='5'
-              = export JOBS_TOTAL='12'
+              - export JOBS_TOTAL='12'
               - echo ${DOCKER_PASSWORD} | docker login --username ${DOCKER_USERNAME} --password-stdin
               - export DOCKER_REPO='atlassian/jira-software'
               - python /usr/src/app/run.py --update
@@ -332,7 +332,7 @@ pipelines:
               - export CONCURRENT_BUILDS='1'
               - export PUSH_DOCKER_IMAGE=False
               - export JOB_OFFSET='6'
-              = export JOBS_TOTAL='12'
+              - export JOBS_TOTAL='12'
               - echo ${DOCKER_PASSWORD} | docker login --username ${DOCKER_USERNAME} --password-stdin
               - export DOCKER_REPO='atlassian/jira-software'
               - python /usr/src/app/run.py --update
@@ -354,7 +354,7 @@ pipelines:
               - export CONCURRENT_BUILDS='1'
               - export PUSH_DOCKER_IMAGE=False
               - export JOB_OFFSET='7'
-              = export JOBS_TOTAL='12'
+              - export JOBS_TOTAL='12'
               - echo ${DOCKER_PASSWORD} | docker login --username ${DOCKER_USERNAME} --password-stdin
               - export DOCKER_REPO='atlassian/jira-software'
               - python /usr/src/app/run.py --update
@@ -376,7 +376,7 @@ pipelines:
               - export CONCURRENT_BUILDS='1'
               - export PUSH_DOCKER_IMAGE=False
               - export JOB_OFFSET='8'
-              = export JOBS_TOTAL='12'
+              - export JOBS_TOTAL='12'
               - echo ${DOCKER_PASSWORD} | docker login --username ${DOCKER_USERNAME} --password-stdin
               - export DOCKER_REPO='atlassian/jira-software'
               - python /usr/src/app/run.py --update
@@ -398,7 +398,7 @@ pipelines:
               - export CONCURRENT_BUILDS='1'
               - export PUSH_DOCKER_IMAGE=False
               - export JOB_OFFSET='9'
-              = export JOBS_TOTAL='12'
+              - export JOBS_TOTAL='12'
               - echo ${DOCKER_PASSWORD} | docker login --username ${DOCKER_USERNAME} --password-stdin
               - export DOCKER_REPO='atlassian/jira-software'
               - python /usr/src/app/run.py --update
@@ -420,7 +420,7 @@ pipelines:
               - export CONCURRENT_BUILDS='1'
               - export PUSH_DOCKER_IMAGE=False
               - export JOB_OFFSET='10'
-              = export JOBS_TOTAL='12'
+              - export JOBS_TOTAL='12'
               - echo ${DOCKER_PASSWORD} | docker login --username ${DOCKER_USERNAME} --password-stdin
               - export DOCKER_REPO='atlassian/jira-software'
               - python /usr/src/app/run.py --update
@@ -442,7 +442,7 @@ pipelines:
               - export CONCURRENT_BUILDS='1'
               - export PUSH_DOCKER_IMAGE=False
               - export JOB_OFFSET='11'
-              = export JOBS_TOTAL='12'
+              - export JOBS_TOTAL='12'
               - echo ${DOCKER_PASSWORD} | docker login --username ${DOCKER_USERNAME} --password-stdin
               - export DOCKER_REPO='atlassian/jira-software'
               - python /usr/src/app/run.py --update
@@ -464,7 +464,7 @@ pipelines:
               - export CONCURRENT_BUILDS='1'
               - export PUSH_DOCKER_IMAGE=False
               - export JOB_OFFSET='0'
-              = export JOBS_TOTAL='12'
+              - export JOBS_TOTAL='12'
               - echo ${DOCKER_PASSWORD} | docker login --username ${DOCKER_USERNAME} --password-stdin
               - export DOCKER_REPO='atlassian/jira-software'
               - python /usr/src/app/run.py --update
@@ -486,7 +486,7 @@ pipelines:
               - export CONCURRENT_BUILDS='1'
               - export PUSH_DOCKER_IMAGE=False
               - export JOB_OFFSET='1'
-              = export JOBS_TOTAL='12'
+              - export JOBS_TOTAL='12'
               - echo ${DOCKER_PASSWORD} | docker login --username ${DOCKER_USERNAME} --password-stdin
               - export DOCKER_REPO='atlassian/jira-software'
               - python /usr/src/app/run.py --update
@@ -508,7 +508,7 @@ pipelines:
               - export CONCURRENT_BUILDS='1'
               - export PUSH_DOCKER_IMAGE=False
               - export JOB_OFFSET='2'
-              = export JOBS_TOTAL='12'
+              - export JOBS_TOTAL='12'
               - echo ${DOCKER_PASSWORD} | docker login --username ${DOCKER_USERNAME} --password-stdin
               - export DOCKER_REPO='atlassian/jira-software'
               - python /usr/src/app/run.py --update
@@ -530,7 +530,7 @@ pipelines:
               - export CONCURRENT_BUILDS='1'
               - export PUSH_DOCKER_IMAGE=False
               - export JOB_OFFSET='3'
-              = export JOBS_TOTAL='12'
+              - export JOBS_TOTAL='12'
               - echo ${DOCKER_PASSWORD} | docker login --username ${DOCKER_USERNAME} --password-stdin
               - export DOCKER_REPO='atlassian/jira-software'
               - python /usr/src/app/run.py --update
@@ -552,7 +552,7 @@ pipelines:
               - export CONCURRENT_BUILDS='1'
               - export PUSH_DOCKER_IMAGE=False
               - export JOB_OFFSET='4'
-              = export JOBS_TOTAL='12'
+              - export JOBS_TOTAL='12'
               - echo ${DOCKER_PASSWORD} | docker login --username ${DOCKER_USERNAME} --password-stdin
               - export DOCKER_REPO='atlassian/jira-software'
               - python /usr/src/app/run.py --update
@@ -574,7 +574,7 @@ pipelines:
               - export CONCURRENT_BUILDS='1'
               - export PUSH_DOCKER_IMAGE=False
               - export JOB_OFFSET='5'
-              = export JOBS_TOTAL='12'
+              - export JOBS_TOTAL='12'
               - echo ${DOCKER_PASSWORD} | docker login --username ${DOCKER_USERNAME} --password-stdin
               - export DOCKER_REPO='atlassian/jira-software'
               - python /usr/src/app/run.py --update
@@ -596,7 +596,7 @@ pipelines:
               - export CONCURRENT_BUILDS='1'
               - export PUSH_DOCKER_IMAGE=False
               - export JOB_OFFSET='6'
-              = export JOBS_TOTAL='12'
+              - export JOBS_TOTAL='12'
               - echo ${DOCKER_PASSWORD} | docker login --username ${DOCKER_USERNAME} --password-stdin
               - export DOCKER_REPO='atlassian/jira-software'
               - python /usr/src/app/run.py --update
@@ -618,7 +618,7 @@ pipelines:
               - export CONCURRENT_BUILDS='1'
               - export PUSH_DOCKER_IMAGE=False
               - export JOB_OFFSET='7'
-              = export JOBS_TOTAL='12'
+              - export JOBS_TOTAL='12'
               - echo ${DOCKER_PASSWORD} | docker login --username ${DOCKER_USERNAME} --password-stdin
               - export DOCKER_REPO='atlassian/jira-software'
               - python /usr/src/app/run.py --update
@@ -640,7 +640,7 @@ pipelines:
               - export CONCURRENT_BUILDS='1'
               - export PUSH_DOCKER_IMAGE=False
               - export JOB_OFFSET='8'
-              = export JOBS_TOTAL='12'
+              - export JOBS_TOTAL='12'
               - echo ${DOCKER_PASSWORD} | docker login --username ${DOCKER_USERNAME} --password-stdin
               - export DOCKER_REPO='atlassian/jira-software'
               - python /usr/src/app/run.py --update
@@ -662,7 +662,7 @@ pipelines:
               - export CONCURRENT_BUILDS='1'
               - export PUSH_DOCKER_IMAGE=False
               - export JOB_OFFSET='9'
-              = export JOBS_TOTAL='12'
+              - export JOBS_TOTAL='12'
               - echo ${DOCKER_PASSWORD} | docker login --username ${DOCKER_USERNAME} --password-stdin
               - export DOCKER_REPO='atlassian/jira-software'
               - python /usr/src/app/run.py --update
@@ -684,7 +684,7 @@ pipelines:
               - export CONCURRENT_BUILDS='1'
               - export PUSH_DOCKER_IMAGE=False
               - export JOB_OFFSET='10'
-              = export JOBS_TOTAL='12'
+              - export JOBS_TOTAL='12'
               - echo ${DOCKER_PASSWORD} | docker login --username ${DOCKER_USERNAME} --password-stdin
               - export DOCKER_REPO='atlassian/jira-software'
               - python /usr/src/app/run.py --update
@@ -706,7 +706,7 @@ pipelines:
               - export CONCURRENT_BUILDS='1'
               - export PUSH_DOCKER_IMAGE=False
               - export JOB_OFFSET='11'
-              = export JOBS_TOTAL='12'
+              - export JOBS_TOTAL='12'
               - echo ${DOCKER_PASSWORD} | docker login --username ${DOCKER_USERNAME} --password-stdin
               - export DOCKER_REPO='atlassian/jira-software'
               - python /usr/src/app/run.py --update
@@ -728,7 +728,7 @@ pipelines:
               - export CONCURRENT_BUILDS='1'
               - export PUSH_DOCKER_IMAGE=False
               - export JOB_OFFSET='0'
-              = export JOBS_TOTAL='12'
+              - export JOBS_TOTAL='12'
               - echo ${DOCKER_PASSWORD} | docker login --username ${DOCKER_USERNAME} --password-stdin
               - export DOCKER_REPO='atlassian/jira-servicemanagement'
               - python /usr/src/app/run.py --update
@@ -753,7 +753,7 @@ pipelines:
               - export CONCURRENT_BUILDS='1'
               - export PUSH_DOCKER_IMAGE=False
               - export JOB_OFFSET='1'
-              = export JOBS_TOTAL='12'
+              - export JOBS_TOTAL='12'
               - echo ${DOCKER_PASSWORD} | docker login --username ${DOCKER_USERNAME} --password-stdin
               - export DOCKER_REPO='atlassian/jira-servicemanagement'
               - python /usr/src/app/run.py --update
@@ -778,7 +778,7 @@ pipelines:
               - export CONCURRENT_BUILDS='1'
               - export PUSH_DOCKER_IMAGE=False
               - export JOB_OFFSET='2'
-              = export JOBS_TOTAL='12'
+              - export JOBS_TOTAL='12'
               - echo ${DOCKER_PASSWORD} | docker login --username ${DOCKER_USERNAME} --password-stdin
               - export DOCKER_REPO='atlassian/jira-servicemanagement'
               - python /usr/src/app/run.py --update
@@ -803,7 +803,7 @@ pipelines:
               - export CONCURRENT_BUILDS='1'
               - export PUSH_DOCKER_IMAGE=False
               - export JOB_OFFSET='3'
-              = export JOBS_TOTAL='12'
+              - export JOBS_TOTAL='12'
               - echo ${DOCKER_PASSWORD} | docker login --username ${DOCKER_USERNAME} --password-stdin
               - export DOCKER_REPO='atlassian/jira-servicemanagement'
               - python /usr/src/app/run.py --update
@@ -828,7 +828,7 @@ pipelines:
               - export CONCURRENT_BUILDS='1'
               - export PUSH_DOCKER_IMAGE=False
               - export JOB_OFFSET='4'
-              = export JOBS_TOTAL='12'
+              - export JOBS_TOTAL='12'
               - echo ${DOCKER_PASSWORD} | docker login --username ${DOCKER_USERNAME} --password-stdin
               - export DOCKER_REPO='atlassian/jira-servicemanagement'
               - python /usr/src/app/run.py --update
@@ -853,7 +853,7 @@ pipelines:
               - export CONCURRENT_BUILDS='1'
               - export PUSH_DOCKER_IMAGE=False
               - export JOB_OFFSET='5'
-              = export JOBS_TOTAL='12'
+              - export JOBS_TOTAL='12'
               - echo ${DOCKER_PASSWORD} | docker login --username ${DOCKER_USERNAME} --password-stdin
               - export DOCKER_REPO='atlassian/jira-servicemanagement'
               - python /usr/src/app/run.py --update
@@ -878,7 +878,7 @@ pipelines:
               - export CONCURRENT_BUILDS='1'
               - export PUSH_DOCKER_IMAGE=False
               - export JOB_OFFSET='6'
-              = export JOBS_TOTAL='12'
+              - export JOBS_TOTAL='12'
               - echo ${DOCKER_PASSWORD} | docker login --username ${DOCKER_USERNAME} --password-stdin
               - export DOCKER_REPO='atlassian/jira-servicemanagement'
               - python /usr/src/app/run.py --update
@@ -903,7 +903,7 @@ pipelines:
               - export CONCURRENT_BUILDS='1'
               - export PUSH_DOCKER_IMAGE=False
               - export JOB_OFFSET='7'
-              = export JOBS_TOTAL='12'
+              - export JOBS_TOTAL='12'
               - echo ${DOCKER_PASSWORD} | docker login --username ${DOCKER_USERNAME} --password-stdin
               - export DOCKER_REPO='atlassian/jira-servicemanagement'
               - python /usr/src/app/run.py --update
@@ -928,7 +928,7 @@ pipelines:
               - export CONCURRENT_BUILDS='1'
               - export PUSH_DOCKER_IMAGE=False
               - export JOB_OFFSET='8'
-              = export JOBS_TOTAL='12'
+              - export JOBS_TOTAL='12'
               - echo ${DOCKER_PASSWORD} | docker login --username ${DOCKER_USERNAME} --password-stdin
               - export DOCKER_REPO='atlassian/jira-servicemanagement'
               - python /usr/src/app/run.py --update
@@ -953,7 +953,7 @@ pipelines:
               - export CONCURRENT_BUILDS='1'
               - export PUSH_DOCKER_IMAGE=False
               - export JOB_OFFSET='9'
-              = export JOBS_TOTAL='12'
+              - export JOBS_TOTAL='12'
               - echo ${DOCKER_PASSWORD} | docker login --username ${DOCKER_USERNAME} --password-stdin
               - export DOCKER_REPO='atlassian/jira-servicemanagement'
               - python /usr/src/app/run.py --update
@@ -978,7 +978,7 @@ pipelines:
               - export CONCURRENT_BUILDS='1'
               - export PUSH_DOCKER_IMAGE=False
               - export JOB_OFFSET='10'
-              = export JOBS_TOTAL='12'
+              - export JOBS_TOTAL='12'
               - echo ${DOCKER_PASSWORD} | docker login --username ${DOCKER_USERNAME} --password-stdin
               - export DOCKER_REPO='atlassian/jira-servicemanagement'
               - python /usr/src/app/run.py --update
@@ -1003,7 +1003,7 @@ pipelines:
               - export CONCURRENT_BUILDS='1'
               - export PUSH_DOCKER_IMAGE=False
               - export JOB_OFFSET='11'
-              = export JOBS_TOTAL='12'
+              - export JOBS_TOTAL='12'
               - echo ${DOCKER_PASSWORD} | docker login --username ${DOCKER_USERNAME} --password-stdin
               - export DOCKER_REPO='atlassian/jira-servicemanagement'
               - python /usr/src/app/run.py --update
@@ -1028,7 +1028,7 @@ pipelines:
               - export CONCURRENT_BUILDS='1'
               - export PUSH_DOCKER_IMAGE=False
               - export JOB_OFFSET='0'
-              = export JOBS_TOTAL='12'
+              - export JOBS_TOTAL='12'
               - echo ${DOCKER_PASSWORD} | docker login --username ${DOCKER_USERNAME} --password-stdin
               - export DOCKER_REPO='atlassian/jira-servicemanagement'
               - python /usr/src/app/run.py --update
@@ -1053,7 +1053,7 @@ pipelines:
               - export CONCURRENT_BUILDS='1'
               - export PUSH_DOCKER_IMAGE=False
               - export JOB_OFFSET='1'
-              = export JOBS_TOTAL='12'
+              - export JOBS_TOTAL='12'
               - echo ${DOCKER_PASSWORD} | docker login --username ${DOCKER_USERNAME} --password-stdin
               - export DOCKER_REPO='atlassian/jira-servicemanagement'
               - python /usr/src/app/run.py --update
@@ -1078,7 +1078,7 @@ pipelines:
               - export CONCURRENT_BUILDS='1'
               - export PUSH_DOCKER_IMAGE=False
               - export JOB_OFFSET='2'
-              = export JOBS_TOTAL='12'
+              - export JOBS_TOTAL='12'
               - echo ${DOCKER_PASSWORD} | docker login --username ${DOCKER_USERNAME} --password-stdin
               - export DOCKER_REPO='atlassian/jira-servicemanagement'
               - python /usr/src/app/run.py --update
@@ -1103,7 +1103,7 @@ pipelines:
               - export CONCURRENT_BUILDS='1'
               - export PUSH_DOCKER_IMAGE=False
               - export JOB_OFFSET='3'
-              = export JOBS_TOTAL='12'
+              - export JOBS_TOTAL='12'
               - echo ${DOCKER_PASSWORD} | docker login --username ${DOCKER_USERNAME} --password-stdin
               - export DOCKER_REPO='atlassian/jira-servicemanagement'
               - python /usr/src/app/run.py --update
@@ -1128,7 +1128,7 @@ pipelines:
               - export CONCURRENT_BUILDS='1'
               - export PUSH_DOCKER_IMAGE=False
               - export JOB_OFFSET='4'
-              = export JOBS_TOTAL='12'
+              - export JOBS_TOTAL='12'
               - echo ${DOCKER_PASSWORD} | docker login --username ${DOCKER_USERNAME} --password-stdin
               - export DOCKER_REPO='atlassian/jira-servicemanagement'
               - python /usr/src/app/run.py --update
@@ -1153,7 +1153,7 @@ pipelines:
               - export CONCURRENT_BUILDS='1'
               - export PUSH_DOCKER_IMAGE=False
               - export JOB_OFFSET='5'
-              = export JOBS_TOTAL='12'
+              - export JOBS_TOTAL='12'
               - echo ${DOCKER_PASSWORD} | docker login --username ${DOCKER_USERNAME} --password-stdin
               - export DOCKER_REPO='atlassian/jira-servicemanagement'
               - python /usr/src/app/run.py --update
@@ -1178,7 +1178,7 @@ pipelines:
               - export CONCURRENT_BUILDS='1'
               - export PUSH_DOCKER_IMAGE=False
               - export JOB_OFFSET='6'
-              = export JOBS_TOTAL='12'
+              - export JOBS_TOTAL='12'
               - echo ${DOCKER_PASSWORD} | docker login --username ${DOCKER_USERNAME} --password-stdin
               - export DOCKER_REPO='atlassian/jira-servicemanagement'
               - python /usr/src/app/run.py --update
@@ -1203,7 +1203,7 @@ pipelines:
               - export CONCURRENT_BUILDS='1'
               - export PUSH_DOCKER_IMAGE=False
               - export JOB_OFFSET='7'
-              = export JOBS_TOTAL='12'
+              - export JOBS_TOTAL='12'
               - echo ${DOCKER_PASSWORD} | docker login --username ${DOCKER_USERNAME} --password-stdin
               - export DOCKER_REPO='atlassian/jira-servicemanagement'
               - python /usr/src/app/run.py --update
@@ -1228,7 +1228,7 @@ pipelines:
               - export CONCURRENT_BUILDS='1'
               - export PUSH_DOCKER_IMAGE=False
               - export JOB_OFFSET='8'
-              = export JOBS_TOTAL='12'
+              - export JOBS_TOTAL='12'
               - echo ${DOCKER_PASSWORD} | docker login --username ${DOCKER_USERNAME} --password-stdin
               - export DOCKER_REPO='atlassian/jira-servicemanagement'
               - python /usr/src/app/run.py --update
@@ -1253,7 +1253,7 @@ pipelines:
               - export CONCURRENT_BUILDS='1'
               - export PUSH_DOCKER_IMAGE=False
               - export JOB_OFFSET='9'
-              = export JOBS_TOTAL='12'
+              - export JOBS_TOTAL='12'
               - echo ${DOCKER_PASSWORD} | docker login --username ${DOCKER_USERNAME} --password-stdin
               - export DOCKER_REPO='atlassian/jira-servicemanagement'
               - python /usr/src/app/run.py --update
@@ -1278,7 +1278,7 @@ pipelines:
               - export CONCURRENT_BUILDS='1'
               - export PUSH_DOCKER_IMAGE=False
               - export JOB_OFFSET='10'
-              = export JOBS_TOTAL='12'
+              - export JOBS_TOTAL='12'
               - echo ${DOCKER_PASSWORD} | docker login --username ${DOCKER_USERNAME} --password-stdin
               - export DOCKER_REPO='atlassian/jira-servicemanagement'
               - python /usr/src/app/run.py --update
@@ -1303,7 +1303,7 @@ pipelines:
               - export CONCURRENT_BUILDS='1'
               - export PUSH_DOCKER_IMAGE=False
               - export JOB_OFFSET='11'
-              = export JOBS_TOTAL='12'
+              - export JOBS_TOTAL='12'
               - echo ${DOCKER_PASSWORD} | docker login --username ${DOCKER_USERNAME} --password-stdin
               - export DOCKER_REPO='atlassian/jira-servicemanagement'
               - python /usr/src/app/run.py --update
@@ -1328,7 +1328,7 @@ pipelines:
               - export CONCURRENT_BUILDS='1'
               - export PUSH_DOCKER_IMAGE=False
               - export JOB_OFFSET='0'
-              = export JOBS_TOTAL='12'
+              - export JOBS_TOTAL='12'
               - echo ${DOCKER_PASSWORD} | docker login --username ${DOCKER_USERNAME} --password-stdin
               - export DOCKER_REPO='atlassian/jira-core'
               - python /usr/src/app/run.py --update
@@ -1350,7 +1350,7 @@ pipelines:
               - export CONCURRENT_BUILDS='1'
               - export PUSH_DOCKER_IMAGE=False
               - export JOB_OFFSET='1'
-              = export JOBS_TOTAL='12'
+              - export JOBS_TOTAL='12'
               - echo ${DOCKER_PASSWORD} | docker login --username ${DOCKER_USERNAME} --password-stdin
               - export DOCKER_REPO='atlassian/jira-core'
               - python /usr/src/app/run.py --update
@@ -1372,7 +1372,7 @@ pipelines:
               - export CONCURRENT_BUILDS='1'
               - export PUSH_DOCKER_IMAGE=False
               - export JOB_OFFSET='2'
-              = export JOBS_TOTAL='12'
+              - export JOBS_TOTAL='12'
               - echo ${DOCKER_PASSWORD} | docker login --username ${DOCKER_USERNAME} --password-stdin
               - export DOCKER_REPO='atlassian/jira-core'
               - python /usr/src/app/run.py --update
@@ -1394,7 +1394,7 @@ pipelines:
               - export CONCURRENT_BUILDS='1'
               - export PUSH_DOCKER_IMAGE=False
               - export JOB_OFFSET='3'
-              = export JOBS_TOTAL='12'
+              - export JOBS_TOTAL='12'
               - echo ${DOCKER_PASSWORD} | docker login --username ${DOCKER_USERNAME} --password-stdin
               - export DOCKER_REPO='atlassian/jira-core'
               - python /usr/src/app/run.py --update
@@ -1416,7 +1416,7 @@ pipelines:
               - export CONCURRENT_BUILDS='1'
               - export PUSH_DOCKER_IMAGE=False
               - export JOB_OFFSET='4'
-              = export JOBS_TOTAL='12'
+              - export JOBS_TOTAL='12'
               - echo ${DOCKER_PASSWORD} | docker login --username ${DOCKER_USERNAME} --password-stdin
               - export DOCKER_REPO='atlassian/jira-core'
               - python /usr/src/app/run.py --update
@@ -1438,7 +1438,7 @@ pipelines:
               - export CONCURRENT_BUILDS='1'
               - export PUSH_DOCKER_IMAGE=False
               - export JOB_OFFSET='5'
-              = export JOBS_TOTAL='12'
+              - export JOBS_TOTAL='12'
               - echo ${DOCKER_PASSWORD} | docker login --username ${DOCKER_USERNAME} --password-stdin
               - export DOCKER_REPO='atlassian/jira-core'
               - python /usr/src/app/run.py --update
@@ -1460,7 +1460,7 @@ pipelines:
               - export CONCURRENT_BUILDS='1'
               - export PUSH_DOCKER_IMAGE=False
               - export JOB_OFFSET='6'
-              = export JOBS_TOTAL='12'
+              - export JOBS_TOTAL='12'
               - echo ${DOCKER_PASSWORD} | docker login --username ${DOCKER_USERNAME} --password-stdin
               - export DOCKER_REPO='atlassian/jira-core'
               - python /usr/src/app/run.py --update
@@ -1482,7 +1482,7 @@ pipelines:
               - export CONCURRENT_BUILDS='1'
               - export PUSH_DOCKER_IMAGE=False
               - export JOB_OFFSET='7'
-              = export JOBS_TOTAL='12'
+              - export JOBS_TOTAL='12'
               - echo ${DOCKER_PASSWORD} | docker login --username ${DOCKER_USERNAME} --password-stdin
               - export DOCKER_REPO='atlassian/jira-core'
               - python /usr/src/app/run.py --update
@@ -1504,7 +1504,7 @@ pipelines:
               - export CONCURRENT_BUILDS='1'
               - export PUSH_DOCKER_IMAGE=False
               - export JOB_OFFSET='8'
-              = export JOBS_TOTAL='12'
+              - export JOBS_TOTAL='12'
               - echo ${DOCKER_PASSWORD} | docker login --username ${DOCKER_USERNAME} --password-stdin
               - export DOCKER_REPO='atlassian/jira-core'
               - python /usr/src/app/run.py --update
@@ -1526,7 +1526,7 @@ pipelines:
               - export CONCURRENT_BUILDS='1'
               - export PUSH_DOCKER_IMAGE=False
               - export JOB_OFFSET='9'
-              = export JOBS_TOTAL='12'
+              - export JOBS_TOTAL='12'
               - echo ${DOCKER_PASSWORD} | docker login --username ${DOCKER_USERNAME} --password-stdin
               - export DOCKER_REPO='atlassian/jira-core'
               - python /usr/src/app/run.py --update
@@ -1548,7 +1548,7 @@ pipelines:
               - export CONCURRENT_BUILDS='1'
               - export PUSH_DOCKER_IMAGE=False
               - export JOB_OFFSET='10'
-              = export JOBS_TOTAL='12'
+              - export JOBS_TOTAL='12'
               - echo ${DOCKER_PASSWORD} | docker login --username ${DOCKER_USERNAME} --password-stdin
               - export DOCKER_REPO='atlassian/jira-core'
               - python /usr/src/app/run.py --update
@@ -1570,7 +1570,7 @@ pipelines:
               - export CONCURRENT_BUILDS='1'
               - export PUSH_DOCKER_IMAGE=False
               - export JOB_OFFSET='11'
-              = export JOBS_TOTAL='12'
+              - export JOBS_TOTAL='12'
               - echo ${DOCKER_PASSWORD} | docker login --username ${DOCKER_USERNAME} --password-stdin
               - export DOCKER_REPO='atlassian/jira-core'
               - python /usr/src/app/run.py --update
@@ -1592,7 +1592,7 @@ pipelines:
               - export CONCURRENT_BUILDS='1'
               - export PUSH_DOCKER_IMAGE=False
               - export JOB_OFFSET='0'
-              = export JOBS_TOTAL='12'
+              - export JOBS_TOTAL='12'
               - echo ${DOCKER_PASSWORD} | docker login --username ${DOCKER_USERNAME} --password-stdin
               - export DOCKER_REPO='atlassian/jira-core'
               - python /usr/src/app/run.py --update
@@ -1614,7 +1614,7 @@ pipelines:
               - export CONCURRENT_BUILDS='1'
               - export PUSH_DOCKER_IMAGE=False
               - export JOB_OFFSET='1'
-              = export JOBS_TOTAL='12'
+              - export JOBS_TOTAL='12'
               - echo ${DOCKER_PASSWORD} | docker login --username ${DOCKER_USERNAME} --password-stdin
               - export DOCKER_REPO='atlassian/jira-core'
               - python /usr/src/app/run.py --update
@@ -1636,7 +1636,7 @@ pipelines:
               - export CONCURRENT_BUILDS='1'
               - export PUSH_DOCKER_IMAGE=False
               - export JOB_OFFSET='2'
-              = export JOBS_TOTAL='12'
+              - export JOBS_TOTAL='12'
               - echo ${DOCKER_PASSWORD} | docker login --username ${DOCKER_USERNAME} --password-stdin
               - export DOCKER_REPO='atlassian/jira-core'
               - python /usr/src/app/run.py --update
@@ -1658,7 +1658,7 @@ pipelines:
               - export CONCURRENT_BUILDS='1'
               - export PUSH_DOCKER_IMAGE=False
               - export JOB_OFFSET='3'
-              = export JOBS_TOTAL='12'
+              - export JOBS_TOTAL='12'
               - echo ${DOCKER_PASSWORD} | docker login --username ${DOCKER_USERNAME} --password-stdin
               - export DOCKER_REPO='atlassian/jira-core'
               - python /usr/src/app/run.py --update
@@ -1680,7 +1680,7 @@ pipelines:
               - export CONCURRENT_BUILDS='1'
               - export PUSH_DOCKER_IMAGE=False
               - export JOB_OFFSET='4'
-              = export JOBS_TOTAL='12'
+              - export JOBS_TOTAL='12'
               - echo ${DOCKER_PASSWORD} | docker login --username ${DOCKER_USERNAME} --password-stdin
               - export DOCKER_REPO='atlassian/jira-core'
               - python /usr/src/app/run.py --update
@@ -1702,7 +1702,7 @@ pipelines:
               - export CONCURRENT_BUILDS='1'
               - export PUSH_DOCKER_IMAGE=False
               - export JOB_OFFSET='5'
-              = export JOBS_TOTAL='12'
+              - export JOBS_TOTAL='12'
               - echo ${DOCKER_PASSWORD} | docker login --username ${DOCKER_USERNAME} --password-stdin
               - export DOCKER_REPO='atlassian/jira-core'
               - python /usr/src/app/run.py --update
@@ -1724,7 +1724,7 @@ pipelines:
               - export CONCURRENT_BUILDS='1'
               - export PUSH_DOCKER_IMAGE=False
               - export JOB_OFFSET='6'
-              = export JOBS_TOTAL='12'
+              - export JOBS_TOTAL='12'
               - echo ${DOCKER_PASSWORD} | docker login --username ${DOCKER_USERNAME} --password-stdin
               - export DOCKER_REPO='atlassian/jira-core'
               - python /usr/src/app/run.py --update
@@ -1746,7 +1746,7 @@ pipelines:
               - export CONCURRENT_BUILDS='1'
               - export PUSH_DOCKER_IMAGE=False
               - export JOB_OFFSET='7'
-              = export JOBS_TOTAL='12'
+              - export JOBS_TOTAL='12'
               - echo ${DOCKER_PASSWORD} | docker login --username ${DOCKER_USERNAME} --password-stdin
               - export DOCKER_REPO='atlassian/jira-core'
               - python /usr/src/app/run.py --update
@@ -1768,7 +1768,7 @@ pipelines:
               - export CONCURRENT_BUILDS='1'
               - export PUSH_DOCKER_IMAGE=False
               - export JOB_OFFSET='8'
-              = export JOBS_TOTAL='12'
+              - export JOBS_TOTAL='12'
               - echo ${DOCKER_PASSWORD} | docker login --username ${DOCKER_USERNAME} --password-stdin
               - export DOCKER_REPO='atlassian/jira-core'
               - python /usr/src/app/run.py --update
@@ -1790,7 +1790,7 @@ pipelines:
               - export CONCURRENT_BUILDS='1'
               - export PUSH_DOCKER_IMAGE=False
               - export JOB_OFFSET='9'
-              = export JOBS_TOTAL='12'
+              - export JOBS_TOTAL='12'
               - echo ${DOCKER_PASSWORD} | docker login --username ${DOCKER_USERNAME} --password-stdin
               - export DOCKER_REPO='atlassian/jira-core'
               - python /usr/src/app/run.py --update
@@ -1812,7 +1812,7 @@ pipelines:
               - export CONCURRENT_BUILDS='1'
               - export PUSH_DOCKER_IMAGE=False
               - export JOB_OFFSET='10'
-              = export JOBS_TOTAL='12'
+              - export JOBS_TOTAL='12'
               - echo ${DOCKER_PASSWORD} | docker login --username ${DOCKER_USERNAME} --password-stdin
               - export DOCKER_REPO='atlassian/jira-core'
               - python /usr/src/app/run.py --update
@@ -1834,7 +1834,7 @@ pipelines:
               - export CONCURRENT_BUILDS='1'
               - export PUSH_DOCKER_IMAGE=False
               - export JOB_OFFSET='11'
-              = export JOBS_TOTAL='12'
+              - export JOBS_TOTAL='12'
               - echo ${DOCKER_PASSWORD} | docker login --username ${DOCKER_USERNAME} --password-stdin
               - export DOCKER_REPO='atlassian/jira-core'
               - python /usr/src/app/run.py --update

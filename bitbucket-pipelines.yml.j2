@@ -117,7 +117,7 @@ pipelines:
               - export CONCURRENT_BUILDS='1'
               - export PUSH_DOCKER_IMAGE=False
               - export JOB_OFFSET='{{ offset }}'
-              = export JOBS_TOTAL='{{ batches }}'
+              - export JOBS_TOTAL='{{ batches }}'
               - echo ${DOCKER_PASSWORD} | docker login --username ${DOCKER_USERNAME} --password-stdin
       {% for repo in appdata.docker_repos|default(['atlassian/'+appdata.mac_key]) %}
         {% if loop.index0 > 0 %}
