@@ -16,6 +16,7 @@ images = {
     'Jira Software': {
         8: {
             'mac_key': 'jira-software',
+            'artefact': 'atlassian-jira-software',
             'start_version': '7.13',
             'end_version': '9',
             'default_release': True,
@@ -24,6 +25,7 @@ images = {
         },
         11: {
             'mac_key': 'jira-software',
+            'artefact': 'atlassian-jira-software',
             'start_version': '8.2',
             'end_version': '9',
             'default_release': False,
@@ -34,6 +36,7 @@ images = {
     'Jira Service Management': {
         8: {
             'mac_key': 'jira-servicedesk',
+            'artefact': 'atlassian-servicedesk',
             'start_version': '3.16',
             'end_version': '5',
             'default_release': True,
@@ -42,6 +45,7 @@ images = {
         },
         11: {
             'mac_key': 'jira-servicedesk',
+            'artefact': 'atlassian-servicedesk',
             'start_version': '4.2',
             'end_version': '5',
             'default_release': False,
@@ -51,6 +55,7 @@ images = {
     'Jira Core': {
         8: {
             'mac_key': 'jira',
+            'artefact': 'atlassian-jira-core',
             'start_version': '7.13',
             'end_version': '9',
             'default_release': True,
@@ -59,6 +64,7 @@ images = {
         },
         11: {
             'mac_key': 'jira',
+            'artefact': 'atlassian-jira-core',
             'start_version': '8.2',
             'end_version': '9',
             'default_release': False,
