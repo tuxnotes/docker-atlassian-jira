@@ -15,4 +15,5 @@ fi
 
 sh ./postgres/inject-license
 
-docker-compose up --abort-on-container-exit --exit-code-from smoketests
+docker-compose rm -f && \
+    docker-compose up --abort-on-container-exit --exit-code-from smoketests
