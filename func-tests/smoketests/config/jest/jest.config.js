@@ -28,4 +28,5 @@ module.exports = {
         '^.+\\.(ts|tsx)$': 'ts-jest',
     },
     testEnvironment: 'jest-environment-jsdom-sixteen',
+    setupFilesAfterEnv: ['./jest.setup.js'],
 };
