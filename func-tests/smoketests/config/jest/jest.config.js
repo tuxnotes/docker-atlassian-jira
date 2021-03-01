@@ -29,5 +29,6 @@ module.exports = {
         '^.+\\.(ts|tsx)$': 'ts-jest',
     },
     testEnvironment: 'jest-environment-jsdom-sixteen',
+    testTimeout: 60000,
     globalSetup: "<rootDir>/src/setup.ts",
 };
