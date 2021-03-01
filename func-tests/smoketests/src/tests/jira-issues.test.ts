@@ -1,9 +1,7 @@
 import request from "supertest";
-const jira = process.env["JIRA_BASEURL"] || "http://jira:8080/jira";
-const adminPassword = process.env["JIRA_ADMIN_PWD"] || "admin";
-
+import { adminPassword, jiraBaseUrl } from "../config";
 test("Jira REST API returns a specific issue", async () =>
-  await request(jira)
+  await request(jiraBaseUrl)
     .get("/rest/api/2/issue/KT-1")
     .auth("admin", adminPassword)
     .set("Accept", "application/json")
@@ -19,7 +17,7 @@ test("Jira REST API returns a specific issue", async () =>
     }));
 
 test("Jira REST API can create a ticket", async () =>
-  await request(jira)
+  await request(jiraBaseUrl)
     .post("/rest/api/2/issue")
     .auth("admin", adminPassword)
     .set("Content-Type", "application/json")
@@ -33,7 +31,7 @@ test("Jira REST API can create a ticket", async () =>
     .expect(201));
 
 test("JQL search returns issues assigned to admin", async () =>
-  await request(jira)
+  await request(jiraBaseUrl)
     .get("/rest/api/2/search?jql=assignee=admin")
     .auth("admin", adminPassword)
     .set("Accept", "application/json")
@@ -48,7 +46,7 @@ describe("Issue transitions", () => {
   let targetTransitionId: number;
   // First we need to get transition IDs from a different API
   beforeAll(async () => {
-    const transitions = await request(jira)
+    const transitions = await request(jiraBaseUrl)
       .get("/rest/api/2/issue/KT-10/transitions")
       .auth("admin", adminPassword)
       .set("Accept", "application/json")
@@ -63,7 +61,7 @@ describe("Issue transitions", () => {
   });
 
   test("Transition issue from Done to In Progress", async () => {
-    await request(jira)
+    await request(jiraBaseUrl)
       .post("/rest/api/2/issue/KT-10/transitions")
       .auth("admin", adminPassword)
       .set("Content-Type", "application/json")
@@ -75,7 +73,7 @@ describe("Issue transitions", () => {
 
   // Move the issue back to Done so the test is idempotence
   afterAll(async () => {
-    await request(jira)
+    await request(jiraBaseUrl)
       .post("/rest/api/2/issue/KT-10/transitions")
       .auth("admin", adminPassword)
       .set("Content-Type", "application/json")
