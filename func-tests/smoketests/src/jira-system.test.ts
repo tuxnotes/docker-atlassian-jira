@@ -20,9 +20,26 @@ test("Verify that all plugins are enabled", async () => {
     .expect(200)
     .then((resp) => {
       const plugins = resp.body.plugins;
-      expect(plugins).toHaveLength(280);
+      // we shouldn't rely on precise number of plugins as this is subject to change
+      expect(plugins.length).toBeGreaterThan(200);
+      // but all of the plugins should be enabled
       plugins.map((plugin: any) =>
         expect(plugin).toHaveProperty("enabled", true)
       );
+    });
+});
+
+
+test("Verify that index is readable", async () => {
+  await request(jira)
+    .get("/rest/api/2/index/summary")
+    .auth("admin", adminPassword)
+    .expect("Content-Type", /json/)
+    .expect(200)
+    .then((resp) => {
+      expect(resp.body.issueIndex.indexReadable).toEqual(true);
+      const countInDatabase = resp.body.issueIndex.countInDatabase;
+      expect(countInDatabase).toBeGreaterThan(0);
+      expect(resp.body.issueIndex.countInIndex).toEqual(countInDatabase);
     });
 });

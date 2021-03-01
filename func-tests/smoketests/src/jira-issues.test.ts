@@ -4,7 +4,7 @@ const adminPassword = process.env["JIRA_ADMIN_PWD"] || "admin";
 
 test("Jira REST API returns a specific issue", async () =>
   await request(jira)
-    .get("/rest/agile/1.0/issue/KT-1")
+    .get("/rest/api/2/issue/KT-1")
     .auth("admin", adminPassword)
     .set("Accept", "application/json")
     .expect("Content-Type", /json/)
