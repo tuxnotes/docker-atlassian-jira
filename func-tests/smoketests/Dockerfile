@@ -1,10 +1,8 @@
-FROM debian:buster-backports
+FROM node:14.16.0-buster
 
 RUN apt-get update \
-    && apt-get install -y -t buster-backports wget curl unzip yarnpkg \
+    && apt-get install -y wget curl unzip \
     && apt-get clean -y
-
-RUN ln -s /usr/bin/yarnpkg /usr/bin/yarn
 
 RUN mkdir /opt/test
 COPY . /opt/test

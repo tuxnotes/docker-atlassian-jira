@@ -3474,6 +3474,11 @@ strip-final-newline@^2.0.0:
   resolved "https://registry.yarnpkg.com/strip-final-newline/-/strip-final-newline-2.0.0.tgz#89b852fb2fcbe936f6f4b3187afb0a12c1ab58ad"
   integrity sha512-BrpvfNAE3dcvq7ll3xVumzjKjZQ5tI1sEUIKr3Uoks0XUl45St3FlatVqef9prk4jRDzhW6WZg+3bk93y6pLjA==
 
+superagent-retry-delay@^2.6.2:
+  version "2.6.2"
+  resolved "https://packages.atlassian.com/api/npm/npm-remote/superagent-retry-delay/-/superagent-retry-delay-2.6.2.tgz#b9c599861ef0d702f940219910ce6a868b9ffbbe"
+  integrity sha1-ucWZhh7w1wL5QCGZEM5qhouf+74=
+
 superagent@^6.1.0:
   version "6.1.0"
   resolved "https://packages.atlassian.com/api/npm/npm-remote/superagent/-/superagent-6.1.0.tgz#09f08807bc41108ef164cfb4be293cebd480f4a6"

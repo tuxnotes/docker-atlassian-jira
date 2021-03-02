@@ -16,5 +16,8 @@
   },
   "scripts": {
     "test": "jest --setupFiles dotenv/config --config ./config/jest/jest.config.js --passWithNoTests --runInBand"
+  },
+  "dependencies": {
+    "superagent-retry-delay": "^2.6.2"
   }
 }
