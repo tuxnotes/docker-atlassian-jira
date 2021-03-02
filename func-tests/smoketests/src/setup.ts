@@ -1,5 +1,5 @@
 import request from "supertest";
-import { adminPassword, jiraBaseUrl } from "./config";
+import { adminPassword, indexingDelayInMs, jiraBaseUrl } from "./config";
 
 module.exports = async () => {
   console.log("Trigger issue re-index via Jira REST API");
@@ -11,5 +11,5 @@ module.exports = async () => {
     .expect(202);
 
   // Jira returns 503 HTTP code for a short period while reindexing is triggered
-  await new Promise((r) => setTimeout(r, 500));
+  await new Promise((r) => setTimeout(r, indexingDelayInMs));
 };
