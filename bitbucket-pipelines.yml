@@ -126,8 +126,8 @@ pipelines:
               docker build -t atlassian/jira-software:${DOCKER_TAG}
               --build-arg ARTEFACT_NAME=atlassian-jira-software
               --build-arg JIRA_VERSION=${JIRA_VERSION} .
-            - snyk auth @SNYK_TOKEN
-            - snyk container test atlassian/jira-software:${DOCKER_TAG} --severity-threshold=high
+            - export IS_RELEASE='true'
+            - /usr/src/app/integration_test.sh atlassian/jira-software:${DOCKER_TAG} IS_RELEASE
             - docker push atlassian/jira-software:${DOCKER_TAG}
     jsm-custom-release:
       - variables:
@@ -143,8 +143,8 @@ pipelines:
               docker build -t atlassian/jira-servicemanagement:${DOCKER_TAG}
               --build-arg ARTEFACT_NAME=atlassian-servicedesk
               --build-arg JIRA_VERSION=${JIRA_VERSION} .
-            - snyk auth @SNYK_TOKEN
-            - snyk container test atlassian/jira-servicemanagement:${DOCKER_TAG} --severity-threshold=high
+            - export IS_RELEASE='true'
+            - /usr/src/app/integration_test.sh atlassian/jira-servicemanagement:${DOCKER_TAG} IS_RELEASE
             - docker push atlassian/jira-servicemanagement:${DOCKER_TAG}
     jc-custom-release:
       - variables:
@@ -160,8 +160,8 @@ pipelines:
               docker build -t atlassian/jira-core:${DOCKER_TAG}
               --build-arg ARTEFACT_NAME=atlassian-jira-core
               --build-arg JIRA_VERSION=${JIRA_VERSION} .
-            - snyk auth @SNYK_TOKEN
-            - snyk container test atlassian/jira-core:${DOCKER_TAG} --severity-threshold=high
+            - export IS_RELEASE='true'
+            - /usr/src/app/integration_test.sh atlassian/jira-core:${DOCKER_TAG} IS_RELEASE
             - docker push atlassian/jira-core:${DOCKER_TAG}
   branches:
     master:
@@ -174,7 +174,7 @@ pipelines:
                 - git submodule update --init --recursive
                 - export START_VERSION='7.13'
                 - export END_VERSION='9'
-                - export CONCURRENT_BUILDS='4'
+                - export CONCURRENT_BUILDS='1'
                 - export DEFAULT_RELEASE='true'
                 - export DOCKER_REPO='atlassian/jira-software'
                 - export DOCKERFILE_BUILDARGS='ARTEFACT_NAME=atlassian-jira-software'
@@ -277,7 +277,6 @@ pipelines:
 
       - step:
           name: Update README
-          image: python:3.7-alpine3.12
           script:
             - apk add --no-cache git
             - git submodule update --init --recursive
@@ -293,34 +292,35 @@ pipelines:
 
     # Branch/PR tests
     '**':
-      - step:
-          image: python:3.7-alpine3.12
-          services:
-            - docker
-          script:
-            - apk add --no-cache git
-            - git submodule update --init --recursive
-            - pip install -q -r shared-components/tests/requirements.txt
-            - export PYTHONPATH=./shared-components/tests:$PYTHONPATH
-            - export DOCKERFILE='Dockerfile'
-            - export DOCKERFILE_BUILDARGS='ARTEFACT_NAME=atlassian-jira-software'
-            - export DOCKERFILE_VERSION_ARG='JIRA_VERSION'
-            - export MAC_PRODUCT_KEY='jira-software'
-            - py.test tests/
-            - py.test shared-components/tests/
-            - export DOCKERFILE_BUILDARGS='ARTEFACT_NAME=atlassian-jira-software,BASE_IMAGE=adoptopenjdk:11-hotspot'
-            - py.test tests/
-            - py.test shared-components/tests/
-      - step:
-          image: python:3.7-alpine3.12
-          services:
-            - docker
-          script:
-            - apk add --no-cache git docker-compose jq curl
-            - git submodule update --init --recursive
-            - export JIRA_VERSION=`curl -s https://marketplace.atlassian.com/rest/2/products/key/jira/versions/latest | jq -r .name`
-            - docker build --build-arg JIRA_VERSION=${JIRA_VERSION} -t test-image .
-            - ./func-tests/run-functests test-image
+      - parallel:
+        - step:
+            name: Run unit tests
+            services:
+              - docker
+            script:
+              - apk add --no-cache git
+              - git submodule update --init --recursive
+              - export PYTHONPATH=./shared-components/tests:$PYTHONPATH
+              - export DOCKERFILE='Dockerfile'
+              - export DOCKERFILE_BUILDARGS='ARTEFACT_NAME=atlassian-jira-software'
+              - export DOCKERFILE_VERSION_ARG='JIRA_VERSION'
+              - export MAC_PRODUCT_KEY='jira-software'
+              - py.test tests/
+              - py.test shared-components/tests/
+              - export DOCKERFILE_BUILDARGS='ARTEFACT_NAME=atlassian-jira-software,BASE_IMAGE=adoptopenjdk:11-hotspot'
+              - py.test tests/
+              - py.test shared-components/tests/
+        - step:
+            name: Run functional tests
+            services:
+              - docker
+            script:
+              - apk add --no-cache git docker-compose jq curl
+              - git submodule update --init --recursive
+              - export JIRA_VERSION=`curl -s https://marketplace.atlassian.com/rest/2/products/key/jira/versions/latest | jq -r .name`
+              - docker build --build-arg JIRA_VERSION=${JIRA_VERSION} -t test-image .
+              - export IS_RELEASE=false
+              - /usr/src/app/integration_test.sh test-image $IS_RELEASE
 
 definitions:
   services:
