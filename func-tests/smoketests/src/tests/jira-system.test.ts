@@ -42,6 +42,7 @@ test("Verify that index is readable and all the records from the database can be
   await request(jiraBaseUrl)
     .get("/rest/api/2/index/summary")
     .auth("admin", adminPassword)
+    .retry(10)
     .expect(200)
     .expect("Content-Type", /json/)
     .then((resp: any) => {
