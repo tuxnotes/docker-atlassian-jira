@@ -21,6 +21,7 @@ module.exports = {
     clearMocks: true,
     verbose: false,
     roots: [path.resolve('./src')],
+    rootDir: path.resolve('.'),
     moduleFileExtensions: ['ts', 'tsx', 'js', 'jsx', 'json'],
     transformIgnorePatterns: ['node_modules/(?!(@atlaskit)/)'],
     testMatch: ['**/__tests__/**/*.+(ts|tsx|js)', '**/?(*.)+(spec|test).+(ts|tsx|js)'],
@@ -28,4 +29,6 @@ module.exports = {
         '^.+\\.(ts|tsx)$': 'ts-jest',
     },
     testEnvironment: 'jest-environment-jsdom-sixteen',
+    testTimeout: 60000,
+    globalSetup: "<rootDir>/src/setup.ts",
 };
