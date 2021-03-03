@@ -1,5 +1,5 @@
 import request from "supertest";
-import { adminPassword, jiraBaseUrl } from "./config";
+import { adminPassword, indexingDelayInMs, jiraBaseUrl } from "./config";
 
 module.exports = async () => {
   // This can be used for a common setup - e.g. indexing (but Jira indexes after startup and upgrade)
@@ -10,8 +10,10 @@ module.exports = async () => {
 
   await request(jiraBaseUrl)
     .post("/rest/api/2/reindex")
-    .query({ type: "BACKGROUND_PREFERRED" })
+    .query({ type: "FOREGROUND" })
     .auth("admin", adminPassword)
     .set("Content-Type", "application/json")
     .expect(202);
+
+  await new Promise((r) => setTimeout(r, indexingDelayInMs));
 };

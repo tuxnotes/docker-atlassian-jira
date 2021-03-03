@@ -31,7 +31,7 @@ test("Verify that all plugins are enabled", async () => {
 test("Verify that index is readable and all the records from the database can be indexed", async () => {
   await request(jiraBaseUrl)
     .post("/rest/api/2/reindex")
-    .query({ type: "BACKGROUND_PREFERRED" })
+    .query({ type: "FOREGROUND" })
     .auth("admin", adminPassword)
     .set("Content-Type", "application/json")
     .expect(202);
