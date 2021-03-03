@@ -1,5 +1,5 @@
 import request from "supertest";
-import { adminPassword, jiraBaseUrl } from "../config";
+import { adminPassword, indexingDelayInMs, jiraBaseUrl } from "../config";
 
 test("Jira status endpoint responds with RUNNING", async () =>
   await request(jiraBaseUrl)
@@ -37,7 +37,7 @@ test("Verify that index is readable and all the records from the database can be
     .expect(202);
 
   // Jira returns 503 HTTP code for a short period while reindexing is triggered
-  await new Promise(r => setTimeout(r, 500));
+  await new Promise(r => setTimeout(r, indexingDelayInMs));
 
   await request(jiraBaseUrl)
     .get("/rest/api/2/index/summary")
