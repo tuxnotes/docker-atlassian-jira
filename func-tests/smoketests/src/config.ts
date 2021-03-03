@@ -1,3 +1,3 @@
 export const jiraBaseUrl = process.env["JIRA_BASEURL"] || "http://jira:8080/jira";
 export const adminPassword = process.env["JIRA_ADMIN_PWD"] || "admin";
-export const indexingDelayInMs = 2 * 1000;
+export const indexingDelayInMs = 3 * 1000;
