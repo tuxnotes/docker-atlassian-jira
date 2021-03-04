@@ -19,6 +19,11 @@ pipelines:
     # Master branch: Do full release for each image flavour
     ######################################################################
     master:
+      - step:
+          name: Check if pipelines config is up-to-date...
+          script:
+            - python3 pipelines-generator.py > bitbucket-piplines.yml.expected && diff bitbucket-pipelines.yml bitbucket-piplines.yml.expected
+
       - parallel:
      {% for (name, pdata) in images.items() %}
        {% for (jdkver, appdata) in pdata.items() %}
