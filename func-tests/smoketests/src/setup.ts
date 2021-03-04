@@ -1,5 +1,6 @@
 import request from "supertest";
-import { adminPassword, jiraBaseUrl, indexingDelayInMs } from './config';
+import poll from "@jcoreio/poll";
+import { adminPassword, jiraBaseUrl, indexingTimeout } from "./config";
 
 module.exports = async () => {
   // This can be used for a common setup - e.g. indexing (but Jira indexes after startup and upgrade)
@@ -18,5 +19,8 @@ module.exports = async () => {
     .expect(202);
 
   // Jira returns 503 HTTP code for a short period while reindexing is triggered
-  await new Promise((r) => setTimeout(r, indexingDelayInMs));
+  await poll(() => request(jiraBaseUrl).get("/rest/api/2/index/summary"), 500)
+    .until((error, result) => result.status !== 503)
+    .timeout(indexingTimeout)
+    .then(() => console.log("Instance is responding now"));
 };
