@@ -1,5 +1,7 @@
 import request from "supertest";
-import { adminPassword, indexingDelayInMs, jiraBaseUrl } from "../config";
+import poll from "@jcoreio/poll";
+import { adminPassword, indexingTimeout, jiraBaseUrl } from "../config";
+import { delay } from "cypress/types/bluebird";
 
 test("Jira status endpoint responds with RUNNING", async () =>
   await request(jiraBaseUrl)
@@ -37,12 +39,13 @@ test("Verify that index is readable and all the records from the database can be
     .expect(202);
 
   // Jira returns 503 HTTP code for a short period while reindexing is triggered
-  await new Promise(r => setTimeout(r, indexingDelayInMs));
+  await poll(() => request(jiraBaseUrl).get("/rest/api/2/index/summary"), 500)
+    .until((error, result) => result.status !== 503)
+    .timeout(indexingTimeout);
 
   await request(jiraBaseUrl)
     .get("/rest/api/2/index/summary")
     .auth("admin", adminPassword)
-    .retry(10)
     .expect(200)
     .expect("Content-Type", /json/)
     .then((resp: any) => {
