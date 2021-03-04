@@ -1,7 +1,6 @@
 import request from "supertest";
 import poll from "@jcoreio/poll";
 import { adminPassword, indexingTimeout, jiraBaseUrl } from "../config";
-import { delay } from "cypress/types/bluebird";
 
 test("Jira status endpoint responds with RUNNING", async () =>
   await request(jiraBaseUrl)
