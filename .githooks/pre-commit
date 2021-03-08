@@ -1,0 +1,21 @@
+#!/bin/bash
+
+#
+# Ensure that `bitbucket-pipelines.yml` has been generated from the latest template
+#
+
+TMPFILE=`mktemp -d`/bitbucket-pipelines.yml.expected
+python3 pipelines-generator.py > $TMPFILE
+diff -u bitbucket-pipelines.yml $TMPFILE
+if [[ $? != 0 ]]; then
+    cat <<\EOF
+
+######################################################################
+# The file 'bitbucket-pipelines.yml' is not up-to-date with its source
+# template 'bitbucket-pipelines.yml.j2'. See 'pipelines-generator.py`
+# and 'DEVELOPMENT.md' for more information.
+######################################################################
+
+EOF
+    exit 1
+fi
