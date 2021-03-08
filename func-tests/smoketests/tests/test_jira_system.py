@@ -19,3 +19,15 @@ def test_plugins(ctx):
     assert len(plugins) > 200
     # ... but all of the plugins should be enabled
     assert reduce(lambda a, b: a and b, map(lambda x: x['enabled'], plugins))
+
+def test_valid_index(ctx):
+    # The system is reindexed on startup; see the reindex_before_tests fixture
+    resp = requests.get(ctx.base_url+'/rest/api/2/index/summary', auth=ctx.admin_auth)
+    assert resp.status_code == 200
+    idx = resp.json()['issueIndex']
+    assert idx['indexReadable']
+    dbcount = idx['countInDatabase']
+    idxcount = idx['countInIndex']
+
+    assert dbcount > 0
+    assert idxcount == dbcount
