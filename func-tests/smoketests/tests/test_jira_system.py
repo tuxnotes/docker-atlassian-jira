@@ -4,8 +4,6 @@ import logging
 import pytest
 import requests
 
-ACCEPT_JSON = { 'Accept': 'application/json' }
-
 def test_status(ctx):
     resp = requests.get(ctx.base_url+'/status')
     assert resp.status_code == 200
