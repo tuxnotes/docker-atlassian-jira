@@ -8,6 +8,13 @@ After cloning the repository you will need to clone the submodule:
 git submodule update --init --force --recursive
 ```
 
+You should also add the local githooks, which include checks for the generated
+Bitbucket Pipelines configuration. This can be done with:
+
+```
+git config core.hooksPath .githooks
+```
+
 ## Testing
 
 The repository contains a smoke-test suite run on branch/PR builds and as part
@@ -65,11 +72,15 @@ JIRA_ADMIN_PWD="passwordInLastpass" JIRA_BASEURL="http://localhost:2990/jira" np
 
 ### Release process
 
-Releases occur automatically; see
-[bitbucket-pipelines.yml](bitbucket-pipelines.yml). It should be noted that a
-change to this repository will result in all published images being regenerated
-with the latest version of the [Dockerfile](Dockerfile). As part of the release
-process the following happens:
+Releases occur automatically; see [bitbucket-pipelines.yml](bitbucket-pipelines.yml).
+Due to the large amount of images that are built and tested the pipelines file
+is generated from a template that parallelises the builds.  It includes a
+self-check for out-of-date pipelines config. To avoid committing stale config it
+is recommended you add the supplied pre-commit hook; see the setup section above.
+
+It should be noted that a change to this repository will result in all published
+images being regenerated with the latest version of the
+[Dockerfile](Dockerfile). As part of the release process the following happens:
 
 * A [Snyk](https://snyk.io) scan is run against the generated container image.
 * The image dependencies are registered with Snyk for periodic scanning.

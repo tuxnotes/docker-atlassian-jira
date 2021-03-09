@@ -19,8 +19,13 @@ module.exports = async () => {
     .expect(202);
 
   // Jira returns 503 HTTP code for a short period while reindexing is triggered
-  await poll(() => request(jiraBaseUrl).get("/rest/api/2/index/summary"), 500)
-    .until((error, result) => result.status !== 503)
+  console.log("Waiting for indexing to finish...")
+  await poll(() => request(jiraBaseUrl)
+             .get("/rest/api/2/reindex/progress")
+             .auth("admin", adminPassword)
+             .set("Accept", "application/json"),
+             500)
+    .until((error, result) => result.body.currentProgress >= 100)
     .timeout(indexingTimeout)
-    .then(() => console.log("Instance is responding now"));
+    .then(() => console.log("Indexing complete"));
 };
