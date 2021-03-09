@@ -31,6 +31,7 @@ def ctx():
         user_pwd = os.environ.get('JIRA_USER_PWD', 'admin')
     )
 
+
 @pytest.fixture(scope='session', autouse=True)
 def reindex_before_tests(ctx):
     reindex = ctx.base_url + "/rest/api/2/reindex"
@@ -53,3 +54,4 @@ def reindex_before_tests(ctx):
 
     logging.info("Indexing timed-out")
     pytest.fail("Indexing timed-out")
+

@@ -29,7 +29,6 @@ def test_create_ticket(ctx):
                          auth=ctx.admin_auth,
                          headers=CONTENT_JSON,
                          data=json.dumps(issue))
-    logging.error(resp.text)
     assert resp.status_code == 201
 
 
@@ -39,3 +38,44 @@ def test_jql(ctx):
     assert resp.status_code == 200
     assert resp.json()['total'] == 16
 
+
+@pytest.fixture(scope='session')
+def transition_ids(ctx):
+    resp = requests.get(ctx.base_url+'/rest/api/2/issue/KT-10/transitions',
+                        auth=ctx.admin_auth)
+    assert resp.status_code == 200
+    trns = resp.json()['transitions']
+    current = list(filter(lambda x: x['name'] == 'Done', trns))[0]['id']
+    target = list(filter(lambda x: x['name'] == 'In Progress', trns))[0]['id']
+    return {
+        'current': current,
+        'target': target
+    }
+
+# Move the issue back to Done so the test is idempotent
+def reset_kt10(ctx, transition_ids):
+    trn = {
+        'transition': { 'id': transition_ids['current'] }
+    }
+
+    resp = requests.post(ctx.base_url+'/rest/api/2/issue/KT-10/transitions',
+                         auth=ctx.admin_auth,
+                         headers=CONTENT_JSON,
+                         data=json.dumps(trn))
+    assert resp.status_code == 204
+
+
+def test_done_inprogress(ctx, transition_ids):
+    reset_kt10(ctx, transition_ids)
+
+    trn = {
+        'transition': { 'id': transition_ids['target'] }
+    }
+
+    resp = requests.post(ctx.base_url+'/rest/api/2/issue/KT-10/transitions',
+                         auth=ctx.admin_auth,
+                         headers=CONTENT_JSON,
+                         data=json.dumps(trn))
+    assert resp.status_code == 204
+
+    reset_kt10(ctx, transition_ids)
