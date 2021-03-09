@@ -50,6 +50,7 @@ pipelines:
               - echo ${DOCKER_PASSWORD} | docker login --username ${DOCKER_USERNAME} --password-stdin
       {% for repo in appdata.docker_repos|default(['atlassian/'+appdata.mac_key]) %}
         {% if loop.index0 > 0 %}
+          {# If we're pushing to multiple repos only test on the first one #}
               - export INTEGRATION_TEST_SCRIPT=''
         {% endif %}
               - export DOCKER_REPO='{{ repo }}'
