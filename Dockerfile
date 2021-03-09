@@ -44,7 +44,7 @@ RUN sed -i -e 's/-XX:ReservedCodeCacheSize=\([0-9]\+[kmg]\)/-XX:ReservedCodeCach
 
 RUN touch /etc/container_id
 RUN chown ${RUN_USER}:${RUN_GROUP}               /etc/container_id
-RUN chown -R ${RUN_USER}:${RUN_GROUP}            ${JIRA_HOM
+RUN chown -R ${RUN_USER}:${RUN_GROUP}            ${JIRA_HOME}
 
 VOLUME ["${JIRA_HOME}"] # Must be declared after setting perms
 
