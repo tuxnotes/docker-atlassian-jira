@@ -24,7 +24,7 @@ class Context:
 @pytest.fixture(scope='session')
 def ctx():
     return Context(
-        base_url = os.environ.get('JIRA_BASEURL', "http://localhost:2990/jira"),
+        base_url = os.environ.get('JIRA_BASEURL', "http://jira:8080/jira"),
         admin_user = os.environ.get('JIRA_ADMIN', 'admin'),
         admin_pwd = os.environ.get('JIRA_ADMIN_PWD', 'admin'),
         user_name = os.environ.get('JIRA_USER', 'admin'),
