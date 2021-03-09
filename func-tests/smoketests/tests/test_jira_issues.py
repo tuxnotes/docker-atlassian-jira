@@ -6,6 +6,7 @@ import logging
 import pytest
 import requests
 
+CONTENT_JSON = { 'Content-Type': 'application/json' }
 
 def test_valid_index(ctx):
     resp = requests.get(ctx.base_url+'/rest/api/2/issue/KT-1',
@@ -26,7 +27,8 @@ def test_create_issue(ctx):
 
     resp = requests.post(ctx.base_url+'/rest/api/2/issue',
                          auth=ctx.admin_auth,
-                         json=json.dumps(issue))
+                         headers=CONTENT_JSON,
+                         data=json.dumps(issue))
     assert resp.status_code == 201
 
 
@@ -58,7 +60,8 @@ def reset_kt10(ctx, transition_ids):
 
     resp = requests.post(ctx.base_url+'/rest/api/2/issue/KT-10/transitions',
                          auth=ctx.admin_auth,
-                         json=json.dumps(trn))
+                         headers=CONTENT_JSON,
+                         data=json.dumps(trn))
     assert resp.status_code == 204
 
 
@@ -71,7 +74,8 @@ def test_done_inprogress(ctx, transition_ids):
 
     resp = requests.post(ctx.base_url+'/rest/api/2/issue/KT-10/transitions',
                          auth=ctx.admin_auth,
-                         json=json.dumps(trn))
+                         headers=CONTENT_JSON,
+                         data=json.dumps(trn))
     assert resp.status_code == 204
 
     reset_kt10(ctx, transition_ids)
