@@ -16,7 +16,7 @@ def test_valid_index(ctx):
     assert issue['fields']['summary'].startswith('Kanban cards represent work items >> Click the "KT-1" link')
 
 
-def test_create_ticket(ctx):
+def test_create_issue(ctx):
     issue = {
       'fields': {
         'project': { 'key': "KT" },
