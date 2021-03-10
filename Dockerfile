@@ -33,7 +33,7 @@ RUN echo PATH=$PATH > /etc/environment
 RUN mkdir -p                                     ${JIRA_INSTALL_DIR}
 
 RUN curl -L --silent                             ${DOWNLOAD_URL} --output ${ARTEFACT_NAME}-${JIRA_VERSION}.tar.gz
-RUN tar -xz --strip-components=1 -C "${JIRA_INSTALL_DIR}" ${ARTEFACT_NAME}-${JIRA_VERSION}.tar.gz
+RUN tar -xzf ${ARTEFACT_NAME}-${JIRA_VERSION}.tar.gz --strip-components=1 -C "${JIRA_INSTALL_DIR}"
 RUN rm -f ${ARTEFACT_NAME}-${JIRA_VERSION}.tar.gz
 
 RUN chmod -R "u=rwX,g=rX,o=rX"                   ${JIRA_INSTALL_DIR}/
