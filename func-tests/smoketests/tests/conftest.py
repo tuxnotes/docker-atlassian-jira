@@ -50,7 +50,7 @@ def reindex_before_tests(ctx):
             logging.info("Indexing complete")
             return
 
-        time.sleep(1.0/1000*delay_ms)
+        time.sleep(delay_ms/1000)
 
     logging.info("Indexing timed-out")
     pytest.fail("Indexing timed-out")

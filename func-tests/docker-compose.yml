@@ -49,6 +49,5 @@ services:
     command: >
       bash -c '
           ./bin/jira-wait http://jira:8080/jira/ &&
-          pipenv install --dev
           pipenv run pytest
       '
