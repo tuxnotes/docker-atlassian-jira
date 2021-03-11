@@ -7,6 +7,7 @@ import requests
 from requests.auth import HTTPBasicAuth
 import time
 
+
 @dataclass
 class Context:
     base_url: str
@@ -24,11 +25,11 @@ class Context:
 @pytest.fixture(scope='session')
 def ctx():
     return Context(
-        base_url = os.environ.get('JIRA_BASEURL', "http://jira:8080/jira"),
-        admin_user = os.environ.get('JIRA_ADMIN', 'admin'),
-        admin_pwd = os.environ.get('JIRA_ADMIN_PWD', 'admin'),
-        user_name = os.environ.get('JIRA_USER', 'admin'),
-        user_pwd = os.environ.get('JIRA_USER_PWD', 'admin')
+        base_url=os.environ.get('JIRA_BASEURL', "http://jira:8080/jira"),
+        admin_user=os.environ.get('JIRA_ADMIN', 'admin'),
+        admin_pwd=os.environ.get('JIRA_ADMIN_PWD', 'admin'),
+        user_name=os.environ.get('JIRA_USER', 'admin'),
+        user_pwd=os.environ.get('JIRA_USER_PWD', 'admin')
     )
 
 
@@ -54,4 +55,3 @@ def reindex_before_tests(ctx):
 
     logging.info("Indexing timed-out")
     pytest.fail("Indexing timed-out")
-

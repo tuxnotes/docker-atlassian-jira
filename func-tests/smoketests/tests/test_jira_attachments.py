@@ -9,9 +9,10 @@ import tempfile
 
 NOCHECK = {"X-Atlassian-Token": "no-check"}
 
+
 @pytest.fixture(scope='session')
 def attachment_file(ctx):
-    _fd, fname =  tempfile.mkstemp()
+    _fd, fname = tempfile.mkstemp()
     with open(fname, 'w+b') as fd:
         fd.write(b'Hello content!')
 
@@ -27,7 +28,7 @@ def test_upload_attachment(ctx, attachment_file):
 
     # Upload attachment
     attachment = {
-      'file': open(attachment_file, 'rb')
+        'file': open(attachment_file, 'rb')
     }
 
     resp = requests.post(ctx.base_url+'/rest/api/2/issue/KT-5/attachments',
