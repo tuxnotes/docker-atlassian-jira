@@ -29,10 +29,12 @@ ARG DOWNLOAD_URL=https://product-downloads.atlassian.com/software/jira/downloads
 RUN groupadd --gid ${RUN_GID} ${RUN_GROUP} \
     && useradd --uid ${RUN_UID} --gid ${RUN_GID} --home-dir ${JIRA_HOME} --shell /bin/bash ${RUN_USER} \
     && echo PATH=$PATH > /etc/environment \
-    \
-    && mkdir -p                                     ${JIRA_INSTALL_DIR} \
-    && curl -L --silent                             ${DOWNLOAD_URL} | tar -xz --strip-components=1 -C "${JIRA_INSTALL_DIR}" \
-    && chmod -R "u=rwX,g=rX,o=rX"                   ${JIRA_INSTALL_DIR}/ \
+    && mkdir -p ${JIRA_INSTALL_DIR}
+
+# Broken out to aid debugging of download failures:
+RUN curl -Lsv ${DOWNLOAD_URL} | tar -xz --strip-components=1 -C "${JIRA_INSTALL_DIR}"
+
+RUN chmod -R "u=rwX,g=rX,o=rX"                      ${JIRA_INSTALL_DIR}/ \
     && chown -R root.                               ${JIRA_INSTALL_DIR}/ \
     && chown -R ${RUN_USER}:${RUN_GROUP}            ${JIRA_INSTALL_DIR}/logs \
     && chown -R ${RUN_USER}:${RUN_GROUP}            ${JIRA_INSTALL_DIR}/temp \
