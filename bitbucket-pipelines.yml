@@ -1735,4 +1735,5 @@ pipelines:
               - export JIRA_VERSION=`curl -s https://marketplace.atlassian.com/rest/2/products/key/jira/versions/latest | jq -r .name`
               - docker build --build-arg JIRA_VERSION=${JIRA_VERSION} -t test-image .
               - export IS_RELEASE=false
-              - /usr/src/app/integration_test.sh test-image $IS_RELEASE
+              - export RUN_FUNCTESTS=true
+              - /usr/src/app/integration_test.sh test-image $IS_RELEASE $RUN_FUNCTESTS
