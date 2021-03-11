@@ -59,7 +59,7 @@ Install packages
 
 ```
 cd func-tests/smoketests
-yarn install
+pipenv install
 ```
 
 Run the smoke tests
@@ -67,7 +67,9 @@ Run the smoke tests
 ```
 cd func-tests
 docker-compose up
-JIRA_ADMIN_PWD="passwordInLastpass" JIRA_BASEURL="http://localhost:2990/jira" npm test -- --watch
+export JIRA_ADMIN_PWD="passwordInLastpass"
+export JIRA_BASEURL="http://localhost:2990/jira"
+pipenv run pytest
 ```
 
 ### Release process
