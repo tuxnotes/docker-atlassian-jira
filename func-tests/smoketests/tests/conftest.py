@@ -46,7 +46,7 @@ def reindex_before_tests(ctx):
     for _ in range(0, int(ctx.indexing_timeout / delay_ms)):
         resp = requests.get(progress, auth=ctx.admin_auth)
         assert resp.status_code == 200
-        logging.info("JSON: "+str(resp.json()))
+        logging.info("Indexing progress: "+str(resp.json()))
         if resp.json()['currentProgress'] >= 100:
             logging.info("Indexing complete")
             return
