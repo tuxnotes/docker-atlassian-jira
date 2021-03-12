@@ -69,7 +69,7 @@ cd func-tests
 docker-compose up
 export JIRA_ADMIN_PWD="passwordInLastpass"
 export JIRA_BASEURL="http://localhost:2990/jira"
-pipenv run pytest
+pipenv run pytest -v
 ```
 
 ### Release process
