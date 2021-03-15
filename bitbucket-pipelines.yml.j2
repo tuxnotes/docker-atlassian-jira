@@ -50,7 +50,6 @@ pipelines:
               - echo ${DOCKER_PASSWORD} | docker login --username ${DOCKER_USERNAME} --password-stdin
       {% for repo in appdata.docker_repos|default(['atlassian/'+appdata.mac_key]) %}
         {% if loop.index0 > 0 %}
-          {# If we're pushing to multiple repos only test on the first one #}
               - export INTEGRATION_TEST_SCRIPT=''
         {% endif %}
               - export DOCKER_REPO='{{ repo }}'
@@ -116,3 +115,44 @@ pipelines:
               - export IS_RELEASE=false
               - export RUN_FUNCTESTS=true
               - /usr/src/app/integration_test.sh test-image $IS_RELEASE $RUN_FUNCTESTS
+
+  ######################################################################
+  # Custom builds; these are triggered manually or via timer.
+  ######################################################################
+  custom:
+    new-releases:
+      - parallel:
+{% for (name, pdata) in images.items() %}
+  {% for (jdkver, appdata) in pdata.items() %}
+    {% for offset in range(0, batches) %}
+
+        - step:
+            name: {{ name }} JDK {{ jdkver }} - Batch {{ offset + 1 }}
+            services:
+              - docker
+            script:
+              - git submodule update --init --recursive
+              - export START_VERSION='{{ appdata.start_version }}'
+              - export END_VERSION='{{ appdata.end_version }}'
+              - export DEFAULT_RELEASE='{{ appdata.default_release|lower() }}'
+              - export DOCKERFILE_BUILDARGS='ARTEFACT_NAME={{ appdata.artefact }},BASE_IMAGE=adoptopenjdk:{{ jdkver }}-hotspot'
+              - export DOCKERFILE_VERSION_ARG='JIRA_VERSION'
+              - export MAC_PRODUCT_KEY='{{ appdata.mac_key }}'
+      {% set tag_suffixes = ['jdk'+jdkver|string(), 'ubuntu-jdk'+jdkver|string()] + appdata.extra_tag_suffixes|default([]) %}
+              - export TAG_SUFFIXES='{{ tag_suffixes|join(',') }}'
+              - export CONCURRENT_BUILDS='1'
+              - export PUSH_DOCKER_IMAGE='true'
+              - export JOB_OFFSET='{{ offset }}'
+              - export JOBS_TOTAL='{{ batches }}'
+              - echo ${DOCKER_PASSWORD} | docker login --username ${DOCKER_USERNAME} --password-stdin
+      {% for repo in appdata.docker_repos|default(['atlassian/'+appdata.mac_key]) %}
+        {% if loop.index0 > 0 %}
+              - export INTEGRATION_TEST_SCRIPT=''
+        {% endif %}
+              - export DOCKER_REPO='{{ repo }}'
+              - python /usr/src/app/run.py --create --create-eap
+      {% endfor %}
+
+    {% endfor %}
+  {% endfor %}
+{% endfor %}
