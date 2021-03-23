@@ -35,6 +35,7 @@ pipelines:
               - docker
             script:
               - git submodule update --init --recursive
+              - echo ${DOCKER_PASSWORD} | docker login --username ${DOCKER_USERNAME} --password-stdin
               - >
                 python ../docker-release-maker/make-releases.py 
                   --update
@@ -129,6 +130,7 @@ pipelines:
               - docker
             script:
               - git submodule update --init --recursive
+              - echo ${DOCKER_PASSWORD} | docker login --username ${DOCKER_USERNAME} --password-stdin
               - >
                 python ../docker-release-maker/make-releases.py 
                   --create --create-eap
