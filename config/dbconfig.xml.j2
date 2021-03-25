@@ -16,7 +16,7 @@
     <username>{{ atl_jdbc_user }}</username>
     <password>{{ atl_jdbc_password }}</password>
     <driver-class>{{ atl_db_driver }}</driver-class>
-    {% if atl_db_type == postgres72 %}
+    {% if atl_db_type == 'postgres72' %}
       <connection-properties>tcpKeepAlive={{ atl_db_keepalive | default('true') }};socketTimeout={{ atl_db_sockettimeout | default('240') }}</connection-properties>
     {% endif %}
 
