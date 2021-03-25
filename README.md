@@ -230,6 +230,11 @@ optional. For more information on these see: https://tomcat.apache.org/tomcat-7.
 * `ATL_DB_TESTWHILEIDLE` (default: true)
 * `ATL_DB_TIMEBETWEENEVICTIONRUNSMILLIS` (default: 30000)
 
+The following settings only apply when using the Postgres driver:
+
+* `ATL_DB_KEEPALIVE` (default: true)
+* `ATL_DB_SOCKETTIMEOUT` (default: 240)
+
 
 ## Data Center configuration
 
