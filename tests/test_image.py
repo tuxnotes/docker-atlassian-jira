@@ -9,7 +9,7 @@ from helpers import get_app_home, get_app_install_dir, get_bootstrap_proc, get_p
 def test_server_xml_defaults(docker_cli, image):
     container = run_image(docker_cli, image)
     _jvm = wait_for_proc(container, get_bootstrap_proc(container))
-    
+
     xml = parse_xml(container, f'{get_app_install_dir(container)}/conf/server.xml')
     connector = xml.find('.//Connector')
     context = xml.find('.//Context')
@@ -47,7 +47,7 @@ def test_server_xml_params(docker_cli, image):
     }
     container = run_image(docker_cli, image, environment=environment)
     _jvm = wait_for_proc(container, get_bootstrap_proc(container))
-    
+
     xml = parse_xml(container, f'{get_app_install_dir(container)}/conf/server.xml')
     connector = xml.find('.//Connector')
     context = xml.find('.//Context')
@@ -80,8 +80,10 @@ def test_dbconfig_xml_defaults(docker_cli, image):
     }
     container = run_image(docker_cli, image, environment=environment)
     _jvm = wait_for_proc(container, get_bootstrap_proc(container))
-    
+
     xml = parse_xml(container, f'{get_app_home(container)}/dbconfig.xml')
+
+    assert xml.findtext('.//connection-properties') == 'tcpKeepAlive=true;socketTimeout=240'
 
     assert xml.findtext('.//pool-min-size') == '20'
     assert xml.findtext('.//pool-max-size') == '100'
@@ -108,7 +110,7 @@ def test_dbconfig_xml_default_schema_names(docker_cli, image, run_user, atl_db_t
         'postgres72': 'public',
     }
     schema_name = default_schema_names.get(atl_db_type, '')
-    
+
     environment = {
         'ATL_DB_TYPE': atl_db_type,
     }
@@ -116,7 +118,7 @@ def test_dbconfig_xml_default_schema_names(docker_cli, image, run_user, atl_db_t
     _jvm = wait_for_proc(container, get_bootstrap_proc(container))
 
     xml = parse_xml(container, f'{get_app_home(container)}/dbconfig.xml')
-    
+
     assert xml.findtext('.//schema-name') == schema_name
 
 
@@ -128,6 +130,8 @@ def test_dbconfig_xml_params(docker_cli, image, run_user):
         'ATL_JDBC_USER': 'jiradbuser',
         'ATL_JDBC_PASSWORD': 'jiradbpassword',
         'ATL_DB_SCHEMA_NAME': 'private',
+        'ATL_DB_KEEPALIVE': 'false',
+        'ATL_DB_SOCKETTIMEOUT': '999',
         'ATL_DB_MAXIDLE': '21',
         'ATL_DB_MAXWAITMILLIS': '30001',
         'ATL_DB_MINEVICTABLEIDLETIMEMILLIS': '5001',
@@ -152,6 +156,7 @@ def test_dbconfig_xml_params(docker_cli, image, run_user):
     assert xml.findtext('.//username') == environment.get('ATL_JDBC_USER')
     assert xml.findtext('.//password') == environment.get('ATL_JDBC_PASSWORD')
     assert xml.findtext('.//schema-name') == environment.get('ATL_DB_SCHEMA_NAME')
+    assert xml.findtext('.//connection-properties') == 'tcpKeepAlive=false;socketTimeout=999'
 
     assert xml.findtext('.//pool-min-size') == environment.get('ATL_DB_POOLMINSIZE')
     assert xml.findtext('.//pool-max-size') == environment.get('ATL_DB_POOLMAXSIZE')
@@ -173,12 +178,12 @@ def test_cluster_properties_defaults(docker_cli, image, run_user):
     }
     container = run_image(docker_cli, image, environment=environment)
     _jvm = wait_for_proc(container, get_bootstrap_proc(container))
-    
+
     properties = parse_properties(container, f'{get_app_home(container)}/cluster.properties')
     container_id = container.file('/etc/container_id').content.decode().strip()
 
     assert len(container_id) > 0
-    
+
     assert properties.get('jira.node.id') == container_id
     assert properties.get('jira.shared.home') == '/var/atlassian/application-data/jira/shared'
     assert properties.get('ehcache.peer.discovery') is None
@@ -195,7 +200,7 @@ def test_cluster_properties_defaults(docker_cli, image, run_user):
 def test_clustered_false(docker_cli, image, run_user):
     container = run_image(docker_cli, image)
     _jvm = wait_for_proc(container, get_bootstrap_proc(container))
-    
+
     container.run_test(f'test -f {get_app_home(container)}/cluster.properties')
 
 
@@ -216,7 +221,7 @@ def test_cluster_properties_params(docker_cli, image, run_user):
     }
     container = run_image(docker_cli, image, user=run_user, environment=environment)
     _jvm = wait_for_proc(container, get_bootstrap_proc(container))
-    
+
     properties = parse_properties(container, f'{get_app_home(container)}/cluster.properties')
 
     assert properties.get('jira.node.id') == environment.get('JIRA_NODE_ID')
@@ -301,10 +306,10 @@ def test_jvm_args(docker_cli, image, run_user):
     }
     container = run_image(docker_cli, image, user=run_user, environment=environment)
     _jvm = wait_for_proc(container, get_bootstrap_proc(container))
-    
+
     procs_list = get_procs(container)
     jvm = [proc for proc in procs_list if get_bootstrap_proc(container) in proc][0]
-    
+
     assert f'-Xms{environment.get("JVM_MINIMUM_MEMORY")}' in jvm
     assert f'-Xmx{environment.get("JVM_MAXIMUM_MEMORY")}' in jvm
     assert f'-XX:ReservedCodeCacheSize={environment.get("JVM_RESERVED_CODE_CACHE_SIZE")}' in jvm
@@ -314,9 +319,9 @@ def test_jvm_args(docker_cli, image, run_user):
 def test_first_run_state(docker_cli, image, run_user):
     PORT = 8080
     URL = f'http://localhost:{PORT}/status'
-    
+
     container = run_image(docker_cli, image, user=run_user, ports={PORT: PORT})
-    
+
     wait_for_http_response(URL, expected_status=200, expected_state=('STARTING', 'FIRST_RUN'))
 
 
@@ -328,9 +333,9 @@ def test_java_in_user_path(docker_cli, image):
 def test_seraph_xml_defaults(docker_cli, image):
     container = run_image(docker_cli, image)
     _jvm = wait_for_proc(container, get_bootstrap_proc(container))
-    
+
     xml = parse_xml(container, f'{get_app_install_dir(container)}/atlassian-jira/WEB-INF/classes/seraph-config.xml')
-    assert [el.findtext('.//param-value') for el in xml.findall('.//init-param') 
+    assert [el.findtext('.//param-value') for el in xml.findall('.//init-param')
             if el.findtext('.//param-name') == 'autologin.cookie.age'][0] == '1209600'
 
 
@@ -338,7 +343,7 @@ def test_seraph_xml_params(docker_cli, image):
     environment = {'ATL_AUTOLOGIN_COOKIE_AGE': '9001'}
     container = run_image(docker_cli, image, environment=environment)
     _jvm = wait_for_proc(container, get_bootstrap_proc(container))
-    
+
     xml = parse_xml(container, f'{get_app_install_dir(container)}/atlassian-jira/WEB-INF/classes/seraph-config.xml')
-    assert [el.findtext('.//param-value') for el in xml.findall('.//init-param') 
+    assert [el.findtext('.//param-value') for el in xml.findall('.//init-param')
             if el.findtext('.//param-name') == 'autologin.cookie.age'][0] == environment.get('ATL_AUTOLOGIN_COOKIE_AGE')
