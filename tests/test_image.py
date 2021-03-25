@@ -130,6 +130,8 @@ def test_dbconfig_xml_params(docker_cli, image, run_user):
         'ATL_JDBC_USER': 'jiradbuser',
         'ATL_JDBC_PASSWORD': 'jiradbpassword',
         'ATL_DB_SCHEMA_NAME': 'private',
+        'ATL_DB_KEEPALIVE': 'false',
+        'ATL_DB_SOCKETTIMEOUT': '999',
         'ATL_DB_MAXIDLE': '21',
         'ATL_DB_MAXWAITMILLIS': '30001',
         'ATL_DB_MINEVICTABLEIDLETIMEMILLIS': '5001',
@@ -154,6 +156,7 @@ def test_dbconfig_xml_params(docker_cli, image, run_user):
     assert xml.findtext('.//username') == environment.get('ATL_JDBC_USER')
     assert xml.findtext('.//password') == environment.get('ATL_JDBC_PASSWORD')
     assert xml.findtext('.//schema-name') == environment.get('ATL_DB_SCHEMA_NAME')
+    assert xml.findtext('.//connection-properties') == 'tcpKeepAlive=false;socketTimeout=999'
 
     assert xml.findtext('.//pool-min-size') == environment.get('ATL_DB_POOLMINSIZE')
     assert xml.findtext('.//pool-max-size') == environment.get('ATL_DB_POOLMAXSIZE')
