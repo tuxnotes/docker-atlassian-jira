@@ -120,7 +120,7 @@ pipelines:
             services:
               - docker
             script:
-              -> python /usr/src/app/make-releases.py
+              - > python /usr/src/app/make-releases.py
                   --update
                   --start-version='7.13'
                   --end-version='9'
