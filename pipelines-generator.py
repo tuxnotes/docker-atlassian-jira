@@ -19,7 +19,7 @@ images = {
             'start_version': '7.13',
             'end_version': '9',
             'default_release': True,
-            'extra_tag_suffixes': ['ubuntu'],
+            'tag_suffixes': ['jdk8', 'ubuntu-jdk8', 'ubuntu'],
             'docker_repos': SOFTWARE_REPOS,
         },
         11: {
@@ -28,6 +28,7 @@ images = {
             'start_version': '8.2',
             'end_version': '9',
             'default_release': False,
+            'tag_suffixes': ['jdk11', 'ubuntu-jdk11'],
             'base_image': 'adoptopenjdk:11-hotspot',
             'docker_repos': SOFTWARE_REPOS,
         }
@@ -39,7 +40,7 @@ images = {
             'start_version': '3.16',
             'end_version': '5',
             'default_release': True,
-            'extra_tag_suffixes': ['ubuntu'],
+            'tag_suffixes': ['jdk8', 'ubuntu-jdk8', 'ubuntu'],
             'docker_repos': SD_REPOS,
         },
         11: {
@@ -48,6 +49,7 @@ images = {
             'start_version': '4.2',
             'end_version': '5',
             'default_release': False,
+            'tag_suffixes': ['jdk11', 'ubuntu-jdk11'],
             'docker_repos': SD_REPOS,
         }
     },
@@ -58,7 +60,7 @@ images = {
             'start_version': '7.13',
             'end_version': '9',
             'default_release': True,
-            'extra_tag_suffixes': ['ubuntu'],
+            'tag_suffixes': ['jdk8', 'ubuntu-jdk8', 'ubuntu'],
             'docker_repos': CORE_REPOS,
         },
         11: {
@@ -67,6 +69,7 @@ images = {
             'start_version': '8.2',
             'end_version': '9',
             'default_release': False,
+            'tag_suffixes': ['jdk11', 'ubuntu-jdk11'],
             'base_image': 'adoptopenjdk:11-hotspot',
             'docker_repos': CORE_REPOS,
         }
