@@ -120,18 +120,19 @@ pipelines:
             services:
               - docker
             script:
-              - > python /usr/src/app/make-releases.py
-                  --update
-                  --start-version='7.13'
-                  --end-version='9'
-                  --default-release
-                  --dockerfile-buildargs='ARTEFACT_NAME=atlassian-jira-software,BASE_IMAGE=adoptopenjdk:8-hotspot'
-                  --dockerfile-version-arg='JIRA_VERSION'
-                  --mac-product-key='jira-software'
-                  --tag-suffixes=''
-                  --concurrent-builds='1'
-                  --job-offset='0'
-                  --jobs-total='12'
+              - >
+                python /usr/src/app/make-releases.py \
+                  --update \
+                  --start-version='7.13' \
+                  --end-version='9' \
+                  --default-release \
+                  --dockerfile-buildargs='ARTEFACT_NAME=atlassian-jira-software,BASE_IMAGE=adoptopenjdk:8-hotspot' \
+                  --dockerfile-version-arg='JIRA_VERSION' \
+                  --mac-product-key='jira-software' \
+                  --tag-suffixes='' \
+                  --concurrent-builds='1' \
+                  --job-offset='0' \
+                  --jobs-total='12' \
                   --docker-repos='atlassian/jira-software'
 
 
