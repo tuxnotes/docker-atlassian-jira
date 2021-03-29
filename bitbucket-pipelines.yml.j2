@@ -47,7 +47,7 @@ pipelines:
                   --dockerfile-buildargs='ARTEFACT_NAME={{ appdata.artefact }},BASE_IMAGE=adoptopenjdk:{{ jdkver }}-hotspot' \
                   --dockerfile-version-arg='JIRA_VERSION' \
                   --mac-product-key='{{ appdata.mac_key }}' \
-                  --tag-suffixes='{{ tag_suffixes|join(',') }}' \
+                  --tag-suffixes='{{ appdata.tag_suffixes|join(',') }}' \
                   --concurrent-builds='1' \
                   --job-offset='{{ offset }}' \
                   --jobs-total='{{ batches }}' \
@@ -142,7 +142,7 @@ pipelines:
                   --dockerfile-buildargs='ARTEFACT_NAME={{ appdata.artefact }},BASE_IMAGE=adoptopenjdk:{{ jdkver }}-hotspot' \
                   --dockerfile-version-arg='JIRA_VERSION' \
                   --mac-product-key='{{ appdata.mac_key }}' \
-                  --tag-suffixes='{{ tag_suffixes|join(',') }}' \
+                  --tag-suffixes='{{ appdata.tag_suffixes|join(',') }}' \
                   --concurrent-builds='1' \
                   --job-offset='{{ offset }}' \
                   --jobs-total='{{ batches }}' \
