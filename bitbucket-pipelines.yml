@@ -34,7 +34,7 @@ pipelines:
               - git submodule update --init --recursive
               - echo ${DOCKER_PASSWORD} | docker login --username ${DOCKER_USERNAME} --password-stdin
               - >
-                python make-releases.py 
+                python /usr/src/app/make-releases.py
                   --update
                   --start-version='7.13'
                   --end-version='9'
@@ -58,7 +58,7 @@ pipelines:
               - git submodule update --init --recursive
               - echo ${DOCKER_PASSWORD} | docker login --username ${DOCKER_USERNAME} --password-stdin
               - >
-                python make-releases.py 
+                python /usr/src/app/make-releases.py
                   --update
                   --start-version='7.13'
                   --end-version='9'
@@ -82,7 +82,7 @@ pipelines:
               - git submodule update --init --recursive
               - echo ${DOCKER_PASSWORD} | docker login --username ${DOCKER_USERNAME} --password-stdin
               - >
-                python make-releases.py 
+                python /usr/src/app/make-releases.py
                   --update
                   --start-version='7.13'
                   --end-version='9'
@@ -106,7 +106,7 @@ pipelines:
               - git submodule update --init --recursive
               - echo ${DOCKER_PASSWORD} | docker login --username ${DOCKER_USERNAME} --password-stdin
               - >
-                python make-releases.py 
+                python /usr/src/app/make-releases.py
                   --update
                   --start-version='7.13'
                   --end-version='9'
@@ -130,7 +130,7 @@ pipelines:
               - git submodule update --init --recursive
               - echo ${DOCKER_PASSWORD} | docker login --username ${DOCKER_USERNAME} --password-stdin
               - >
-                python make-releases.py 
+                python /usr/src/app/make-releases.py
                   --update
                   --start-version='7.13'
                   --end-version='9'
@@ -154,7 +154,7 @@ pipelines:
               - git submodule update --init --recursive
               - echo ${DOCKER_PASSWORD} | docker login --username ${DOCKER_USERNAME} --password-stdin
               - >
-                python make-releases.py 
+                python /usr/src/app/make-releases.py
                   --update
                   --start-version='7.13'
                   --end-version='9'
@@ -178,7 +178,7 @@ pipelines:
               - git submodule update --init --recursive
               - echo ${DOCKER_PASSWORD} | docker login --username ${DOCKER_USERNAME} --password-stdin
               - >
-                python make-releases.py 
+                python /usr/src/app/make-releases.py
                   --update
                   --start-version='7.13'
                   --end-version='9'
@@ -202,7 +202,7 @@ pipelines:
               - git submodule update --init --recursive
               - echo ${DOCKER_PASSWORD} | docker login --username ${DOCKER_USERNAME} --password-stdin
               - >
-                python make-releases.py 
+                python /usr/src/app/make-releases.py
                   --update
                   --start-version='7.13'
                   --end-version='9'
@@ -226,7 +226,7 @@ pipelines:
               - git submodule update --init --recursive
               - echo ${DOCKER_PASSWORD} | docker login --username ${DOCKER_USERNAME} --password-stdin
               - >
-                python make-releases.py 
+                python /usr/src/app/make-releases.py
                   --update
                   --start-version='7.13'
                   --end-version='9'
@@ -250,7 +250,7 @@ pipelines:
               - git submodule update --init --recursive
               - echo ${DOCKER_PASSWORD} | docker login --username ${DOCKER_USERNAME} --password-stdin
               - >
-                python make-releases.py 
+                python /usr/src/app/make-releases.py
                   --update
                   --start-version='7.13'
                   --end-version='9'
@@ -274,7 +274,7 @@ pipelines:
               - git submodule update --init --recursive
               - echo ${DOCKER_PASSWORD} | docker login --username ${DOCKER_USERNAME} --password-stdin
               - >
-                python make-releases.py 
+                python /usr/src/app/make-releases.py
                   --update
                   --start-version='7.13'
                   --end-version='9'
@@ -298,7 +298,7 @@ pipelines:
               - git submodule update --init --recursive
               - echo ${DOCKER_PASSWORD} | docker login --username ${DOCKER_USERNAME} --password-stdin
               - >
-                python make-releases.py 
+                python /usr/src/app/make-releases.py
                   --update
                   --start-version='7.13'
                   --end-version='9'
@@ -322,7 +322,7 @@ pipelines:
               - git submodule update --init --recursive
               - echo ${DOCKER_PASSWORD} | docker login --username ${DOCKER_USERNAME} --password-stdin
               - >
-                python make-releases.py 
+                python /usr/src/app/make-releases.py
                   --update
                   --start-version='8.2'
                   --end-version='9'
@@ -345,7 +345,7 @@ pipelines:
               - git submodule update --init --recursive
               - echo ${DOCKER_PASSWORD} | docker login --username ${DOCKER_USERNAME} --password-stdin
               - >
-                python make-releases.py 
+                python /usr/src/app/make-releases.py
                   --update
                   --start-version='8.2'
                   --end-version='9'
@@ -368,7 +368,7 @@ pipelines:
               - git submodule update --init --recursive
               - echo ${DOCKER_PASSWORD} | docker login --username ${DOCKER_USERNAME} --password-stdin
               - >
-                python make-releases.py 
+                python /usr/src/app/make-releases.py
                   --update
                   --start-version='8.2'
                   --end-version='9'
@@ -391,7 +391,7 @@ pipelines:
               - git submodule update --init --recursive
               - echo ${DOCKER_PASSWORD} | docker login --username ${DOCKER_USERNAME} --password-stdin
               - >
-                python make-releases.py 
+                python /usr/src/app/make-releases.py
                   --update
                   --start-version='8.2'
                   --end-version='9'
@@ -414,7 +414,7 @@ pipelines:
               - git submodule update --init --recursive
               - echo ${DOCKER_PASSWORD} | docker login --username ${DOCKER_USERNAME} --password-stdin
               - >
-                python make-releases.py 
+                python /usr/src/app/make-releases.py
                   --update
                   --start-version='8.2'
                   --end-version='9'
@@ -437,7 +437,7 @@ pipelines:
               - git submodule update --init --recursive
               - echo ${DOCKER_PASSWORD} | docker login --username ${DOCKER_USERNAME} --password-stdin
               - >
-                python make-releases.py 
+                python /usr/src/app/make-releases.py
                   --update
                   --start-version='8.2'
                   --end-version='9'
@@ -460,7 +460,7 @@ pipelines:
               - git submodule update --init --recursive
               - echo ${DOCKER_PASSWORD} | docker login --username ${DOCKER_USERNAME} --password-stdin
               - >
-                python make-releases.py 
+                python /usr/src/app/make-releases.py
                   --update
                   --start-version='8.2'
                   --end-version='9'
@@ -483,7 +483,7 @@ pipelines:
               - git submodule update --init --recursive
               - echo ${DOCKER_PASSWORD} | docker login --username ${DOCKER_USERNAME} --password-stdin
               - >
-                python make-releases.py 
+                python /usr/src/app/make-releases.py
                   --update
                   --start-version='8.2'
                   --end-version='9'
@@ -506,7 +506,7 @@ pipelines:
               - git submodule update --init --recursive
               - echo ${DOCKER_PASSWORD} | docker login --username ${DOCKER_USERNAME} --password-stdin
               - >
-                python make-releases.py 
+                python /usr/src/app/make-releases.py
                   --update
                   --start-version='8.2'
                   --end-version='9'
@@ -529,7 +529,7 @@ pipelines:
               - git submodule update --init --recursive
               - echo ${DOCKER_PASSWORD} | docker login --username ${DOCKER_USERNAME} --password-stdin
               - >
-                python make-releases.py 
+                python /usr/src/app/make-releases.py
                   --update
                   --start-version='8.2'
                   --end-version='9'
@@ -552,7 +552,7 @@ pipelines:
               - git submodule update --init --recursive
               - echo ${DOCKER_PASSWORD} | docker login --username ${DOCKER_USERNAME} --password-stdin
               - >
-                python make-releases.py 
+                python /usr/src/app/make-releases.py
                   --update
                   --start-version='8.2'
                   --end-version='9'
@@ -575,7 +575,7 @@ pipelines:
               - git submodule update --init --recursive
               - echo ${DOCKER_PASSWORD} | docker login --username ${DOCKER_USERNAME} --password-stdin
               - >
-                python make-releases.py 
+                python /usr/src/app/make-releases.py
                   --update
                   --start-version='8.2'
                   --end-version='9'
@@ -598,7 +598,7 @@ pipelines:
               - git submodule update --init --recursive
               - echo ${DOCKER_PASSWORD} | docker login --username ${DOCKER_USERNAME} --password-stdin
               - >
-                python make-releases.py 
+                python /usr/src/app/make-releases.py
                   --update
                   --start-version='3.16'
                   --end-version='5'
@@ -622,7 +622,7 @@ pipelines:
               - git submodule update --init --recursive
               - echo ${DOCKER_PASSWORD} | docker login --username ${DOCKER_USERNAME} --password-stdin
               - >
-                python make-releases.py 
+                python /usr/src/app/make-releases.py
                   --update
                   --start-version='3.16'
                   --end-version='5'
@@ -646,7 +646,7 @@ pipelines:
               - git submodule update --init --recursive
               - echo ${DOCKER_PASSWORD} | docker login --username ${DOCKER_USERNAME} --password-stdin
               - >
-                python make-releases.py 
+                python /usr/src/app/make-releases.py
                   --update
                   --start-version='3.16'
                   --end-version='5'
@@ -670,7 +670,7 @@ pipelines:
               - git submodule update --init --recursive
               - echo ${DOCKER_PASSWORD} | docker login --username ${DOCKER_USERNAME} --password-stdin
               - >
-                python make-releases.py 
+                python /usr/src/app/make-releases.py
                   --update
                   --start-version='3.16'
                   --end-version='5'
@@ -694,7 +694,7 @@ pipelines:
               - git submodule update --init --recursive
               - echo ${DOCKER_PASSWORD} | docker login --username ${DOCKER_USERNAME} --password-stdin
               - >
-                python make-releases.py 
+                python /usr/src/app/make-releases.py
                   --update
                   --start-version='3.16'
                   --end-version='5'
@@ -718,7 +718,7 @@ pipelines:
               - git submodule update --init --recursive
               - echo ${DOCKER_PASSWORD} | docker login --username ${DOCKER_USERNAME} --password-stdin
               - >
-                python make-releases.py 
+                python /usr/src/app/make-releases.py
                   --update
                   --start-version='3.16'
                   --end-version='5'
@@ -742,7 +742,7 @@ pipelines:
               - git submodule update --init --recursive
               - echo ${DOCKER_PASSWORD} | docker login --username ${DOCKER_USERNAME} --password-stdin
               - >
-                python make-releases.py 
+                python /usr/src/app/make-releases.py
                   --update
                   --start-version='3.16'
                   --end-version='5'
@@ -766,7 +766,7 @@ pipelines:
               - git submodule update --init --recursive
               - echo ${DOCKER_PASSWORD} | docker login --username ${DOCKER_USERNAME} --password-stdin
               - >
-                python make-releases.py 
+                python /usr/src/app/make-releases.py
                   --update
                   --start-version='3.16'
                   --end-version='5'
@@ -790,7 +790,7 @@ pipelines:
               - git submodule update --init --recursive
               - echo ${DOCKER_PASSWORD} | docker login --username ${DOCKER_USERNAME} --password-stdin
               - >
-                python make-releases.py 
+                python /usr/src/app/make-releases.py
                   --update
                   --start-version='3.16'
                   --end-version='5'
@@ -814,7 +814,7 @@ pipelines:
               - git submodule update --init --recursive
               - echo ${DOCKER_PASSWORD} | docker login --username ${DOCKER_USERNAME} --password-stdin
               - >
-                python make-releases.py 
+                python /usr/src/app/make-releases.py
                   --update
                   --start-version='3.16'
                   --end-version='5'
@@ -838,7 +838,7 @@ pipelines:
               - git submodule update --init --recursive
               - echo ${DOCKER_PASSWORD} | docker login --username ${DOCKER_USERNAME} --password-stdin
               - >
-                python make-releases.py 
+                python /usr/src/app/make-releases.py
                   --update
                   --start-version='3.16'
                   --end-version='5'
@@ -862,7 +862,7 @@ pipelines:
               - git submodule update --init --recursive
               - echo ${DOCKER_PASSWORD} | docker login --username ${DOCKER_USERNAME} --password-stdin
               - >
-                python make-releases.py 
+                python /usr/src/app/make-releases.py
                   --update
                   --start-version='3.16'
                   --end-version='5'
@@ -886,7 +886,7 @@ pipelines:
               - git submodule update --init --recursive
               - echo ${DOCKER_PASSWORD} | docker login --username ${DOCKER_USERNAME} --password-stdin
               - >
-                python make-releases.py 
+                python /usr/src/app/make-releases.py
                   --update
                   --start-version='4.2'
                   --end-version='5'
@@ -909,7 +909,7 @@ pipelines:
               - git submodule update --init --recursive
               - echo ${DOCKER_PASSWORD} | docker login --username ${DOCKER_USERNAME} --password-stdin
               - >
-                python make-releases.py 
+                python /usr/src/app/make-releases.py
                   --update
                   --start-version='4.2'
                   --end-version='5'
@@ -932,7 +932,7 @@ pipelines:
               - git submodule update --init --recursive
               - echo ${DOCKER_PASSWORD} | docker login --username ${DOCKER_USERNAME} --password-stdin
               - >
-                python make-releases.py 
+                python /usr/src/app/make-releases.py
                   --update
                   --start-version='4.2'
                   --end-version='5'
@@ -955,7 +955,7 @@ pipelines:
               - git submodule update --init --recursive
               - echo ${DOCKER_PASSWORD} | docker login --username ${DOCKER_USERNAME} --password-stdin
               - >
-                python make-releases.py 
+                python /usr/src/app/make-releases.py
                   --update
                   --start-version='4.2'
                   --end-version='5'
@@ -978,7 +978,7 @@ pipelines:
               - git submodule update --init --recursive
               - echo ${DOCKER_PASSWORD} | docker login --username ${DOCKER_USERNAME} --password-stdin
               - >
-                python make-releases.py 
+                python /usr/src/app/make-releases.py
                   --update
                   --start-version='4.2'
                   --end-version='5'
@@ -1001,7 +1001,7 @@ pipelines:
               - git submodule update --init --recursive
               - echo ${DOCKER_PASSWORD} | docker login --username ${DOCKER_USERNAME} --password-stdin
               - >
-                python make-releases.py 
+                python /usr/src/app/make-releases.py
                   --update
                   --start-version='4.2'
                   --end-version='5'
@@ -1024,7 +1024,7 @@ pipelines:
               - git submodule update --init --recursive
               - echo ${DOCKER_PASSWORD} | docker login --username ${DOCKER_USERNAME} --password-stdin
               - >
-                python make-releases.py 
+                python /usr/src/app/make-releases.py
                   --update
                   --start-version='4.2'
                   --end-version='5'
@@ -1047,7 +1047,7 @@ pipelines:
               - git submodule update --init --recursive
               - echo ${DOCKER_PASSWORD} | docker login --username ${DOCKER_USERNAME} --password-stdin
               - >
-                python make-releases.py 
+                python /usr/src/app/make-releases.py
                   --update
                   --start-version='4.2'
                   --end-version='5'
@@ -1070,7 +1070,7 @@ pipelines:
               - git submodule update --init --recursive
               - echo ${DOCKER_PASSWORD} | docker login --username ${DOCKER_USERNAME} --password-stdin
               - >
-                python make-releases.py 
+                python /usr/src/app/make-releases.py
                   --update
                   --start-version='4.2'
                   --end-version='5'
@@ -1093,7 +1093,7 @@ pipelines:
               - git submodule update --init --recursive
               - echo ${DOCKER_PASSWORD} | docker login --username ${DOCKER_USERNAME} --password-stdin
               - >
-                python make-releases.py 
+                python /usr/src/app/make-releases.py
                   --update
                   --start-version='4.2'
                   --end-version='5'
@@ -1116,7 +1116,7 @@ pipelines:
               - git submodule update --init --recursive
               - echo ${DOCKER_PASSWORD} | docker login --username ${DOCKER_USERNAME} --password-stdin
               - >
-                python make-releases.py 
+                python /usr/src/app/make-releases.py
                   --update
                   --start-version='4.2'
                   --end-version='5'
@@ -1139,7 +1139,7 @@ pipelines:
               - git submodule update --init --recursive
               - echo ${DOCKER_PASSWORD} | docker login --username ${DOCKER_USERNAME} --password-stdin
               - >
-                python make-releases.py 
+                python /usr/src/app/make-releases.py
                   --update
                   --start-version='4.2'
                   --end-version='5'
@@ -1162,7 +1162,7 @@ pipelines:
               - git submodule update --init --recursive
               - echo ${DOCKER_PASSWORD} | docker login --username ${DOCKER_USERNAME} --password-stdin
               - >
-                python make-releases.py 
+                python /usr/src/app/make-releases.py
                   --update
                   --start-version='7.13'
                   --end-version='9'
@@ -1186,7 +1186,7 @@ pipelines:
               - git submodule update --init --recursive
               - echo ${DOCKER_PASSWORD} | docker login --username ${DOCKER_USERNAME} --password-stdin
               - >
-                python make-releases.py 
+                python /usr/src/app/make-releases.py
                   --update
                   --start-version='7.13'
                   --end-version='9'
@@ -1210,7 +1210,7 @@ pipelines:
               - git submodule update --init --recursive
               - echo ${DOCKER_PASSWORD} | docker login --username ${DOCKER_USERNAME} --password-stdin
               - >
-                python make-releases.py 
+                python /usr/src/app/make-releases.py
                   --update
                   --start-version='7.13'
                   --end-version='9'
@@ -1234,7 +1234,7 @@ pipelines:
               - git submodule update --init --recursive
               - echo ${DOCKER_PASSWORD} | docker login --username ${DOCKER_USERNAME} --password-stdin
               - >
-                python make-releases.py 
+                python /usr/src/app/make-releases.py
                   --update
                   --start-version='7.13'
                   --end-version='9'
@@ -1258,7 +1258,7 @@ pipelines:
               - git submodule update --init --recursive
               - echo ${DOCKER_PASSWORD} | docker login --username ${DOCKER_USERNAME} --password-stdin
               - >
-                python make-releases.py 
+                python /usr/src/app/make-releases.py
                   --update
                   --start-version='7.13'
                   --end-version='9'
@@ -1282,7 +1282,7 @@ pipelines:
               - git submodule update --init --recursive
               - echo ${DOCKER_PASSWORD} | docker login --username ${DOCKER_USERNAME} --password-stdin
               - >
-                python make-releases.py 
+                python /usr/src/app/make-releases.py
                   --update
                   --start-version='7.13'
                   --end-version='9'
@@ -1306,7 +1306,7 @@ pipelines:
               - git submodule update --init --recursive
               - echo ${DOCKER_PASSWORD} | docker login --username ${DOCKER_USERNAME} --password-stdin
               - >
-                python make-releases.py 
+                python /usr/src/app/make-releases.py
                   --update
                   --start-version='7.13'
                   --end-version='9'
@@ -1330,7 +1330,7 @@ pipelines:
               - git submodule update --init --recursive
               - echo ${DOCKER_PASSWORD} | docker login --username ${DOCKER_USERNAME} --password-stdin
               - >
-                python make-releases.py 
+                python /usr/src/app/make-releases.py
                   --update
                   --start-version='7.13'
                   --end-version='9'
@@ -1354,7 +1354,7 @@ pipelines:
               - git submodule update --init --recursive
               - echo ${DOCKER_PASSWORD} | docker login --username ${DOCKER_USERNAME} --password-stdin
               - >
-                python make-releases.py 
+                python /usr/src/app/make-releases.py
                   --update
                   --start-version='7.13'
                   --end-version='9'
@@ -1378,7 +1378,7 @@ pipelines:
               - git submodule update --init --recursive
               - echo ${DOCKER_PASSWORD} | docker login --username ${DOCKER_USERNAME} --password-stdin
               - >
-                python make-releases.py 
+                python /usr/src/app/make-releases.py
                   --update
                   --start-version='7.13'
                   --end-version='9'
@@ -1402,7 +1402,7 @@ pipelines:
               - git submodule update --init --recursive
               - echo ${DOCKER_PASSWORD} | docker login --username ${DOCKER_USERNAME} --password-stdin
               - >
-                python make-releases.py 
+                python /usr/src/app/make-releases.py
                   --update
                   --start-version='7.13'
                   --end-version='9'
@@ -1426,7 +1426,7 @@ pipelines:
               - git submodule update --init --recursive
               - echo ${DOCKER_PASSWORD} | docker login --username ${DOCKER_USERNAME} --password-stdin
               - >
-                python make-releases.py 
+                python /usr/src/app/make-releases.py
                   --update
                   --start-version='7.13'
                   --end-version='9'
@@ -1450,7 +1450,7 @@ pipelines:
               - git submodule update --init --recursive
               - echo ${DOCKER_PASSWORD} | docker login --username ${DOCKER_USERNAME} --password-stdin
               - >
-                python make-releases.py 
+                python /usr/src/app/make-releases.py
                   --update
                   --start-version='8.2'
                   --end-version='9'
@@ -1473,7 +1473,7 @@ pipelines:
               - git submodule update --init --recursive
               - echo ${DOCKER_PASSWORD} | docker login --username ${DOCKER_USERNAME} --password-stdin
               - >
-                python make-releases.py 
+                python /usr/src/app/make-releases.py
                   --update
                   --start-version='8.2'
                   --end-version='9'
@@ -1496,7 +1496,7 @@ pipelines:
               - git submodule update --init --recursive
               - echo ${DOCKER_PASSWORD} | docker login --username ${DOCKER_USERNAME} --password-stdin
               - >
-                python make-releases.py 
+                python /usr/src/app/make-releases.py
                   --update
                   --start-version='8.2'
                   --end-version='9'
@@ -1519,7 +1519,7 @@ pipelines:
               - git submodule update --init --recursive
               - echo ${DOCKER_PASSWORD} | docker login --username ${DOCKER_USERNAME} --password-stdin
               - >
-                python make-releases.py 
+                python /usr/src/app/make-releases.py
                   --update
                   --start-version='8.2'
                   --end-version='9'
@@ -1542,7 +1542,7 @@ pipelines:
               - git submodule update --init --recursive
               - echo ${DOCKER_PASSWORD} | docker login --username ${DOCKER_USERNAME} --password-stdin
               - >
-                python make-releases.py 
+                python /usr/src/app/make-releases.py
                   --update
                   --start-version='8.2'
                   --end-version='9'
@@ -1565,7 +1565,7 @@ pipelines:
               - git submodule update --init --recursive
               - echo ${DOCKER_PASSWORD} | docker login --username ${DOCKER_USERNAME} --password-stdin
               - >
-                python make-releases.py 
+                python /usr/src/app/make-releases.py
                   --update
                   --start-version='8.2'
                   --end-version='9'
@@ -1588,7 +1588,7 @@ pipelines:
               - git submodule update --init --recursive
               - echo ${DOCKER_PASSWORD} | docker login --username ${DOCKER_USERNAME} --password-stdin
               - >
-                python make-releases.py 
+                python /usr/src/app/make-releases.py
                   --update
                   --start-version='8.2'
                   --end-version='9'
@@ -1611,7 +1611,7 @@ pipelines:
               - git submodule update --init --recursive
               - echo ${DOCKER_PASSWORD} | docker login --username ${DOCKER_USERNAME} --password-stdin
               - >
-                python make-releases.py 
+                python /usr/src/app/make-releases.py
                   --update
                   --start-version='8.2'
                   --end-version='9'
@@ -1634,7 +1634,7 @@ pipelines:
               - git submodule update --init --recursive
               - echo ${DOCKER_PASSWORD} | docker login --username ${DOCKER_USERNAME} --password-stdin
               - >
-                python make-releases.py 
+                python /usr/src/app/make-releases.py
                   --update
                   --start-version='8.2'
                   --end-version='9'
@@ -1657,7 +1657,7 @@ pipelines:
               - git submodule update --init --recursive
               - echo ${DOCKER_PASSWORD} | docker login --username ${DOCKER_USERNAME} --password-stdin
               - >
-                python make-releases.py 
+                python /usr/src/app/make-releases.py
                   --update
                   --start-version='8.2'
                   --end-version='9'
@@ -1680,7 +1680,7 @@ pipelines:
               - git submodule update --init --recursive
               - echo ${DOCKER_PASSWORD} | docker login --username ${DOCKER_USERNAME} --password-stdin
               - >
-                python make-releases.py 
+                python /usr/src/app/make-releases.py
                   --update
                   --start-version='8.2'
                   --end-version='9'
@@ -1703,7 +1703,7 @@ pipelines:
               - git submodule update --init --recursive
               - echo ${DOCKER_PASSWORD} | docker login --username ${DOCKER_USERNAME} --password-stdin
               - >
-                python make-releases.py 
+                python /usr/src/app/make-releases.py
                   --update
                   --start-version='8.2'
                   --end-version='9'
@@ -1789,7 +1789,7 @@ pipelines:
               - git submodule update --init --recursive
               - echo ${DOCKER_PASSWORD} | docker login --username ${DOCKER_USERNAME} --password-stdin
               - >
-                python make-releases.py 
+                python /usr/src/app/make-releases.py
                   --create --create-eap
                   --start-version='7.13'
                   --end-version='9'
@@ -1813,7 +1813,7 @@ pipelines:
               - git submodule update --init --recursive
               - echo ${DOCKER_PASSWORD} | docker login --username ${DOCKER_USERNAME} --password-stdin
               - >
-                python make-releases.py 
+                python /usr/src/app/make-releases.py
                   --create --create-eap
                   --start-version='7.13'
                   --end-version='9'
@@ -1837,7 +1837,7 @@ pipelines:
               - git submodule update --init --recursive
               - echo ${DOCKER_PASSWORD} | docker login --username ${DOCKER_USERNAME} --password-stdin
               - >
-                python make-releases.py 
+                python /usr/src/app/make-releases.py
                   --create --create-eap
                   --start-version='7.13'
                   --end-version='9'
@@ -1861,7 +1861,7 @@ pipelines:
               - git submodule update --init --recursive
               - echo ${DOCKER_PASSWORD} | docker login --username ${DOCKER_USERNAME} --password-stdin
               - >
-                python make-releases.py 
+                python /usr/src/app/make-releases.py
                   --create --create-eap
                   --start-version='7.13'
                   --end-version='9'
@@ -1885,7 +1885,7 @@ pipelines:
               - git submodule update --init --recursive
               - echo ${DOCKER_PASSWORD} | docker login --username ${DOCKER_USERNAME} --password-stdin
               - >
-                python make-releases.py 
+                python /usr/src/app/make-releases.py
                   --create --create-eap
                   --start-version='7.13'
                   --end-version='9'
@@ -1909,7 +1909,7 @@ pipelines:
               - git submodule update --init --recursive
               - echo ${DOCKER_PASSWORD} | docker login --username ${DOCKER_USERNAME} --password-stdin
               - >
-                python make-releases.py 
+                python /usr/src/app/make-releases.py
                   --create --create-eap
                   --start-version='7.13'
                   --end-version='9'
@@ -1933,7 +1933,7 @@ pipelines:
               - git submodule update --init --recursive
               - echo ${DOCKER_PASSWORD} | docker login --username ${DOCKER_USERNAME} --password-stdin
               - >
-                python make-releases.py 
+                python /usr/src/app/make-releases.py
                   --create --create-eap
                   --start-version='7.13'
                   --end-version='9'
@@ -1957,7 +1957,7 @@ pipelines:
               - git submodule update --init --recursive
               - echo ${DOCKER_PASSWORD} | docker login --username ${DOCKER_USERNAME} --password-stdin
               - >
-                python make-releases.py 
+                python /usr/src/app/make-releases.py
                   --create --create-eap
                   --start-version='7.13'
                   --end-version='9'
@@ -1981,7 +1981,7 @@ pipelines:
               - git submodule update --init --recursive
               - echo ${DOCKER_PASSWORD} | docker login --username ${DOCKER_USERNAME} --password-stdin
               - >
-                python make-releases.py 
+                python /usr/src/app/make-releases.py
                   --create --create-eap
                   --start-version='7.13'
                   --end-version='9'
@@ -2005,7 +2005,7 @@ pipelines:
               - git submodule update --init --recursive
               - echo ${DOCKER_PASSWORD} | docker login --username ${DOCKER_USERNAME} --password-stdin
               - >
-                python make-releases.py 
+                python /usr/src/app/make-releases.py
                   --create --create-eap
                   --start-version='7.13'
                   --end-version='9'
@@ -2029,7 +2029,7 @@ pipelines:
               - git submodule update --init --recursive
               - echo ${DOCKER_PASSWORD} | docker login --username ${DOCKER_USERNAME} --password-stdin
               - >
-                python make-releases.py 
+                python /usr/src/app/make-releases.py
                   --create --create-eap
                   --start-version='7.13'
                   --end-version='9'
@@ -2053,7 +2053,7 @@ pipelines:
               - git submodule update --init --recursive
               - echo ${DOCKER_PASSWORD} | docker login --username ${DOCKER_USERNAME} --password-stdin
               - >
-                python make-releases.py 
+                python /usr/src/app/make-releases.py
                   --create --create-eap
                   --start-version='7.13'
                   --end-version='9'
@@ -2077,7 +2077,7 @@ pipelines:
               - git submodule update --init --recursive
               - echo ${DOCKER_PASSWORD} | docker login --username ${DOCKER_USERNAME} --password-stdin
               - >
-                python make-releases.py 
+                python /usr/src/app/make-releases.py
                   --create --create-eap
                   --start-version='8.2'
                   --end-version='9'
@@ -2100,7 +2100,7 @@ pipelines:
               - git submodule update --init --recursive
               - echo ${DOCKER_PASSWORD} | docker login --username ${DOCKER_USERNAME} --password-stdin
               - >
-                python make-releases.py 
+                python /usr/src/app/make-releases.py
                   --create --create-eap
                   --start-version='8.2'
                   --end-version='9'
@@ -2123,7 +2123,7 @@ pipelines:
               - git submodule update --init --recursive
               - echo ${DOCKER_PASSWORD} | docker login --username ${DOCKER_USERNAME} --password-stdin
               - >
-                python make-releases.py 
+                python /usr/src/app/make-releases.py
                   --create --create-eap
                   --start-version='8.2'
                   --end-version='9'
@@ -2146,7 +2146,7 @@ pipelines:
               - git submodule update --init --recursive
               - echo ${DOCKER_PASSWORD} | docker login --username ${DOCKER_USERNAME} --password-stdin
               - >
-                python make-releases.py 
+                python /usr/src/app/make-releases.py
                   --create --create-eap
                   --start-version='8.2'
                   --end-version='9'
@@ -2169,7 +2169,7 @@ pipelines:
               - git submodule update --init --recursive
               - echo ${DOCKER_PASSWORD} | docker login --username ${DOCKER_USERNAME} --password-stdin
               - >
-                python make-releases.py 
+                python /usr/src/app/make-releases.py
                   --create --create-eap
                   --start-version='8.2'
                   --end-version='9'
@@ -2192,7 +2192,7 @@ pipelines:
               - git submodule update --init --recursive
               - echo ${DOCKER_PASSWORD} | docker login --username ${DOCKER_USERNAME} --password-stdin
               - >
-                python make-releases.py 
+                python /usr/src/app/make-releases.py
                   --create --create-eap
                   --start-version='8.2'
                   --end-version='9'
@@ -2215,7 +2215,7 @@ pipelines:
               - git submodule update --init --recursive
               - echo ${DOCKER_PASSWORD} | docker login --username ${DOCKER_USERNAME} --password-stdin
               - >
-                python make-releases.py 
+                python /usr/src/app/make-releases.py
                   --create --create-eap
                   --start-version='8.2'
                   --end-version='9'
@@ -2238,7 +2238,7 @@ pipelines:
               - git submodule update --init --recursive
               - echo ${DOCKER_PASSWORD} | docker login --username ${DOCKER_USERNAME} --password-stdin
               - >
-                python make-releases.py 
+                python /usr/src/app/make-releases.py
                   --create --create-eap
                   --start-version='8.2'
                   --end-version='9'
@@ -2261,7 +2261,7 @@ pipelines:
               - git submodule update --init --recursive
               - echo ${DOCKER_PASSWORD} | docker login --username ${DOCKER_USERNAME} --password-stdin
               - >
-                python make-releases.py 
+                python /usr/src/app/make-releases.py
                   --create --create-eap
                   --start-version='8.2'
                   --end-version='9'
@@ -2284,7 +2284,7 @@ pipelines:
               - git submodule update --init --recursive
               - echo ${DOCKER_PASSWORD} | docker login --username ${DOCKER_USERNAME} --password-stdin
               - >
-                python make-releases.py 
+                python /usr/src/app/make-releases.py
                   --create --create-eap
                   --start-version='8.2'
                   --end-version='9'
@@ -2307,7 +2307,7 @@ pipelines:
               - git submodule update --init --recursive
               - echo ${DOCKER_PASSWORD} | docker login --username ${DOCKER_USERNAME} --password-stdin
               - >
-                python make-releases.py 
+                python /usr/src/app/make-releases.py
                   --create --create-eap
                   --start-version='8.2'
                   --end-version='9'
@@ -2330,7 +2330,7 @@ pipelines:
               - git submodule update --init --recursive
               - echo ${DOCKER_PASSWORD} | docker login --username ${DOCKER_USERNAME} --password-stdin
               - >
-                python make-releases.py 
+                python /usr/src/app/make-releases.py
                   --create --create-eap
                   --start-version='8.2'
                   --end-version='9'
@@ -2353,7 +2353,7 @@ pipelines:
               - git submodule update --init --recursive
               - echo ${DOCKER_PASSWORD} | docker login --username ${DOCKER_USERNAME} --password-stdin
               - >
-                python make-releases.py 
+                python /usr/src/app/make-releases.py
                   --create --create-eap
                   --start-version='3.16'
                   --end-version='5'
@@ -2377,7 +2377,7 @@ pipelines:
               - git submodule update --init --recursive
               - echo ${DOCKER_PASSWORD} | docker login --username ${DOCKER_USERNAME} --password-stdin
               - >
-                python make-releases.py 
+                python /usr/src/app/make-releases.py
                   --create --create-eap
                   --start-version='3.16'
                   --end-version='5'
@@ -2401,7 +2401,7 @@ pipelines:
               - git submodule update --init --recursive
               - echo ${DOCKER_PASSWORD} | docker login --username ${DOCKER_USERNAME} --password-stdin
               - >
-                python make-releases.py 
+                python /usr/src/app/make-releases.py
                   --create --create-eap
                   --start-version='3.16'
                   --end-version='5'
@@ -2425,7 +2425,7 @@ pipelines:
               - git submodule update --init --recursive
               - echo ${DOCKER_PASSWORD} | docker login --username ${DOCKER_USERNAME} --password-stdin
               - >
-                python make-releases.py 
+                python /usr/src/app/make-releases.py
                   --create --create-eap
                   --start-version='3.16'
                   --end-version='5'
@@ -2449,7 +2449,7 @@ pipelines:
               - git submodule update --init --recursive
               - echo ${DOCKER_PASSWORD} | docker login --username ${DOCKER_USERNAME} --password-stdin
               - >
-                python make-releases.py 
+                python /usr/src/app/make-releases.py
                   --create --create-eap
                   --start-version='3.16'
                   --end-version='5'
@@ -2473,7 +2473,7 @@ pipelines:
               - git submodule update --init --recursive
               - echo ${DOCKER_PASSWORD} | docker login --username ${DOCKER_USERNAME} --password-stdin
               - >
-                python make-releases.py 
+                python /usr/src/app/make-releases.py
                   --create --create-eap
                   --start-version='3.16'
                   --end-version='5'
@@ -2497,7 +2497,7 @@ pipelines:
               - git submodule update --init --recursive
               - echo ${DOCKER_PASSWORD} | docker login --username ${DOCKER_USERNAME} --password-stdin
               - >
-                python make-releases.py 
+                python /usr/src/app/make-releases.py
                   --create --create-eap
                   --start-version='3.16'
                   --end-version='5'
@@ -2521,7 +2521,7 @@ pipelines:
               - git submodule update --init --recursive
               - echo ${DOCKER_PASSWORD} | docker login --username ${DOCKER_USERNAME} --password-stdin
               - >
-                python make-releases.py 
+                python /usr/src/app/make-releases.py
                   --create --create-eap
                   --start-version='3.16'
                   --end-version='5'
@@ -2545,7 +2545,7 @@ pipelines:
               - git submodule update --init --recursive
               - echo ${DOCKER_PASSWORD} | docker login --username ${DOCKER_USERNAME} --password-stdin
               - >
-                python make-releases.py 
+                python /usr/src/app/make-releases.py
                   --create --create-eap
                   --start-version='3.16'
                   --end-version='5'
@@ -2569,7 +2569,7 @@ pipelines:
               - git submodule update --init --recursive
               - echo ${DOCKER_PASSWORD} | docker login --username ${DOCKER_USERNAME} --password-stdin
               - >
-                python make-releases.py 
+                python /usr/src/app/make-releases.py
                   --create --create-eap
                   --start-version='3.16'
                   --end-version='5'
@@ -2593,7 +2593,7 @@ pipelines:
               - git submodule update --init --recursive
               - echo ${DOCKER_PASSWORD} | docker login --username ${DOCKER_USERNAME} --password-stdin
               - >
-                python make-releases.py 
+                python /usr/src/app/make-releases.py
                   --create --create-eap
                   --start-version='3.16'
                   --end-version='5'
@@ -2617,7 +2617,7 @@ pipelines:
               - git submodule update --init --recursive
               - echo ${DOCKER_PASSWORD} | docker login --username ${DOCKER_USERNAME} --password-stdin
               - >
-                python make-releases.py 
+                python /usr/src/app/make-releases.py
                   --create --create-eap
                   --start-version='3.16'
                   --end-version='5'
@@ -2641,7 +2641,7 @@ pipelines:
               - git submodule update --init --recursive
               - echo ${DOCKER_PASSWORD} | docker login --username ${DOCKER_USERNAME} --password-stdin
               - >
-                python make-releases.py 
+                python /usr/src/app/make-releases.py
                   --create --create-eap
                   --start-version='4.2'
                   --end-version='5'
@@ -2664,7 +2664,7 @@ pipelines:
               - git submodule update --init --recursive
               - echo ${DOCKER_PASSWORD} | docker login --username ${DOCKER_USERNAME} --password-stdin
               - >
-                python make-releases.py 
+                python /usr/src/app/make-releases.py
                   --create --create-eap
                   --start-version='4.2'
                   --end-version='5'
@@ -2687,7 +2687,7 @@ pipelines:
               - git submodule update --init --recursive
               - echo ${DOCKER_PASSWORD} | docker login --username ${DOCKER_USERNAME} --password-stdin
               - >
-                python make-releases.py 
+                python /usr/src/app/make-releases.py
                   --create --create-eap
                   --start-version='4.2'
                   --end-version='5'
@@ -2710,7 +2710,7 @@ pipelines:
               - git submodule update --init --recursive
               - echo ${DOCKER_PASSWORD} | docker login --username ${DOCKER_USERNAME} --password-stdin
               - >
-                python make-releases.py 
+                python /usr/src/app/make-releases.py
                   --create --create-eap
                   --start-version='4.2'
                   --end-version='5'
@@ -2733,7 +2733,7 @@ pipelines:
               - git submodule update --init --recursive
               - echo ${DOCKER_PASSWORD} | docker login --username ${DOCKER_USERNAME} --password-stdin
               - >
-                python make-releases.py 
+                python /usr/src/app/make-releases.py
                   --create --create-eap
                   --start-version='4.2'
                   --end-version='5'
@@ -2756,7 +2756,7 @@ pipelines:
               - git submodule update --init --recursive
               - echo ${DOCKER_PASSWORD} | docker login --username ${DOCKER_USERNAME} --password-stdin
               - >
-                python make-releases.py 
+                python /usr/src/app/make-releases.py
                   --create --create-eap
                   --start-version='4.2'
                   --end-version='5'
@@ -2779,7 +2779,7 @@ pipelines:
               - git submodule update --init --recursive
               - echo ${DOCKER_PASSWORD} | docker login --username ${DOCKER_USERNAME} --password-stdin
               - >
-                python make-releases.py 
+                python /usr/src/app/make-releases.py
                   --create --create-eap
                   --start-version='4.2'
                   --end-version='5'
@@ -2802,7 +2802,7 @@ pipelines:
               - git submodule update --init --recursive
               - echo ${DOCKER_PASSWORD} | docker login --username ${DOCKER_USERNAME} --password-stdin
               - >
-                python make-releases.py 
+                python /usr/src/app/make-releases.py
                   --create --create-eap
                   --start-version='4.2'
                   --end-version='5'
@@ -2825,7 +2825,7 @@ pipelines:
               - git submodule update --init --recursive
               - echo ${DOCKER_PASSWORD} | docker login --username ${DOCKER_USERNAME} --password-stdin
               - >
-                python make-releases.py 
+                python /usr/src/app/make-releases.py
                   --create --create-eap
                   --start-version='4.2'
                   --end-version='5'
@@ -2848,7 +2848,7 @@ pipelines:
               - git submodule update --init --recursive
               - echo ${DOCKER_PASSWORD} | docker login --username ${DOCKER_USERNAME} --password-stdin
               - >
-                python make-releases.py 
+                python /usr/src/app/make-releases.py
                   --create --create-eap
                   --start-version='4.2'
                   --end-version='5'
@@ -2871,7 +2871,7 @@ pipelines:
               - git submodule update --init --recursive
               - echo ${DOCKER_PASSWORD} | docker login --username ${DOCKER_USERNAME} --password-stdin
               - >
-                python make-releases.py 
+                python /usr/src/app/make-releases.py
                   --create --create-eap
                   --start-version='4.2'
                   --end-version='5'
@@ -2894,7 +2894,7 @@ pipelines:
               - git submodule update --init --recursive
               - echo ${DOCKER_PASSWORD} | docker login --username ${DOCKER_USERNAME} --password-stdin
               - >
-                python make-releases.py 
+                python /usr/src/app/make-releases.py
                   --create --create-eap
                   --start-version='4.2'
                   --end-version='5'
@@ -2917,7 +2917,7 @@ pipelines:
               - git submodule update --init --recursive
               - echo ${DOCKER_PASSWORD} | docker login --username ${DOCKER_USERNAME} --password-stdin
               - >
-                python make-releases.py 
+                python /usr/src/app/make-releases.py
                   --create --create-eap
                   --start-version='7.13'
                   --end-version='9'
@@ -2941,7 +2941,7 @@ pipelines:
               - git submodule update --init --recursive
               - echo ${DOCKER_PASSWORD} | docker login --username ${DOCKER_USERNAME} --password-stdin
               - >
-                python make-releases.py 
+                python /usr/src/app/make-releases.py
                   --create --create-eap
                   --start-version='7.13'
                   --end-version='9'
@@ -2965,7 +2965,7 @@ pipelines:
               - git submodule update --init --recursive
               - echo ${DOCKER_PASSWORD} | docker login --username ${DOCKER_USERNAME} --password-stdin
               - >
-                python make-releases.py 
+                python /usr/src/app/make-releases.py
                   --create --create-eap
                   --start-version='7.13'
                   --end-version='9'
@@ -2989,7 +2989,7 @@ pipelines:
               - git submodule update --init --recursive
               - echo ${DOCKER_PASSWORD} | docker login --username ${DOCKER_USERNAME} --password-stdin
               - >
-                python make-releases.py 
+                python /usr/src/app/make-releases.py
                   --create --create-eap
                   --start-version='7.13'
                   --end-version='9'
@@ -3013,7 +3013,7 @@ pipelines:
               - git submodule update --init --recursive
               - echo ${DOCKER_PASSWORD} | docker login --username ${DOCKER_USERNAME} --password-stdin
               - >
-                python make-releases.py 
+                python /usr/src/app/make-releases.py
                   --create --create-eap
                   --start-version='7.13'
                   --end-version='9'
@@ -3037,7 +3037,7 @@ pipelines:
               - git submodule update --init --recursive
               - echo ${DOCKER_PASSWORD} | docker login --username ${DOCKER_USERNAME} --password-stdin
               - >
-                python make-releases.py 
+                python /usr/src/app/make-releases.py
                   --create --create-eap
                   --start-version='7.13'
                   --end-version='9'
@@ -3061,7 +3061,7 @@ pipelines:
               - git submodule update --init --recursive
               - echo ${DOCKER_PASSWORD} | docker login --username ${DOCKER_USERNAME} --password-stdin
               - >
-                python make-releases.py 
+                python /usr/src/app/make-releases.py
                   --create --create-eap
                   --start-version='7.13'
                   --end-version='9'
@@ -3085,7 +3085,7 @@ pipelines:
               - git submodule update --init --recursive
               - echo ${DOCKER_PASSWORD} | docker login --username ${DOCKER_USERNAME} --password-stdin
               - >
-                python make-releases.py 
+                python /usr/src/app/make-releases.py
                   --create --create-eap
                   --start-version='7.13'
                   --end-version='9'
@@ -3109,7 +3109,7 @@ pipelines:
               - git submodule update --init --recursive
               - echo ${DOCKER_PASSWORD} | docker login --username ${DOCKER_USERNAME} --password-stdin
               - >
-                python make-releases.py 
+                python /usr/src/app/make-releases.py
                   --create --create-eap
                   --start-version='7.13'
                   --end-version='9'
@@ -3133,7 +3133,7 @@ pipelines:
               - git submodule update --init --recursive
               - echo ${DOCKER_PASSWORD} | docker login --username ${DOCKER_USERNAME} --password-stdin
               - >
-                python make-releases.py 
+                python /usr/src/app/make-releases.py
                   --create --create-eap
                   --start-version='7.13'
                   --end-version='9'
@@ -3157,7 +3157,7 @@ pipelines:
               - git submodule update --init --recursive
               - echo ${DOCKER_PASSWORD} | docker login --username ${DOCKER_USERNAME} --password-stdin
               - >
-                python make-releases.py 
+                python /usr/src/app/make-releases.py
                   --create --create-eap
                   --start-version='7.13'
                   --end-version='9'
@@ -3181,7 +3181,7 @@ pipelines:
               - git submodule update --init --recursive
               - echo ${DOCKER_PASSWORD} | docker login --username ${DOCKER_USERNAME} --password-stdin
               - >
-                python make-releases.py 
+                python /usr/src/app/make-releases.py
                   --create --create-eap
                   --start-version='7.13'
                   --end-version='9'
@@ -3205,7 +3205,7 @@ pipelines:
               - git submodule update --init --recursive
               - echo ${DOCKER_PASSWORD} | docker login --username ${DOCKER_USERNAME} --password-stdin
               - >
-                python make-releases.py 
+                python /usr/src/app/make-releases.py
                   --create --create-eap
                   --start-version='8.2'
                   --end-version='9'
@@ -3228,7 +3228,7 @@ pipelines:
               - git submodule update --init --recursive
               - echo ${DOCKER_PASSWORD} | docker login --username ${DOCKER_USERNAME} --password-stdin
               - >
-                python make-releases.py 
+                python /usr/src/app/make-releases.py
                   --create --create-eap
                   --start-version='8.2'
                   --end-version='9'
@@ -3251,7 +3251,7 @@ pipelines:
               - git submodule update --init --recursive
               - echo ${DOCKER_PASSWORD} | docker login --username ${DOCKER_USERNAME} --password-stdin
               - >
-                python make-releases.py 
+                python /usr/src/app/make-releases.py
                   --create --create-eap
                   --start-version='8.2'
                   --end-version='9'
@@ -3274,7 +3274,7 @@ pipelines:
               - git submodule update --init --recursive
               - echo ${DOCKER_PASSWORD} | docker login --username ${DOCKER_USERNAME} --password-stdin
               - >
-                python make-releases.py 
+                python /usr/src/app/make-releases.py
                   --create --create-eap
                   --start-version='8.2'
                   --end-version='9'
@@ -3297,7 +3297,7 @@ pipelines:
               - git submodule update --init --recursive
               - echo ${DOCKER_PASSWORD} | docker login --username ${DOCKER_USERNAME} --password-stdin
               - >
-                python make-releases.py 
+                python /usr/src/app/make-releases.py
                   --create --create-eap
                   --start-version='8.2'
                   --end-version='9'
@@ -3320,7 +3320,7 @@ pipelines:
               - git submodule update --init --recursive
               - echo ${DOCKER_PASSWORD} | docker login --username ${DOCKER_USERNAME} --password-stdin
               - >
-                python make-releases.py 
+                python /usr/src/app/make-releases.py
                   --create --create-eap
                   --start-version='8.2'
                   --end-version='9'
@@ -3343,7 +3343,7 @@ pipelines:
               - git submodule update --init --recursive
               - echo ${DOCKER_PASSWORD} | docker login --username ${DOCKER_USERNAME} --password-stdin
               - >
-                python make-releases.py 
+                python /usr/src/app/make-releases.py
                   --create --create-eap
                   --start-version='8.2'
                   --end-version='9'
@@ -3366,7 +3366,7 @@ pipelines:
               - git submodule update --init --recursive
               - echo ${DOCKER_PASSWORD} | docker login --username ${DOCKER_USERNAME} --password-stdin
               - >
-                python make-releases.py 
+                python /usr/src/app/make-releases.py
                   --create --create-eap
                   --start-version='8.2'
                   --end-version='9'
@@ -3389,7 +3389,7 @@ pipelines:
               - git submodule update --init --recursive
               - echo ${DOCKER_PASSWORD} | docker login --username ${DOCKER_USERNAME} --password-stdin
               - >
-                python make-releases.py 
+                python /usr/src/app/make-releases.py
                   --create --create-eap
                   --start-version='8.2'
                   --end-version='9'
@@ -3412,7 +3412,7 @@ pipelines:
               - git submodule update --init --recursive
               - echo ${DOCKER_PASSWORD} | docker login --username ${DOCKER_USERNAME} --password-stdin
               - >
-                python make-releases.py 
+                python /usr/src/app/make-releases.py
                   --create --create-eap
                   --start-version='8.2'
                   --end-version='9'
@@ -3435,7 +3435,7 @@ pipelines:
               - git submodule update --init --recursive
               - echo ${DOCKER_PASSWORD} | docker login --username ${DOCKER_USERNAME} --password-stdin
               - >
-                python make-releases.py 
+                python /usr/src/app/make-releases.py
                   --create --create-eap
                   --start-version='8.2'
                   --end-version='9'
@@ -3458,7 +3458,7 @@ pipelines:
               - git submodule update --init --recursive
               - echo ${DOCKER_PASSWORD} | docker login --username ${DOCKER_USERNAME} --password-stdin
               - >
-                python make-releases.py 
+                python /usr/src/app/make-releases.py
                   --create --create-eap
                   --start-version='8.2'
                   --end-version='9'
