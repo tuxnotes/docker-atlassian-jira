@@ -1,5 +1,9 @@
+
 ARG BASE_IMAGE=adoptopenjdk:8-hotspot
 FROM $BASE_IMAGE
+
+LABEL maintainer="dc-deployments@atlassian.com"
+LABEL securitytxt="https://www.atlassian.com/.well-known/security.txt"
 
 ENV RUN_USER                                        jira
 ENV RUN_GROUP                                       jira
