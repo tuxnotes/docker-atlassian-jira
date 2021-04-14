@@ -1772,7 +1772,7 @@ pipelines:
               - docker build --build-arg JIRA_VERSION=${JIRA_VERSION} -t test-image .
               - export IS_RELEASE=false
               - export RUN_FUNCTESTS=true
-              - /usr/src/app/integration_test.sh test-image $IS_RELEASE $RUN_FUNCTESTS
+              - /usr/src/app/post_build.sh test-image $IS_RELEASE $RUN_FUNCTESTS
 
   ######################################################################
   # Custom builds; these are triggered manually or via timer.
