@@ -1,4 +1,3 @@
-
 ARG BASE_IMAGE=adoptopenjdk:8-hotspot
 FROM $BASE_IMAGE
 
