@@ -1756,11 +1756,11 @@ pipelines:
               - export DOCKERFILE_BUILDARGS='ARTEFACT_NAME=atlassian-jira-software'
               - export DOCKERFILE_VERSION_ARG='JIRA_VERSION'
               - export MAC_PRODUCT_KEY='jira-software'
-              - py.test tests/
-              - py.test shared-components/tests/
+              - py.test -v tests/
+              - py.test -v shared-components/tests/
               - export DOCKERFILE_BUILDARGS='ARTEFACT_NAME=atlassian-jira-software,BASE_IMAGE=adoptopenjdk:11-hotspot'
-              - py.test tests/
-              - py.test shared-components/tests/
+              - py.test -v tests/
+              - py.test -v shared-components/tests/
         - step:
             name: Run functional tests
             services:
