@@ -2,7 +2,7 @@
 
 import os
 
-from entrypoint_helpers import env, gen_cfg, gen_container_id, str2bool, start_app
+from entrypoint_helpers import env, gen_cfg, gen_container_id, str2bool, exec_app
 
 
 RUN_USER = env['run_user']
@@ -23,4 +23,4 @@ if str2bool(env.get('clustered')):
     gen_cfg('cluster.properties.j2', f'{JIRA_HOME}/cluster.properties',
             user=RUN_USER, group=RUN_GROUP, overwrite=True)
 
-start_app(f'{JIRA_INSTALL_DIR}/bin/start-jira.sh -fg', JIRA_HOME, name='Jira')
+exec_app([f'{JIRA_INSTALL_DIR}/bin/start-jira.sh', '-fg'], JIRA_HOME, name='Jira')
