@@ -23,4 +23,5 @@ if str2bool(env.get('clustered')):
     gen_cfg('cluster.properties.j2', f'{JIRA_HOME}/cluster.properties',
             user=RUN_USER, group=RUN_GROUP, overwrite=True)
 
-exec_app([f'{JIRA_INSTALL_DIR}/bin/start-jira.sh', '-fg'], JIRA_HOME, name='Jira')
+exec_app([f'{JIRA_INSTALL_DIR}/bin/start-jira.sh', '-fg'], JIRA_HOME,
+         name='Jira', env_cleanup=True)
