@@ -1,5 +1,9 @@
 ARG BASE_IMAGE=adoptopenjdk:8-hotspot
-FROM $BASE_IMAGE
+
+
+
+
+FFROM $BASE_IMAGE
 
 LABEL maintainer="dc-deployments@atlassian.com"
 LABEL securitytxt="https://www.atlassian.com/.well-known/security.txt"
@@ -56,5 +60,6 @@ VOLUME ["${JIRA_HOME}"] # Must be declared after setting perms
 
 COPY entrypoint.py \
      shared-components/image/entrypoint_helpers.py  /
+COPY k8s-service-check.py /
 COPY shared-components/support                      /opt/atlassian/support
 COPY config/*                                       /opt/atlassian/etc/
