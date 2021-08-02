@@ -56,6 +56,5 @@ VOLUME ["${JIRA_HOME}"] # Must be declared after setting perms
 
 COPY entrypoint.py \
      shared-components/image/entrypoint_helpers.py  /
-COPY k8s-service-check.py /
 COPY shared-components/support                      /opt/atlassian/support
 COPY config/*                                       /opt/atlassian/etc/
