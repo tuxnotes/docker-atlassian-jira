@@ -24,6 +24,9 @@ docker-compose version
 echo "######## Python details ########"
 python --version
 
+echo "######## OS details ########"
+cat /etc/os-release
+
 echo "######## Running docker-compose now... ########"
 docker-compose --verbose rm -f && \
     docker-compose up --force-recreate --always-recreate-deps --abort-on-container-exit --exit-code-from smoketests
