@@ -1768,7 +1768,7 @@ pipelines:
             services:
               - docker
             script:
-              - apk add --no-cache git docker-compose jq curl
+              - apk add --no-cache git docker-compose jq curl py-pip python3-dev openssl-dev gcc libc-dev rust cargo make libffi-dev
               - git submodule update --init --recursive
               - export JIRA_VERSION=`curl -s https://marketplace.atlassian.com/rest/2/products/key/jira/versions/latest | jq -r .name`
               - docker build --build-arg JIRA_VERSION=${JIRA_VERSION} -t test-image .
