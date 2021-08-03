@@ -86,11 +86,12 @@ pipelines:
       - parallel:
         - step:
             name: Run unit tests
-            image: python:3.7-alpine3.14
+            image: ubuntu:latest
             services:
               - docker
             script:
-              - apk add --no-cache git
+              - apt update
+              - apt install git -y
               - git submodule update --init --recursive
               - pip install -q -r shared-components/tests/requirements.txt
               - export PYTHONPATH=./shared-components/tests:$PYTHONPATH
@@ -108,7 +109,8 @@ pipelines:
             services:
               - docker
             script:
-              - apk add --no-cache git docker-compose jq curl
+              - apt update
+              - apt install git docker-compose jq curl -y
               - git submodule update --init --recursive
               - export JIRA_VERSION=`curl -s https://marketplace.atlassian.com/rest/2/products/key/jira/versions/latest | jq -r .name`
               - docker build --build-arg JIRA_VERSION=${JIRA_VERSION} -t test-image .
