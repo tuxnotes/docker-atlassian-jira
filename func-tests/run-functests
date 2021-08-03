@@ -15,5 +15,15 @@ fi
 
 sh ./postgres/inject-license
 
-docker-compose rm -f && \
+echo "######## Docker details ########"
+docker version
+
+echo "######## docker-compose details ########"
+docker-compose version
+
+echo "######## Python details ########"
+python --version
+
+echo "######## Running docker-compose now... ########"
+docker-compose --verbose rm -f && \
     docker-compose up --force-recreate --always-recreate-deps --abort-on-container-exit --exit-code-from smoketests
