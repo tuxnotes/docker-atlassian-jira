@@ -1746,7 +1746,7 @@ pipelines:
       - parallel:
         - step:
             name: Run unit tests
-            image: ubuntu:3.7-alpine3.14
+            image: python:3.7-alpine3.14
             services:
               - docker
             script:
