@@ -186,8 +186,14 @@ The following variables are all must all be supplied if using this feature:
 
    * `mssql`
    * `mysql`
+   * `mysql57`
+   * `mysql8`
    * `oracle10g`
    * `postgres72`
+
+   Note that `mysql` is only supported for versions prior to 8.13, and `mysql57`
+   and `mysql8` are only supported after. See [the 8.13.x upgrade instructions](https://confluence.atlassian.com/jirasoftware/jira-software-8-13-x-upgrade-notes-1018783378.html)
+   for details.
 
 The following variables may be optionally supplied when configuring the
 database from the environment:
