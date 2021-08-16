@@ -108,11 +108,13 @@ def test_dbconfig_xml_defaults(docker_cli, image):
     assert xml.findtext('.//pool-test-on-borrow') == 'false'
 
 
-@pytest.mark.parametrize('atl_db_type', ['mssql', 'mysql', 'oracle10g', 'postgres72', 'dummyvalue'])
+@pytest.mark.parametrize('atl_db_type', ['mssql', 'mysql', 'mysql57', 'mysql8', 'oracle10g', 'postgres72', 'dummyvalue'])
 def test_dbconfig_xml_default_schema_names(docker_cli, image, run_user, atl_db_type):
     default_schema_names = {
         'mssql': 'dbo',
         'mysql': 'public',
+        'mysql57': 'public',
+        'mysql8': 'public',
         'oracle10g': '',
         'postgres72': 'public',
     }
