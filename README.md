@@ -205,6 +205,8 @@ database from the environment:
 
    * `mssql`: `dbo`
    * `mysql`: `public`
+   * `mysql57`: `public`
+   * `mysql8`: `public`
    * `oracle10g`: NONE
    * `postgres72`: `public`
 
