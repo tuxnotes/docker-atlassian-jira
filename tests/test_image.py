@@ -342,10 +342,22 @@ def test_clean_shutdown(docker_cli, image, run_user):
     wait_for_log(container, end)
 
 
+def test_shutdown_script(docker_cli, image, run_user):
+    container = docker_cli.containers.run(image, detach=True, user=run_user, ports={PORT: PORT})
+    host = testinfra.get_host("docker://"+container.id)
+    wait_for_state(STATUS_URL, expected_state='FIRST_RUN')
+
+    container.exec_run('/shutdown-wait.sh')
+
+    end = r'org\.apache\.coyote\.AbstractProtocol\.destroy Destroying ProtocolHandler'
+    wait_for_log(container, end)
+
+
 def test_java_in_user_path(docker_cli, image):
     container = run_image(docker_cli, image)
     proc = container.check_output('su -c "which java" ${RUN_USER}')
     assert len(proc) > 0
+
 
 def test_seraph_xml_defaults(docker_cli, image):
     container = run_image(docker_cli, image)
