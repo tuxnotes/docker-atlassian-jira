@@ -415,6 +415,17 @@ If you're using an external database, you can configure Jira to make a backup au
 
 Read more about data recovery and backups: [https://confluence.atlassian.com/adminjiraserver071/backing-up-data-802592964.html](https://confluence.atlassian.com/adminjiraserver071/backing-up-data-802592964.html)
 
+# Shutdown
+
+Depending on your configuration Jira may take a short period to shutdown any
+active operations to finish before termination. If sending a `docker stop` this
+should be taken into account with the `--time` flag.
+
+Alternatively, the script `/shutdown-wait.sh` is provided, which will initiate a
+clean shutdown and wait for the process to complete. This is the recommended
+method for shutdown in environments which provide for orderly shutdown,
+e.g. Kubernetes via the `preStop` hook.
+
 # Versioning
 
 The `latest` tag matches the most recent release of Atlassian Jira Software, Jira Core or Jira Service Management. Thus `atlassian/jira-software:latest` will use the newest version of Jira available.
