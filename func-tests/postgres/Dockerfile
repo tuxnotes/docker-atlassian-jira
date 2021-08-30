@@ -1,4 +1,4 @@
-FROM postgres:9.6-alpine
+FROM postgres:10.18-alpine
 
 # NOTE: This expects the license to have been injected; see
 # `inject-license` and INJECT_LICENSE_HERE in `jira.sql.tmpl`

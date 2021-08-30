@@ -36,7 +36,7 @@ pipelines:
               - >
                 python /usr/src/app/make-releases.py \
                   --update \
-                  --start-version='7.13' \
+                  --start-version='8.5' \
                   --end-version='9' \
                   --default-release \
                   --dockerfile-buildargs='ARTEFACT_NAME=atlassian-jira-software,BASE_IMAGE=adoptopenjdk:8-hotspot' \
@@ -60,7 +60,7 @@ pipelines:
               - >
                 python /usr/src/app/make-releases.py \
                   --update \
-                  --start-version='7.13' \
+                  --start-version='8.5' \
                   --end-version='9' \
                   --default-release \
                   --dockerfile-buildargs='ARTEFACT_NAME=atlassian-jira-software,BASE_IMAGE=adoptopenjdk:8-hotspot' \
@@ -84,7 +84,7 @@ pipelines:
               - >
                 python /usr/src/app/make-releases.py \
                   --update \
-                  --start-version='7.13' \
+                  --start-version='8.5' \
                   --end-version='9' \
                   --default-release \
                   --dockerfile-buildargs='ARTEFACT_NAME=atlassian-jira-software,BASE_IMAGE=adoptopenjdk:8-hotspot' \
@@ -108,7 +108,7 @@ pipelines:
               - >
                 python /usr/src/app/make-releases.py \
                   --update \
-                  --start-version='7.13' \
+                  --start-version='8.5' \
                   --end-version='9' \
                   --default-release \
                   --dockerfile-buildargs='ARTEFACT_NAME=atlassian-jira-software,BASE_IMAGE=adoptopenjdk:8-hotspot' \
@@ -132,7 +132,7 @@ pipelines:
               - >
                 python /usr/src/app/make-releases.py \
                   --update \
-                  --start-version='7.13' \
+                  --start-version='8.5' \
                   --end-version='9' \
                   --default-release \
                   --dockerfile-buildargs='ARTEFACT_NAME=atlassian-jira-software,BASE_IMAGE=adoptopenjdk:8-hotspot' \
@@ -156,7 +156,7 @@ pipelines:
               - >
                 python /usr/src/app/make-releases.py \
                   --update \
-                  --start-version='7.13' \
+                  --start-version='8.5' \
                   --end-version='9' \
                   --default-release \
                   --dockerfile-buildargs='ARTEFACT_NAME=atlassian-jira-software,BASE_IMAGE=adoptopenjdk:8-hotspot' \
@@ -180,7 +180,7 @@ pipelines:
               - >
                 python /usr/src/app/make-releases.py \
                   --update \
-                  --start-version='7.13' \
+                  --start-version='8.5' \
                   --end-version='9' \
                   --default-release \
                   --dockerfile-buildargs='ARTEFACT_NAME=atlassian-jira-software,BASE_IMAGE=adoptopenjdk:8-hotspot' \
@@ -204,7 +204,7 @@ pipelines:
               - >
                 python /usr/src/app/make-releases.py \
                   --update \
-                  --start-version='7.13' \
+                  --start-version='8.5' \
                   --end-version='9' \
                   --default-release \
                   --dockerfile-buildargs='ARTEFACT_NAME=atlassian-jira-software,BASE_IMAGE=adoptopenjdk:8-hotspot' \
@@ -228,7 +228,7 @@ pipelines:
               - >
                 python /usr/src/app/make-releases.py \
                   --update \
-                  --start-version='7.13' \
+                  --start-version='8.5' \
                   --end-version='9' \
                   --default-release \
                   --dockerfile-buildargs='ARTEFACT_NAME=atlassian-jira-software,BASE_IMAGE=adoptopenjdk:8-hotspot' \
@@ -252,7 +252,7 @@ pipelines:
               - >
                 python /usr/src/app/make-releases.py \
                   --update \
-                  --start-version='7.13' \
+                  --start-version='8.5' \
                   --end-version='9' \
                   --default-release \
                   --dockerfile-buildargs='ARTEFACT_NAME=atlassian-jira-software,BASE_IMAGE=adoptopenjdk:8-hotspot' \
@@ -276,7 +276,7 @@ pipelines:
               - >
                 python /usr/src/app/make-releases.py \
                   --update \
-                  --start-version='7.13' \
+                  --start-version='8.5' \
                   --end-version='9' \
                   --default-release \
                   --dockerfile-buildargs='ARTEFACT_NAME=atlassian-jira-software,BASE_IMAGE=adoptopenjdk:8-hotspot' \
@@ -300,7 +300,7 @@ pipelines:
               - >
                 python /usr/src/app/make-releases.py \
                   --update \
-                  --start-version='7.13' \
+                  --start-version='8.5' \
                   --end-version='9' \
                   --default-release \
                   --dockerfile-buildargs='ARTEFACT_NAME=atlassian-jira-software,BASE_IMAGE=adoptopenjdk:8-hotspot' \
@@ -324,7 +324,7 @@ pipelines:
               - >
                 python /usr/src/app/make-releases.py \
                   --update \
-                  --start-version='8.2' \
+                  --start-version='8.5' \
                   --end-version='9' \
                   --dockerfile-buildargs='ARTEFACT_NAME=atlassian-jira-software,BASE_IMAGE=adoptopenjdk:11-hotspot' \
                   --dockerfile-version-arg='JIRA_VERSION' \
@@ -347,7 +347,7 @@ pipelines:
               - >
                 python /usr/src/app/make-releases.py \
                   --update \
-                  --start-version='8.2' \
+                  --start-version='8.5' \
                   --end-version='9' \
                   --dockerfile-buildargs='ARTEFACT_NAME=atlassian-jira-software,BASE_IMAGE=adoptopenjdk:11-hotspot' \
                   --dockerfile-version-arg='JIRA_VERSION' \
@@ -370,7 +370,7 @@ pipelines:
               - >
                 python /usr/src/app/make-releases.py \
                   --update \
-                  --start-version='8.2' \
+                  --start-version='8.5' \
                   --end-version='9' \
                   --dockerfile-buildargs='ARTEFACT_NAME=atlassian-jira-software,BASE_IMAGE=adoptopenjdk:11-hotspot' \
                   --dockerfile-version-arg='JIRA_VERSION' \
@@ -393,7 +393,7 @@ pipelines:
               - >
                 python /usr/src/app/make-releases.py \
                   --update \
-                  --start-version='8.2' \
+                  --start-version='8.5' \
                   --end-version='9' \
                   --dockerfile-buildargs='ARTEFACT_NAME=atlassian-jira-software,BASE_IMAGE=adoptopenjdk:11-hotspot' \
                   --dockerfile-version-arg='JIRA_VERSION' \
@@ -416,7 +416,7 @@ pipelines:
               - >
                 python /usr/src/app/make-releases.py \
                   --update \
-                  --start-version='8.2' \
+                  --start-version='8.5' \
                   --end-version='9' \
                   --dockerfile-buildargs='ARTEFACT_NAME=atlassian-jira-software,BASE_IMAGE=adoptopenjdk:11-hotspot' \
                   --dockerfile-version-arg='JIRA_VERSION' \
@@ -439,7 +439,7 @@ pipelines:
               - >
                 python /usr/src/app/make-releases.py \
                   --update \
-                  --start-version='8.2' \
+                  --start-version='8.5' \
                   --end-version='9' \
                   --dockerfile-buildargs='ARTEFACT_NAME=atlassian-jira-software,BASE_IMAGE=adoptopenjdk:11-hotspot' \
                   --dockerfile-version-arg='JIRA_VERSION' \
@@ -462,7 +462,7 @@ pipelines:
               - >
                 python /usr/src/app/make-releases.py \
                   --update \
-                  --start-version='8.2' \
+                  --start-version='8.5' \
                   --end-version='9' \
                   --dockerfile-buildargs='ARTEFACT_NAME=atlassian-jira-software,BASE_IMAGE=adoptopenjdk:11-hotspot' \
                   --dockerfile-version-arg='JIRA_VERSION' \
@@ -485,7 +485,7 @@ pipelines:
               - >
                 python /usr/src/app/make-releases.py \
                   --update \
-                  --start-version='8.2' \
+                  --start-version='8.5' \
                   --end-version='9' \
                   --dockerfile-buildargs='ARTEFACT_NAME=atlassian-jira-software,BASE_IMAGE=adoptopenjdk:11-hotspot' \
                   --dockerfile-version-arg='JIRA_VERSION' \
@@ -508,7 +508,7 @@ pipelines:
               - >
                 python /usr/src/app/make-releases.py \
                   --update \
-                  --start-version='8.2' \
+                  --start-version='8.5' \
                   --end-version='9' \
                   --dockerfile-buildargs='ARTEFACT_NAME=atlassian-jira-software,BASE_IMAGE=adoptopenjdk:11-hotspot' \
                   --dockerfile-version-arg='JIRA_VERSION' \
@@ -531,7 +531,7 @@ pipelines:
               - >
                 python /usr/src/app/make-releases.py \
                   --update \
-                  --start-version='8.2' \
+                  --start-version='8.5' \
                   --end-version='9' \
                   --dockerfile-buildargs='ARTEFACT_NAME=atlassian-jira-software,BASE_IMAGE=adoptopenjdk:11-hotspot' \
                   --dockerfile-version-arg='JIRA_VERSION' \
@@ -554,7 +554,7 @@ pipelines:
               - >
                 python /usr/src/app/make-releases.py \
                   --update \
-                  --start-version='8.2' \
+                  --start-version='8.5' \
                   --end-version='9' \
                   --dockerfile-buildargs='ARTEFACT_NAME=atlassian-jira-software,BASE_IMAGE=adoptopenjdk:11-hotspot' \
                   --dockerfile-version-arg='JIRA_VERSION' \
@@ -577,7 +577,7 @@ pipelines:
               - >
                 python /usr/src/app/make-releases.py \
                   --update \
-                  --start-version='8.2' \
+                  --start-version='8.5' \
                   --end-version='9' \
                   --dockerfile-buildargs='ARTEFACT_NAME=atlassian-jira-software,BASE_IMAGE=adoptopenjdk:11-hotspot' \
                   --dockerfile-version-arg='JIRA_VERSION' \
@@ -600,7 +600,7 @@ pipelines:
               - >
                 python /usr/src/app/make-releases.py \
                   --update \
-                  --start-version='3.16' \
+                  --start-version='4.5' \
                   --end-version='5' \
                   --default-release \
                   --dockerfile-buildargs='ARTEFACT_NAME=atlassian-servicedesk,BASE_IMAGE=adoptopenjdk:8-hotspot' \
@@ -624,7 +624,7 @@ pipelines:
               - >
                 python /usr/src/app/make-releases.py \
                   --update \
-                  --start-version='3.16' \
+                  --start-version='4.5' \
                   --end-version='5' \
                   --default-release \
                   --dockerfile-buildargs='ARTEFACT_NAME=atlassian-servicedesk,BASE_IMAGE=adoptopenjdk:8-hotspot' \
@@ -648,7 +648,7 @@ pipelines:
               - >
                 python /usr/src/app/make-releases.py \
                   --update \
-                  --start-version='3.16' \
+                  --start-version='4.5' \
                   --end-version='5' \
                   --default-release \
                   --dockerfile-buildargs='ARTEFACT_NAME=atlassian-servicedesk,BASE_IMAGE=adoptopenjdk:8-hotspot' \
@@ -672,7 +672,7 @@ pipelines:
               - >
                 python /usr/src/app/make-releases.py \
                   --update \
-                  --start-version='3.16' \
+                  --start-version='4.5' \
                   --end-version='5' \
                   --default-release \
                   --dockerfile-buildargs='ARTEFACT_NAME=atlassian-servicedesk,BASE_IMAGE=adoptopenjdk:8-hotspot' \
@@ -696,7 +696,7 @@ pipelines:
               - >
                 python /usr/src/app/make-releases.py \
                   --update \
-                  --start-version='3.16' \
+                  --start-version='4.5' \
                   --end-version='5' \
                   --default-release \
                   --dockerfile-buildargs='ARTEFACT_NAME=atlassian-servicedesk,BASE_IMAGE=adoptopenjdk:8-hotspot' \
@@ -720,7 +720,7 @@ pipelines:
               - >
                 python /usr/src/app/make-releases.py \
                   --update \
-                  --start-version='3.16' \
+                  --start-version='4.5' \
                   --end-version='5' \
                   --default-release \
                   --dockerfile-buildargs='ARTEFACT_NAME=atlassian-servicedesk,BASE_IMAGE=adoptopenjdk:8-hotspot' \
@@ -744,7 +744,7 @@ pipelines:
               - >
                 python /usr/src/app/make-releases.py \
                   --update \
-                  --start-version='3.16' \
+                  --start-version='4.5' \
                   --end-version='5' \
                   --default-release \
                   --dockerfile-buildargs='ARTEFACT_NAME=atlassian-servicedesk,BASE_IMAGE=adoptopenjdk:8-hotspot' \
@@ -768,7 +768,7 @@ pipelines:
               - >
                 python /usr/src/app/make-releases.py \
                   --update \
-                  --start-version='3.16' \
+                  --start-version='4.5' \
                   --end-version='5' \
                   --default-release \
                   --dockerfile-buildargs='ARTEFACT_NAME=atlassian-servicedesk,BASE_IMAGE=adoptopenjdk:8-hotspot' \
@@ -792,7 +792,7 @@ pipelines:
               - >
                 python /usr/src/app/make-releases.py \
                   --update \
-                  --start-version='3.16' \
+                  --start-version='4.5' \
                   --end-version='5' \
                   --default-release \
                   --dockerfile-buildargs='ARTEFACT_NAME=atlassian-servicedesk,BASE_IMAGE=adoptopenjdk:8-hotspot' \
@@ -816,7 +816,7 @@ pipelines:
               - >
                 python /usr/src/app/make-releases.py \
                   --update \
-                  --start-version='3.16' \
+                  --start-version='4.5' \
                   --end-version='5' \
                   --default-release \
                   --dockerfile-buildargs='ARTEFACT_NAME=atlassian-servicedesk,BASE_IMAGE=adoptopenjdk:8-hotspot' \
@@ -840,7 +840,7 @@ pipelines:
               - >
                 python /usr/src/app/make-releases.py \
                   --update \
-                  --start-version='3.16' \
+                  --start-version='4.5' \
                   --end-version='5' \
                   --default-release \
                   --dockerfile-buildargs='ARTEFACT_NAME=atlassian-servicedesk,BASE_IMAGE=adoptopenjdk:8-hotspot' \
@@ -864,7 +864,7 @@ pipelines:
               - >
                 python /usr/src/app/make-releases.py \
                   --update \
-                  --start-version='3.16' \
+                  --start-version='4.5' \
                   --end-version='5' \
                   --default-release \
                   --dockerfile-buildargs='ARTEFACT_NAME=atlassian-servicedesk,BASE_IMAGE=adoptopenjdk:8-hotspot' \
@@ -888,7 +888,7 @@ pipelines:
               - >
                 python /usr/src/app/make-releases.py \
                   --update \
-                  --start-version='4.2' \
+                  --start-version='4.5' \
                   --end-version='5' \
                   --dockerfile-buildargs='ARTEFACT_NAME=atlassian-servicedesk,BASE_IMAGE=adoptopenjdk:11-hotspot' \
                   --dockerfile-version-arg='JIRA_VERSION' \
@@ -911,7 +911,7 @@ pipelines:
               - >
                 python /usr/src/app/make-releases.py \
                   --update \
-                  --start-version='4.2' \
+                  --start-version='4.5' \
                   --end-version='5' \
                   --dockerfile-buildargs='ARTEFACT_NAME=atlassian-servicedesk,BASE_IMAGE=adoptopenjdk:11-hotspot' \
                   --dockerfile-version-arg='JIRA_VERSION' \
@@ -934,7 +934,7 @@ pipelines:
               - >
                 python /usr/src/app/make-releases.py \
                   --update \
-                  --start-version='4.2' \
+                  --start-version='4.5' \
                   --end-version='5' \
                   --dockerfile-buildargs='ARTEFACT_NAME=atlassian-servicedesk,BASE_IMAGE=adoptopenjdk:11-hotspot' \
                   --dockerfile-version-arg='JIRA_VERSION' \
@@ -957,7 +957,7 @@ pipelines:
               - >
                 python /usr/src/app/make-releases.py \
                   --update \
-                  --start-version='4.2' \
+                  --start-version='4.5' \
                   --end-version='5' \
                   --dockerfile-buildargs='ARTEFACT_NAME=atlassian-servicedesk,BASE_IMAGE=adoptopenjdk:11-hotspot' \
                   --dockerfile-version-arg='JIRA_VERSION' \
@@ -980,7 +980,7 @@ pipelines:
               - >
                 python /usr/src/app/make-releases.py \
                   --update \
-                  --start-version='4.2' \
+                  --start-version='4.5' \
                   --end-version='5' \
                   --dockerfile-buildargs='ARTEFACT_NAME=atlassian-servicedesk,BASE_IMAGE=adoptopenjdk:11-hotspot' \
                   --dockerfile-version-arg='JIRA_VERSION' \
@@ -1003,7 +1003,7 @@ pipelines:
               - >
                 python /usr/src/app/make-releases.py \
                   --update \
-                  --start-version='4.2' \
+                  --start-version='4.5' \
                   --end-version='5' \
                   --dockerfile-buildargs='ARTEFACT_NAME=atlassian-servicedesk,BASE_IMAGE=adoptopenjdk:11-hotspot' \
                   --dockerfile-version-arg='JIRA_VERSION' \
@@ -1026,7 +1026,7 @@ pipelines:
               - >
                 python /usr/src/app/make-releases.py \
                   --update \
-                  --start-version='4.2' \
+                  --start-version='4.5' \
                   --end-version='5' \
                   --dockerfile-buildargs='ARTEFACT_NAME=atlassian-servicedesk,BASE_IMAGE=adoptopenjdk:11-hotspot' \
                   --dockerfile-version-arg='JIRA_VERSION' \
@@ -1049,7 +1049,7 @@ pipelines:
               - >
                 python /usr/src/app/make-releases.py \
                   --update \
-                  --start-version='4.2' \
+                  --start-version='4.5' \
                   --end-version='5' \
                   --dockerfile-buildargs='ARTEFACT_NAME=atlassian-servicedesk,BASE_IMAGE=adoptopenjdk:11-hotspot' \
                   --dockerfile-version-arg='JIRA_VERSION' \
@@ -1072,7 +1072,7 @@ pipelines:
               - >
                 python /usr/src/app/make-releases.py \
                   --update \
-                  --start-version='4.2' \
+                  --start-version='4.5' \
                   --end-version='5' \
                   --dockerfile-buildargs='ARTEFACT_NAME=atlassian-servicedesk,BASE_IMAGE=adoptopenjdk:11-hotspot' \
                   --dockerfile-version-arg='JIRA_VERSION' \
@@ -1095,7 +1095,7 @@ pipelines:
               - >
                 python /usr/src/app/make-releases.py \
                   --update \
-                  --start-version='4.2' \
+                  --start-version='4.5' \
                   --end-version='5' \
                   --dockerfile-buildargs='ARTEFACT_NAME=atlassian-servicedesk,BASE_IMAGE=adoptopenjdk:11-hotspot' \
                   --dockerfile-version-arg='JIRA_VERSION' \
@@ -1118,7 +1118,7 @@ pipelines:
               - >
                 python /usr/src/app/make-releases.py \
                   --update \
-                  --start-version='4.2' \
+                  --start-version='4.5' \
                   --end-version='5' \
                   --dockerfile-buildargs='ARTEFACT_NAME=atlassian-servicedesk,BASE_IMAGE=adoptopenjdk:11-hotspot' \
                   --dockerfile-version-arg='JIRA_VERSION' \
@@ -1141,7 +1141,7 @@ pipelines:
               - >
                 python /usr/src/app/make-releases.py \
                   --update \
-                  --start-version='4.2' \
+                  --start-version='4.5' \
                   --end-version='5' \
                   --dockerfile-buildargs='ARTEFACT_NAME=atlassian-servicedesk,BASE_IMAGE=adoptopenjdk:11-hotspot' \
                   --dockerfile-version-arg='JIRA_VERSION' \
@@ -1164,7 +1164,7 @@ pipelines:
               - >
                 python /usr/src/app/make-releases.py \
                   --update \
-                  --start-version='7.13' \
+                  --start-version='8.5' \
                   --end-version='9' \
                   --default-release \
                   --dockerfile-buildargs='ARTEFACT_NAME=atlassian-jira-core,BASE_IMAGE=adoptopenjdk:8-hotspot' \
@@ -1188,7 +1188,7 @@ pipelines:
               - >
                 python /usr/src/app/make-releases.py \
                   --update \
-                  --start-version='7.13' \
+                  --start-version='8.5' \
                   --end-version='9' \
                   --default-release \
                   --dockerfile-buildargs='ARTEFACT_NAME=atlassian-jira-core,BASE_IMAGE=adoptopenjdk:8-hotspot' \
@@ -1212,7 +1212,7 @@ pipelines:
               - >
                 python /usr/src/app/make-releases.py \
                   --update \
-                  --start-version='7.13' \
+                  --start-version='8.5' \
                   --end-version='9' \
                   --default-release \
                   --dockerfile-buildargs='ARTEFACT_NAME=atlassian-jira-core,BASE_IMAGE=adoptopenjdk:8-hotspot' \
@@ -1236,7 +1236,7 @@ pipelines:
               - >
                 python /usr/src/app/make-releases.py \
                   --update \
-                  --start-version='7.13' \
+                  --start-version='8.5' \
                   --end-version='9' \
                   --default-release \
                   --dockerfile-buildargs='ARTEFACT_NAME=atlassian-jira-core,BASE_IMAGE=adoptopenjdk:8-hotspot' \
@@ -1260,7 +1260,7 @@ pipelines:
               - >
                 python /usr/src/app/make-releases.py \
                   --update \
-                  --start-version='7.13' \
+                  --start-version='8.5' \
                   --end-version='9' \
                   --default-release \
                   --dockerfile-buildargs='ARTEFACT_NAME=atlassian-jira-core,BASE_IMAGE=adoptopenjdk:8-hotspot' \
@@ -1284,7 +1284,7 @@ pipelines:
               - >
                 python /usr/src/app/make-releases.py \
                   --update \
-                  --start-version='7.13' \
+                  --start-version='8.5' \
                   --end-version='9' \
                   --default-release \
                   --dockerfile-buildargs='ARTEFACT_NAME=atlassian-jira-core,BASE_IMAGE=adoptopenjdk:8-hotspot' \
@@ -1308,7 +1308,7 @@ pipelines:
               - >
                 python /usr/src/app/make-releases.py \
                   --update \
-                  --start-version='7.13' \
+                  --start-version='8.5' \
                   --end-version='9' \
                   --default-release \
                   --dockerfile-buildargs='ARTEFACT_NAME=atlassian-jira-core,BASE_IMAGE=adoptopenjdk:8-hotspot' \
@@ -1332,7 +1332,7 @@ pipelines:
               - >
                 python /usr/src/app/make-releases.py \
                   --update \
-                  --start-version='7.13' \
+                  --start-version='8.5' \
                   --end-version='9' \
                   --default-release \
                   --dockerfile-buildargs='ARTEFACT_NAME=atlassian-jira-core,BASE_IMAGE=adoptopenjdk:8-hotspot' \
@@ -1356,7 +1356,7 @@ pipelines:
               - >
                 python /usr/src/app/make-releases.py \
                   --update \
-                  --start-version='7.13' \
+                  --start-version='8.5' \
                   --end-version='9' \
                   --default-release \
                   --dockerfile-buildargs='ARTEFACT_NAME=atlassian-jira-core,BASE_IMAGE=adoptopenjdk:8-hotspot' \
@@ -1380,7 +1380,7 @@ pipelines:
               - >
                 python /usr/src/app/make-releases.py \
                   --update \
-                  --start-version='7.13' \
+                  --start-version='8.5' \
                   --end-version='9' \
                   --default-release \
                   --dockerfile-buildargs='ARTEFACT_NAME=atlassian-jira-core,BASE_IMAGE=adoptopenjdk:8-hotspot' \
@@ -1404,7 +1404,7 @@ pipelines:
               - >
                 python /usr/src/app/make-releases.py \
                   --update \
-                  --start-version='7.13' \
+                  --start-version='8.5' \
                   --end-version='9' \
                   --default-release \
                   --dockerfile-buildargs='ARTEFACT_NAME=atlassian-jira-core,BASE_IMAGE=adoptopenjdk:8-hotspot' \
@@ -1428,7 +1428,7 @@ pipelines:
               - >
                 python /usr/src/app/make-releases.py \
                   --update \
-                  --start-version='7.13' \
+                  --start-version='8.5' \
                   --end-version='9' \
                   --default-release \
                   --dockerfile-buildargs='ARTEFACT_NAME=atlassian-jira-core,BASE_IMAGE=adoptopenjdk:8-hotspot' \
@@ -1452,7 +1452,7 @@ pipelines:
               - >
                 python /usr/src/app/make-releases.py \
                   --update \
-                  --start-version='8.2' \
+                  --start-version='8.5' \
                   --end-version='9' \
                   --dockerfile-buildargs='ARTEFACT_NAME=atlassian-jira-core,BASE_IMAGE=adoptopenjdk:11-hotspot' \
                   --dockerfile-version-arg='JIRA_VERSION' \
@@ -1475,7 +1475,7 @@ pipelines:
               - >
                 python /usr/src/app/make-releases.py \
                   --update \
-                  --start-version='8.2' \
+                  --start-version='8.5' \
                   --end-version='9' \
                   --dockerfile-buildargs='ARTEFACT_NAME=atlassian-jira-core,BASE_IMAGE=adoptopenjdk:11-hotspot' \
                   --dockerfile-version-arg='JIRA_VERSION' \
@@ -1498,7 +1498,7 @@ pipelines:
               - >
                 python /usr/src/app/make-releases.py \
                   --update \
-                  --start-version='8.2' \
+                  --start-version='8.5' \
                   --end-version='9' \
                   --dockerfile-buildargs='ARTEFACT_NAME=atlassian-jira-core,BASE_IMAGE=adoptopenjdk:11-hotspot' \
                   --dockerfile-version-arg='JIRA_VERSION' \
@@ -1521,7 +1521,7 @@ pipelines:
               - >
                 python /usr/src/app/make-releases.py \
                   --update \
-                  --start-version='8.2' \
+                  --start-version='8.5' \
                   --end-version='9' \
                   --dockerfile-buildargs='ARTEFACT_NAME=atlassian-jira-core,BASE_IMAGE=adoptopenjdk:11-hotspot' \
                   --dockerfile-version-arg='JIRA_VERSION' \
@@ -1544,7 +1544,7 @@ pipelines:
               - >
                 python /usr/src/app/make-releases.py \
                   --update \
-                  --start-version='8.2' \
+                  --start-version='8.5' \
                   --end-version='9' \
                   --dockerfile-buildargs='ARTEFACT_NAME=atlassian-jira-core,BASE_IMAGE=adoptopenjdk:11-hotspot' \
                   --dockerfile-version-arg='JIRA_VERSION' \
@@ -1567,7 +1567,7 @@ pipelines:
               - >
                 python /usr/src/app/make-releases.py \
                   --update \
-                  --start-version='8.2' \
+                  --start-version='8.5' \
                   --end-version='9' \
                   --dockerfile-buildargs='ARTEFACT_NAME=atlassian-jira-core,BASE_IMAGE=adoptopenjdk:11-hotspot' \
                   --dockerfile-version-arg='JIRA_VERSION' \
@@ -1590,7 +1590,7 @@ pipelines:
               - >
                 python /usr/src/app/make-releases.py \
                   --update \
-                  --start-version='8.2' \
+                  --start-version='8.5' \
                   --end-version='9' \
                   --dockerfile-buildargs='ARTEFACT_NAME=atlassian-jira-core,BASE_IMAGE=adoptopenjdk:11-hotspot' \
                   --dockerfile-version-arg='JIRA_VERSION' \
@@ -1613,7 +1613,7 @@ pipelines:
               - >
                 python /usr/src/app/make-releases.py \
                   --update \
-                  --start-version='8.2' \
+                  --start-version='8.5' \
                   --end-version='9' \
                   --dockerfile-buildargs='ARTEFACT_NAME=atlassian-jira-core,BASE_IMAGE=adoptopenjdk:11-hotspot' \
                   --dockerfile-version-arg='JIRA_VERSION' \
@@ -1636,7 +1636,7 @@ pipelines:
               - >
                 python /usr/src/app/make-releases.py \
                   --update \
-                  --start-version='8.2' \
+                  --start-version='8.5' \
                   --end-version='9' \
                   --dockerfile-buildargs='ARTEFACT_NAME=atlassian-jira-core,BASE_IMAGE=adoptopenjdk:11-hotspot' \
                   --dockerfile-version-arg='JIRA_VERSION' \
@@ -1659,7 +1659,7 @@ pipelines:
               - >
                 python /usr/src/app/make-releases.py \
                   --update \
-                  --start-version='8.2' \
+                  --start-version='8.5' \
                   --end-version='9' \
                   --dockerfile-buildargs='ARTEFACT_NAME=atlassian-jira-core,BASE_IMAGE=adoptopenjdk:11-hotspot' \
                   --dockerfile-version-arg='JIRA_VERSION' \
@@ -1682,7 +1682,7 @@ pipelines:
               - >
                 python /usr/src/app/make-releases.py \
                   --update \
-                  --start-version='8.2' \
+                  --start-version='8.5' \
                   --end-version='9' \
                   --dockerfile-buildargs='ARTEFACT_NAME=atlassian-jira-core,BASE_IMAGE=adoptopenjdk:11-hotspot' \
                   --dockerfile-version-arg='JIRA_VERSION' \
@@ -1705,7 +1705,7 @@ pipelines:
               - >
                 python /usr/src/app/make-releases.py \
                   --update \
-                  --start-version='8.2' \
+                  --start-version='8.5' \
                   --end-version='9' \
                   --dockerfile-buildargs='ARTEFACT_NAME=atlassian-jira-core,BASE_IMAGE=adoptopenjdk:11-hotspot' \
                   --dockerfile-version-arg='JIRA_VERSION' \
@@ -1793,7 +1793,7 @@ pipelines:
               - >
                 python /usr/src/app/make-releases.py \
                   --create --create-eap \
-                  --start-version='7.13' \
+                  --start-version='8.5' \
                   --end-version='9' \
                   --default-release \
                   --dockerfile-buildargs='ARTEFACT_NAME=atlassian-jira-software,BASE_IMAGE=adoptopenjdk:8-hotspot' \
@@ -1817,7 +1817,7 @@ pipelines:
               - >
                 python /usr/src/app/make-releases.py \
                   --create --create-eap \
-                  --start-version='7.13' \
+                  --start-version='8.5' \
                   --end-version='9' \
                   --default-release \
                   --dockerfile-buildargs='ARTEFACT_NAME=atlassian-jira-software,BASE_IMAGE=adoptopenjdk:8-hotspot' \
@@ -1841,7 +1841,7 @@ pipelines:
               - >
                 python /usr/src/app/make-releases.py \
                   --create --create-eap \
-                  --start-version='7.13' \
+                  --start-version='8.5' \
                   --end-version='9' \
                   --default-release \
                   --dockerfile-buildargs='ARTEFACT_NAME=atlassian-jira-software,BASE_IMAGE=adoptopenjdk:8-hotspot' \
@@ -1865,7 +1865,7 @@ pipelines:
               - >
                 python /usr/src/app/make-releases.py \
                   --create --create-eap \
-                  --start-version='7.13' \
+                  --start-version='8.5' \
                   --end-version='9' \
                   --default-release \
                   --dockerfile-buildargs='ARTEFACT_NAME=atlassian-jira-software,BASE_IMAGE=adoptopenjdk:8-hotspot' \
@@ -1889,7 +1889,7 @@ pipelines:
               - >
                 python /usr/src/app/make-releases.py \
                   --create --create-eap \
-                  --start-version='7.13' \
+                  --start-version='8.5' \
                   --end-version='9' \
                   --default-release \
                   --dockerfile-buildargs='ARTEFACT_NAME=atlassian-jira-software,BASE_IMAGE=adoptopenjdk:8-hotspot' \
@@ -1913,7 +1913,7 @@ pipelines:
               - >
                 python /usr/src/app/make-releases.py \
                   --create --create-eap \
-                  --start-version='7.13' \
+                  --start-version='8.5' \
                   --end-version='9' \
                   --default-release \
                   --dockerfile-buildargs='ARTEFACT_NAME=atlassian-jira-software,BASE_IMAGE=adoptopenjdk:8-hotspot' \
@@ -1937,7 +1937,7 @@ pipelines:
               - >
                 python /usr/src/app/make-releases.py \
                   --create --create-eap \
-                  --start-version='7.13' \
+                  --start-version='8.5' \
                   --end-version='9' \
                   --default-release \
                   --dockerfile-buildargs='ARTEFACT_NAME=atlassian-jira-software,BASE_IMAGE=adoptopenjdk:8-hotspot' \
@@ -1961,7 +1961,7 @@ pipelines:
               - >
                 python /usr/src/app/make-releases.py \
                   --create --create-eap \
-                  --start-version='7.13' \
+                  --start-version='8.5' \
                   --end-version='9' \
                   --default-release \
                   --dockerfile-buildargs='ARTEFACT_NAME=atlassian-jira-software,BASE_IMAGE=adoptopenjdk:8-hotspot' \
@@ -1985,7 +1985,7 @@ pipelines:
               - >
                 python /usr/src/app/make-releases.py \
                   --create --create-eap \
-                  --start-version='7.13' \
+                  --start-version='8.5' \
                   --end-version='9' \
                   --default-release \
                   --dockerfile-buildargs='ARTEFACT_NAME=atlassian-jira-software,BASE_IMAGE=adoptopenjdk:8-hotspot' \
@@ -2009,7 +2009,7 @@ pipelines:
               - >
                 python /usr/src/app/make-releases.py \
                   --create --create-eap \
-                  --start-version='7.13' \
+                  --start-version='8.5' \
                   --end-version='9' \
                   --default-release \
                   --dockerfile-buildargs='ARTEFACT_NAME=atlassian-jira-software,BASE_IMAGE=adoptopenjdk:8-hotspot' \
@@ -2033,7 +2033,7 @@ pipelines:
               - >
                 python /usr/src/app/make-releases.py \
                   --create --create-eap \
-                  --start-version='7.13' \
+                  --start-version='8.5' \
                   --end-version='9' \
                   --default-release \
                   --dockerfile-buildargs='ARTEFACT_NAME=atlassian-jira-software,BASE_IMAGE=adoptopenjdk:8-hotspot' \
@@ -2057,7 +2057,7 @@ pipelines:
               - >
                 python /usr/src/app/make-releases.py \
                   --create --create-eap \
-                  --start-version='7.13' \
+                  --start-version='8.5' \
                   --end-version='9' \
                   --default-release \
                   --dockerfile-buildargs='ARTEFACT_NAME=atlassian-jira-software,BASE_IMAGE=adoptopenjdk:8-hotspot' \
@@ -2081,7 +2081,7 @@ pipelines:
               - >
                 python /usr/src/app/make-releases.py \
                   --create --create-eap \
-                  --start-version='8.2' \
+                  --start-version='8.5' \
                   --end-version='9' \
                   --dockerfile-buildargs='ARTEFACT_NAME=atlassian-jira-software,BASE_IMAGE=adoptopenjdk:11-hotspot' \
                   --dockerfile-version-arg='JIRA_VERSION' \
@@ -2104,7 +2104,7 @@ pipelines:
               - >
                 python /usr/src/app/make-releases.py \
                   --create --create-eap \
-                  --start-version='8.2' \
+                  --start-version='8.5' \
                   --end-version='9' \
                   --dockerfile-buildargs='ARTEFACT_NAME=atlassian-jira-software,BASE_IMAGE=adoptopenjdk:11-hotspot' \
                   --dockerfile-version-arg='JIRA_VERSION' \
@@ -2127,7 +2127,7 @@ pipelines:
               - >
                 python /usr/src/app/make-releases.py \
                   --create --create-eap \
-                  --start-version='8.2' \
+                  --start-version='8.5' \
                   --end-version='9' \
                   --dockerfile-buildargs='ARTEFACT_NAME=atlassian-jira-software,BASE_IMAGE=adoptopenjdk:11-hotspot' \
                   --dockerfile-version-arg='JIRA_VERSION' \
@@ -2150,7 +2150,7 @@ pipelines:
               - >
                 python /usr/src/app/make-releases.py \
                   --create --create-eap \
-                  --start-version='8.2' \
+                  --start-version='8.5' \
                   --end-version='9' \
                   --dockerfile-buildargs='ARTEFACT_NAME=atlassian-jira-software,BASE_IMAGE=adoptopenjdk:11-hotspot' \
                   --dockerfile-version-arg='JIRA_VERSION' \
@@ -2173,7 +2173,7 @@ pipelines:
               - >
                 python /usr/src/app/make-releases.py \
                   --create --create-eap \
-                  --start-version='8.2' \
+                  --start-version='8.5' \
                   --end-version='9' \
                   --dockerfile-buildargs='ARTEFACT_NAME=atlassian-jira-software,BASE_IMAGE=adoptopenjdk:11-hotspot' \
                   --dockerfile-version-arg='JIRA_VERSION' \
@@ -2196,7 +2196,7 @@ pipelines:
               - >
                 python /usr/src/app/make-releases.py \
                   --create --create-eap \
-                  --start-version='8.2' \
+                  --start-version='8.5' \
                   --end-version='9' \
                   --dockerfile-buildargs='ARTEFACT_NAME=atlassian-jira-software,BASE_IMAGE=adoptopenjdk:11-hotspot' \
                   --dockerfile-version-arg='JIRA_VERSION' \
@@ -2219,7 +2219,7 @@ pipelines:
               - >
                 python /usr/src/app/make-releases.py \
                   --create --create-eap \
-                  --start-version='8.2' \
+                  --start-version='8.5' \
                   --end-version='9' \
                   --dockerfile-buildargs='ARTEFACT_NAME=atlassian-jira-software,BASE_IMAGE=adoptopenjdk:11-hotspot' \
                   --dockerfile-version-arg='JIRA_VERSION' \
@@ -2242,7 +2242,7 @@ pipelines:
               - >
                 python /usr/src/app/make-releases.py \
                   --create --create-eap \
-                  --start-version='8.2' \
+                  --start-version='8.5' \
                   --end-version='9' \
                   --dockerfile-buildargs='ARTEFACT_NAME=atlassian-jira-software,BASE_IMAGE=adoptopenjdk:11-hotspot' \
                   --dockerfile-version-arg='JIRA_VERSION' \
@@ -2265,7 +2265,7 @@ pipelines:
               - >
                 python /usr/src/app/make-releases.py \
                   --create --create-eap \
-                  --start-version='8.2' \
+                  --start-version='8.5' \
                   --end-version='9' \
                   --dockerfile-buildargs='ARTEFACT_NAME=atlassian-jira-software,BASE_IMAGE=adoptopenjdk:11-hotspot' \
                   --dockerfile-version-arg='JIRA_VERSION' \
@@ -2288,7 +2288,7 @@ pipelines:
               - >
                 python /usr/src/app/make-releases.py \
                   --create --create-eap \
-                  --start-version='8.2' \
+                  --start-version='8.5' \
                   --end-version='9' \
                   --dockerfile-buildargs='ARTEFACT_NAME=atlassian-jira-software,BASE_IMAGE=adoptopenjdk:11-hotspot' \
                   --dockerfile-version-arg='JIRA_VERSION' \
@@ -2311,7 +2311,7 @@ pipelines:
               - >
                 python /usr/src/app/make-releases.py \
                   --create --create-eap \
-                  --start-version='8.2' \
+                  --start-version='8.5' \
                   --end-version='9' \
                   --dockerfile-buildargs='ARTEFACT_NAME=atlassian-jira-software,BASE_IMAGE=adoptopenjdk:11-hotspot' \
                   --dockerfile-version-arg='JIRA_VERSION' \
@@ -2334,7 +2334,7 @@ pipelines:
               - >
                 python /usr/src/app/make-releases.py \
                   --create --create-eap \
-                  --start-version='8.2' \
+                  --start-version='8.5' \
                   --end-version='9' \
                   --dockerfile-buildargs='ARTEFACT_NAME=atlassian-jira-software,BASE_IMAGE=adoptopenjdk:11-hotspot' \
                   --dockerfile-version-arg='JIRA_VERSION' \
@@ -2357,7 +2357,7 @@ pipelines:
               - >
                 python /usr/src/app/make-releases.py \
                   --create --create-eap \
-                  --start-version='3.16' \
+                  --start-version='4.5' \
                   --end-version='5' \
                   --default-release \
                   --dockerfile-buildargs='ARTEFACT_NAME=atlassian-servicedesk,BASE_IMAGE=adoptopenjdk:8-hotspot' \
@@ -2381,7 +2381,7 @@ pipelines:
               - >
                 python /usr/src/app/make-releases.py \
                   --create --create-eap \
-                  --start-version='3.16' \
+                  --start-version='4.5' \
                   --end-version='5' \
                   --default-release \
                   --dockerfile-buildargs='ARTEFACT_NAME=atlassian-servicedesk,BASE_IMAGE=adoptopenjdk:8-hotspot' \
@@ -2405,7 +2405,7 @@ pipelines:
               - >
                 python /usr/src/app/make-releases.py \
                   --create --create-eap \
-                  --start-version='3.16' \
+                  --start-version='4.5' \
                   --end-version='5' \
                   --default-release \
                   --dockerfile-buildargs='ARTEFACT_NAME=atlassian-servicedesk,BASE_IMAGE=adoptopenjdk:8-hotspot' \
@@ -2429,7 +2429,7 @@ pipelines:
               - >
                 python /usr/src/app/make-releases.py \
                   --create --create-eap \
-                  --start-version='3.16' \
+                  --start-version='4.5' \
                   --end-version='5' \
                   --default-release \
                   --dockerfile-buildargs='ARTEFACT_NAME=atlassian-servicedesk,BASE_IMAGE=adoptopenjdk:8-hotspot' \
@@ -2453,7 +2453,7 @@ pipelines:
               - >
                 python /usr/src/app/make-releases.py \
                   --create --create-eap \
-                  --start-version='3.16' \
+                  --start-version='4.5' \
                   --end-version='5' \
                   --default-release \
                   --dockerfile-buildargs='ARTEFACT_NAME=atlassian-servicedesk,BASE_IMAGE=adoptopenjdk:8-hotspot' \
@@ -2477,7 +2477,7 @@ pipelines:
               - >
                 python /usr/src/app/make-releases.py \
                   --create --create-eap \
-                  --start-version='3.16' \
+                  --start-version='4.5' \
                   --end-version='5' \
                   --default-release \
                   --dockerfile-buildargs='ARTEFACT_NAME=atlassian-servicedesk,BASE_IMAGE=adoptopenjdk:8-hotspot' \
@@ -2501,7 +2501,7 @@ pipelines:
               - >
                 python /usr/src/app/make-releases.py \
                   --create --create-eap \
-                  --start-version='3.16' \
+                  --start-version='4.5' \
                   --end-version='5' \
                   --default-release \
                   --dockerfile-buildargs='ARTEFACT_NAME=atlassian-servicedesk,BASE_IMAGE=adoptopenjdk:8-hotspot' \
@@ -2525,7 +2525,7 @@ pipelines:
               - >
                 python /usr/src/app/make-releases.py \
                   --create --create-eap \
-                  --start-version='3.16' \
+                  --start-version='4.5' \
                   --end-version='5' \
                   --default-release \
                   --dockerfile-buildargs='ARTEFACT_NAME=atlassian-servicedesk,BASE_IMAGE=adoptopenjdk:8-hotspot' \
@@ -2549,7 +2549,7 @@ pipelines:
               - >
                 python /usr/src/app/make-releases.py \
                   --create --create-eap \
-                  --start-version='3.16' \
+                  --start-version='4.5' \
                   --end-version='5' \
                   --default-release \
                   --dockerfile-buildargs='ARTEFACT_NAME=atlassian-servicedesk,BASE_IMAGE=adoptopenjdk:8-hotspot' \
@@ -2573,7 +2573,7 @@ pipelines:
               - >
                 python /usr/src/app/make-releases.py \
                   --create --create-eap \
-                  --start-version='3.16' \
+                  --start-version='4.5' \
                   --end-version='5' \
                   --default-release \
                   --dockerfile-buildargs='ARTEFACT_NAME=atlassian-servicedesk,BASE_IMAGE=adoptopenjdk:8-hotspot' \
@@ -2597,7 +2597,7 @@ pipelines:
               - >
                 python /usr/src/app/make-releases.py \
                   --create --create-eap \
-                  --start-version='3.16' \
+                  --start-version='4.5' \
                   --end-version='5' \
                   --default-release \
                   --dockerfile-buildargs='ARTEFACT_NAME=atlassian-servicedesk,BASE_IMAGE=adoptopenjdk:8-hotspot' \
@@ -2621,7 +2621,7 @@ pipelines:
               - >
                 python /usr/src/app/make-releases.py \
                   --create --create-eap \
-                  --start-version='3.16' \
+                  --start-version='4.5' \
                   --end-version='5' \
                   --default-release \
                   --dockerfile-buildargs='ARTEFACT_NAME=atlassian-servicedesk,BASE_IMAGE=adoptopenjdk:8-hotspot' \
@@ -2645,7 +2645,7 @@ pipelines:
               - >
                 python /usr/src/app/make-releases.py \
                   --create --create-eap \
-                  --start-version='4.2' \
+                  --start-version='4.5' \
                   --end-version='5' \
                   --dockerfile-buildargs='ARTEFACT_NAME=atlassian-servicedesk,BASE_IMAGE=adoptopenjdk:11-hotspot' \
                   --dockerfile-version-arg='JIRA_VERSION' \
@@ -2668,7 +2668,7 @@ pipelines:
               - >
                 python /usr/src/app/make-releases.py \
                   --create --create-eap \
-                  --start-version='4.2' \
+                  --start-version='4.5' \
                   --end-version='5' \
                   --dockerfile-buildargs='ARTEFACT_NAME=atlassian-servicedesk,BASE_IMAGE=adoptopenjdk:11-hotspot' \
                   --dockerfile-version-arg='JIRA_VERSION' \
@@ -2691,7 +2691,7 @@ pipelines:
               - >
                 python /usr/src/app/make-releases.py \
                   --create --create-eap \
-                  --start-version='4.2' \
+                  --start-version='4.5' \
                   --end-version='5' \
                   --dockerfile-buildargs='ARTEFACT_NAME=atlassian-servicedesk,BASE_IMAGE=adoptopenjdk:11-hotspot' \
                   --dockerfile-version-arg='JIRA_VERSION' \
@@ -2714,7 +2714,7 @@ pipelines:
               - >
                 python /usr/src/app/make-releases.py \
                   --create --create-eap \
-                  --start-version='4.2' \
+                  --start-version='4.5' \
                   --end-version='5' \
                   --dockerfile-buildargs='ARTEFACT_NAME=atlassian-servicedesk,BASE_IMAGE=adoptopenjdk:11-hotspot' \
                   --dockerfile-version-arg='JIRA_VERSION' \
@@ -2737,7 +2737,7 @@ pipelines:
               - >
                 python /usr/src/app/make-releases.py \
                   --create --create-eap \
-                  --start-version='4.2' \
+                  --start-version='4.5' \
                   --end-version='5' \
                   --dockerfile-buildargs='ARTEFACT_NAME=atlassian-servicedesk,BASE_IMAGE=adoptopenjdk:11-hotspot' \
                   --dockerfile-version-arg='JIRA_VERSION' \
@@ -2760,7 +2760,7 @@ pipelines:
               - >
                 python /usr/src/app/make-releases.py \
                   --create --create-eap \
-                  --start-version='4.2' \
+                  --start-version='4.5' \
                   --end-version='5' \
                   --dockerfile-buildargs='ARTEFACT_NAME=atlassian-servicedesk,BASE_IMAGE=adoptopenjdk:11-hotspot' \
                   --dockerfile-version-arg='JIRA_VERSION' \
@@ -2783,7 +2783,7 @@ pipelines:
               - >
                 python /usr/src/app/make-releases.py \
                   --create --create-eap \
-                  --start-version='4.2' \
+                  --start-version='4.5' \
                   --end-version='5' \
                   --dockerfile-buildargs='ARTEFACT_NAME=atlassian-servicedesk,BASE_IMAGE=adoptopenjdk:11-hotspot' \
                   --dockerfile-version-arg='JIRA_VERSION' \
@@ -2806,7 +2806,7 @@ pipelines:
               - >
                 python /usr/src/app/make-releases.py \
                   --create --create-eap \
-                  --start-version='4.2' \
+                  --start-version='4.5' \
                   --end-version='5' \
                   --dockerfile-buildargs='ARTEFACT_NAME=atlassian-servicedesk,BASE_IMAGE=adoptopenjdk:11-hotspot' \
                   --dockerfile-version-arg='JIRA_VERSION' \
@@ -2829,7 +2829,7 @@ pipelines:
               - >
                 python /usr/src/app/make-releases.py \
                   --create --create-eap \
-                  --start-version='4.2' \
+                  --start-version='4.5' \
                   --end-version='5' \
                   --dockerfile-buildargs='ARTEFACT_NAME=atlassian-servicedesk,BASE_IMAGE=adoptopenjdk:11-hotspot' \
                   --dockerfile-version-arg='JIRA_VERSION' \
@@ -2852,7 +2852,7 @@ pipelines:
               - >
                 python /usr/src/app/make-releases.py \
                   --create --create-eap \
-                  --start-version='4.2' \
+                  --start-version='4.5' \
                   --end-version='5' \
                   --dockerfile-buildargs='ARTEFACT_NAME=atlassian-servicedesk,BASE_IMAGE=adoptopenjdk:11-hotspot' \
                   --dockerfile-version-arg='JIRA_VERSION' \
@@ -2875,7 +2875,7 @@ pipelines:
               - >
                 python /usr/src/app/make-releases.py \
                   --create --create-eap \
-                  --start-version='4.2' \
+                  --start-version='4.5' \
                   --end-version='5' \
                   --dockerfile-buildargs='ARTEFACT_NAME=atlassian-servicedesk,BASE_IMAGE=adoptopenjdk:11-hotspot' \
                   --dockerfile-version-arg='JIRA_VERSION' \
@@ -2898,7 +2898,7 @@ pipelines:
               - >
                 python /usr/src/app/make-releases.py \
                   --create --create-eap \
-                  --start-version='4.2' \
+                  --start-version='4.5' \
                   --end-version='5' \
                   --dockerfile-buildargs='ARTEFACT_NAME=atlassian-servicedesk,BASE_IMAGE=adoptopenjdk:11-hotspot' \
                   --dockerfile-version-arg='JIRA_VERSION' \
@@ -2921,7 +2921,7 @@ pipelines:
               - >
                 python /usr/src/app/make-releases.py \
                   --create --create-eap \
-                  --start-version='7.13' \
+                  --start-version='8.5' \
                   --end-version='9' \
                   --default-release \
                   --dockerfile-buildargs='ARTEFACT_NAME=atlassian-jira-core,BASE_IMAGE=adoptopenjdk:8-hotspot' \
@@ -2945,7 +2945,7 @@ pipelines:
               - >
                 python /usr/src/app/make-releases.py \
                   --create --create-eap \
-                  --start-version='7.13' \
+                  --start-version='8.5' \
                   --end-version='9' \
                   --default-release \
                   --dockerfile-buildargs='ARTEFACT_NAME=atlassian-jira-core,BASE_IMAGE=adoptopenjdk:8-hotspot' \
@@ -2969,7 +2969,7 @@ pipelines:
               - >
                 python /usr/src/app/make-releases.py \
                   --create --create-eap \
-                  --start-version='7.13' \
+                  --start-version='8.5' \
                   --end-version='9' \
                   --default-release \
                   --dockerfile-buildargs='ARTEFACT_NAME=atlassian-jira-core,BASE_IMAGE=adoptopenjdk:8-hotspot' \
@@ -2993,7 +2993,7 @@ pipelines:
               - >
                 python /usr/src/app/make-releases.py \
                   --create --create-eap \
-                  --start-version='7.13' \
+                  --start-version='8.5' \
                   --end-version='9' \
                   --default-release \
                   --dockerfile-buildargs='ARTEFACT_NAME=atlassian-jira-core,BASE_IMAGE=adoptopenjdk:8-hotspot' \
@@ -3017,7 +3017,7 @@ pipelines:
               - >
                 python /usr/src/app/make-releases.py \
                   --create --create-eap \
-                  --start-version='7.13' \
+                  --start-version='8.5' \
                   --end-version='9' \
                   --default-release \
                   --dockerfile-buildargs='ARTEFACT_NAME=atlassian-jira-core,BASE_IMAGE=adoptopenjdk:8-hotspot' \
@@ -3041,7 +3041,7 @@ pipelines:
               - >
                 python /usr/src/app/make-releases.py \
                   --create --create-eap \
-                  --start-version='7.13' \
+                  --start-version='8.5' \
                   --end-version='9' \
                   --default-release \
                   --dockerfile-buildargs='ARTEFACT_NAME=atlassian-jira-core,BASE_IMAGE=adoptopenjdk:8-hotspot' \
@@ -3065,7 +3065,7 @@ pipelines:
               - >
                 python /usr/src/app/make-releases.py \
                   --create --create-eap \
-                  --start-version='7.13' \
+                  --start-version='8.5' \
                   --end-version='9' \
                   --default-release \
                   --dockerfile-buildargs='ARTEFACT_NAME=atlassian-jira-core,BASE_IMAGE=adoptopenjdk:8-hotspot' \
@@ -3089,7 +3089,7 @@ pipelines:
               - >
                 python /usr/src/app/make-releases.py \
                   --create --create-eap \
-                  --start-version='7.13' \
+                  --start-version='8.5' \
                   --end-version='9' \
                   --default-release \
                   --dockerfile-buildargs='ARTEFACT_NAME=atlassian-jira-core,BASE_IMAGE=adoptopenjdk:8-hotspot' \
@@ -3113,7 +3113,7 @@ pipelines:
               - >
                 python /usr/src/app/make-releases.py \
                   --create --create-eap \
-                  --start-version='7.13' \
+                  --start-version='8.5' \
                   --end-version='9' \
                   --default-release \
                   --dockerfile-buildargs='ARTEFACT_NAME=atlassian-jira-core,BASE_IMAGE=adoptopenjdk:8-hotspot' \
@@ -3137,7 +3137,7 @@ pipelines:
               - >
                 python /usr/src/app/make-releases.py \
                   --create --create-eap \
-                  --start-version='7.13' \
+                  --start-version='8.5' \
                   --end-version='9' \
                   --default-release \
                   --dockerfile-buildargs='ARTEFACT_NAME=atlassian-jira-core,BASE_IMAGE=adoptopenjdk:8-hotspot' \
@@ -3161,7 +3161,7 @@ pipelines:
               - >
                 python /usr/src/app/make-releases.py \
                   --create --create-eap \
-                  --start-version='7.13' \
+                  --start-version='8.5' \
                   --end-version='9' \
                   --default-release \
                   --dockerfile-buildargs='ARTEFACT_NAME=atlassian-jira-core,BASE_IMAGE=adoptopenjdk:8-hotspot' \
@@ -3185,7 +3185,7 @@ pipelines:
               - >
                 python /usr/src/app/make-releases.py \
                   --create --create-eap \
-                  --start-version='7.13' \
+                  --start-version='8.5' \
                   --end-version='9' \
                   --default-release \
                   --dockerfile-buildargs='ARTEFACT_NAME=atlassian-jira-core,BASE_IMAGE=adoptopenjdk:8-hotspot' \
@@ -3209,7 +3209,7 @@ pipelines:
               - >
                 python /usr/src/app/make-releases.py \
                   --create --create-eap \
-                  --start-version='8.2' \
+                  --start-version='8.5' \
                   --end-version='9' \
                   --dockerfile-buildargs='ARTEFACT_NAME=atlassian-jira-core,BASE_IMAGE=adoptopenjdk:11-hotspot' \
                   --dockerfile-version-arg='JIRA_VERSION' \
@@ -3232,7 +3232,7 @@ pipelines:
               - >
                 python /usr/src/app/make-releases.py \
                   --create --create-eap \
-                  --start-version='8.2' \
+                  --start-version='8.5' \
                   --end-version='9' \
                   --dockerfile-buildargs='ARTEFACT_NAME=atlassian-jira-core,BASE_IMAGE=adoptopenjdk:11-hotspot' \
                   --dockerfile-version-arg='JIRA_VERSION' \
@@ -3255,7 +3255,7 @@ pipelines:
               - >
                 python /usr/src/app/make-releases.py \
                   --create --create-eap \
-                  --start-version='8.2' \
+                  --start-version='8.5' \
                   --end-version='9' \
                   --dockerfile-buildargs='ARTEFACT_NAME=atlassian-jira-core,BASE_IMAGE=adoptopenjdk:11-hotspot' \
                   --dockerfile-version-arg='JIRA_VERSION' \
@@ -3278,7 +3278,7 @@ pipelines:
               - >
                 python /usr/src/app/make-releases.py \
                   --create --create-eap \
-                  --start-version='8.2' \
+                  --start-version='8.5' \
                   --end-version='9' \
                   --dockerfile-buildargs='ARTEFACT_NAME=atlassian-jira-core,BASE_IMAGE=adoptopenjdk:11-hotspot' \
                   --dockerfile-version-arg='JIRA_VERSION' \
@@ -3301,7 +3301,7 @@ pipelines:
               - >
                 python /usr/src/app/make-releases.py \
                   --create --create-eap \
-                  --start-version='8.2' \
+                  --start-version='8.5' \
                   --end-version='9' \
                   --dockerfile-buildargs='ARTEFACT_NAME=atlassian-jira-core,BASE_IMAGE=adoptopenjdk:11-hotspot' \
                   --dockerfile-version-arg='JIRA_VERSION' \
@@ -3324,7 +3324,7 @@ pipelines:
               - >
                 python /usr/src/app/make-releases.py \
                   --create --create-eap \
-                  --start-version='8.2' \
+                  --start-version='8.5' \
                   --end-version='9' \
                   --dockerfile-buildargs='ARTEFACT_NAME=atlassian-jira-core,BASE_IMAGE=adoptopenjdk:11-hotspot' \
                   --dockerfile-version-arg='JIRA_VERSION' \
@@ -3347,7 +3347,7 @@ pipelines:
               - >
                 python /usr/src/app/make-releases.py \
                   --create --create-eap \
-                  --start-version='8.2' \
+                  --start-version='8.5' \
                   --end-version='9' \
                   --dockerfile-buildargs='ARTEFACT_NAME=atlassian-jira-core,BASE_IMAGE=adoptopenjdk:11-hotspot' \
                   --dockerfile-version-arg='JIRA_VERSION' \
@@ -3370,7 +3370,7 @@ pipelines:
               - >
                 python /usr/src/app/make-releases.py \
                   --create --create-eap \
-                  --start-version='8.2' \
+                  --start-version='8.5' \
                   --end-version='9' \
                   --dockerfile-buildargs='ARTEFACT_NAME=atlassian-jira-core,BASE_IMAGE=adoptopenjdk:11-hotspot' \
                   --dockerfile-version-arg='JIRA_VERSION' \
@@ -3393,7 +3393,7 @@ pipelines:
               - >
                 python /usr/src/app/make-releases.py \
                   --create --create-eap \
-                  --start-version='8.2' \
+                  --start-version='8.5' \
                   --end-version='9' \
                   --dockerfile-buildargs='ARTEFACT_NAME=atlassian-jira-core,BASE_IMAGE=adoptopenjdk:11-hotspot' \
                   --dockerfile-version-arg='JIRA_VERSION' \
@@ -3416,7 +3416,7 @@ pipelines:
               - >
                 python /usr/src/app/make-releases.py \
                   --create --create-eap \
-                  --start-version='8.2' \
+                  --start-version='8.5' \
                   --end-version='9' \
                   --dockerfile-buildargs='ARTEFACT_NAME=atlassian-jira-core,BASE_IMAGE=adoptopenjdk:11-hotspot' \
                   --dockerfile-version-arg='JIRA_VERSION' \
@@ -3439,7 +3439,7 @@ pipelines:
               - >
                 python /usr/src/app/make-releases.py \
                   --create --create-eap \
-                  --start-version='8.2' \
+                  --start-version='8.5' \
                   --end-version='9' \
                   --dockerfile-buildargs='ARTEFACT_NAME=atlassian-jira-core,BASE_IMAGE=adoptopenjdk:11-hotspot' \
                   --dockerfile-version-arg='JIRA_VERSION' \
@@ -3462,7 +3462,7 @@ pipelines:
               - >
                 python /usr/src/app/make-releases.py \
                   --create --create-eap \
-                  --start-version='8.2' \
+                  --start-version='8.5' \
                   --end-version='9' \
                   --dockerfile-buildargs='ARTEFACT_NAME=atlassian-jira-core,BASE_IMAGE=adoptopenjdk:11-hotspot' \
                   --dockerfile-version-arg='JIRA_VERSION' \

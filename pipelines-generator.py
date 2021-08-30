@@ -16,7 +16,7 @@ images = {
         8: {
             'mac_key': 'jira-software',
             'artefact': 'atlassian-jira-software',
-            'start_version': '7.13',
+            'start_version': '8.5',
             'end_version': '9',
             'default_release': True,
             'tag_suffixes': ['jdk8', 'ubuntu-jdk8', 'ubuntu'],
@@ -25,7 +25,7 @@ images = {
         11: {
             'mac_key': 'jira-software',
             'artefact': 'atlassian-jira-software',
-            'start_version': '8.2',
+            'start_version': '8.5',
             'end_version': '9',
             'default_release': False,
             'tag_suffixes': ['jdk11', 'ubuntu-jdk11'],
@@ -37,7 +37,7 @@ images = {
         8: {
             'mac_key': 'jira-servicedesk',
             'artefact': 'atlassian-servicedesk',
-            'start_version': '3.16',
+            'start_version': '4.5',
             'end_version': '5',
             'default_release': True,
             'tag_suffixes': ['jdk8', 'ubuntu-jdk8', 'ubuntu'],
@@ -46,7 +46,7 @@ images = {
         11: {
             'mac_key': 'jira-servicedesk',
             'artefact': 'atlassian-servicedesk',
-            'start_version': '4.2',
+            'start_version': '4.5',
             'end_version': '5',
             'default_release': False,
             'tag_suffixes': ['jdk11', 'ubuntu-jdk11'],
@@ -57,7 +57,7 @@ images = {
         8: {
             'mac_key': 'jira',
             'artefact': 'atlassian-jira-core',
-            'start_version': '7.13',
+            'start_version': '8.5',
             'end_version': '9',
             'default_release': True,
             'tag_suffixes': ['jdk8', 'ubuntu-jdk8', 'ubuntu'],
@@ -66,7 +66,7 @@ images = {
         11: {
             'mac_key': 'jira',
             'artefact': 'atlassian-jira-core',
-            'start_version': '8.2',
+            'start_version': '8.5',
             'end_version': '9',
             'default_release': False,
             'tag_suffixes': ['jdk11', 'ubuntu-jdk11'],
