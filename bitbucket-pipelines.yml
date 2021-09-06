@@ -1864,6 +1864,8 @@ pipelines:
               - apk add --no-cache git
               - git submodule update --init --recursive
               - echo ${DOCKER_PASSWORD} | docker login --username ${DOCKER_USERNAME} --password-stdin
+              - curl -sL https://github.com/hadolint/hadolint/releases/download/v2.1.0/hadolint-Linux-x86_64 -o /usr/local/bin/hadolint
+              - chmod +x /usr/local/bin/hadolint
               - pip install -q -r release-maker/requirements.txt
               - >
                 python ./release-maker/make-releases.py \
