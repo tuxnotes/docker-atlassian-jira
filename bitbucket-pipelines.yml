@@ -22,6 +22,7 @@ pipelines:
       - step:
           name: Check if pipelines config is up-to-date...
           script:
+            - apk add --no-cache git
             - git submodule update --init --recursive
             - pip install -q -r release-maker/requirements.txt
             - python3 pipelines-generator.py > bitbucket-piplines.yml.expected && diff bitbucket-pipelines.yml bitbucket-piplines.yml.expected
@@ -1815,6 +1816,7 @@ pipelines:
       - step:
           name: Check if pipelines config is up-to-date...
           script:
+            - apk add --no-cache git
             - git submodule update --init --recursive
             - pip install -q -r release-maker/requirements.txt
             - python3 pipelines-generator.py > bitbucket-piplines.yml.expected && diff bitbucket-pipelines.yml bitbucket-piplines.yml.expected
@@ -1859,6 +1861,7 @@ pipelines:
             services:
               - docker
             script:
+              - apk add --no-cache git
               - git submodule update --init --recursive
               - echo ${DOCKER_PASSWORD} | docker login --username ${DOCKER_USERNAME} --password-stdin
               - pip install -q -r release-maker/requirements.txt
@@ -1889,6 +1892,7 @@ pipelines:
             services:
               - docker
             script:
+              - apk add --no-cache git
               - git submodule update --init --recursive
               - echo ${DOCKER_PASSWORD} | docker login --username ${DOCKER_USERNAME} --password-stdin
               - pip install -q -r release-maker/requirements.txt
@@ -1914,6 +1918,7 @@ pipelines:
             services:
               - docker
             script:
+              - apk add --no-cache git
               - git submodule update --init --recursive
               - echo ${DOCKER_PASSWORD} | docker login --username ${DOCKER_USERNAME} --password-stdin
               - pip install -q -r release-maker/requirements.txt
@@ -1939,6 +1944,7 @@ pipelines:
             services:
               - docker
             script:
+              - apk add --no-cache git
               - git submodule update --init --recursive
               - echo ${DOCKER_PASSWORD} | docker login --username ${DOCKER_USERNAME} --password-stdin
               - pip install -q -r release-maker/requirements.txt
@@ -1964,6 +1970,7 @@ pipelines:
             services:
               - docker
             script:
+              - apk add --no-cache git
               - git submodule update --init --recursive
               - echo ${DOCKER_PASSWORD} | docker login --username ${DOCKER_USERNAME} --password-stdin
               - pip install -q -r release-maker/requirements.txt
@@ -1989,6 +1996,7 @@ pipelines:
             services:
               - docker
             script:
+              - apk add --no-cache git
               - git submodule update --init --recursive
               - echo ${DOCKER_PASSWORD} | docker login --username ${DOCKER_USERNAME} --password-stdin
               - pip install -q -r release-maker/requirements.txt
@@ -2014,6 +2022,7 @@ pipelines:
             services:
               - docker
             script:
+              - apk add --no-cache git
               - git submodule update --init --recursive
               - echo ${DOCKER_PASSWORD} | docker login --username ${DOCKER_USERNAME} --password-stdin
               - pip install -q -r release-maker/requirements.txt
@@ -2039,6 +2048,7 @@ pipelines:
             services:
               - docker
             script:
+              - apk add --no-cache git
               - git submodule update --init --recursive
               - echo ${DOCKER_PASSWORD} | docker login --username ${DOCKER_USERNAME} --password-stdin
               - pip install -q -r release-maker/requirements.txt
@@ -2064,6 +2074,7 @@ pipelines:
             services:
               - docker
             script:
+              - apk add --no-cache git
               - git submodule update --init --recursive
               - echo ${DOCKER_PASSWORD} | docker login --username ${DOCKER_USERNAME} --password-stdin
               - pip install -q -r release-maker/requirements.txt
@@ -2089,6 +2100,7 @@ pipelines:
             services:
               - docker
             script:
+              - apk add --no-cache git
               - git submodule update --init --recursive
               - echo ${DOCKER_PASSWORD} | docker login --username ${DOCKER_USERNAME} --password-stdin
               - pip install -q -r release-maker/requirements.txt
@@ -2114,6 +2126,7 @@ pipelines:
             services:
               - docker
             script:
+              - apk add --no-cache git
               - git submodule update --init --recursive
               - echo ${DOCKER_PASSWORD} | docker login --username ${DOCKER_USERNAME} --password-stdin
               - pip install -q -r release-maker/requirements.txt
@@ -2139,6 +2152,7 @@ pipelines:
             services:
               - docker
             script:
+              - apk add --no-cache git
               - git submodule update --init --recursive
               - echo ${DOCKER_PASSWORD} | docker login --username ${DOCKER_USERNAME} --password-stdin
               - pip install -q -r release-maker/requirements.txt
@@ -2164,6 +2178,7 @@ pipelines:
             services:
               - docker
             script:
+              - apk add --no-cache git
               - git submodule update --init --recursive
               - echo ${DOCKER_PASSWORD} | docker login --username ${DOCKER_USERNAME} --password-stdin
               - pip install -q -r release-maker/requirements.txt
@@ -2189,6 +2204,7 @@ pipelines:
             services:
               - docker
             script:
+              - apk add --no-cache git
               - git submodule update --init --recursive
               - echo ${DOCKER_PASSWORD} | docker login --username ${DOCKER_USERNAME} --password-stdin
               - pip install -q -r release-maker/requirements.txt
@@ -2213,6 +2229,7 @@ pipelines:
             services:
               - docker
             script:
+              - apk add --no-cache git
               - git submodule update --init --recursive
               - echo ${DOCKER_PASSWORD} | docker login --username ${DOCKER_USERNAME} --password-stdin
               - pip install -q -r release-maker/requirements.txt
@@ -2237,6 +2254,7 @@ pipelines:
             services:
               - docker
             script:
+              - apk add --no-cache git
               - git submodule update --init --recursive
               - echo ${DOCKER_PASSWORD} | docker login --username ${DOCKER_USERNAME} --password-stdin
               - pip install -q -r release-maker/requirements.txt
@@ -2261,6 +2279,7 @@ pipelines:
             services:
               - docker
             script:
+              - apk add --no-cache git
               - git submodule update --init --recursive
               - echo ${DOCKER_PASSWORD} | docker login --username ${DOCKER_USERNAME} --password-stdin
               - pip install -q -r release-maker/requirements.txt
@@ -2285,6 +2304,7 @@ pipelines:
             services:
               - docker
             script:
+              - apk add --no-cache git
               - git submodule update --init --recursive
               - echo ${DOCKER_PASSWORD} | docker login --username ${DOCKER_USERNAME} --password-stdin
               - pip install -q -r release-maker/requirements.txt
@@ -2309,6 +2329,7 @@ pipelines:
             services:
               - docker
             script:
+              - apk add --no-cache git
               - git submodule update --init --recursive
               - echo ${DOCKER_PASSWORD} | docker login --username ${DOCKER_USERNAME} --password-stdin
               - pip install -q -r release-maker/requirements.txt
@@ -2333,6 +2354,7 @@ pipelines:
             services:
               - docker
             script:
+              - apk add --no-cache git
               - git submodule update --init --recursive
               - echo ${DOCKER_PASSWORD} | docker login --username ${DOCKER_USERNAME} --password-stdin
               - pip install -q -r release-maker/requirements.txt
@@ -2357,6 +2379,7 @@ pipelines:
             services:
               - docker
             script:
+              - apk add --no-cache git
               - git submodule update --init --recursive
               - echo ${DOCKER_PASSWORD} | docker login --username ${DOCKER_USERNAME} --password-stdin
               - pip install -q -r release-maker/requirements.txt
@@ -2381,6 +2404,7 @@ pipelines:
             services:
               - docker
             script:
+              - apk add --no-cache git
               - git submodule update --init --recursive
               - echo ${DOCKER_PASSWORD} | docker login --username ${DOCKER_USERNAME} --password-stdin
               - pip install -q -r release-maker/requirements.txt
@@ -2405,6 +2429,7 @@ pipelines:
             services:
               - docker
             script:
+              - apk add --no-cache git
               - git submodule update --init --recursive
               - echo ${DOCKER_PASSWORD} | docker login --username ${DOCKER_USERNAME} --password-stdin
               - pip install -q -r release-maker/requirements.txt
@@ -2429,6 +2454,7 @@ pipelines:
             services:
               - docker
             script:
+              - apk add --no-cache git
               - git submodule update --init --recursive
               - echo ${DOCKER_PASSWORD} | docker login --username ${DOCKER_USERNAME} --password-stdin
               - pip install -q -r release-maker/requirements.txt
@@ -2453,6 +2479,7 @@ pipelines:
             services:
               - docker
             script:
+              - apk add --no-cache git
               - git submodule update --init --recursive
               - echo ${DOCKER_PASSWORD} | docker login --username ${DOCKER_USERNAME} --password-stdin
               - pip install -q -r release-maker/requirements.txt
@@ -2477,6 +2504,7 @@ pipelines:
             services:
               - docker
             script:
+              - apk add --no-cache git
               - git submodule update --init --recursive
               - echo ${DOCKER_PASSWORD} | docker login --username ${DOCKER_USERNAME} --password-stdin
               - pip install -q -r release-maker/requirements.txt
@@ -2502,6 +2530,7 @@ pipelines:
             services:
               - docker
             script:
+              - apk add --no-cache git
               - git submodule update --init --recursive
               - echo ${DOCKER_PASSWORD} | docker login --username ${DOCKER_USERNAME} --password-stdin
               - pip install -q -r release-maker/requirements.txt
@@ -2527,6 +2556,7 @@ pipelines:
             services:
               - docker
             script:
+              - apk add --no-cache git
               - git submodule update --init --recursive
               - echo ${DOCKER_PASSWORD} | docker login --username ${DOCKER_USERNAME} --password-stdin
               - pip install -q -r release-maker/requirements.txt
@@ -2552,6 +2582,7 @@ pipelines:
             services:
               - docker
             script:
+              - apk add --no-cache git
               - git submodule update --init --recursive
               - echo ${DOCKER_PASSWORD} | docker login --username ${DOCKER_USERNAME} --password-stdin
               - pip install -q -r release-maker/requirements.txt
@@ -2577,6 +2608,7 @@ pipelines:
             services:
               - docker
             script:
+              - apk add --no-cache git
               - git submodule update --init --recursive
               - echo ${DOCKER_PASSWORD} | docker login --username ${DOCKER_USERNAME} --password-stdin
               - pip install -q -r release-maker/requirements.txt
@@ -2602,6 +2634,7 @@ pipelines:
             services:
               - docker
             script:
+              - apk add --no-cache git
               - git submodule update --init --recursive
               - echo ${DOCKER_PASSWORD} | docker login --username ${DOCKER_USERNAME} --password-stdin
               - pip install -q -r release-maker/requirements.txt
@@ -2627,6 +2660,7 @@ pipelines:
             services:
               - docker
             script:
+              - apk add --no-cache git
               - git submodule update --init --recursive
               - echo ${DOCKER_PASSWORD} | docker login --username ${DOCKER_USERNAME} --password-stdin
               - pip install -q -r release-maker/requirements.txt
@@ -2652,6 +2686,7 @@ pipelines:
             services:
               - docker
             script:
+              - apk add --no-cache git
               - git submodule update --init --recursive
               - echo ${DOCKER_PASSWORD} | docker login --username ${DOCKER_USERNAME} --password-stdin
               - pip install -q -r release-maker/requirements.txt
@@ -2677,6 +2712,7 @@ pipelines:
             services:
               - docker
             script:
+              - apk add --no-cache git
               - git submodule update --init --recursive
               - echo ${DOCKER_PASSWORD} | docker login --username ${DOCKER_USERNAME} --password-stdin
               - pip install -q -r release-maker/requirements.txt
@@ -2702,6 +2738,7 @@ pipelines:
             services:
               - docker
             script:
+              - apk add --no-cache git
               - git submodule update --init --recursive
               - echo ${DOCKER_PASSWORD} | docker login --username ${DOCKER_USERNAME} --password-stdin
               - pip install -q -r release-maker/requirements.txt
@@ -2727,6 +2764,7 @@ pipelines:
             services:
               - docker
             script:
+              - apk add --no-cache git
               - git submodule update --init --recursive
               - echo ${DOCKER_PASSWORD} | docker login --username ${DOCKER_USERNAME} --password-stdin
               - pip install -q -r release-maker/requirements.txt
@@ -2752,6 +2790,7 @@ pipelines:
             services:
               - docker
             script:
+              - apk add --no-cache git
               - git submodule update --init --recursive
               - echo ${DOCKER_PASSWORD} | docker login --username ${DOCKER_USERNAME} --password-stdin
               - pip install -q -r release-maker/requirements.txt
@@ -2777,6 +2816,7 @@ pipelines:
             services:
               - docker
             script:
+              - apk add --no-cache git
               - git submodule update --init --recursive
               - echo ${DOCKER_PASSWORD} | docker login --username ${DOCKER_USERNAME} --password-stdin
               - pip install -q -r release-maker/requirements.txt
@@ -2801,6 +2841,7 @@ pipelines:
             services:
               - docker
             script:
+              - apk add --no-cache git
               - git submodule update --init --recursive
               - echo ${DOCKER_PASSWORD} | docker login --username ${DOCKER_USERNAME} --password-stdin
               - pip install -q -r release-maker/requirements.txt
@@ -2825,6 +2866,7 @@ pipelines:
             services:
               - docker
             script:
+              - apk add --no-cache git
               - git submodule update --init --recursive
               - echo ${DOCKER_PASSWORD} | docker login --username ${DOCKER_USERNAME} --password-stdin
               - pip install -q -r release-maker/requirements.txt
@@ -2849,6 +2891,7 @@ pipelines:
             services:
               - docker
             script:
+              - apk add --no-cache git
               - git submodule update --init --recursive
               - echo ${DOCKER_PASSWORD} | docker login --username ${DOCKER_USERNAME} --password-stdin
               - pip install -q -r release-maker/requirements.txt
@@ -2873,6 +2916,7 @@ pipelines:
             services:
               - docker
             script:
+              - apk add --no-cache git
               - git submodule update --init --recursive
               - echo ${DOCKER_PASSWORD} | docker login --username ${DOCKER_USERNAME} --password-stdin
               - pip install -q -r release-maker/requirements.txt
@@ -2897,6 +2941,7 @@ pipelines:
             services:
               - docker
             script:
+              - apk add --no-cache git
               - git submodule update --init --recursive
               - echo ${DOCKER_PASSWORD} | docker login --username ${DOCKER_USERNAME} --password-stdin
               - pip install -q -r release-maker/requirements.txt
@@ -2921,6 +2966,7 @@ pipelines:
             services:
               - docker
             script:
+              - apk add --no-cache git
               - git submodule update --init --recursive
               - echo ${DOCKER_PASSWORD} | docker login --username ${DOCKER_USERNAME} --password-stdin
               - pip install -q -r release-maker/requirements.txt
@@ -2945,6 +2991,7 @@ pipelines:
             services:
               - docker
             script:
+              - apk add --no-cache git
               - git submodule update --init --recursive
               - echo ${DOCKER_PASSWORD} | docker login --username ${DOCKER_USERNAME} --password-stdin
               - pip install -q -r release-maker/requirements.txt
@@ -2969,6 +3016,7 @@ pipelines:
             services:
               - docker
             script:
+              - apk add --no-cache git
               - git submodule update --init --recursive
               - echo ${DOCKER_PASSWORD} | docker login --username ${DOCKER_USERNAME} --password-stdin
               - pip install -q -r release-maker/requirements.txt
@@ -2993,6 +3041,7 @@ pipelines:
             services:
               - docker
             script:
+              - apk add --no-cache git
               - git submodule update --init --recursive
               - echo ${DOCKER_PASSWORD} | docker login --username ${DOCKER_USERNAME} --password-stdin
               - pip install -q -r release-maker/requirements.txt
@@ -3017,6 +3066,7 @@ pipelines:
             services:
               - docker
             script:
+              - apk add --no-cache git
               - git submodule update --init --recursive
               - echo ${DOCKER_PASSWORD} | docker login --username ${DOCKER_USERNAME} --password-stdin
               - pip install -q -r release-maker/requirements.txt
@@ -3041,6 +3091,7 @@ pipelines:
             services:
               - docker
             script:
+              - apk add --no-cache git
               - git submodule update --init --recursive
               - echo ${DOCKER_PASSWORD} | docker login --username ${DOCKER_USERNAME} --password-stdin
               - pip install -q -r release-maker/requirements.txt
@@ -3065,6 +3116,7 @@ pipelines:
             services:
               - docker
             script:
+              - apk add --no-cache git
               - git submodule update --init --recursive
               - echo ${DOCKER_PASSWORD} | docker login --username ${DOCKER_USERNAME} --password-stdin
               - pip install -q -r release-maker/requirements.txt
@@ -3090,6 +3142,7 @@ pipelines:
             services:
               - docker
             script:
+              - apk add --no-cache git
               - git submodule update --init --recursive
               - echo ${DOCKER_PASSWORD} | docker login --username ${DOCKER_USERNAME} --password-stdin
               - pip install -q -r release-maker/requirements.txt
@@ -3115,6 +3168,7 @@ pipelines:
             services:
               - docker
             script:
+              - apk add --no-cache git
               - git submodule update --init --recursive
               - echo ${DOCKER_PASSWORD} | docker login --username ${DOCKER_USERNAME} --password-stdin
               - pip install -q -r release-maker/requirements.txt
@@ -3140,6 +3194,7 @@ pipelines:
             services:
               - docker
             script:
+              - apk add --no-cache git
               - git submodule update --init --recursive
               - echo ${DOCKER_PASSWORD} | docker login --username ${DOCKER_USERNAME} --password-stdin
               - pip install -q -r release-maker/requirements.txt
@@ -3165,6 +3220,7 @@ pipelines:
             services:
               - docker
             script:
+              - apk add --no-cache git
               - git submodule update --init --recursive
               - echo ${DOCKER_PASSWORD} | docker login --username ${DOCKER_USERNAME} --password-stdin
               - pip install -q -r release-maker/requirements.txt
@@ -3190,6 +3246,7 @@ pipelines:
             services:
               - docker
             script:
+              - apk add --no-cache git
               - git submodule update --init --recursive
               - echo ${DOCKER_PASSWORD} | docker login --username ${DOCKER_USERNAME} --password-stdin
               - pip install -q -r release-maker/requirements.txt
@@ -3215,6 +3272,7 @@ pipelines:
             services:
               - docker
             script:
+              - apk add --no-cache git
               - git submodule update --init --recursive
               - echo ${DOCKER_PASSWORD} | docker login --username ${DOCKER_USERNAME} --password-stdin
               - pip install -q -r release-maker/requirements.txt
@@ -3240,6 +3298,7 @@ pipelines:
             services:
               - docker
             script:
+              - apk add --no-cache git
               - git submodule update --init --recursive
               - echo ${DOCKER_PASSWORD} | docker login --username ${DOCKER_USERNAME} --password-stdin
               - pip install -q -r release-maker/requirements.txt
@@ -3265,6 +3324,7 @@ pipelines:
             services:
               - docker
             script:
+              - apk add --no-cache git
               - git submodule update --init --recursive
               - echo ${DOCKER_PASSWORD} | docker login --username ${DOCKER_USERNAME} --password-stdin
               - pip install -q -r release-maker/requirements.txt
@@ -3290,6 +3350,7 @@ pipelines:
             services:
               - docker
             script:
+              - apk add --no-cache git
               - git submodule update --init --recursive
               - echo ${DOCKER_PASSWORD} | docker login --username ${DOCKER_USERNAME} --password-stdin
               - pip install -q -r release-maker/requirements.txt
@@ -3315,6 +3376,7 @@ pipelines:
             services:
               - docker
             script:
+              - apk add --no-cache git
               - git submodule update --init --recursive
               - echo ${DOCKER_PASSWORD} | docker login --username ${DOCKER_USERNAME} --password-stdin
               - pip install -q -r release-maker/requirements.txt
@@ -3340,6 +3402,7 @@ pipelines:
             services:
               - docker
             script:
+              - apk add --no-cache git
               - git submodule update --init --recursive
               - echo ${DOCKER_PASSWORD} | docker login --username ${DOCKER_USERNAME} --password-stdin
               - pip install -q -r release-maker/requirements.txt
@@ -3365,6 +3428,7 @@ pipelines:
             services:
               - docker
             script:
+              - apk add --no-cache git
               - git submodule update --init --recursive
               - echo ${DOCKER_PASSWORD} | docker login --username ${DOCKER_USERNAME} --password-stdin
               - pip install -q -r release-maker/requirements.txt
@@ -3389,6 +3453,7 @@ pipelines:
             services:
               - docker
             script:
+              - apk add --no-cache git
               - git submodule update --init --recursive
               - echo ${DOCKER_PASSWORD} | docker login --username ${DOCKER_USERNAME} --password-stdin
               - pip install -q -r release-maker/requirements.txt
@@ -3413,6 +3478,7 @@ pipelines:
             services:
               - docker
             script:
+              - apk add --no-cache git
               - git submodule update --init --recursive
               - echo ${DOCKER_PASSWORD} | docker login --username ${DOCKER_USERNAME} --password-stdin
               - pip install -q -r release-maker/requirements.txt
@@ -3437,6 +3503,7 @@ pipelines:
             services:
               - docker
             script:
+              - apk add --no-cache git
               - git submodule update --init --recursive
               - echo ${DOCKER_PASSWORD} | docker login --username ${DOCKER_USERNAME} --password-stdin
               - pip install -q -r release-maker/requirements.txt
@@ -3461,6 +3528,7 @@ pipelines:
             services:
               - docker
             script:
+              - apk add --no-cache git
               - git submodule update --init --recursive
               - echo ${DOCKER_PASSWORD} | docker login --username ${DOCKER_USERNAME} --password-stdin
               - pip install -q -r release-maker/requirements.txt
@@ -3485,6 +3553,7 @@ pipelines:
             services:
               - docker
             script:
+              - apk add --no-cache git
               - git submodule update --init --recursive
               - echo ${DOCKER_PASSWORD} | docker login --username ${DOCKER_USERNAME} --password-stdin
               - pip install -q -r release-maker/requirements.txt
@@ -3509,6 +3578,7 @@ pipelines:
             services:
               - docker
             script:
+              - apk add --no-cache git
               - git submodule update --init --recursive
               - echo ${DOCKER_PASSWORD} | docker login --username ${DOCKER_USERNAME} --password-stdin
               - pip install -q -r release-maker/requirements.txt
@@ -3533,6 +3603,7 @@ pipelines:
             services:
               - docker
             script:
+              - apk add --no-cache git
               - git submodule update --init --recursive
               - echo ${DOCKER_PASSWORD} | docker login --username ${DOCKER_USERNAME} --password-stdin
               - pip install -q -r release-maker/requirements.txt
@@ -3557,6 +3628,7 @@ pipelines:
             services:
               - docker
             script:
+              - apk add --no-cache git
               - git submodule update --init --recursive
               - echo ${DOCKER_PASSWORD} | docker login --username ${DOCKER_USERNAME} --password-stdin
               - pip install -q -r release-maker/requirements.txt
@@ -3581,6 +3653,7 @@ pipelines:
             services:
               - docker
             script:
+              - apk add --no-cache git
               - git submodule update --init --recursive
               - echo ${DOCKER_PASSWORD} | docker login --username ${DOCKER_USERNAME} --password-stdin
               - pip install -q -r release-maker/requirements.txt
@@ -3605,6 +3678,7 @@ pipelines:
             services:
               - docker
             script:
+              - apk add --no-cache git
               - git submodule update --init --recursive
               - echo ${DOCKER_PASSWORD} | docker login --username ${DOCKER_USERNAME} --password-stdin
               - pip install -q -r release-maker/requirements.txt
@@ -3629,6 +3703,7 @@ pipelines:
             services:
               - docker
             script:
+              - apk add --no-cache git
               - git submodule update --init --recursive
               - echo ${DOCKER_PASSWORD} | docker login --username ${DOCKER_USERNAME} --password-stdin
               - pip install -q -r release-maker/requirements.txt
