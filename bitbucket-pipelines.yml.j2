@@ -119,6 +119,8 @@ pipelines:
               - apk add --no-cache git docker-compose jq curl
               - git submodule update --init --recursive
               - pip install -q -r release-maker/requirements.txt
+              - curl -vL https://github.com/hadolint/hadolint/releases/download/v2.1.0/hadolint-Linux-x86_64 -o /usr/local/bin/hadolint
+              - chmod +x /usr/local/bin/hadolint
               - export JIRA_VERSION=`curl -s https://marketplace.atlassian.com/rest/2/products/key/jira/versions/latest | jq -r .name`
               - docker build --build-arg JIRA_VERSION=${JIRA_VERSION} -t test-image .
               - export IS_RELEASE=false
@@ -133,8 +135,6 @@ pipelines:
               - apk add --no-cache git
               - git submodule update --init --recursive
               - echo ${DOCKER_PASSWORD} | docker login --username ${DOCKER_USERNAME} --password-stdin
-              - curl -sL https://github.com/hadolint/hadolint/releases/download/v2.1.0/hadolint-Linux-x86_64 -o /usr/local/bin/hadolint
-              - chmod +x /usr/local/bin/hadolint
               - pip install -q -r release-maker/requirements.txt
               - >
                 python ./release-maker/make-releases.py \
