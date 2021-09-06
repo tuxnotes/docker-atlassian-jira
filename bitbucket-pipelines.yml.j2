@@ -3,7 +3,7 @@
 #
 #     python3 pipelines-generator.py > bitbucket-pipelines.yml
 
-image: atlassian/docker-release-maker:latest
+image: python:3.9-alpine
 
 definitions:
   services:
@@ -114,7 +114,29 @@ pipelines:
               - docker build --build-arg JIRA_VERSION=${JIRA_VERSION} -t test-image .
               - export IS_RELEASE=false
               - export RUN_FUNCTESTS=true
-              - /usr/src/app/post_build.sh test-image $IS_RELEASE $RUN_FUNCTESTS
+              - ./release-maker/post_build.sh test-image $IS_RELEASE $RUN_FUNCTESTS
+
+        - step:
+            name: JDK 11 Release Build
+            services:
+              - docker
+            script:
+              - git submodule update --init --recursive
+              - echo ${DOCKER_PASSWORD} | docker login --username ${DOCKER_USERNAME} --password-stdin
+              - >
+                python ./release-maker/make-releases.py \
+                  --update \
+                  --start-version='8.19.0' \
+                  --end-version='8.19.0' \
+                  --dockerfile-buildargs='ARTEFACT_NAME=atlassian-jira-software,BASE_IMAGE=adoptopenjdk:11-hotspot' \
+                  --dockerfile-version-arg='JIRA_VERSION' \
+                  --mac-product-key='jira-software' \
+                  --tag-suffixes='jdk11,ubuntu-jdk11' \
+                  --concurrent-builds='1' \
+                  --job-offset=0 \
+                  --jobs-total=1 \
+                  --docker-repos='atlssmith/jira-software'
+
 
   ######################################################################
   # Custom builds; these are triggered manually or via timer.
