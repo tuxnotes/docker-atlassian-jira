@@ -35,9 +35,9 @@ pipelines:
             services:
               - docker
             script:
-                - ./release-maker/pipelines-init.sh
-                - echo ${DOCKER_PASSWORD} | docker login --username ${DOCKER_USERNAME} --password-stdin
-                - >
+              - ./release-maker/pipelines-init.sh
+              - echo ${DOCKER_PASSWORD} | docker login --username ${DOCKER_USERNAME} --password-stdin
+              - >
                 python ./release-maker/make-releases.py \
                   --update \
                   --start-version='{{ appdata.start_version }}' \

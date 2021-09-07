@@ -32,9 +32,9 @@ pipelines:
             services:
               - docker
             script:
-                - ./release-maker/pipelines-init.sh
-                - echo ${DOCKER_PASSWORD} | docker login --username ${DOCKER_USERNAME} --password-stdin
-                - >
+              - ./release-maker/pipelines-init.sh
+              - echo ${DOCKER_PASSWORD} | docker login --username ${DOCKER_USERNAME} --password-stdin
+              - >
                 python ./release-maker/make-releases.py \
                   --update \
                   --start-version='8.5' \
@@ -56,9 +56,9 @@ pipelines:
             services:
               - docker
             script:
-                - ./release-maker/pipelines-init.sh
-                - echo ${DOCKER_PASSWORD} | docker login --username ${DOCKER_USERNAME} --password-stdin
-                - >
+              - ./release-maker/pipelines-init.sh
+              - echo ${DOCKER_PASSWORD} | docker login --username ${DOCKER_USERNAME} --password-stdin
+              - >
                 python ./release-maker/make-releases.py \
                   --update \
                   --start-version='8.5' \
@@ -80,9 +80,9 @@ pipelines:
             services:
               - docker
             script:
-                - ./release-maker/pipelines-init.sh
-                - echo ${DOCKER_PASSWORD} | docker login --username ${DOCKER_USERNAME} --password-stdin
-                - >
+              - ./release-maker/pipelines-init.sh
+              - echo ${DOCKER_PASSWORD} | docker login --username ${DOCKER_USERNAME} --password-stdin
+              - >
                 python ./release-maker/make-releases.py \
                   --update \
                   --start-version='8.5' \
@@ -104,9 +104,9 @@ pipelines:
             services:
               - docker
             script:
-                - ./release-maker/pipelines-init.sh
-                - echo ${DOCKER_PASSWORD} | docker login --username ${DOCKER_USERNAME} --password-stdin
-                - >
+              - ./release-maker/pipelines-init.sh
+              - echo ${DOCKER_PASSWORD} | docker login --username ${DOCKER_USERNAME} --password-stdin
+              - >
                 python ./release-maker/make-releases.py \
                   --update \
                   --start-version='8.5' \
@@ -128,9 +128,9 @@ pipelines:
             services:
               - docker
             script:
-                - ./release-maker/pipelines-init.sh
-                - echo ${DOCKER_PASSWORD} | docker login --username ${DOCKER_USERNAME} --password-stdin
-                - >
+              - ./release-maker/pipelines-init.sh
+              - echo ${DOCKER_PASSWORD} | docker login --username ${DOCKER_USERNAME} --password-stdin
+              - >
                 python ./release-maker/make-releases.py \
                   --update \
                   --start-version='8.5' \
@@ -152,9 +152,9 @@ pipelines:
             services:
               - docker
             script:
-                - ./release-maker/pipelines-init.sh
-                - echo ${DOCKER_PASSWORD} | docker login --username ${DOCKER_USERNAME} --password-stdin
-                - >
+              - ./release-maker/pipelines-init.sh
+              - echo ${DOCKER_PASSWORD} | docker login --username ${DOCKER_USERNAME} --password-stdin
+              - >
                 python ./release-maker/make-releases.py \
                   --update \
                   --start-version='8.5' \
@@ -176,9 +176,9 @@ pipelines:
             services:
               - docker
             script:
-                - ./release-maker/pipelines-init.sh
-                - echo ${DOCKER_PASSWORD} | docker login --username ${DOCKER_USERNAME} --password-stdin
-                - >
+              - ./release-maker/pipelines-init.sh
+              - echo ${DOCKER_PASSWORD} | docker login --username ${DOCKER_USERNAME} --password-stdin
+              - >
                 python ./release-maker/make-releases.py \
                   --update \
                   --start-version='8.5' \
@@ -200,9 +200,9 @@ pipelines:
             services:
               - docker
             script:
-                - ./release-maker/pipelines-init.sh
-                - echo ${DOCKER_PASSWORD} | docker login --username ${DOCKER_USERNAME} --password-stdin
-                - >
+              - ./release-maker/pipelines-init.sh
+              - echo ${DOCKER_PASSWORD} | docker login --username ${DOCKER_USERNAME} --password-stdin
+              - >
                 python ./release-maker/make-releases.py \
                   --update \
                   --start-version='8.5' \
@@ -224,9 +224,9 @@ pipelines:
             services:
               - docker
             script:
-                - ./release-maker/pipelines-init.sh
-                - echo ${DOCKER_PASSWORD} | docker login --username ${DOCKER_USERNAME} --password-stdin
-                - >
+              - ./release-maker/pipelines-init.sh
+              - echo ${DOCKER_PASSWORD} | docker login --username ${DOCKER_USERNAME} --password-stdin
+              - >
                 python ./release-maker/make-releases.py \
                   --update \
                   --start-version='8.5' \
@@ -248,9 +248,9 @@ pipelines:
             services:
               - docker
             script:
-                - ./release-maker/pipelines-init.sh
-                - echo ${DOCKER_PASSWORD} | docker login --username ${DOCKER_USERNAME} --password-stdin
-                - >
+              - ./release-maker/pipelines-init.sh
+              - echo ${DOCKER_PASSWORD} | docker login --username ${DOCKER_USERNAME} --password-stdin
+              - >
                 python ./release-maker/make-releases.py \
                   --update \
                   --start-version='8.5' \
@@ -272,9 +272,9 @@ pipelines:
             services:
               - docker
             script:
-                - ./release-maker/pipelines-init.sh
-                - echo ${DOCKER_PASSWORD} | docker login --username ${DOCKER_USERNAME} --password-stdin
-                - >
+              - ./release-maker/pipelines-init.sh
+              - echo ${DOCKER_PASSWORD} | docker login --username ${DOCKER_USERNAME} --password-stdin
+              - >
                 python ./release-maker/make-releases.py \
                   --update \
                   --start-version='8.5' \
@@ -296,9 +296,9 @@ pipelines:
             services:
               - docker
             script:
-                - ./release-maker/pipelines-init.sh
-                - echo ${DOCKER_PASSWORD} | docker login --username ${DOCKER_USERNAME} --password-stdin
-                - >
+              - ./release-maker/pipelines-init.sh
+              - echo ${DOCKER_PASSWORD} | docker login --username ${DOCKER_USERNAME} --password-stdin
+              - >
                 python ./release-maker/make-releases.py \
                   --update \
                   --start-version='8.5' \
@@ -320,9 +320,9 @@ pipelines:
             services:
               - docker
             script:
-                - ./release-maker/pipelines-init.sh
-                - echo ${DOCKER_PASSWORD} | docker login --username ${DOCKER_USERNAME} --password-stdin
-                - >
+              - ./release-maker/pipelines-init.sh
+              - echo ${DOCKER_PASSWORD} | docker login --username ${DOCKER_USERNAME} --password-stdin
+              - >
                 python ./release-maker/make-releases.py \
                   --update \
                   --start-version='8.5' \
@@ -343,9 +343,9 @@ pipelines:
             services:
               - docker
             script:
-                - ./release-maker/pipelines-init.sh
-                - echo ${DOCKER_PASSWORD} | docker login --username ${DOCKER_USERNAME} --password-stdin
-                - >
+              - ./release-maker/pipelines-init.sh
+              - echo ${DOCKER_PASSWORD} | docker login --username ${DOCKER_USERNAME} --password-stdin
+              - >
                 python ./release-maker/make-releases.py \
                   --update \
                   --start-version='8.5' \
@@ -366,9 +366,9 @@ pipelines:
             services:
               - docker
             script:
-                - ./release-maker/pipelines-init.sh
-                - echo ${DOCKER_PASSWORD} | docker login --username ${DOCKER_USERNAME} --password-stdin
-                - >
+              - ./release-maker/pipelines-init.sh
+              - echo ${DOCKER_PASSWORD} | docker login --username ${DOCKER_USERNAME} --password-stdin
+              - >
                 python ./release-maker/make-releases.py \
                   --update \
                   --start-version='8.5' \
@@ -389,9 +389,9 @@ pipelines:
             services:
               - docker
             script:
-                - ./release-maker/pipelines-init.sh
-                - echo ${DOCKER_PASSWORD} | docker login --username ${DOCKER_USERNAME} --password-stdin
-                - >
+              - ./release-maker/pipelines-init.sh
+              - echo ${DOCKER_PASSWORD} | docker login --username ${DOCKER_USERNAME} --password-stdin
+              - >
                 python ./release-maker/make-releases.py \
                   --update \
                   --start-version='8.5' \
@@ -412,9 +412,9 @@ pipelines:
             services:
               - docker
             script:
-                - ./release-maker/pipelines-init.sh
-                - echo ${DOCKER_PASSWORD} | docker login --username ${DOCKER_USERNAME} --password-stdin
-                - >
+              - ./release-maker/pipelines-init.sh
+              - echo ${DOCKER_PASSWORD} | docker login --username ${DOCKER_USERNAME} --password-stdin
+              - >
                 python ./release-maker/make-releases.py \
                   --update \
                   --start-version='8.5' \
@@ -435,9 +435,9 @@ pipelines:
             services:
               - docker
             script:
-                - ./release-maker/pipelines-init.sh
-                - echo ${DOCKER_PASSWORD} | docker login --username ${DOCKER_USERNAME} --password-stdin
-                - >
+              - ./release-maker/pipelines-init.sh
+              - echo ${DOCKER_PASSWORD} | docker login --username ${DOCKER_USERNAME} --password-stdin
+              - >
                 python ./release-maker/make-releases.py \
                   --update \
                   --start-version='8.5' \
@@ -458,9 +458,9 @@ pipelines:
             services:
               - docker
             script:
-                - ./release-maker/pipelines-init.sh
-                - echo ${DOCKER_PASSWORD} | docker login --username ${DOCKER_USERNAME} --password-stdin
-                - >
+              - ./release-maker/pipelines-init.sh
+              - echo ${DOCKER_PASSWORD} | docker login --username ${DOCKER_USERNAME} --password-stdin
+              - >
                 python ./release-maker/make-releases.py \
                   --update \
                   --start-version='8.5' \
@@ -481,9 +481,9 @@ pipelines:
             services:
               - docker
             script:
-                - ./release-maker/pipelines-init.sh
-                - echo ${DOCKER_PASSWORD} | docker login --username ${DOCKER_USERNAME} --password-stdin
-                - >
+              - ./release-maker/pipelines-init.sh
+              - echo ${DOCKER_PASSWORD} | docker login --username ${DOCKER_USERNAME} --password-stdin
+              - >
                 python ./release-maker/make-releases.py \
                   --update \
                   --start-version='8.5' \
@@ -504,9 +504,9 @@ pipelines:
             services:
               - docker
             script:
-                - ./release-maker/pipelines-init.sh
-                - echo ${DOCKER_PASSWORD} | docker login --username ${DOCKER_USERNAME} --password-stdin
-                - >
+              - ./release-maker/pipelines-init.sh
+              - echo ${DOCKER_PASSWORD} | docker login --username ${DOCKER_USERNAME} --password-stdin
+              - >
                 python ./release-maker/make-releases.py \
                   --update \
                   --start-version='8.5' \
@@ -527,9 +527,9 @@ pipelines:
             services:
               - docker
             script:
-                - ./release-maker/pipelines-init.sh
-                - echo ${DOCKER_PASSWORD} | docker login --username ${DOCKER_USERNAME} --password-stdin
-                - >
+              - ./release-maker/pipelines-init.sh
+              - echo ${DOCKER_PASSWORD} | docker login --username ${DOCKER_USERNAME} --password-stdin
+              - >
                 python ./release-maker/make-releases.py \
                   --update \
                   --start-version='8.5' \
@@ -550,9 +550,9 @@ pipelines:
             services:
               - docker
             script:
-                - ./release-maker/pipelines-init.sh
-                - echo ${DOCKER_PASSWORD} | docker login --username ${DOCKER_USERNAME} --password-stdin
-                - >
+              - ./release-maker/pipelines-init.sh
+              - echo ${DOCKER_PASSWORD} | docker login --username ${DOCKER_USERNAME} --password-stdin
+              - >
                 python ./release-maker/make-releases.py \
                   --update \
                   --start-version='8.5' \
@@ -573,9 +573,9 @@ pipelines:
             services:
               - docker
             script:
-                - ./release-maker/pipelines-init.sh
-                - echo ${DOCKER_PASSWORD} | docker login --username ${DOCKER_USERNAME} --password-stdin
-                - >
+              - ./release-maker/pipelines-init.sh
+              - echo ${DOCKER_PASSWORD} | docker login --username ${DOCKER_USERNAME} --password-stdin
+              - >
                 python ./release-maker/make-releases.py \
                   --update \
                   --start-version='8.5' \
@@ -596,9 +596,9 @@ pipelines:
             services:
               - docker
             script:
-                - ./release-maker/pipelines-init.sh
-                - echo ${DOCKER_PASSWORD} | docker login --username ${DOCKER_USERNAME} --password-stdin
-                - >
+              - ./release-maker/pipelines-init.sh
+              - echo ${DOCKER_PASSWORD} | docker login --username ${DOCKER_USERNAME} --password-stdin
+              - >
                 python ./release-maker/make-releases.py \
                   --update \
                   --start-version='4.5' \
@@ -620,9 +620,9 @@ pipelines:
             services:
               - docker
             script:
-                - ./release-maker/pipelines-init.sh
-                - echo ${DOCKER_PASSWORD} | docker login --username ${DOCKER_USERNAME} --password-stdin
-                - >
+              - ./release-maker/pipelines-init.sh
+              - echo ${DOCKER_PASSWORD} | docker login --username ${DOCKER_USERNAME} --password-stdin
+              - >
                 python ./release-maker/make-releases.py \
                   --update \
                   --start-version='4.5' \
@@ -644,9 +644,9 @@ pipelines:
             services:
               - docker
             script:
-                - ./release-maker/pipelines-init.sh
-                - echo ${DOCKER_PASSWORD} | docker login --username ${DOCKER_USERNAME} --password-stdin
-                - >
+              - ./release-maker/pipelines-init.sh
+              - echo ${DOCKER_PASSWORD} | docker login --username ${DOCKER_USERNAME} --password-stdin
+              - >
                 python ./release-maker/make-releases.py \
                   --update \
                   --start-version='4.5' \
@@ -668,9 +668,9 @@ pipelines:
             services:
               - docker
             script:
-                - ./release-maker/pipelines-init.sh
-                - echo ${DOCKER_PASSWORD} | docker login --username ${DOCKER_USERNAME} --password-stdin
-                - >
+              - ./release-maker/pipelines-init.sh
+              - echo ${DOCKER_PASSWORD} | docker login --username ${DOCKER_USERNAME} --password-stdin
+              - >
                 python ./release-maker/make-releases.py \
                   --update \
                   --start-version='4.5' \
@@ -692,9 +692,9 @@ pipelines:
             services:
               - docker
             script:
-                - ./release-maker/pipelines-init.sh
-                - echo ${DOCKER_PASSWORD} | docker login --username ${DOCKER_USERNAME} --password-stdin
-                - >
+              - ./release-maker/pipelines-init.sh
+              - echo ${DOCKER_PASSWORD} | docker login --username ${DOCKER_USERNAME} --password-stdin
+              - >
                 python ./release-maker/make-releases.py \
                   --update \
                   --start-version='4.5' \
@@ -716,9 +716,9 @@ pipelines:
             services:
               - docker
             script:
-                - ./release-maker/pipelines-init.sh
-                - echo ${DOCKER_PASSWORD} | docker login --username ${DOCKER_USERNAME} --password-stdin
-                - >
+              - ./release-maker/pipelines-init.sh
+              - echo ${DOCKER_PASSWORD} | docker login --username ${DOCKER_USERNAME} --password-stdin
+              - >
                 python ./release-maker/make-releases.py \
                   --update \
                   --start-version='4.5' \
@@ -740,9 +740,9 @@ pipelines:
             services:
               - docker
             script:
-                - ./release-maker/pipelines-init.sh
-                - echo ${DOCKER_PASSWORD} | docker login --username ${DOCKER_USERNAME} --password-stdin
-                - >
+              - ./release-maker/pipelines-init.sh
+              - echo ${DOCKER_PASSWORD} | docker login --username ${DOCKER_USERNAME} --password-stdin
+              - >
                 python ./release-maker/make-releases.py \
                   --update \
                   --start-version='4.5' \
@@ -764,9 +764,9 @@ pipelines:
             services:
               - docker
             script:
-                - ./release-maker/pipelines-init.sh
-                - echo ${DOCKER_PASSWORD} | docker login --username ${DOCKER_USERNAME} --password-stdin
-                - >
+              - ./release-maker/pipelines-init.sh
+              - echo ${DOCKER_PASSWORD} | docker login --username ${DOCKER_USERNAME} --password-stdin
+              - >
                 python ./release-maker/make-releases.py \
                   --update \
                   --start-version='4.5' \
@@ -788,9 +788,9 @@ pipelines:
             services:
               - docker
             script:
-                - ./release-maker/pipelines-init.sh
-                - echo ${DOCKER_PASSWORD} | docker login --username ${DOCKER_USERNAME} --password-stdin
-                - >
+              - ./release-maker/pipelines-init.sh
+              - echo ${DOCKER_PASSWORD} | docker login --username ${DOCKER_USERNAME} --password-stdin
+              - >
                 python ./release-maker/make-releases.py \
                   --update \
                   --start-version='4.5' \
@@ -812,9 +812,9 @@ pipelines:
             services:
               - docker
             script:
-                - ./release-maker/pipelines-init.sh
-                - echo ${DOCKER_PASSWORD} | docker login --username ${DOCKER_USERNAME} --password-stdin
-                - >
+              - ./release-maker/pipelines-init.sh
+              - echo ${DOCKER_PASSWORD} | docker login --username ${DOCKER_USERNAME} --password-stdin
+              - >
                 python ./release-maker/make-releases.py \
                   --update \
                   --start-version='4.5' \
@@ -836,9 +836,9 @@ pipelines:
             services:
               - docker
             script:
-                - ./release-maker/pipelines-init.sh
-                - echo ${DOCKER_PASSWORD} | docker login --username ${DOCKER_USERNAME} --password-stdin
-                - >
+              - ./release-maker/pipelines-init.sh
+              - echo ${DOCKER_PASSWORD} | docker login --username ${DOCKER_USERNAME} --password-stdin
+              - >
                 python ./release-maker/make-releases.py \
                   --update \
                   --start-version='4.5' \
@@ -860,9 +860,9 @@ pipelines:
             services:
               - docker
             script:
-                - ./release-maker/pipelines-init.sh
-                - echo ${DOCKER_PASSWORD} | docker login --username ${DOCKER_USERNAME} --password-stdin
-                - >
+              - ./release-maker/pipelines-init.sh
+              - echo ${DOCKER_PASSWORD} | docker login --username ${DOCKER_USERNAME} --password-stdin
+              - >
                 python ./release-maker/make-releases.py \
                   --update \
                   --start-version='4.5' \
@@ -884,9 +884,9 @@ pipelines:
             services:
               - docker
             script:
-                - ./release-maker/pipelines-init.sh
-                - echo ${DOCKER_PASSWORD} | docker login --username ${DOCKER_USERNAME} --password-stdin
-                - >
+              - ./release-maker/pipelines-init.sh
+              - echo ${DOCKER_PASSWORD} | docker login --username ${DOCKER_USERNAME} --password-stdin
+              - >
                 python ./release-maker/make-releases.py \
                   --update \
                   --start-version='4.5' \
@@ -907,9 +907,9 @@ pipelines:
             services:
               - docker
             script:
-                - ./release-maker/pipelines-init.sh
-                - echo ${DOCKER_PASSWORD} | docker login --username ${DOCKER_USERNAME} --password-stdin
-                - >
+              - ./release-maker/pipelines-init.sh
+              - echo ${DOCKER_PASSWORD} | docker login --username ${DOCKER_USERNAME} --password-stdin
+              - >
                 python ./release-maker/make-releases.py \
                   --update \
                   --start-version='4.5' \
@@ -930,9 +930,9 @@ pipelines:
             services:
               - docker
             script:
-                - ./release-maker/pipelines-init.sh
-                - echo ${DOCKER_PASSWORD} | docker login --username ${DOCKER_USERNAME} --password-stdin
-                - >
+              - ./release-maker/pipelines-init.sh
+              - echo ${DOCKER_PASSWORD} | docker login --username ${DOCKER_USERNAME} --password-stdin
+              - >
                 python ./release-maker/make-releases.py \
                   --update \
                   --start-version='4.5' \
@@ -953,9 +953,9 @@ pipelines:
             services:
               - docker
             script:
-                - ./release-maker/pipelines-init.sh
-                - echo ${DOCKER_PASSWORD} | docker login --username ${DOCKER_USERNAME} --password-stdin
-                - >
+              - ./release-maker/pipelines-init.sh
+              - echo ${DOCKER_PASSWORD} | docker login --username ${DOCKER_USERNAME} --password-stdin
+              - >
                 python ./release-maker/make-releases.py \
                   --update \
                   --start-version='4.5' \
@@ -976,9 +976,9 @@ pipelines:
             services:
               - docker
             script:
-                - ./release-maker/pipelines-init.sh
-                - echo ${DOCKER_PASSWORD} | docker login --username ${DOCKER_USERNAME} --password-stdin
-                - >
+              - ./release-maker/pipelines-init.sh
+              - echo ${DOCKER_PASSWORD} | docker login --username ${DOCKER_USERNAME} --password-stdin
+              - >
                 python ./release-maker/make-releases.py \
                   --update \
                   --start-version='4.5' \
@@ -999,9 +999,9 @@ pipelines:
             services:
               - docker
             script:
-                - ./release-maker/pipelines-init.sh
-                - echo ${DOCKER_PASSWORD} | docker login --username ${DOCKER_USERNAME} --password-stdin
-                - >
+              - ./release-maker/pipelines-init.sh
+              - echo ${DOCKER_PASSWORD} | docker login --username ${DOCKER_USERNAME} --password-stdin
+              - >
                 python ./release-maker/make-releases.py \
                   --update \
                   --start-version='4.5' \
@@ -1022,9 +1022,9 @@ pipelines:
             services:
               - docker
             script:
-                - ./release-maker/pipelines-init.sh
-                - echo ${DOCKER_PASSWORD} | docker login --username ${DOCKER_USERNAME} --password-stdin
-                - >
+              - ./release-maker/pipelines-init.sh
+              - echo ${DOCKER_PASSWORD} | docker login --username ${DOCKER_USERNAME} --password-stdin
+              - >
                 python ./release-maker/make-releases.py \
                   --update \
                   --start-version='4.5' \
@@ -1045,9 +1045,9 @@ pipelines:
             services:
               - docker
             script:
-                - ./release-maker/pipelines-init.sh
-                - echo ${DOCKER_PASSWORD} | docker login --username ${DOCKER_USERNAME} --password-stdin
-                - >
+              - ./release-maker/pipelines-init.sh
+              - echo ${DOCKER_PASSWORD} | docker login --username ${DOCKER_USERNAME} --password-stdin
+              - >
                 python ./release-maker/make-releases.py \
                   --update \
                   --start-version='4.5' \
@@ -1068,9 +1068,9 @@ pipelines:
             services:
               - docker
             script:
-                - ./release-maker/pipelines-init.sh
-                - echo ${DOCKER_PASSWORD} | docker login --username ${DOCKER_USERNAME} --password-stdin
-                - >
+              - ./release-maker/pipelines-init.sh
+              - echo ${DOCKER_PASSWORD} | docker login --username ${DOCKER_USERNAME} --password-stdin
+              - >
                 python ./release-maker/make-releases.py \
                   --update \
                   --start-version='4.5' \
@@ -1091,9 +1091,9 @@ pipelines:
             services:
               - docker
             script:
-                - ./release-maker/pipelines-init.sh
-                - echo ${DOCKER_PASSWORD} | docker login --username ${DOCKER_USERNAME} --password-stdin
-                - >
+              - ./release-maker/pipelines-init.sh
+              - echo ${DOCKER_PASSWORD} | docker login --username ${DOCKER_USERNAME} --password-stdin
+              - >
                 python ./release-maker/make-releases.py \
                   --update \
                   --start-version='4.5' \
@@ -1114,9 +1114,9 @@ pipelines:
             services:
               - docker
             script:
-                - ./release-maker/pipelines-init.sh
-                - echo ${DOCKER_PASSWORD} | docker login --username ${DOCKER_USERNAME} --password-stdin
-                - >
+              - ./release-maker/pipelines-init.sh
+              - echo ${DOCKER_PASSWORD} | docker login --username ${DOCKER_USERNAME} --password-stdin
+              - >
                 python ./release-maker/make-releases.py \
                   --update \
                   --start-version='4.5' \
@@ -1137,9 +1137,9 @@ pipelines:
             services:
               - docker
             script:
-                - ./release-maker/pipelines-init.sh
-                - echo ${DOCKER_PASSWORD} | docker login --username ${DOCKER_USERNAME} --password-stdin
-                - >
+              - ./release-maker/pipelines-init.sh
+              - echo ${DOCKER_PASSWORD} | docker login --username ${DOCKER_USERNAME} --password-stdin
+              - >
                 python ./release-maker/make-releases.py \
                   --update \
                   --start-version='4.5' \
@@ -1160,9 +1160,9 @@ pipelines:
             services:
               - docker
             script:
-                - ./release-maker/pipelines-init.sh
-                - echo ${DOCKER_PASSWORD} | docker login --username ${DOCKER_USERNAME} --password-stdin
-                - >
+              - ./release-maker/pipelines-init.sh
+              - echo ${DOCKER_PASSWORD} | docker login --username ${DOCKER_USERNAME} --password-stdin
+              - >
                 python ./release-maker/make-releases.py \
                   --update \
                   --start-version='8.5' \
@@ -1184,9 +1184,9 @@ pipelines:
             services:
               - docker
             script:
-                - ./release-maker/pipelines-init.sh
-                - echo ${DOCKER_PASSWORD} | docker login --username ${DOCKER_USERNAME} --password-stdin
-                - >
+              - ./release-maker/pipelines-init.sh
+              - echo ${DOCKER_PASSWORD} | docker login --username ${DOCKER_USERNAME} --password-stdin
+              - >
                 python ./release-maker/make-releases.py \
                   --update \
                   --start-version='8.5' \
@@ -1208,9 +1208,9 @@ pipelines:
             services:
               - docker
             script:
-                - ./release-maker/pipelines-init.sh
-                - echo ${DOCKER_PASSWORD} | docker login --username ${DOCKER_USERNAME} --password-stdin
-                - >
+              - ./release-maker/pipelines-init.sh
+              - echo ${DOCKER_PASSWORD} | docker login --username ${DOCKER_USERNAME} --password-stdin
+              - >
                 python ./release-maker/make-releases.py \
                   --update \
                   --start-version='8.5' \
@@ -1232,9 +1232,9 @@ pipelines:
             services:
               - docker
             script:
-                - ./release-maker/pipelines-init.sh
-                - echo ${DOCKER_PASSWORD} | docker login --username ${DOCKER_USERNAME} --password-stdin
-                - >
+              - ./release-maker/pipelines-init.sh
+              - echo ${DOCKER_PASSWORD} | docker login --username ${DOCKER_USERNAME} --password-stdin
+              - >
                 python ./release-maker/make-releases.py \
                   --update \
                   --start-version='8.5' \
@@ -1256,9 +1256,9 @@ pipelines:
             services:
               - docker
             script:
-                - ./release-maker/pipelines-init.sh
-                - echo ${DOCKER_PASSWORD} | docker login --username ${DOCKER_USERNAME} --password-stdin
-                - >
+              - ./release-maker/pipelines-init.sh
+              - echo ${DOCKER_PASSWORD} | docker login --username ${DOCKER_USERNAME} --password-stdin
+              - >
                 python ./release-maker/make-releases.py \
                   --update \
                   --start-version='8.5' \
@@ -1280,9 +1280,9 @@ pipelines:
             services:
               - docker
             script:
-                - ./release-maker/pipelines-init.sh
-                - echo ${DOCKER_PASSWORD} | docker login --username ${DOCKER_USERNAME} --password-stdin
-                - >
+              - ./release-maker/pipelines-init.sh
+              - echo ${DOCKER_PASSWORD} | docker login --username ${DOCKER_USERNAME} --password-stdin
+              - >
                 python ./release-maker/make-releases.py \
                   --update \
                   --start-version='8.5' \
@@ -1304,9 +1304,9 @@ pipelines:
             services:
               - docker
             script:
-                - ./release-maker/pipelines-init.sh
-                - echo ${DOCKER_PASSWORD} | docker login --username ${DOCKER_USERNAME} --password-stdin
-                - >
+              - ./release-maker/pipelines-init.sh
+              - echo ${DOCKER_PASSWORD} | docker login --username ${DOCKER_USERNAME} --password-stdin
+              - >
                 python ./release-maker/make-releases.py \
                   --update \
                   --start-version='8.5' \
@@ -1328,9 +1328,9 @@ pipelines:
             services:
               - docker
             script:
-                - ./release-maker/pipelines-init.sh
-                - echo ${DOCKER_PASSWORD} | docker login --username ${DOCKER_USERNAME} --password-stdin
-                - >
+              - ./release-maker/pipelines-init.sh
+              - echo ${DOCKER_PASSWORD} | docker login --username ${DOCKER_USERNAME} --password-stdin
+              - >
                 python ./release-maker/make-releases.py \
                   --update \
                   --start-version='8.5' \
@@ -1352,9 +1352,9 @@ pipelines:
             services:
               - docker
             script:
-                - ./release-maker/pipelines-init.sh
-                - echo ${DOCKER_PASSWORD} | docker login --username ${DOCKER_USERNAME} --password-stdin
-                - >
+              - ./release-maker/pipelines-init.sh
+              - echo ${DOCKER_PASSWORD} | docker login --username ${DOCKER_USERNAME} --password-stdin
+              - >
                 python ./release-maker/make-releases.py \
                   --update \
                   --start-version='8.5' \
@@ -1376,9 +1376,9 @@ pipelines:
             services:
               - docker
             script:
-                - ./release-maker/pipelines-init.sh
-                - echo ${DOCKER_PASSWORD} | docker login --username ${DOCKER_USERNAME} --password-stdin
-                - >
+              - ./release-maker/pipelines-init.sh
+              - echo ${DOCKER_PASSWORD} | docker login --username ${DOCKER_USERNAME} --password-stdin
+              - >
                 python ./release-maker/make-releases.py \
                   --update \
                   --start-version='8.5' \
@@ -1400,9 +1400,9 @@ pipelines:
             services:
               - docker
             script:
-                - ./release-maker/pipelines-init.sh
-                - echo ${DOCKER_PASSWORD} | docker login --username ${DOCKER_USERNAME} --password-stdin
-                - >
+              - ./release-maker/pipelines-init.sh
+              - echo ${DOCKER_PASSWORD} | docker login --username ${DOCKER_USERNAME} --password-stdin
+              - >
                 python ./release-maker/make-releases.py \
                   --update \
                   --start-version='8.5' \
@@ -1424,9 +1424,9 @@ pipelines:
             services:
               - docker
             script:
-                - ./release-maker/pipelines-init.sh
-                - echo ${DOCKER_PASSWORD} | docker login --username ${DOCKER_USERNAME} --password-stdin
-                - >
+              - ./release-maker/pipelines-init.sh
+              - echo ${DOCKER_PASSWORD} | docker login --username ${DOCKER_USERNAME} --password-stdin
+              - >
                 python ./release-maker/make-releases.py \
                   --update \
                   --start-version='8.5' \
@@ -1448,9 +1448,9 @@ pipelines:
             services:
               - docker
             script:
-                - ./release-maker/pipelines-init.sh
-                - echo ${DOCKER_PASSWORD} | docker login --username ${DOCKER_USERNAME} --password-stdin
-                - >
+              - ./release-maker/pipelines-init.sh
+              - echo ${DOCKER_PASSWORD} | docker login --username ${DOCKER_USERNAME} --password-stdin
+              - >
                 python ./release-maker/make-releases.py \
                   --update \
                   --start-version='8.5' \
@@ -1471,9 +1471,9 @@ pipelines:
             services:
               - docker
             script:
-                - ./release-maker/pipelines-init.sh
-                - echo ${DOCKER_PASSWORD} | docker login --username ${DOCKER_USERNAME} --password-stdin
-                - >
+              - ./release-maker/pipelines-init.sh
+              - echo ${DOCKER_PASSWORD} | docker login --username ${DOCKER_USERNAME} --password-stdin
+              - >
                 python ./release-maker/make-releases.py \
                   --update \
                   --start-version='8.5' \
@@ -1494,9 +1494,9 @@ pipelines:
             services:
               - docker
             script:
-                - ./release-maker/pipelines-init.sh
-                - echo ${DOCKER_PASSWORD} | docker login --username ${DOCKER_USERNAME} --password-stdin
-                - >
+              - ./release-maker/pipelines-init.sh
+              - echo ${DOCKER_PASSWORD} | docker login --username ${DOCKER_USERNAME} --password-stdin
+              - >
                 python ./release-maker/make-releases.py \
                   --update \
                   --start-version='8.5' \
@@ -1517,9 +1517,9 @@ pipelines:
             services:
               - docker
             script:
-                - ./release-maker/pipelines-init.sh
-                - echo ${DOCKER_PASSWORD} | docker login --username ${DOCKER_USERNAME} --password-stdin
-                - >
+              - ./release-maker/pipelines-init.sh
+              - echo ${DOCKER_PASSWORD} | docker login --username ${DOCKER_USERNAME} --password-stdin
+              - >
                 python ./release-maker/make-releases.py \
                   --update \
                   --start-version='8.5' \
@@ -1540,9 +1540,9 @@ pipelines:
             services:
               - docker
             script:
-                - ./release-maker/pipelines-init.sh
-                - echo ${DOCKER_PASSWORD} | docker login --username ${DOCKER_USERNAME} --password-stdin
-                - >
+              - ./release-maker/pipelines-init.sh
+              - echo ${DOCKER_PASSWORD} | docker login --username ${DOCKER_USERNAME} --password-stdin
+              - >
                 python ./release-maker/make-releases.py \
                   --update \
                   --start-version='8.5' \
@@ -1563,9 +1563,9 @@ pipelines:
             services:
               - docker
             script:
-                - ./release-maker/pipelines-init.sh
-                - echo ${DOCKER_PASSWORD} | docker login --username ${DOCKER_USERNAME} --password-stdin
-                - >
+              - ./release-maker/pipelines-init.sh
+              - echo ${DOCKER_PASSWORD} | docker login --username ${DOCKER_USERNAME} --password-stdin
+              - >
                 python ./release-maker/make-releases.py \
                   --update \
                   --start-version='8.5' \
@@ -1586,9 +1586,9 @@ pipelines:
             services:
               - docker
             script:
-                - ./release-maker/pipelines-init.sh
-                - echo ${DOCKER_PASSWORD} | docker login --username ${DOCKER_USERNAME} --password-stdin
-                - >
+              - ./release-maker/pipelines-init.sh
+              - echo ${DOCKER_PASSWORD} | docker login --username ${DOCKER_USERNAME} --password-stdin
+              - >
                 python ./release-maker/make-releases.py \
                   --update \
                   --start-version='8.5' \
@@ -1609,9 +1609,9 @@ pipelines:
             services:
               - docker
             script:
-                - ./release-maker/pipelines-init.sh
-                - echo ${DOCKER_PASSWORD} | docker login --username ${DOCKER_USERNAME} --password-stdin
-                - >
+              - ./release-maker/pipelines-init.sh
+              - echo ${DOCKER_PASSWORD} | docker login --username ${DOCKER_USERNAME} --password-stdin
+              - >
                 python ./release-maker/make-releases.py \
                   --update \
                   --start-version='8.5' \
@@ -1632,9 +1632,9 @@ pipelines:
             services:
               - docker
             script:
-                - ./release-maker/pipelines-init.sh
-                - echo ${DOCKER_PASSWORD} | docker login --username ${DOCKER_USERNAME} --password-stdin
-                - >
+              - ./release-maker/pipelines-init.sh
+              - echo ${DOCKER_PASSWORD} | docker login --username ${DOCKER_USERNAME} --password-stdin
+              - >
                 python ./release-maker/make-releases.py \
                   --update \
                   --start-version='8.5' \
@@ -1655,9 +1655,9 @@ pipelines:
             services:
               - docker
             script:
-                - ./release-maker/pipelines-init.sh
-                - echo ${DOCKER_PASSWORD} | docker login --username ${DOCKER_USERNAME} --password-stdin
-                - >
+              - ./release-maker/pipelines-init.sh
+              - echo ${DOCKER_PASSWORD} | docker login --username ${DOCKER_USERNAME} --password-stdin
+              - >
                 python ./release-maker/make-releases.py \
                   --update \
                   --start-version='8.5' \
@@ -1678,9 +1678,9 @@ pipelines:
             services:
               - docker
             script:
-                - ./release-maker/pipelines-init.sh
-                - echo ${DOCKER_PASSWORD} | docker login --username ${DOCKER_USERNAME} --password-stdin
-                - >
+              - ./release-maker/pipelines-init.sh
+              - echo ${DOCKER_PASSWORD} | docker login --username ${DOCKER_USERNAME} --password-stdin
+              - >
                 python ./release-maker/make-releases.py \
                   --update \
                   --start-version='8.5' \
@@ -1701,9 +1701,9 @@ pipelines:
             services:
               - docker
             script:
-                - ./release-maker/pipelines-init.sh
-                - echo ${DOCKER_PASSWORD} | docker login --username ${DOCKER_USERNAME} --password-stdin
-                - >
+              - ./release-maker/pipelines-init.sh
+              - echo ${DOCKER_PASSWORD} | docker login --username ${DOCKER_USERNAME} --password-stdin
+              - >
                 python ./release-maker/make-releases.py \
                   --update \
                   --start-version='8.5' \
