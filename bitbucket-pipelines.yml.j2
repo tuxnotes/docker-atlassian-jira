@@ -35,10 +35,10 @@ pipelines:
             services:
               - docker
             script:
-              - ./release-maker/pipelines-init.sh
+                - ./release-maker/pipelines-init.sh
                 - echo ${DOCKER_PASSWORD} | docker login --username ${DOCKER_USERNAME} --password-stdin
                 - >
-                python /usr/src/app/make-releases.py \
+                python ./release-maker/make-releases.py \
                   --update \
                   --start-version='{{ appdata.start_version }}' \
                   --end-version='{{ appdata.end_version }}' \
@@ -154,7 +154,7 @@ pipelines:
               - ./release-maker/pipelines-init.sh
               - echo ${DOCKER_PASSWORD} | docker login --username ${DOCKER_USERNAME} --password-stdin
               - >
-                python /usr/src/app/make-releases.py \
+                python ./release-maker/make-releases.py \
                   --create --create-eap \
                   --start-version='{{ appdata.start_version }}' \
                   --end-version='{{ appdata.end_version }}' \
