@@ -22,9 +22,7 @@ pipelines:
       - step:
           name: Check if pipelines config is up-to-date...
           script:
-            - apk add --no-cache git
-            - git submodule update --init --recursive
-            - pip install -q -r release-maker/requirements.txt
+            - ./release-maker/pipelines-init.sh
             - python3 pipelines-generator.py > bitbucket-piplines.yml.expected && diff bitbucket-pipelines.yml bitbucket-piplines.yml.expected
 
       - parallel:
@@ -34,10 +32,9 @@ pipelines:
             services:
               - docker
             script:
-              - git submodule update --init --recursive
-              - echo ${DOCKER_PASSWORD} | docker login --username ${DOCKER_USERNAME} --password-stdin
-              - pip install -q -r release-maker/requirements.txt
-              - >
+              - ./release-maker/pipelines-init.sh
+                - echo ${DOCKER_PASSWORD} | docker login --username ${DOCKER_USERNAME} --password-stdin
+                - >
                 python /usr/src/app/make-releases.py \
                   --update \
                   --start-version='8.5' \
@@ -59,10 +56,9 @@ pipelines:
             services:
               - docker
             script:
-              - git submodule update --init --recursive
-              - echo ${DOCKER_PASSWORD} | docker login --username ${DOCKER_USERNAME} --password-stdin
-              - pip install -q -r release-maker/requirements.txt
-              - >
+              - ./release-maker/pipelines-init.sh
+                - echo ${DOCKER_PASSWORD} | docker login --username ${DOCKER_USERNAME} --password-stdin
+                - >
                 python /usr/src/app/make-releases.py \
                   --update \
                   --start-version='8.5' \
@@ -84,10 +80,9 @@ pipelines:
             services:
               - docker
             script:
-              - git submodule update --init --recursive
-              - echo ${DOCKER_PASSWORD} | docker login --username ${DOCKER_USERNAME} --password-stdin
-              - pip install -q -r release-maker/requirements.txt
-              - >
+              - ./release-maker/pipelines-init.sh
+                - echo ${DOCKER_PASSWORD} | docker login --username ${DOCKER_USERNAME} --password-stdin
+                - >
                 python /usr/src/app/make-releases.py \
                   --update \
                   --start-version='8.5' \
@@ -109,10 +104,9 @@ pipelines:
             services:
               - docker
             script:
-              - git submodule update --init --recursive
-              - echo ${DOCKER_PASSWORD} | docker login --username ${DOCKER_USERNAME} --password-stdin
-              - pip install -q -r release-maker/requirements.txt
-              - >
+              - ./release-maker/pipelines-init.sh
+                - echo ${DOCKER_PASSWORD} | docker login --username ${DOCKER_USERNAME} --password-stdin
+                - >
                 python /usr/src/app/make-releases.py \
                   --update \
                   --start-version='8.5' \
@@ -134,10 +128,9 @@ pipelines:
             services:
               - docker
             script:
-              - git submodule update --init --recursive
-              - echo ${DOCKER_PASSWORD} | docker login --username ${DOCKER_USERNAME} --password-stdin
-              - pip install -q -r release-maker/requirements.txt
-              - >
+              - ./release-maker/pipelines-init.sh
+                - echo ${DOCKER_PASSWORD} | docker login --username ${DOCKER_USERNAME} --password-stdin
+                - >
                 python /usr/src/app/make-releases.py \
                   --update \
                   --start-version='8.5' \
@@ -159,10 +152,9 @@ pipelines:
             services:
               - docker
             script:
-              - git submodule update --init --recursive
-              - echo ${DOCKER_PASSWORD} | docker login --username ${DOCKER_USERNAME} --password-stdin
-              - pip install -q -r release-maker/requirements.txt
-              - >
+              - ./release-maker/pipelines-init.sh
+                - echo ${DOCKER_PASSWORD} | docker login --username ${DOCKER_USERNAME} --password-stdin
+                - >
                 python /usr/src/app/make-releases.py \
                   --update \
                   --start-version='8.5' \
@@ -184,10 +176,9 @@ pipelines:
             services:
               - docker
             script:
-              - git submodule update --init --recursive
-              - echo ${DOCKER_PASSWORD} | docker login --username ${DOCKER_USERNAME} --password-stdin
-              - pip install -q -r release-maker/requirements.txt
-              - >
+              - ./release-maker/pipelines-init.sh
+                - echo ${DOCKER_PASSWORD} | docker login --username ${DOCKER_USERNAME} --password-stdin
+                - >
                 python /usr/src/app/make-releases.py \
                   --update \
                   --start-version='8.5' \
@@ -209,10 +200,9 @@ pipelines:
             services:
               - docker
             script:
-              - git submodule update --init --recursive
-              - echo ${DOCKER_PASSWORD} | docker login --username ${DOCKER_USERNAME} --password-stdin
-              - pip install -q -r release-maker/requirements.txt
-              - >
+              - ./release-maker/pipelines-init.sh
+                - echo ${DOCKER_PASSWORD} | docker login --username ${DOCKER_USERNAME} --password-stdin
+                - >
                 python /usr/src/app/make-releases.py \
                   --update \
                   --start-version='8.5' \
@@ -234,10 +224,9 @@ pipelines:
             services:
               - docker
             script:
-              - git submodule update --init --recursive
-              - echo ${DOCKER_PASSWORD} | docker login --username ${DOCKER_USERNAME} --password-stdin
-              - pip install -q -r release-maker/requirements.txt
-              - >
+              - ./release-maker/pipelines-init.sh
+                - echo ${DOCKER_PASSWORD} | docker login --username ${DOCKER_USERNAME} --password-stdin
+                - >
                 python /usr/src/app/make-releases.py \
                   --update \
                   --start-version='8.5' \
@@ -259,10 +248,9 @@ pipelines:
             services:
               - docker
             script:
-              - git submodule update --init --recursive
-              - echo ${DOCKER_PASSWORD} | docker login --username ${DOCKER_USERNAME} --password-stdin
-              - pip install -q -r release-maker/requirements.txt
-              - >
+              - ./release-maker/pipelines-init.sh
+                - echo ${DOCKER_PASSWORD} | docker login --username ${DOCKER_USERNAME} --password-stdin
+                - >
                 python /usr/src/app/make-releases.py \
                   --update \
                   --start-version='8.5' \
@@ -284,10 +272,9 @@ pipelines:
             services:
               - docker
             script:
-              - git submodule update --init --recursive
-              - echo ${DOCKER_PASSWORD} | docker login --username ${DOCKER_USERNAME} --password-stdin
-              - pip install -q -r release-maker/requirements.txt
-              - >
+              - ./release-maker/pipelines-init.sh
+                - echo ${DOCKER_PASSWORD} | docker login --username ${DOCKER_USERNAME} --password-stdin
+                - >
                 python /usr/src/app/make-releases.py \
                   --update \
                   --start-version='8.5' \
@@ -309,10 +296,9 @@ pipelines:
             services:
               - docker
             script:
-              - git submodule update --init --recursive
-              - echo ${DOCKER_PASSWORD} | docker login --username ${DOCKER_USERNAME} --password-stdin
-              - pip install -q -r release-maker/requirements.txt
-              - >
+              - ./release-maker/pipelines-init.sh
+                - echo ${DOCKER_PASSWORD} | docker login --username ${DOCKER_USERNAME} --password-stdin
+                - >
                 python /usr/src/app/make-releases.py \
                   --update \
                   --start-version='8.5' \
@@ -334,10 +320,9 @@ pipelines:
             services:
               - docker
             script:
-              - git submodule update --init --recursive
-              - echo ${DOCKER_PASSWORD} | docker login --username ${DOCKER_USERNAME} --password-stdin
-              - pip install -q -r release-maker/requirements.txt
-              - >
+              - ./release-maker/pipelines-init.sh
+                - echo ${DOCKER_PASSWORD} | docker login --username ${DOCKER_USERNAME} --password-stdin
+                - >
                 python /usr/src/app/make-releases.py \
                   --update \
                   --start-version='8.5' \
@@ -358,10 +343,9 @@ pipelines:
             services:
               - docker
             script:
-              - git submodule update --init --recursive
-              - echo ${DOCKER_PASSWORD} | docker login --username ${DOCKER_USERNAME} --password-stdin
-              - pip install -q -r release-maker/requirements.txt
-              - >
+              - ./release-maker/pipelines-init.sh
+                - echo ${DOCKER_PASSWORD} | docker login --username ${DOCKER_USERNAME} --password-stdin
+                - >
                 python /usr/src/app/make-releases.py \
                   --update \
                   --start-version='8.5' \
@@ -382,10 +366,9 @@ pipelines:
             services:
               - docker
             script:
-              - git submodule update --init --recursive
-              - echo ${DOCKER_PASSWORD} | docker login --username ${DOCKER_USERNAME} --password-stdin
-              - pip install -q -r release-maker/requirements.txt
-              - >
+              - ./release-maker/pipelines-init.sh
+                - echo ${DOCKER_PASSWORD} | docker login --username ${DOCKER_USERNAME} --password-stdin
+                - >
                 python /usr/src/app/make-releases.py \
                   --update \
                   --start-version='8.5' \
@@ -406,10 +389,9 @@ pipelines:
             services:
               - docker
             script:
-              - git submodule update --init --recursive
-              - echo ${DOCKER_PASSWORD} | docker login --username ${DOCKER_USERNAME} --password-stdin
-              - pip install -q -r release-maker/requirements.txt
-              - >
+              - ./release-maker/pipelines-init.sh
+                - echo ${DOCKER_PASSWORD} | docker login --username ${DOCKER_USERNAME} --password-stdin
+                - >
                 python /usr/src/app/make-releases.py \
                   --update \
                   --start-version='8.5' \
@@ -430,10 +412,9 @@ pipelines:
             services:
               - docker
             script:
-              - git submodule update --init --recursive
-              - echo ${DOCKER_PASSWORD} | docker login --username ${DOCKER_USERNAME} --password-stdin
-              - pip install -q -r release-maker/requirements.txt
-              - >
+              - ./release-maker/pipelines-init.sh
+                - echo ${DOCKER_PASSWORD} | docker login --username ${DOCKER_USERNAME} --password-stdin
+                - >
                 python /usr/src/app/make-releases.py \
                   --update \
                   --start-version='8.5' \
@@ -454,10 +435,9 @@ pipelines:
             services:
               - docker
             script:
-              - git submodule update --init --recursive
-              - echo ${DOCKER_PASSWORD} | docker login --username ${DOCKER_USERNAME} --password-stdin
-              - pip install -q -r release-maker/requirements.txt
-              - >
+              - ./release-maker/pipelines-init.sh
+                - echo ${DOCKER_PASSWORD} | docker login --username ${DOCKER_USERNAME} --password-stdin
+                - >
                 python /usr/src/app/make-releases.py \
                   --update \
                   --start-version='8.5' \
@@ -478,10 +458,9 @@ pipelines:
             services:
               - docker
             script:
-              - git submodule update --init --recursive
-              - echo ${DOCKER_PASSWORD} | docker login --username ${DOCKER_USERNAME} --password-stdin
-              - pip install -q -r release-maker/requirements.txt
-              - >
+              - ./release-maker/pipelines-init.sh
+                - echo ${DOCKER_PASSWORD} | docker login --username ${DOCKER_USERNAME} --password-stdin
+                - >
                 python /usr/src/app/make-releases.py \
                   --update \
                   --start-version='8.5' \
@@ -502,10 +481,9 @@ pipelines:
             services:
               - docker
             script:
-              - git submodule update --init --recursive
-              - echo ${DOCKER_PASSWORD} | docker login --username ${DOCKER_USERNAME} --password-stdin
-              - pip install -q -r release-maker/requirements.txt
-              - >
+              - ./release-maker/pipelines-init.sh
+                - echo ${DOCKER_PASSWORD} | docker login --username ${DOCKER_USERNAME} --password-stdin
+                - >
                 python /usr/src/app/make-releases.py \
                   --update \
                   --start-version='8.5' \
@@ -526,10 +504,9 @@ pipelines:
             services:
               - docker
             script:
-              - git submodule update --init --recursive
-              - echo ${DOCKER_PASSWORD} | docker login --username ${DOCKER_USERNAME} --password-stdin
-              - pip install -q -r release-maker/requirements.txt
-              - >
+              - ./release-maker/pipelines-init.sh
+                - echo ${DOCKER_PASSWORD} | docker login --username ${DOCKER_USERNAME} --password-stdin
+                - >
                 python /usr/src/app/make-releases.py \
                   --update \
                   --start-version='8.5' \
@@ -550,10 +527,9 @@ pipelines:
             services:
               - docker
             script:
-              - git submodule update --init --recursive
-              - echo ${DOCKER_PASSWORD} | docker login --username ${DOCKER_USERNAME} --password-stdin
-              - pip install -q -r release-maker/requirements.txt
-              - >
+              - ./release-maker/pipelines-init.sh
+                - echo ${DOCKER_PASSWORD} | docker login --username ${DOCKER_USERNAME} --password-stdin
+                - >
                 python /usr/src/app/make-releases.py \
                   --update \
                   --start-version='8.5' \
@@ -574,10 +550,9 @@ pipelines:
             services:
               - docker
             script:
-              - git submodule update --init --recursive
-              - echo ${DOCKER_PASSWORD} | docker login --username ${DOCKER_USERNAME} --password-stdin
-              - pip install -q -r release-maker/requirements.txt
-              - >
+              - ./release-maker/pipelines-init.sh
+                - echo ${DOCKER_PASSWORD} | docker login --username ${DOCKER_USERNAME} --password-stdin
+                - >
                 python /usr/src/app/make-releases.py \
                   --update \
                   --start-version='8.5' \
@@ -598,10 +573,9 @@ pipelines:
             services:
               - docker
             script:
-              - git submodule update --init --recursive
-              - echo ${DOCKER_PASSWORD} | docker login --username ${DOCKER_USERNAME} --password-stdin
-              - pip install -q -r release-maker/requirements.txt
-              - >
+              - ./release-maker/pipelines-init.sh
+                - echo ${DOCKER_PASSWORD} | docker login --username ${DOCKER_USERNAME} --password-stdin
+                - >
                 python /usr/src/app/make-releases.py \
                   --update \
                   --start-version='8.5' \
@@ -622,10 +596,9 @@ pipelines:
             services:
               - docker
             script:
-              - git submodule update --init --recursive
-              - echo ${DOCKER_PASSWORD} | docker login --username ${DOCKER_USERNAME} --password-stdin
-              - pip install -q -r release-maker/requirements.txt
-              - >
+              - ./release-maker/pipelines-init.sh
+                - echo ${DOCKER_PASSWORD} | docker login --username ${DOCKER_USERNAME} --password-stdin
+                - >
                 python /usr/src/app/make-releases.py \
                   --update \
                   --start-version='4.5' \
@@ -647,10 +620,9 @@ pipelines:
             services:
               - docker
             script:
-              - git submodule update --init --recursive
-              - echo ${DOCKER_PASSWORD} | docker login --username ${DOCKER_USERNAME} --password-stdin
-              - pip install -q -r release-maker/requirements.txt
-              - >
+              - ./release-maker/pipelines-init.sh
+                - echo ${DOCKER_PASSWORD} | docker login --username ${DOCKER_USERNAME} --password-stdin
+                - >
                 python /usr/src/app/make-releases.py \
                   --update \
                   --start-version='4.5' \
@@ -672,10 +644,9 @@ pipelines:
             services:
               - docker
             script:
-              - git submodule update --init --recursive
-              - echo ${DOCKER_PASSWORD} | docker login --username ${DOCKER_USERNAME} --password-stdin
-              - pip install -q -r release-maker/requirements.txt
-              - >
+              - ./release-maker/pipelines-init.sh
+                - echo ${DOCKER_PASSWORD} | docker login --username ${DOCKER_USERNAME} --password-stdin
+                - >
                 python /usr/src/app/make-releases.py \
                   --update \
                   --start-version='4.5' \
@@ -697,10 +668,9 @@ pipelines:
             services:
               - docker
             script:
-              - git submodule update --init --recursive
-              - echo ${DOCKER_PASSWORD} | docker login --username ${DOCKER_USERNAME} --password-stdin
-              - pip install -q -r release-maker/requirements.txt
-              - >
+              - ./release-maker/pipelines-init.sh
+                - echo ${DOCKER_PASSWORD} | docker login --username ${DOCKER_USERNAME} --password-stdin
+                - >
                 python /usr/src/app/make-releases.py \
                   --update \
                   --start-version='4.5' \
@@ -722,10 +692,9 @@ pipelines:
             services:
               - docker
             script:
-              - git submodule update --init --recursive
-              - echo ${DOCKER_PASSWORD} | docker login --username ${DOCKER_USERNAME} --password-stdin
-              - pip install -q -r release-maker/requirements.txt
-              - >
+              - ./release-maker/pipelines-init.sh
+                - echo ${DOCKER_PASSWORD} | docker login --username ${DOCKER_USERNAME} --password-stdin
+                - >
                 python /usr/src/app/make-releases.py \
                   --update \
                   --start-version='4.5' \
@@ -747,10 +716,9 @@ pipelines:
             services:
               - docker
             script:
-              - git submodule update --init --recursive
-              - echo ${DOCKER_PASSWORD} | docker login --username ${DOCKER_USERNAME} --password-stdin
-              - pip install -q -r release-maker/requirements.txt
-              - >
+              - ./release-maker/pipelines-init.sh
+                - echo ${DOCKER_PASSWORD} | docker login --username ${DOCKER_USERNAME} --password-stdin
+                - >
                 python /usr/src/app/make-releases.py \
                   --update \
                   --start-version='4.5' \
@@ -772,10 +740,9 @@ pipelines:
             services:
               - docker
             script:
-              - git submodule update --init --recursive
-              - echo ${DOCKER_PASSWORD} | docker login --username ${DOCKER_USERNAME} --password-stdin
-              - pip install -q -r release-maker/requirements.txt
-              - >
+              - ./release-maker/pipelines-init.sh
+                - echo ${DOCKER_PASSWORD} | docker login --username ${DOCKER_USERNAME} --password-stdin
+                - >
                 python /usr/src/app/make-releases.py \
                   --update \
                   --start-version='4.5' \
@@ -797,10 +764,9 @@ pipelines:
             services:
               - docker
             script:
-              - git submodule update --init --recursive
-              - echo ${DOCKER_PASSWORD} | docker login --username ${DOCKER_USERNAME} --password-stdin
-              - pip install -q -r release-maker/requirements.txt
-              - >
+              - ./release-maker/pipelines-init.sh
+                - echo ${DOCKER_PASSWORD} | docker login --username ${DOCKER_USERNAME} --password-stdin
+                - >
                 python /usr/src/app/make-releases.py \
                   --update \
                   --start-version='4.5' \
@@ -822,10 +788,9 @@ pipelines:
             services:
               - docker
             script:
-              - git submodule update --init --recursive
-              - echo ${DOCKER_PASSWORD} | docker login --username ${DOCKER_USERNAME} --password-stdin
-              - pip install -q -r release-maker/requirements.txt
-              - >
+              - ./release-maker/pipelines-init.sh
+                - echo ${DOCKER_PASSWORD} | docker login --username ${DOCKER_USERNAME} --password-stdin
+                - >
                 python /usr/src/app/make-releases.py \
                   --update \
                   --start-version='4.5' \
@@ -847,10 +812,9 @@ pipelines:
             services:
               - docker
             script:
-              - git submodule update --init --recursive
-              - echo ${DOCKER_PASSWORD} | docker login --username ${DOCKER_USERNAME} --password-stdin
-              - pip install -q -r release-maker/requirements.txt
-              - >
+              - ./release-maker/pipelines-init.sh
+                - echo ${DOCKER_PASSWORD} | docker login --username ${DOCKER_USERNAME} --password-stdin
+                - >
                 python /usr/src/app/make-releases.py \
                   --update \
                   --start-version='4.5' \
@@ -872,10 +836,9 @@ pipelines:
             services:
               - docker
             script:
-              - git submodule update --init --recursive
-              - echo ${DOCKER_PASSWORD} | docker login --username ${DOCKER_USERNAME} --password-stdin
-              - pip install -q -r release-maker/requirements.txt
-              - >
+              - ./release-maker/pipelines-init.sh
+                - echo ${DOCKER_PASSWORD} | docker login --username ${DOCKER_USERNAME} --password-stdin
+                - >
                 python /usr/src/app/make-releases.py \
                   --update \
                   --start-version='4.5' \
@@ -897,10 +860,9 @@ pipelines:
             services:
               - docker
             script:
-              - git submodule update --init --recursive
-              - echo ${DOCKER_PASSWORD} | docker login --username ${DOCKER_USERNAME} --password-stdin
-              - pip install -q -r release-maker/requirements.txt
-              - >
+              - ./release-maker/pipelines-init.sh
+                - echo ${DOCKER_PASSWORD} | docker login --username ${DOCKER_USERNAME} --password-stdin
+                - >
                 python /usr/src/app/make-releases.py \
                   --update \
                   --start-version='4.5' \
@@ -922,10 +884,9 @@ pipelines:
             services:
               - docker
             script:
-              - git submodule update --init --recursive
-              - echo ${DOCKER_PASSWORD} | docker login --username ${DOCKER_USERNAME} --password-stdin
-              - pip install -q -r release-maker/requirements.txt
-              - >
+              - ./release-maker/pipelines-init.sh
+                - echo ${DOCKER_PASSWORD} | docker login --username ${DOCKER_USERNAME} --password-stdin
+                - >
                 python /usr/src/app/make-releases.py \
                   --update \
                   --start-version='4.5' \
@@ -946,10 +907,9 @@ pipelines:
             services:
               - docker
             script:
-              - git submodule update --init --recursive
-              - echo ${DOCKER_PASSWORD} | docker login --username ${DOCKER_USERNAME} --password-stdin
-              - pip install -q -r release-maker/requirements.txt
-              - >
+              - ./release-maker/pipelines-init.sh
+                - echo ${DOCKER_PASSWORD} | docker login --username ${DOCKER_USERNAME} --password-stdin
+                - >
                 python /usr/src/app/make-releases.py \
                   --update \
                   --start-version='4.5' \
@@ -970,10 +930,9 @@ pipelines:
             services:
               - docker
             script:
-              - git submodule update --init --recursive
-              - echo ${DOCKER_PASSWORD} | docker login --username ${DOCKER_USERNAME} --password-stdin
-              - pip install -q -r release-maker/requirements.txt
-              - >
+              - ./release-maker/pipelines-init.sh
+                - echo ${DOCKER_PASSWORD} | docker login --username ${DOCKER_USERNAME} --password-stdin
+                - >
                 python /usr/src/app/make-releases.py \
                   --update \
                   --start-version='4.5' \
@@ -994,10 +953,9 @@ pipelines:
             services:
               - docker
             script:
-              - git submodule update --init --recursive
-              - echo ${DOCKER_PASSWORD} | docker login --username ${DOCKER_USERNAME} --password-stdin
-              - pip install -q -r release-maker/requirements.txt
-              - >
+              - ./release-maker/pipelines-init.sh
+                - echo ${DOCKER_PASSWORD} | docker login --username ${DOCKER_USERNAME} --password-stdin
+                - >
                 python /usr/src/app/make-releases.py \
                   --update \
                   --start-version='4.5' \
@@ -1018,10 +976,9 @@ pipelines:
             services:
               - docker
             script:
-              - git submodule update --init --recursive
-              - echo ${DOCKER_PASSWORD} | docker login --username ${DOCKER_USERNAME} --password-stdin
-              - pip install -q -r release-maker/requirements.txt
-              - >
+              - ./release-maker/pipelines-init.sh
+                - echo ${DOCKER_PASSWORD} | docker login --username ${DOCKER_USERNAME} --password-stdin
+                - >
                 python /usr/src/app/make-releases.py \
                   --update \
                   --start-version='4.5' \
@@ -1042,10 +999,9 @@ pipelines:
             services:
               - docker
             script:
-              - git submodule update --init --recursive
-              - echo ${DOCKER_PASSWORD} | docker login --username ${DOCKER_USERNAME} --password-stdin
-              - pip install -q -r release-maker/requirements.txt
-              - >
+              - ./release-maker/pipelines-init.sh
+                - echo ${DOCKER_PASSWORD} | docker login --username ${DOCKER_USERNAME} --password-stdin
+                - >
                 python /usr/src/app/make-releases.py \
                   --update \
                   --start-version='4.5' \
@@ -1066,10 +1022,9 @@ pipelines:
             services:
               - docker
             script:
-              - git submodule update --init --recursive
-              - echo ${DOCKER_PASSWORD} | docker login --username ${DOCKER_USERNAME} --password-stdin
-              - pip install -q -r release-maker/requirements.txt
-              - >
+              - ./release-maker/pipelines-init.sh
+                - echo ${DOCKER_PASSWORD} | docker login --username ${DOCKER_USERNAME} --password-stdin
+                - >
                 python /usr/src/app/make-releases.py \
                   --update \
                   --start-version='4.5' \
@@ -1090,10 +1045,9 @@ pipelines:
             services:
               - docker
             script:
-              - git submodule update --init --recursive
-              - echo ${DOCKER_PASSWORD} | docker login --username ${DOCKER_USERNAME} --password-stdin
-              - pip install -q -r release-maker/requirements.txt
-              - >
+              - ./release-maker/pipelines-init.sh
+                - echo ${DOCKER_PASSWORD} | docker login --username ${DOCKER_USERNAME} --password-stdin
+                - >
                 python /usr/src/app/make-releases.py \
                   --update \
                   --start-version='4.5' \
@@ -1114,10 +1068,9 @@ pipelines:
             services:
               - docker
             script:
-              - git submodule update --init --recursive
-              - echo ${DOCKER_PASSWORD} | docker login --username ${DOCKER_USERNAME} --password-stdin
-              - pip install -q -r release-maker/requirements.txt
-              - >
+              - ./release-maker/pipelines-init.sh
+                - echo ${DOCKER_PASSWORD} | docker login --username ${DOCKER_USERNAME} --password-stdin
+                - >
                 python /usr/src/app/make-releases.py \
                   --update \
                   --start-version='4.5' \
@@ -1138,10 +1091,9 @@ pipelines:
             services:
               - docker
             script:
-              - git submodule update --init --recursive
-              - echo ${DOCKER_PASSWORD} | docker login --username ${DOCKER_USERNAME} --password-stdin
-              - pip install -q -r release-maker/requirements.txt
-              - >
+              - ./release-maker/pipelines-init.sh
+                - echo ${DOCKER_PASSWORD} | docker login --username ${DOCKER_USERNAME} --password-stdin
+                - >
                 python /usr/src/app/make-releases.py \
                   --update \
                   --start-version='4.5' \
@@ -1162,10 +1114,9 @@ pipelines:
             services:
               - docker
             script:
-              - git submodule update --init --recursive
-              - echo ${DOCKER_PASSWORD} | docker login --username ${DOCKER_USERNAME} --password-stdin
-              - pip install -q -r release-maker/requirements.txt
-              - >
+              - ./release-maker/pipelines-init.sh
+                - echo ${DOCKER_PASSWORD} | docker login --username ${DOCKER_USERNAME} --password-stdin
+                - >
                 python /usr/src/app/make-releases.py \
                   --update \
                   --start-version='4.5' \
@@ -1186,10 +1137,9 @@ pipelines:
             services:
               - docker
             script:
-              - git submodule update --init --recursive
-              - echo ${DOCKER_PASSWORD} | docker login --username ${DOCKER_USERNAME} --password-stdin
-              - pip install -q -r release-maker/requirements.txt
-              - >
+              - ./release-maker/pipelines-init.sh
+                - echo ${DOCKER_PASSWORD} | docker login --username ${DOCKER_USERNAME} --password-stdin
+                - >
                 python /usr/src/app/make-releases.py \
                   --update \
                   --start-version='4.5' \
@@ -1210,10 +1160,9 @@ pipelines:
             services:
               - docker
             script:
-              - git submodule update --init --recursive
-              - echo ${DOCKER_PASSWORD} | docker login --username ${DOCKER_USERNAME} --password-stdin
-              - pip install -q -r release-maker/requirements.txt
-              - >
+              - ./release-maker/pipelines-init.sh
+                - echo ${DOCKER_PASSWORD} | docker login --username ${DOCKER_USERNAME} --password-stdin
+                - >
                 python /usr/src/app/make-releases.py \
                   --update \
                   --start-version='8.5' \
@@ -1235,10 +1184,9 @@ pipelines:
             services:
               - docker
             script:
-              - git submodule update --init --recursive
-              - echo ${DOCKER_PASSWORD} | docker login --username ${DOCKER_USERNAME} --password-stdin
-              - pip install -q -r release-maker/requirements.txt
-              - >
+              - ./release-maker/pipelines-init.sh
+                - echo ${DOCKER_PASSWORD} | docker login --username ${DOCKER_USERNAME} --password-stdin
+                - >
                 python /usr/src/app/make-releases.py \
                   --update \
                   --start-version='8.5' \
@@ -1260,10 +1208,9 @@ pipelines:
             services:
               - docker
             script:
-              - git submodule update --init --recursive
-              - echo ${DOCKER_PASSWORD} | docker login --username ${DOCKER_USERNAME} --password-stdin
-              - pip install -q -r release-maker/requirements.txt
-              - >
+              - ./release-maker/pipelines-init.sh
+                - echo ${DOCKER_PASSWORD} | docker login --username ${DOCKER_USERNAME} --password-stdin
+                - >
                 python /usr/src/app/make-releases.py \
                   --update \
                   --start-version='8.5' \
@@ -1285,10 +1232,9 @@ pipelines:
             services:
               - docker
             script:
-              - git submodule update --init --recursive
-              - echo ${DOCKER_PASSWORD} | docker login --username ${DOCKER_USERNAME} --password-stdin
-              - pip install -q -r release-maker/requirements.txt
-              - >
+              - ./release-maker/pipelines-init.sh
+                - echo ${DOCKER_PASSWORD} | docker login --username ${DOCKER_USERNAME} --password-stdin
+                - >
                 python /usr/src/app/make-releases.py \
                   --update \
                   --start-version='8.5' \
@@ -1310,10 +1256,9 @@ pipelines:
             services:
               - docker
             script:
-              - git submodule update --init --recursive
-              - echo ${DOCKER_PASSWORD} | docker login --username ${DOCKER_USERNAME} --password-stdin
-              - pip install -q -r release-maker/requirements.txt
-              - >
+              - ./release-maker/pipelines-init.sh
+                - echo ${DOCKER_PASSWORD} | docker login --username ${DOCKER_USERNAME} --password-stdin
+                - >
                 python /usr/src/app/make-releases.py \
                   --update \
                   --start-version='8.5' \
@@ -1335,10 +1280,9 @@ pipelines:
             services:
               - docker
             script:
-              - git submodule update --init --recursive
-              - echo ${DOCKER_PASSWORD} | docker login --username ${DOCKER_USERNAME} --password-stdin
-              - pip install -q -r release-maker/requirements.txt
-              - >
+              - ./release-maker/pipelines-init.sh
+                - echo ${DOCKER_PASSWORD} | docker login --username ${DOCKER_USERNAME} --password-stdin
+                - >
                 python /usr/src/app/make-releases.py \
                   --update \
                   --start-version='8.5' \
@@ -1360,10 +1304,9 @@ pipelines:
             services:
               - docker
             script:
-              - git submodule update --init --recursive
-              - echo ${DOCKER_PASSWORD} | docker login --username ${DOCKER_USERNAME} --password-stdin
-              - pip install -q -r release-maker/requirements.txt
-              - >
+              - ./release-maker/pipelines-init.sh
+                - echo ${DOCKER_PASSWORD} | docker login --username ${DOCKER_USERNAME} --password-stdin
+                - >
                 python /usr/src/app/make-releases.py \
                   --update \
                   --start-version='8.5' \
@@ -1385,10 +1328,9 @@ pipelines:
             services:
               - docker
             script:
-              - git submodule update --init --recursive
-              - echo ${DOCKER_PASSWORD} | docker login --username ${DOCKER_USERNAME} --password-stdin
-              - pip install -q -r release-maker/requirements.txt
-              - >
+              - ./release-maker/pipelines-init.sh
+                - echo ${DOCKER_PASSWORD} | docker login --username ${DOCKER_USERNAME} --password-stdin
+                - >
                 python /usr/src/app/make-releases.py \
                   --update \
                   --start-version='8.5' \
@@ -1410,10 +1352,9 @@ pipelines:
             services:
               - docker
             script:
-              - git submodule update --init --recursive
-              - echo ${DOCKER_PASSWORD} | docker login --username ${DOCKER_USERNAME} --password-stdin
-              - pip install -q -r release-maker/requirements.txt
-              - >
+              - ./release-maker/pipelines-init.sh
+                - echo ${DOCKER_PASSWORD} | docker login --username ${DOCKER_USERNAME} --password-stdin
+                - >
                 python /usr/src/app/make-releases.py \
                   --update \
                   --start-version='8.5' \
@@ -1435,10 +1376,9 @@ pipelines:
             services:
               - docker
             script:
-              - git submodule update --init --recursive
-              - echo ${DOCKER_PASSWORD} | docker login --username ${DOCKER_USERNAME} --password-stdin
-              - pip install -q -r release-maker/requirements.txt
-              - >
+              - ./release-maker/pipelines-init.sh
+                - echo ${DOCKER_PASSWORD} | docker login --username ${DOCKER_USERNAME} --password-stdin
+                - >
                 python /usr/src/app/make-releases.py \
                   --update \
                   --start-version='8.5' \
@@ -1460,10 +1400,9 @@ pipelines:
             services:
               - docker
             script:
-              - git submodule update --init --recursive
-              - echo ${DOCKER_PASSWORD} | docker login --username ${DOCKER_USERNAME} --password-stdin
-              - pip install -q -r release-maker/requirements.txt
-              - >
+              - ./release-maker/pipelines-init.sh
+                - echo ${DOCKER_PASSWORD} | docker login --username ${DOCKER_USERNAME} --password-stdin
+                - >
                 python /usr/src/app/make-releases.py \
                   --update \
                   --start-version='8.5' \
@@ -1485,10 +1424,9 @@ pipelines:
             services:
               - docker
             script:
-              - git submodule update --init --recursive
-              - echo ${DOCKER_PASSWORD} | docker login --username ${DOCKER_USERNAME} --password-stdin
-              - pip install -q -r release-maker/requirements.txt
-              - >
+              - ./release-maker/pipelines-init.sh
+                - echo ${DOCKER_PASSWORD} | docker login --username ${DOCKER_USERNAME} --password-stdin
+                - >
                 python /usr/src/app/make-releases.py \
                   --update \
                   --start-version='8.5' \
@@ -1510,10 +1448,9 @@ pipelines:
             services:
               - docker
             script:
-              - git submodule update --init --recursive
-              - echo ${DOCKER_PASSWORD} | docker login --username ${DOCKER_USERNAME} --password-stdin
-              - pip install -q -r release-maker/requirements.txt
-              - >
+              - ./release-maker/pipelines-init.sh
+                - echo ${DOCKER_PASSWORD} | docker login --username ${DOCKER_USERNAME} --password-stdin
+                - >
                 python /usr/src/app/make-releases.py \
                   --update \
                   --start-version='8.5' \
@@ -1534,10 +1471,9 @@ pipelines:
             services:
               - docker
             script:
-              - git submodule update --init --recursive
-              - echo ${DOCKER_PASSWORD} | docker login --username ${DOCKER_USERNAME} --password-stdin
-              - pip install -q -r release-maker/requirements.txt
-              - >
+              - ./release-maker/pipelines-init.sh
+                - echo ${DOCKER_PASSWORD} | docker login --username ${DOCKER_USERNAME} --password-stdin
+                - >
                 python /usr/src/app/make-releases.py \
                   --update \
                   --start-version='8.5' \
@@ -1558,10 +1494,9 @@ pipelines:
             services:
               - docker
             script:
-              - git submodule update --init --recursive
-              - echo ${DOCKER_PASSWORD} | docker login --username ${DOCKER_USERNAME} --password-stdin
-              - pip install -q -r release-maker/requirements.txt
-              - >
+              - ./release-maker/pipelines-init.sh
+                - echo ${DOCKER_PASSWORD} | docker login --username ${DOCKER_USERNAME} --password-stdin
+                - >
                 python /usr/src/app/make-releases.py \
                   --update \
                   --start-version='8.5' \
@@ -1582,10 +1517,9 @@ pipelines:
             services:
               - docker
             script:
-              - git submodule update --init --recursive
-              - echo ${DOCKER_PASSWORD} | docker login --username ${DOCKER_USERNAME} --password-stdin
-              - pip install -q -r release-maker/requirements.txt
-              - >
+              - ./release-maker/pipelines-init.sh
+                - echo ${DOCKER_PASSWORD} | docker login --username ${DOCKER_USERNAME} --password-stdin
+                - >
                 python /usr/src/app/make-releases.py \
                   --update \
                   --start-version='8.5' \
@@ -1606,10 +1540,9 @@ pipelines:
             services:
               - docker
             script:
-              - git submodule update --init --recursive
-              - echo ${DOCKER_PASSWORD} | docker login --username ${DOCKER_USERNAME} --password-stdin
-              - pip install -q -r release-maker/requirements.txt
-              - >
+              - ./release-maker/pipelines-init.sh
+                - echo ${DOCKER_PASSWORD} | docker login --username ${DOCKER_USERNAME} --password-stdin
+                - >
                 python /usr/src/app/make-releases.py \
                   --update \
                   --start-version='8.5' \
@@ -1630,10 +1563,9 @@ pipelines:
             services:
               - docker
             script:
-              - git submodule update --init --recursive
-              - echo ${DOCKER_PASSWORD} | docker login --username ${DOCKER_USERNAME} --password-stdin
-              - pip install -q -r release-maker/requirements.txt
-              - >
+              - ./release-maker/pipelines-init.sh
+                - echo ${DOCKER_PASSWORD} | docker login --username ${DOCKER_USERNAME} --password-stdin
+                - >
                 python /usr/src/app/make-releases.py \
                   --update \
                   --start-version='8.5' \
@@ -1654,10 +1586,9 @@ pipelines:
             services:
               - docker
             script:
-              - git submodule update --init --recursive
-              - echo ${DOCKER_PASSWORD} | docker login --username ${DOCKER_USERNAME} --password-stdin
-              - pip install -q -r release-maker/requirements.txt
-              - >
+              - ./release-maker/pipelines-init.sh
+                - echo ${DOCKER_PASSWORD} | docker login --username ${DOCKER_USERNAME} --password-stdin
+                - >
                 python /usr/src/app/make-releases.py \
                   --update \
                   --start-version='8.5' \
@@ -1678,10 +1609,9 @@ pipelines:
             services:
               - docker
             script:
-              - git submodule update --init --recursive
-              - echo ${DOCKER_PASSWORD} | docker login --username ${DOCKER_USERNAME} --password-stdin
-              - pip install -q -r release-maker/requirements.txt
-              - >
+              - ./release-maker/pipelines-init.sh
+                - echo ${DOCKER_PASSWORD} | docker login --username ${DOCKER_USERNAME} --password-stdin
+                - >
                 python /usr/src/app/make-releases.py \
                   --update \
                   --start-version='8.5' \
@@ -1702,10 +1632,9 @@ pipelines:
             services:
               - docker
             script:
-              - git submodule update --init --recursive
-              - echo ${DOCKER_PASSWORD} | docker login --username ${DOCKER_USERNAME} --password-stdin
-              - pip install -q -r release-maker/requirements.txt
-              - >
+              - ./release-maker/pipelines-init.sh
+                - echo ${DOCKER_PASSWORD} | docker login --username ${DOCKER_USERNAME} --password-stdin
+                - >
                 python /usr/src/app/make-releases.py \
                   --update \
                   --start-version='8.5' \
@@ -1726,10 +1655,9 @@ pipelines:
             services:
               - docker
             script:
-              - git submodule update --init --recursive
-              - echo ${DOCKER_PASSWORD} | docker login --username ${DOCKER_USERNAME} --password-stdin
-              - pip install -q -r release-maker/requirements.txt
-              - >
+              - ./release-maker/pipelines-init.sh
+                - echo ${DOCKER_PASSWORD} | docker login --username ${DOCKER_USERNAME} --password-stdin
+                - >
                 python /usr/src/app/make-releases.py \
                   --update \
                   --start-version='8.5' \
@@ -1750,10 +1678,9 @@ pipelines:
             services:
               - docker
             script:
-              - git submodule update --init --recursive
-              - echo ${DOCKER_PASSWORD} | docker login --username ${DOCKER_USERNAME} --password-stdin
-              - pip install -q -r release-maker/requirements.txt
-              - >
+              - ./release-maker/pipelines-init.sh
+                - echo ${DOCKER_PASSWORD} | docker login --username ${DOCKER_USERNAME} --password-stdin
+                - >
                 python /usr/src/app/make-releases.py \
                   --update \
                   --start-version='8.5' \
@@ -1774,10 +1701,9 @@ pipelines:
             services:
               - docker
             script:
-              - git submodule update --init --recursive
-              - echo ${DOCKER_PASSWORD} | docker login --username ${DOCKER_USERNAME} --password-stdin
-              - pip install -q -r release-maker/requirements.txt
-              - >
+              - ./release-maker/pipelines-init.sh
+                - echo ${DOCKER_PASSWORD} | docker login --username ${DOCKER_USERNAME} --password-stdin
+                - >
                 python /usr/src/app/make-releases.py \
                   --update \
                   --start-version='8.5' \
@@ -1796,9 +1722,7 @@ pipelines:
       - step:
           name: Update README
           script:
-            - apk add --no-cache git
-            - git submodule update --init --recursive
-            - pip install -q requests
+            - ./release-maker/pipelines-init.sh
             - export DOCKER_REPO='atlassian/jira-software'
             - python shared-components/image/push-readme.py
             - export DOCKER_REPO='atlassian/jira-servicemanagement'
@@ -1816,9 +1740,7 @@ pipelines:
       - step:
           name: Check if pipelines config is up-to-date...
           script:
-            - apk add --no-cache git
-            - git submodule update --init --recursive
-            - pip install -q -r release-maker/requirements.txt
+            - ./release-maker/pipelines-init.sh
             - python3 pipelines-generator.py > bitbucket-piplines.yml.expected && diff bitbucket-pipelines.yml bitbucket-piplines.yml.expected
 
       - parallel:
@@ -1828,9 +1750,7 @@ pipelines:
             services:
               - docker
             script:
-              - apk add --no-cache git
-              - git submodule update --init --recursive
-              - pip install -q -r release-maker/requirements.txt
+              - ./release-maker/pipelines-init.sh
               - pip install -q -r shared-components/tests/requirements.txt
               - export PYTHONPATH=./shared-components/tests:$PYTHONPATH
               - export DOCKERFILE='Dockerfile'
@@ -1847,11 +1767,7 @@ pipelines:
             services:
               - docker
             script:
-              - apk add --no-cache git docker-compose jq curl
-              - git submodule update --init --recursive
-              - pip install -q -r release-maker/requirements.txt
-              - curl -vL https://github.com/hadolint/hadolint/releases/download/v2.1.0/hadolint-Linux-x86_64 -o /usr/local/bin/hadolint
-              - chmod +x /usr/local/bin/hadolint
+              - ./release-maker/pipelines-init.sh
               - export JIRA_VERSION=`curl -s https://marketplace.atlassian.com/rest/2/products/key/jira/versions/latest | jq -r .name`
               - docker build --build-arg JIRA_VERSION=${JIRA_VERSION} -t test-image .
               - export IS_RELEASE=false
@@ -1863,10 +1779,8 @@ pipelines:
             services:
               - docker
             script:
-              - apk add --no-cache git
-              - git submodule update --init --recursive
+              - ./release-maker/pipelines-init.sh
               - echo ${DOCKER_PASSWORD} | docker login --username ${DOCKER_USERNAME} --password-stdin
-              - pip install -q -r release-maker/requirements.txt
               - >
                 python ./release-maker/make-releases.py \
                   --update \
@@ -1894,10 +1808,8 @@ pipelines:
             services:
               - docker
             script:
-              - apk add --no-cache git
-              - git submodule update --init --recursive
+              - ./release-maker/pipelines-init.sh
               - echo ${DOCKER_PASSWORD} | docker login --username ${DOCKER_USERNAME} --password-stdin
-              - pip install -q -r release-maker/requirements.txt
               - >
                 python /usr/src/app/make-releases.py \
                   --create --create-eap \
@@ -1920,10 +1832,8 @@ pipelines:
             services:
               - docker
             script:
-              - apk add --no-cache git
-              - git submodule update --init --recursive
+              - ./release-maker/pipelines-init.sh
               - echo ${DOCKER_PASSWORD} | docker login --username ${DOCKER_USERNAME} --password-stdin
-              - pip install -q -r release-maker/requirements.txt
               - >
                 python /usr/src/app/make-releases.py \
                   --create --create-eap \
@@ -1946,10 +1856,8 @@ pipelines:
             services:
               - docker
             script:
-              - apk add --no-cache git
-              - git submodule update --init --recursive
+              - ./release-maker/pipelines-init.sh
               - echo ${DOCKER_PASSWORD} | docker login --username ${DOCKER_USERNAME} --password-stdin
-              - pip install -q -r release-maker/requirements.txt
               - >
                 python /usr/src/app/make-releases.py \
                   --create --create-eap \
@@ -1972,10 +1880,8 @@ pipelines:
             services:
               - docker
             script:
-              - apk add --no-cache git
-              - git submodule update --init --recursive
+              - ./release-maker/pipelines-init.sh
               - echo ${DOCKER_PASSWORD} | docker login --username ${DOCKER_USERNAME} --password-stdin
-              - pip install -q -r release-maker/requirements.txt
               - >
                 python /usr/src/app/make-releases.py \
                   --create --create-eap \
@@ -1998,10 +1904,8 @@ pipelines:
             services:
               - docker
             script:
-              - apk add --no-cache git
-              - git submodule update --init --recursive
+              - ./release-maker/pipelines-init.sh
               - echo ${DOCKER_PASSWORD} | docker login --username ${DOCKER_USERNAME} --password-stdin
-              - pip install -q -r release-maker/requirements.txt
               - >
                 python /usr/src/app/make-releases.py \
                   --create --create-eap \
@@ -2024,10 +1928,8 @@ pipelines:
             services:
               - docker
             script:
-              - apk add --no-cache git
-              - git submodule update --init --recursive
+              - ./release-maker/pipelines-init.sh
               - echo ${DOCKER_PASSWORD} | docker login --username ${DOCKER_USERNAME} --password-stdin
-              - pip install -q -r release-maker/requirements.txt
               - >
                 python /usr/src/app/make-releases.py \
                   --create --create-eap \
@@ -2050,10 +1952,8 @@ pipelines:
             services:
               - docker
             script:
-              - apk add --no-cache git
-              - git submodule update --init --recursive
+              - ./release-maker/pipelines-init.sh
               - echo ${DOCKER_PASSWORD} | docker login --username ${DOCKER_USERNAME} --password-stdin
-              - pip install -q -r release-maker/requirements.txt
               - >
                 python /usr/src/app/make-releases.py \
                   --create --create-eap \
@@ -2076,10 +1976,8 @@ pipelines:
             services:
               - docker
             script:
-              - apk add --no-cache git
-              - git submodule update --init --recursive
+              - ./release-maker/pipelines-init.sh
               - echo ${DOCKER_PASSWORD} | docker login --username ${DOCKER_USERNAME} --password-stdin
-              - pip install -q -r release-maker/requirements.txt
               - >
                 python /usr/src/app/make-releases.py \
                   --create --create-eap \
@@ -2102,10 +2000,8 @@ pipelines:
             services:
               - docker
             script:
-              - apk add --no-cache git
-              - git submodule update --init --recursive
+              - ./release-maker/pipelines-init.sh
               - echo ${DOCKER_PASSWORD} | docker login --username ${DOCKER_USERNAME} --password-stdin
-              - pip install -q -r release-maker/requirements.txt
               - >
                 python /usr/src/app/make-releases.py \
                   --create --create-eap \
@@ -2128,10 +2024,8 @@ pipelines:
             services:
               - docker
             script:
-              - apk add --no-cache git
-              - git submodule update --init --recursive
+              - ./release-maker/pipelines-init.sh
               - echo ${DOCKER_PASSWORD} | docker login --username ${DOCKER_USERNAME} --password-stdin
-              - pip install -q -r release-maker/requirements.txt
               - >
                 python /usr/src/app/make-releases.py \
                   --create --create-eap \
@@ -2154,10 +2048,8 @@ pipelines:
             services:
               - docker
             script:
-              - apk add --no-cache git
-              - git submodule update --init --recursive
+              - ./release-maker/pipelines-init.sh
               - echo ${DOCKER_PASSWORD} | docker login --username ${DOCKER_USERNAME} --password-stdin
-              - pip install -q -r release-maker/requirements.txt
               - >
                 python /usr/src/app/make-releases.py \
                   --create --create-eap \
@@ -2180,10 +2072,8 @@ pipelines:
             services:
               - docker
             script:
-              - apk add --no-cache git
-              - git submodule update --init --recursive
+              - ./release-maker/pipelines-init.sh
               - echo ${DOCKER_PASSWORD} | docker login --username ${DOCKER_USERNAME} --password-stdin
-              - pip install -q -r release-maker/requirements.txt
               - >
                 python /usr/src/app/make-releases.py \
                   --create --create-eap \
@@ -2206,10 +2096,8 @@ pipelines:
             services:
               - docker
             script:
-              - apk add --no-cache git
-              - git submodule update --init --recursive
+              - ./release-maker/pipelines-init.sh
               - echo ${DOCKER_PASSWORD} | docker login --username ${DOCKER_USERNAME} --password-stdin
-              - pip install -q -r release-maker/requirements.txt
               - >
                 python /usr/src/app/make-releases.py \
                   --create --create-eap \
@@ -2231,10 +2119,8 @@ pipelines:
             services:
               - docker
             script:
-              - apk add --no-cache git
-              - git submodule update --init --recursive
+              - ./release-maker/pipelines-init.sh
               - echo ${DOCKER_PASSWORD} | docker login --username ${DOCKER_USERNAME} --password-stdin
-              - pip install -q -r release-maker/requirements.txt
               - >
                 python /usr/src/app/make-releases.py \
                   --create --create-eap \
@@ -2256,10 +2142,8 @@ pipelines:
             services:
               - docker
             script:
-              - apk add --no-cache git
-              - git submodule update --init --recursive
+              - ./release-maker/pipelines-init.sh
               - echo ${DOCKER_PASSWORD} | docker login --username ${DOCKER_USERNAME} --password-stdin
-              - pip install -q -r release-maker/requirements.txt
               - >
                 python /usr/src/app/make-releases.py \
                   --create --create-eap \
@@ -2281,10 +2165,8 @@ pipelines:
             services:
               - docker
             script:
-              - apk add --no-cache git
-              - git submodule update --init --recursive
+              - ./release-maker/pipelines-init.sh
               - echo ${DOCKER_PASSWORD} | docker login --username ${DOCKER_USERNAME} --password-stdin
-              - pip install -q -r release-maker/requirements.txt
               - >
                 python /usr/src/app/make-releases.py \
                   --create --create-eap \
@@ -2306,10 +2188,8 @@ pipelines:
             services:
               - docker
             script:
-              - apk add --no-cache git
-              - git submodule update --init --recursive
+              - ./release-maker/pipelines-init.sh
               - echo ${DOCKER_PASSWORD} | docker login --username ${DOCKER_USERNAME} --password-stdin
-              - pip install -q -r release-maker/requirements.txt
               - >
                 python /usr/src/app/make-releases.py \
                   --create --create-eap \
@@ -2331,10 +2211,8 @@ pipelines:
             services:
               - docker
             script:
-              - apk add --no-cache git
-              - git submodule update --init --recursive
+              - ./release-maker/pipelines-init.sh
               - echo ${DOCKER_PASSWORD} | docker login --username ${DOCKER_USERNAME} --password-stdin
-              - pip install -q -r release-maker/requirements.txt
               - >
                 python /usr/src/app/make-releases.py \
                   --create --create-eap \
@@ -2356,10 +2234,8 @@ pipelines:
             services:
               - docker
             script:
-              - apk add --no-cache git
-              - git submodule update --init --recursive
+              - ./release-maker/pipelines-init.sh
               - echo ${DOCKER_PASSWORD} | docker login --username ${DOCKER_USERNAME} --password-stdin
-              - pip install -q -r release-maker/requirements.txt
               - >
                 python /usr/src/app/make-releases.py \
                   --create --create-eap \
@@ -2381,10 +2257,8 @@ pipelines:
             services:
               - docker
             script:
-              - apk add --no-cache git
-              - git submodule update --init --recursive
+              - ./release-maker/pipelines-init.sh
               - echo ${DOCKER_PASSWORD} | docker login --username ${DOCKER_USERNAME} --password-stdin
-              - pip install -q -r release-maker/requirements.txt
               - >
                 python /usr/src/app/make-releases.py \
                   --create --create-eap \
@@ -2406,10 +2280,8 @@ pipelines:
             services:
               - docker
             script:
-              - apk add --no-cache git
-              - git submodule update --init --recursive
+              - ./release-maker/pipelines-init.sh
               - echo ${DOCKER_PASSWORD} | docker login --username ${DOCKER_USERNAME} --password-stdin
-              - pip install -q -r release-maker/requirements.txt
               - >
                 python /usr/src/app/make-releases.py \
                   --create --create-eap \
@@ -2431,10 +2303,8 @@ pipelines:
             services:
               - docker
             script:
-              - apk add --no-cache git
-              - git submodule update --init --recursive
+              - ./release-maker/pipelines-init.sh
               - echo ${DOCKER_PASSWORD} | docker login --username ${DOCKER_USERNAME} --password-stdin
-              - pip install -q -r release-maker/requirements.txt
               - >
                 python /usr/src/app/make-releases.py \
                   --create --create-eap \
@@ -2456,10 +2326,8 @@ pipelines:
             services:
               - docker
             script:
-              - apk add --no-cache git
-              - git submodule update --init --recursive
+              - ./release-maker/pipelines-init.sh
               - echo ${DOCKER_PASSWORD} | docker login --username ${DOCKER_USERNAME} --password-stdin
-              - pip install -q -r release-maker/requirements.txt
               - >
                 python /usr/src/app/make-releases.py \
                   --create --create-eap \
@@ -2481,10 +2349,8 @@ pipelines:
             services:
               - docker
             script:
-              - apk add --no-cache git
-              - git submodule update --init --recursive
+              - ./release-maker/pipelines-init.sh
               - echo ${DOCKER_PASSWORD} | docker login --username ${DOCKER_USERNAME} --password-stdin
-              - pip install -q -r release-maker/requirements.txt
               - >
                 python /usr/src/app/make-releases.py \
                   --create --create-eap \
@@ -2506,10 +2372,8 @@ pipelines:
             services:
               - docker
             script:
-              - apk add --no-cache git
-              - git submodule update --init --recursive
+              - ./release-maker/pipelines-init.sh
               - echo ${DOCKER_PASSWORD} | docker login --username ${DOCKER_USERNAME} --password-stdin
-              - pip install -q -r release-maker/requirements.txt
               - >
                 python /usr/src/app/make-releases.py \
                   --create --create-eap \
@@ -2532,10 +2396,8 @@ pipelines:
             services:
               - docker
             script:
-              - apk add --no-cache git
-              - git submodule update --init --recursive
+              - ./release-maker/pipelines-init.sh
               - echo ${DOCKER_PASSWORD} | docker login --username ${DOCKER_USERNAME} --password-stdin
-              - pip install -q -r release-maker/requirements.txt
               - >
                 python /usr/src/app/make-releases.py \
                   --create --create-eap \
@@ -2558,10 +2420,8 @@ pipelines:
             services:
               - docker
             script:
-              - apk add --no-cache git
-              - git submodule update --init --recursive
+              - ./release-maker/pipelines-init.sh
               - echo ${DOCKER_PASSWORD} | docker login --username ${DOCKER_USERNAME} --password-stdin
-              - pip install -q -r release-maker/requirements.txt
               - >
                 python /usr/src/app/make-releases.py \
                   --create --create-eap \
@@ -2584,10 +2444,8 @@ pipelines:
             services:
               - docker
             script:
-              - apk add --no-cache git
-              - git submodule update --init --recursive
+              - ./release-maker/pipelines-init.sh
               - echo ${DOCKER_PASSWORD} | docker login --username ${DOCKER_USERNAME} --password-stdin
-              - pip install -q -r release-maker/requirements.txt
               - >
                 python /usr/src/app/make-releases.py \
                   --create --create-eap \
@@ -2610,10 +2468,8 @@ pipelines:
             services:
               - docker
             script:
-              - apk add --no-cache git
-              - git submodule update --init --recursive
+              - ./release-maker/pipelines-init.sh
               - echo ${DOCKER_PASSWORD} | docker login --username ${DOCKER_USERNAME} --password-stdin
-              - pip install -q -r release-maker/requirements.txt
               - >
                 python /usr/src/app/make-releases.py \
                   --create --create-eap \
@@ -2636,10 +2492,8 @@ pipelines:
             services:
               - docker
             script:
-              - apk add --no-cache git
-              - git submodule update --init --recursive
+              - ./release-maker/pipelines-init.sh
               - echo ${DOCKER_PASSWORD} | docker login --username ${DOCKER_USERNAME} --password-stdin
-              - pip install -q -r release-maker/requirements.txt
               - >
                 python /usr/src/app/make-releases.py \
                   --create --create-eap \
@@ -2662,10 +2516,8 @@ pipelines:
             services:
               - docker
             script:
-              - apk add --no-cache git
-              - git submodule update --init --recursive
+              - ./release-maker/pipelines-init.sh
               - echo ${DOCKER_PASSWORD} | docker login --username ${DOCKER_USERNAME} --password-stdin
-              - pip install -q -r release-maker/requirements.txt
               - >
                 python /usr/src/app/make-releases.py \
                   --create --create-eap \
@@ -2688,10 +2540,8 @@ pipelines:
             services:
               - docker
             script:
-              - apk add --no-cache git
-              - git submodule update --init --recursive
+              - ./release-maker/pipelines-init.sh
               - echo ${DOCKER_PASSWORD} | docker login --username ${DOCKER_USERNAME} --password-stdin
-              - pip install -q -r release-maker/requirements.txt
               - >
                 python /usr/src/app/make-releases.py \
                   --create --create-eap \
@@ -2714,10 +2564,8 @@ pipelines:
             services:
               - docker
             script:
-              - apk add --no-cache git
-              - git submodule update --init --recursive
+              - ./release-maker/pipelines-init.sh
               - echo ${DOCKER_PASSWORD} | docker login --username ${DOCKER_USERNAME} --password-stdin
-              - pip install -q -r release-maker/requirements.txt
               - >
                 python /usr/src/app/make-releases.py \
                   --create --create-eap \
@@ -2740,10 +2588,8 @@ pipelines:
             services:
               - docker
             script:
-              - apk add --no-cache git
-              - git submodule update --init --recursive
+              - ./release-maker/pipelines-init.sh
               - echo ${DOCKER_PASSWORD} | docker login --username ${DOCKER_USERNAME} --password-stdin
-              - pip install -q -r release-maker/requirements.txt
               - >
                 python /usr/src/app/make-releases.py \
                   --create --create-eap \
@@ -2766,10 +2612,8 @@ pipelines:
             services:
               - docker
             script:
-              - apk add --no-cache git
-              - git submodule update --init --recursive
+              - ./release-maker/pipelines-init.sh
               - echo ${DOCKER_PASSWORD} | docker login --username ${DOCKER_USERNAME} --password-stdin
-              - pip install -q -r release-maker/requirements.txt
               - >
                 python /usr/src/app/make-releases.py \
                   --create --create-eap \
@@ -2792,10 +2636,8 @@ pipelines:
             services:
               - docker
             script:
-              - apk add --no-cache git
-              - git submodule update --init --recursive
+              - ./release-maker/pipelines-init.sh
               - echo ${DOCKER_PASSWORD} | docker login --username ${DOCKER_USERNAME} --password-stdin
-              - pip install -q -r release-maker/requirements.txt
               - >
                 python /usr/src/app/make-releases.py \
                   --create --create-eap \
@@ -2818,10 +2660,8 @@ pipelines:
             services:
               - docker
             script:
-              - apk add --no-cache git
-              - git submodule update --init --recursive
+              - ./release-maker/pipelines-init.sh
               - echo ${DOCKER_PASSWORD} | docker login --username ${DOCKER_USERNAME} --password-stdin
-              - pip install -q -r release-maker/requirements.txt
               - >
                 python /usr/src/app/make-releases.py \
                   --create --create-eap \
@@ -2843,10 +2683,8 @@ pipelines:
             services:
               - docker
             script:
-              - apk add --no-cache git
-              - git submodule update --init --recursive
+              - ./release-maker/pipelines-init.sh
               - echo ${DOCKER_PASSWORD} | docker login --username ${DOCKER_USERNAME} --password-stdin
-              - pip install -q -r release-maker/requirements.txt
               - >
                 python /usr/src/app/make-releases.py \
                   --create --create-eap \
@@ -2868,10 +2706,8 @@ pipelines:
             services:
               - docker
             script:
-              - apk add --no-cache git
-              - git submodule update --init --recursive
+              - ./release-maker/pipelines-init.sh
               - echo ${DOCKER_PASSWORD} | docker login --username ${DOCKER_USERNAME} --password-stdin
-              - pip install -q -r release-maker/requirements.txt
               - >
                 python /usr/src/app/make-releases.py \
                   --create --create-eap \
@@ -2893,10 +2729,8 @@ pipelines:
             services:
               - docker
             script:
-              - apk add --no-cache git
-              - git submodule update --init --recursive
+              - ./release-maker/pipelines-init.sh
               - echo ${DOCKER_PASSWORD} | docker login --username ${DOCKER_USERNAME} --password-stdin
-              - pip install -q -r release-maker/requirements.txt
               - >
                 python /usr/src/app/make-releases.py \
                   --create --create-eap \
@@ -2918,10 +2752,8 @@ pipelines:
             services:
               - docker
             script:
-              - apk add --no-cache git
-              - git submodule update --init --recursive
+              - ./release-maker/pipelines-init.sh
               - echo ${DOCKER_PASSWORD} | docker login --username ${DOCKER_USERNAME} --password-stdin
-              - pip install -q -r release-maker/requirements.txt
               - >
                 python /usr/src/app/make-releases.py \
                   --create --create-eap \
@@ -2943,10 +2775,8 @@ pipelines:
             services:
               - docker
             script:
-              - apk add --no-cache git
-              - git submodule update --init --recursive
+              - ./release-maker/pipelines-init.sh
               - echo ${DOCKER_PASSWORD} | docker login --username ${DOCKER_USERNAME} --password-stdin
-              - pip install -q -r release-maker/requirements.txt
               - >
                 python /usr/src/app/make-releases.py \
                   --create --create-eap \
@@ -2968,10 +2798,8 @@ pipelines:
             services:
               - docker
             script:
-              - apk add --no-cache git
-              - git submodule update --init --recursive
+              - ./release-maker/pipelines-init.sh
               - echo ${DOCKER_PASSWORD} | docker login --username ${DOCKER_USERNAME} --password-stdin
-              - pip install -q -r release-maker/requirements.txt
               - >
                 python /usr/src/app/make-releases.py \
                   --create --create-eap \
@@ -2993,10 +2821,8 @@ pipelines:
             services:
               - docker
             script:
-              - apk add --no-cache git
-              - git submodule update --init --recursive
+              - ./release-maker/pipelines-init.sh
               - echo ${DOCKER_PASSWORD} | docker login --username ${DOCKER_USERNAME} --password-stdin
-              - pip install -q -r release-maker/requirements.txt
               - >
                 python /usr/src/app/make-releases.py \
                   --create --create-eap \
@@ -3018,10 +2844,8 @@ pipelines:
             services:
               - docker
             script:
-              - apk add --no-cache git
-              - git submodule update --init --recursive
+              - ./release-maker/pipelines-init.sh
               - echo ${DOCKER_PASSWORD} | docker login --username ${DOCKER_USERNAME} --password-stdin
-              - pip install -q -r release-maker/requirements.txt
               - >
                 python /usr/src/app/make-releases.py \
                   --create --create-eap \
@@ -3043,10 +2867,8 @@ pipelines:
             services:
               - docker
             script:
-              - apk add --no-cache git
-              - git submodule update --init --recursive
+              - ./release-maker/pipelines-init.sh
               - echo ${DOCKER_PASSWORD} | docker login --username ${DOCKER_USERNAME} --password-stdin
-              - pip install -q -r release-maker/requirements.txt
               - >
                 python /usr/src/app/make-releases.py \
                   --create --create-eap \
@@ -3068,10 +2890,8 @@ pipelines:
             services:
               - docker
             script:
-              - apk add --no-cache git
-              - git submodule update --init --recursive
+              - ./release-maker/pipelines-init.sh
               - echo ${DOCKER_PASSWORD} | docker login --username ${DOCKER_USERNAME} --password-stdin
-              - pip install -q -r release-maker/requirements.txt
               - >
                 python /usr/src/app/make-releases.py \
                   --create --create-eap \
@@ -3093,10 +2913,8 @@ pipelines:
             services:
               - docker
             script:
-              - apk add --no-cache git
-              - git submodule update --init --recursive
+              - ./release-maker/pipelines-init.sh
               - echo ${DOCKER_PASSWORD} | docker login --username ${DOCKER_USERNAME} --password-stdin
-              - pip install -q -r release-maker/requirements.txt
               - >
                 python /usr/src/app/make-releases.py \
                   --create --create-eap \
@@ -3118,10 +2936,8 @@ pipelines:
             services:
               - docker
             script:
-              - apk add --no-cache git
-              - git submodule update --init --recursive
+              - ./release-maker/pipelines-init.sh
               - echo ${DOCKER_PASSWORD} | docker login --username ${DOCKER_USERNAME} --password-stdin
-              - pip install -q -r release-maker/requirements.txt
               - >
                 python /usr/src/app/make-releases.py \
                   --create --create-eap \
@@ -3144,10 +2960,8 @@ pipelines:
             services:
               - docker
             script:
-              - apk add --no-cache git
-              - git submodule update --init --recursive
+              - ./release-maker/pipelines-init.sh
               - echo ${DOCKER_PASSWORD} | docker login --username ${DOCKER_USERNAME} --password-stdin
-              - pip install -q -r release-maker/requirements.txt
               - >
                 python /usr/src/app/make-releases.py \
                   --create --create-eap \
@@ -3170,10 +2984,8 @@ pipelines:
             services:
               - docker
             script:
-              - apk add --no-cache git
-              - git submodule update --init --recursive
+              - ./release-maker/pipelines-init.sh
               - echo ${DOCKER_PASSWORD} | docker login --username ${DOCKER_USERNAME} --password-stdin
-              - pip install -q -r release-maker/requirements.txt
               - >
                 python /usr/src/app/make-releases.py \
                   --create --create-eap \
@@ -3196,10 +3008,8 @@ pipelines:
             services:
               - docker
             script:
-              - apk add --no-cache git
-              - git submodule update --init --recursive
+              - ./release-maker/pipelines-init.sh
               - echo ${DOCKER_PASSWORD} | docker login --username ${DOCKER_USERNAME} --password-stdin
-              - pip install -q -r release-maker/requirements.txt
               - >
                 python /usr/src/app/make-releases.py \
                   --create --create-eap \
@@ -3222,10 +3032,8 @@ pipelines:
             services:
               - docker
             script:
-              - apk add --no-cache git
-              - git submodule update --init --recursive
+              - ./release-maker/pipelines-init.sh
               - echo ${DOCKER_PASSWORD} | docker login --username ${DOCKER_USERNAME} --password-stdin
-              - pip install -q -r release-maker/requirements.txt
               - >
                 python /usr/src/app/make-releases.py \
                   --create --create-eap \
@@ -3248,10 +3056,8 @@ pipelines:
             services:
               - docker
             script:
-              - apk add --no-cache git
-              - git submodule update --init --recursive
+              - ./release-maker/pipelines-init.sh
               - echo ${DOCKER_PASSWORD} | docker login --username ${DOCKER_USERNAME} --password-stdin
-              - pip install -q -r release-maker/requirements.txt
               - >
                 python /usr/src/app/make-releases.py \
                   --create --create-eap \
@@ -3274,10 +3080,8 @@ pipelines:
             services:
               - docker
             script:
-              - apk add --no-cache git
-              - git submodule update --init --recursive
+              - ./release-maker/pipelines-init.sh
               - echo ${DOCKER_PASSWORD} | docker login --username ${DOCKER_USERNAME} --password-stdin
-              - pip install -q -r release-maker/requirements.txt
               - >
                 python /usr/src/app/make-releases.py \
                   --create --create-eap \
@@ -3300,10 +3104,8 @@ pipelines:
             services:
               - docker
             script:
-              - apk add --no-cache git
-              - git submodule update --init --recursive
+              - ./release-maker/pipelines-init.sh
               - echo ${DOCKER_PASSWORD} | docker login --username ${DOCKER_USERNAME} --password-stdin
-              - pip install -q -r release-maker/requirements.txt
               - >
                 python /usr/src/app/make-releases.py \
                   --create --create-eap \
@@ -3326,10 +3128,8 @@ pipelines:
             services:
               - docker
             script:
-              - apk add --no-cache git
-              - git submodule update --init --recursive
+              - ./release-maker/pipelines-init.sh
               - echo ${DOCKER_PASSWORD} | docker login --username ${DOCKER_USERNAME} --password-stdin
-              - pip install -q -r release-maker/requirements.txt
               - >
                 python /usr/src/app/make-releases.py \
                   --create --create-eap \
@@ -3352,10 +3152,8 @@ pipelines:
             services:
               - docker
             script:
-              - apk add --no-cache git
-              - git submodule update --init --recursive
+              - ./release-maker/pipelines-init.sh
               - echo ${DOCKER_PASSWORD} | docker login --username ${DOCKER_USERNAME} --password-stdin
-              - pip install -q -r release-maker/requirements.txt
               - >
                 python /usr/src/app/make-releases.py \
                   --create --create-eap \
@@ -3378,10 +3176,8 @@ pipelines:
             services:
               - docker
             script:
-              - apk add --no-cache git
-              - git submodule update --init --recursive
+              - ./release-maker/pipelines-init.sh
               - echo ${DOCKER_PASSWORD} | docker login --username ${DOCKER_USERNAME} --password-stdin
-              - pip install -q -r release-maker/requirements.txt
               - >
                 python /usr/src/app/make-releases.py \
                   --create --create-eap \
@@ -3404,10 +3200,8 @@ pipelines:
             services:
               - docker
             script:
-              - apk add --no-cache git
-              - git submodule update --init --recursive
+              - ./release-maker/pipelines-init.sh
               - echo ${DOCKER_PASSWORD} | docker login --username ${DOCKER_USERNAME} --password-stdin
-              - pip install -q -r release-maker/requirements.txt
               - >
                 python /usr/src/app/make-releases.py \
                   --create --create-eap \
@@ -3430,10 +3224,8 @@ pipelines:
             services:
               - docker
             script:
-              - apk add --no-cache git
-              - git submodule update --init --recursive
+              - ./release-maker/pipelines-init.sh
               - echo ${DOCKER_PASSWORD} | docker login --username ${DOCKER_USERNAME} --password-stdin
-              - pip install -q -r release-maker/requirements.txt
               - >
                 python /usr/src/app/make-releases.py \
                   --create --create-eap \
@@ -3455,10 +3247,8 @@ pipelines:
             services:
               - docker
             script:
-              - apk add --no-cache git
-              - git submodule update --init --recursive
+              - ./release-maker/pipelines-init.sh
               - echo ${DOCKER_PASSWORD} | docker login --username ${DOCKER_USERNAME} --password-stdin
-              - pip install -q -r release-maker/requirements.txt
               - >
                 python /usr/src/app/make-releases.py \
                   --create --create-eap \
@@ -3480,10 +3270,8 @@ pipelines:
             services:
               - docker
             script:
-              - apk add --no-cache git
-              - git submodule update --init --recursive
+              - ./release-maker/pipelines-init.sh
               - echo ${DOCKER_PASSWORD} | docker login --username ${DOCKER_USERNAME} --password-stdin
-              - pip install -q -r release-maker/requirements.txt
               - >
                 python /usr/src/app/make-releases.py \
                   --create --create-eap \
@@ -3505,10 +3293,8 @@ pipelines:
             services:
               - docker
             script:
-              - apk add --no-cache git
-              - git submodule update --init --recursive
+              - ./release-maker/pipelines-init.sh
               - echo ${DOCKER_PASSWORD} | docker login --username ${DOCKER_USERNAME} --password-stdin
-              - pip install -q -r release-maker/requirements.txt
               - >
                 python /usr/src/app/make-releases.py \
                   --create --create-eap \
@@ -3530,10 +3316,8 @@ pipelines:
             services:
               - docker
             script:
-              - apk add --no-cache git
-              - git submodule update --init --recursive
+              - ./release-maker/pipelines-init.sh
               - echo ${DOCKER_PASSWORD} | docker login --username ${DOCKER_USERNAME} --password-stdin
-              - pip install -q -r release-maker/requirements.txt
               - >
                 python /usr/src/app/make-releases.py \
                   --create --create-eap \
@@ -3555,10 +3339,8 @@ pipelines:
             services:
               - docker
             script:
-              - apk add --no-cache git
-              - git submodule update --init --recursive
+              - ./release-maker/pipelines-init.sh
               - echo ${DOCKER_PASSWORD} | docker login --username ${DOCKER_USERNAME} --password-stdin
-              - pip install -q -r release-maker/requirements.txt
               - >
                 python /usr/src/app/make-releases.py \
                   --create --create-eap \
@@ -3580,10 +3362,8 @@ pipelines:
             services:
               - docker
             script:
-              - apk add --no-cache git
-              - git submodule update --init --recursive
+              - ./release-maker/pipelines-init.sh
               - echo ${DOCKER_PASSWORD} | docker login --username ${DOCKER_USERNAME} --password-stdin
-              - pip install -q -r release-maker/requirements.txt
               - >
                 python /usr/src/app/make-releases.py \
                   --create --create-eap \
@@ -3605,10 +3385,8 @@ pipelines:
             services:
               - docker
             script:
-              - apk add --no-cache git
-              - git submodule update --init --recursive
+              - ./release-maker/pipelines-init.sh
               - echo ${DOCKER_PASSWORD} | docker login --username ${DOCKER_USERNAME} --password-stdin
-              - pip install -q -r release-maker/requirements.txt
               - >
                 python /usr/src/app/make-releases.py \
                   --create --create-eap \
@@ -3630,10 +3408,8 @@ pipelines:
             services:
               - docker
             script:
-              - apk add --no-cache git
-              - git submodule update --init --recursive
+              - ./release-maker/pipelines-init.sh
               - echo ${DOCKER_PASSWORD} | docker login --username ${DOCKER_USERNAME} --password-stdin
-              - pip install -q -r release-maker/requirements.txt
               - >
                 python /usr/src/app/make-releases.py \
                   --create --create-eap \
@@ -3655,10 +3431,8 @@ pipelines:
             services:
               - docker
             script:
-              - apk add --no-cache git
-              - git submodule update --init --recursive
+              - ./release-maker/pipelines-init.sh
               - echo ${DOCKER_PASSWORD} | docker login --username ${DOCKER_USERNAME} --password-stdin
-              - pip install -q -r release-maker/requirements.txt
               - >
                 python /usr/src/app/make-releases.py \
                   --create --create-eap \
@@ -3680,10 +3454,8 @@ pipelines:
             services:
               - docker
             script:
-              - apk add --no-cache git
-              - git submodule update --init --recursive
+              - ./release-maker/pipelines-init.sh
               - echo ${DOCKER_PASSWORD} | docker login --username ${DOCKER_USERNAME} --password-stdin
-              - pip install -q -r release-maker/requirements.txt
               - >
                 python /usr/src/app/make-releases.py \
                   --create --create-eap \
@@ -3705,10 +3477,8 @@ pipelines:
             services:
               - docker
             script:
-              - apk add --no-cache git
-              - git submodule update --init --recursive
+              - ./release-maker/pipelines-init.sh
               - echo ${DOCKER_PASSWORD} | docker login --username ${DOCKER_USERNAME} --password-stdin
-              - pip install -q -r release-maker/requirements.txt
               - >
                 python /usr/src/app/make-releases.py \
                   --create --create-eap \
