@@ -3,7 +3,7 @@
 #
 #     python3 pipelines-generator.py > bitbucket-pipelines.yml
 
-image: python:3.9-alpine
+image: python:3.9
 
 definitions:
   services:
@@ -35,6 +35,7 @@ pipelines:
             services:
               - docker
             script:
+              - git submodule update --init --recursive
               - ./release-maker/pipelines-init.sh
               - echo ${DOCKER_PASSWORD} | docker login --username ${DOCKER_USERNAME} --password-stdin
               - >
@@ -62,6 +63,7 @@ pipelines:
       - step:
           name: Update README
           script:
+            - git submodule update --init --recursive
             - ./release-maker/pipelines-init.sh
             - export DOCKER_REPO='atlassian/jira-software'
             - python shared-components/image/push-readme.py
@@ -80,6 +82,7 @@ pipelines:
       - step:
           name: Check if pipelines config is up-to-date...
           script:
+            - git submodule update --init --recursive
             - ./release-maker/pipelines-init.sh
             - python3 pipelines-generator.py > bitbucket-piplines.yml.expected && diff bitbucket-pipelines.yml bitbucket-piplines.yml.expected
 
@@ -90,6 +93,7 @@ pipelines:
             services:
               - docker
             script:
+              - git submodule update --init --recursive
               - ./release-maker/pipelines-init.sh
               - pip install -q -r shared-components/tests/requirements.txt
               - export PYTHONPATH=./shared-components/tests:$PYTHONPATH
@@ -107,6 +111,7 @@ pipelines:
             services:
               - docker
             script:
+              - git submodule update --init --recursive
               - ./release-maker/pipelines-init.sh
               - export JIRA_VERSION=`curl -s https://marketplace.atlassian.com/rest/2/products/key/jira/versions/latest | jq -r .name`
               - docker build --build-arg JIRA_VERSION=${JIRA_VERSION} -t test-image .
@@ -119,6 +124,7 @@ pipelines:
             services:
               - docker
             script:
+              - git submodule update --init --recursive
               - ./release-maker/pipelines-init.sh
               - echo ${DOCKER_PASSWORD} | docker login --username ${DOCKER_USERNAME} --password-stdin
               - >
@@ -151,6 +157,7 @@ pipelines:
             services:
               - docker
             script:
+              - git submodule update --init --recursive
               - ./release-maker/pipelines-init.sh
               - echo ${DOCKER_PASSWORD} | docker login --username ${DOCKER_USERNAME} --password-stdin
               - >
