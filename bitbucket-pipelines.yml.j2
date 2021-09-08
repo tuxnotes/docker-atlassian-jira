@@ -90,7 +90,6 @@ pipelines:
       - parallel:
         - step:
             name: Run unit tests
-            image: python:3.7-alpine3.14
             services:
               - docker
             script:
