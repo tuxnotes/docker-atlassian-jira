@@ -448,6 +448,19 @@ All Jira versions from 7.13+ (Software/Core) / 3.16+ (Service Management) are av
 
 Note: All Jira Service Management 4.x versions are also available as `atlassian/jira-servicedesk`. This namespace has been deprecated and versions from 5+ onwards will only be available as `atlassian/jira-servicemanagement`.
 
+# Supported JDK versions
+
+All the Atlassian Docker images are now JDK11 only, and generated from the
+Debian-based [official AdoptOpenJDK Docker images](https://hub.docker.com/r/adoptopenjdk/openjdk11).
+
+Historically, we have also generated other versions of the images, including
+JDK8, Alpine, and 'slim' versions of the JDK. These legacy images still exist in
+Docker Hub, however they should be considered deprecated, and do not receive
+updates or fixes.
+
+If for some reason you need a different version, see "Building your own image"
+above.
+
 # Troubleshooting
 
 These images include built-in scripts to assist in performing common JVM diagnostic tasks.
