@@ -453,6 +453,11 @@ Note: All Jira Service Management 4.x versions are also available as `atlassian/
 All the Atlassian Docker images are now JDK11 only, and generated from the
 Debian-based [official AdoptOpenJDK Docker images](https://hub.docker.com/r/adoptopenjdk/openjdk11).
 
+The Docker images follow the [Atlassian Support end-of-life
+policy](https://confluence.atlassian.com/support/atlassian-support-end-of-life-policy-201851003.html);
+images for unsupported versions of the products remain available but will no longer
+receive updates or fixes.
+
 Historically, we have also generated other versions of the images, including
 JDK8, Alpine, and 'slim' versions of the JDK. These legacy images still exist in
 Docker Hub, however they should be considered deprecated, and do not receive
@@ -507,11 +512,6 @@ For product support, go to:
 * https://support.atlassian.com/jira-software-server/
 * https://support.atlassian.com/jira-service-management-server/
 * https://support.atlassian.com/jira-core-server/
-
-Note that these images are built on the [AdoptOpenJDK](https://adoptopenjdk.net/) images. Prior to Jira
-7.13 OpenJDK was not a supported platform (3.16 for Service Management). See [the 7.13
-release-notes](https://confluence.atlassian.com/jirasoftware/jira-software-release-notes-776821069.html)
-for more information.
 
 # Development and testing
 
