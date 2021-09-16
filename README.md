@@ -513,6 +513,10 @@ For product support, go to:
 * https://support.atlassian.com/jira-service-management-server/
 * https://support.atlassian.com/jira-core-server/
 
+You can also visit the [Atlassian Data Center on
+Kubernetes](https://confluence.atlassian.com/support/atlassian-support-end-of-life-policy-201851003.html)
+forum for discussion on running Atlassian Data Center products in containers.
+
 # Development and testing
 
 See [Development](DEVELOPMENT.md) for details on setting up a development
