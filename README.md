@@ -448,6 +448,24 @@ All Jira versions from 7.13+ (Software/Core) / 3.16+ (Service Management) are av
 
 Note: All Jira Service Management 4.x versions are also available as `atlassian/jira-servicedesk`. This namespace has been deprecated and versions from 5+ onwards will only be available as `atlassian/jira-servicemanagement`.
 
+# Supported JDK versions
+
+All the Atlassian Docker images are now JDK11 only, and generated from the
+[official AdoptOpenJDK Docker images](https://hub.docker.com/r/adoptopenjdk/openjdk11).
+
+The Docker images follow the [Atlassian Support end-of-life
+policy](https://confluence.atlassian.com/support/atlassian-support-end-of-life-policy-201851003.html);
+images for unsupported versions of the products remain available but will no longer
+receive updates or fixes.
+
+Historically, we have also generated other versions of the images, including
+JDK8, Alpine, and 'slim' versions of the JDK. These legacy images still exist in
+Docker Hub, however they should be considered deprecated, and do not receive
+updates or fixes.
+
+If for some reason you need a different version, see "Building your own image"
+above.
+
 # Troubleshooting
 
 These images include built-in scripts to assist in performing common JVM diagnostic tasks.
@@ -495,10 +513,9 @@ For product support, go to:
 * https://support.atlassian.com/jira-service-management-server/
 * https://support.atlassian.com/jira-core-server/
 
-Note that these images are built on the [AdoptOpenJDK](https://adoptopenjdk.net/) images. Prior to Jira
-7.13 OpenJDK was not a supported platform (3.16 for Service Management). See [the 7.13
-release-notes](https://confluence.atlassian.com/jirasoftware/jira-software-release-notes-776821069.html)
-for more information.
+You can also visit the [Atlassian Data Center on
+Kubernetes](https://community.atlassian.com/t5/Atlassian-Data-Center-on/gh-p/DC_Kubernetes)
+forum for discussion on running Atlassian Data Center products in containers.
 
 # Development and testing
 

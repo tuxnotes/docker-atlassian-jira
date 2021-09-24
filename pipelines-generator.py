@@ -13,62 +13,35 @@ SD_REPOS = ['atlassian/jira-servicemanagement', 'atlassian/jira-servicedesk']
 
 images = {
     'Jira Software': {
-        8: {
-            'mac_key': 'jira-software',
-            'artefact': 'atlassian-jira-software',
-            'start_version': '8.5',
-            'end_version': '9',
-            'default_release': True,
-            'tag_suffixes': ['jdk8', 'ubuntu-jdk8', 'ubuntu'],
-            'docker_repos': SOFTWARE_REPOS,
-        },
         11: {
             'mac_key': 'jira-software',
             'artefact': 'atlassian-jira-software',
             'start_version': '8.5',
             'end_version': '9',
-            'default_release': False,
+            'default_release': True,
             'tag_suffixes': ['jdk11', 'ubuntu-jdk11'],
             'base_image': 'adoptopenjdk:11-hotspot',
             'docker_repos': SOFTWARE_REPOS,
         }
     },
     'Jira Service Management': {
-        8: {
-            'mac_key': 'jira-servicedesk',
-            'artefact': 'atlassian-servicedesk',
-            'start_version': '4.5',
-            'end_version': '5',
-            'default_release': True,
-            'tag_suffixes': ['jdk8', 'ubuntu-jdk8', 'ubuntu'],
-            'docker_repos': SD_REPOS,
-        },
         11: {
             'mac_key': 'jira-servicedesk',
             'artefact': 'atlassian-servicedesk',
             'start_version': '4.5',
             'end_version': '5',
-            'default_release': False,
+            'default_release': True,
             'tag_suffixes': ['jdk11', 'ubuntu-jdk11'],
             'docker_repos': SD_REPOS,
         }
     },
     'Jira Core': {
-        8: {
-            'mac_key': 'jira',
-            'artefact': 'atlassian-jira-core',
-            'start_version': '8.5',
-            'end_version': '9',
-            'default_release': True,
-            'tag_suffixes': ['jdk8', 'ubuntu-jdk8', 'ubuntu'],
-            'docker_repos': CORE_REPOS,
-        },
         11: {
             'mac_key': 'jira',
             'artefact': 'atlassian-jira-core',
             'start_version': '8.5',
             'end_version': '9',
-            'default_release': False,
+            'default_release': True,
             'tag_suffixes': ['jdk11', 'ubuntu-jdk11'],
             'base_image': 'adoptopenjdk:11-hotspot',
             'docker_repos': CORE_REPOS,
