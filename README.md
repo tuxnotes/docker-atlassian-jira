@@ -204,9 +204,9 @@ database from the environment:
    the following default values are used if no schema name is specified:
 
    * `mssql`: `dbo`
-   * `mysql`: `public`
-   * `mysql57`: `public`
-   * `mysql8`: `public`
+   * `mysql`: NONE
+   * `mysql57`: NONE
+   * `mysql8`: NONE
    * `oracle10g`: NONE
    * `postgres72`: `public`
 
