@@ -112,9 +112,9 @@ def test_dbconfig_xml_defaults(docker_cli, image):
 def test_dbconfig_xml_default_schema_names(docker_cli, image, run_user, atl_db_type):
     default_schema_names = {
         'mssql': 'dbo',
-        'mysql': 'public',
-        'mysql57': 'public',
-        'mysql8': 'public',
+        'mysql': '',
+        'mysql57': '',
+        'mysql8': '',
         'oracle10g': '',
         'postgres72': 'public',
     }
