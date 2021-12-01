@@ -237,12 +237,16 @@ optional. For more information on these see: https://tomcat.apache.org/tomcat-7.
 * `ATL_DB_TESTONBORROW` (default: false)
 * `ATL_DB_TESTWHILEIDLE` (default: true)
 * `ATL_DB_TIMEBETWEENEVICTIONRUNSMILLIS` (default: 30000)
+* `ATL_DB_VALIDATIONQUERY` (default: select 1)
 
 The following settings only apply when using the Postgres driver:
 
 * `ATL_DB_KEEPALIVE` (default: true)
 * `ATL_DB_SOCKETTIMEOUT` (default: 240)
 
+The following settings only apply when using the MySQL driver:
+
+* `ATL_DB_VALIDATIONQUERYTIMEOUT` (default: 3)
 
 ## Data Center configuration
 

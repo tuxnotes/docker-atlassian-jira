@@ -77,7 +77,7 @@ def test_server_xml_params(docker_cli, image):
     assert context.get('path') == environment.get('ATL_TOMCAT_CONTEXTPATH')
 
 
-def test_dbconfig_xml_defaults(docker_cli, image):
+def test_dbconfig_xml_defaults_postgres(docker_cli, image):
     environment = {
         'ATL_DB_TYPE': 'postgres72',
         'ATL_DB_DRIVER': 'org.postgresql.Driver',
@@ -99,6 +99,39 @@ def test_dbconfig_xml_defaults(docker_cli, image):
 
     assert xml.findtext('.//pool-max-wait') == '30000'
     assert xml.findtext('.//validation-query') == 'select 1'
+    assert xml.findtext('.//validation-query-timeout') is None
+    assert xml.findtext('.//time-between-eviction-runs-millis') == '30000'
+    assert xml.findtext('.//min-evictable-idle-time-millis') == '5000'
+
+    assert xml.findtext('.//pool-remove-abandoned') == 'true'
+    assert xml.findtext('.//pool-remove-abandoned-timeout') == '300'
+    assert xml.findtext('.//pool-test-while-idle') == 'true'
+    assert xml.findtext('.//pool-test-on-borrow') == 'false'
+
+
+def test_dbconfig_xml_defaults_mysql(docker_cli, image):
+    environment = {
+        'ATL_DB_TYPE': 'mysql8',
+        'ATL_DB_DRIVER': 'com.mysql.jdbc.Driver',
+        'ATL_JDBC_URL': 'jdbc:mysql://mypostgres.mycompany.org:5432/jiradb',
+        'ATL_JDBC_USER': 'jiradbuser',
+        'ATL_JDBC_PASSWORD': 'jiradbpassword',
+    }
+    container = run_image(docker_cli, image, environment=environment)
+    _jvm = wait_for_proc(container, get_bootstrap_proc(container))
+
+    xml = parse_xml(container, f'{get_app_home(container)}/dbconfig.xml')
+
+    assert xml.findtext('.//connection-properties') is None
+
+    assert xml.findtext('.//pool-min-size') == '20'
+    assert xml.findtext('.//pool-max-size') == '100'
+    assert xml.findtext('.//pool-min-idle') == '10'
+    assert xml.findtext('.//pool-max-idle') == '20'
+
+    assert xml.findtext('.//pool-max-wait') == '30000'
+    assert xml.findtext('.//validation-query') == 'select 1'
+    assert xml.findtext('.//validation-query-timeout') == '3'
     assert xml.findtext('.//time-between-eviction-runs-millis') == '30000'
     assert xml.findtext('.//min-evictable-idle-time-millis') == '5000'
 
@@ -131,7 +164,7 @@ def test_dbconfig_xml_default_schema_names(docker_cli, image, run_user, atl_db_t
     assert xml.findtext('.//schema-name') == schema_name
 
 
-def test_dbconfig_xml_params(docker_cli, image, run_user):
+def test_dbconfig_xml_params_postgres(docker_cli, image, run_user):
     environment = {
         'ATL_DB_TYPE': 'postgres72',
         'ATL_DB_DRIVER': 'org.postgresql.Driver',
@@ -173,6 +206,59 @@ def test_dbconfig_xml_params(docker_cli, image, run_user):
     assert xml.findtext('.//pool-max-idle') == environment.get('ATL_DB_MAXIDLE')
     assert xml.findtext('.//pool-max-wait') == environment.get('ATL_DB_MAXWAITMILLIS')
     assert xml.findtext('.//validation-query') == environment.get('ATL_DB_VALIDATIONQUERY')
+    assert xml.findtext('.//validation-query-timeout') is None
+    assert xml.findtext('.//time-between-eviction-runs-millis') == environment.get('ATL_DB_TIMEBETWEENEVICTIONRUNSMILLIS')
+    assert xml.findtext('.//min-evictable-idle-time-millis') == environment.get('ATL_DB_MINEVICTABLEIDLETIMEMILLIS')
+    assert xml.findtext('.//pool-remove-abandoned') == environment.get('ATL_DB_REMOVEABANDONED')
+    assert xml.findtext('.//pool-remove-abandoned-timeout') == environment.get('ATL_DB_REMOVEABANDONEDTIMEOUT')
+    assert xml.findtext('.//pool-test-while-idle') == environment.get('ATL_DB_TESTWHILEIDLE')
+    assert xml.findtext('.//pool-test-on-borrow') == environment.get('ATL_DB_TESTONBORROW')
+
+
+def test_dbconfig_xml_params_mysql(docker_cli, image, run_user):
+    environment = {
+        'ATL_DB_TYPE': 'mysql8',
+        'ATL_DB_DRIVER': 'com.mysql.jdbc.Driver',
+        'ATL_JDBC_URL': 'jdbc:mysql://mypostgres.mycompany.org:5432/jiradb',
+        'ATL_JDBC_USER': 'jiradbuser',
+        'ATL_JDBC_PASSWORD': 'jiradbpassword',
+        'ATL_DB_SCHEMA_NAME': 'private',
+        'ATL_DB_KEEPALIVE': 'false',
+        'ATL_DB_SOCKETTIMEOUT': '999',
+        'ATL_DB_MAXIDLE': '21',
+        'ATL_DB_MAXWAITMILLIS': '30001',
+        'ATL_DB_MINEVICTABLEIDLETIMEMILLIS': '5001',
+        'ATL_DB_MINIDLE': '11',
+        'ATL_DB_POOLMAXSIZE': '101',
+        'ATL_DB_POOLMINSIZE': '21',
+        'ATL_DB_REMOVEABANDONED': 'false',
+        'ATL_DB_REMOVEABANDONEDTIMEOUT': '301',
+        'ATL_DB_TESTONBORROW': 'true',
+        'ATL_DB_TESTWHILEIDLE': 'false',
+        'ATL_DB_TIMEBETWEENEVICTIONRUNSMILLIS': '30001',
+        'ATL_DB_VALIDATIONQUERY': 'select 2',
+        'ATL_DB_VALIDATIONQUERYTIMEOUT': '99',
+    }
+    container = run_image(docker_cli, image, user=run_user, environment=environment)
+    _jvm = wait_for_proc(container, get_bootstrap_proc(container))
+
+    xml = parse_xml(container, f'{get_app_home(container)}/dbconfig.xml')
+
+    assert xml.findtext('.//database-type') == environment.get('ATL_DB_TYPE')
+    assert xml.findtext('.//driver-class') == environment.get('ATL_DB_DRIVER')
+    assert xml.findtext('.//url') == environment.get('ATL_JDBC_URL')
+    assert xml.findtext('.//username') == environment.get('ATL_JDBC_USER')
+    assert xml.findtext('.//password') == environment.get('ATL_JDBC_PASSWORD')
+    assert xml.findtext('.//schema-name') == environment.get('ATL_DB_SCHEMA_NAME')
+    assert xml.findtext('.//connection-properties') is None
+
+    assert xml.findtext('.//pool-min-size') == environment.get('ATL_DB_POOLMINSIZE')
+    assert xml.findtext('.//pool-max-size') == environment.get('ATL_DB_POOLMAXSIZE')
+    assert xml.findtext('.//pool-min-idle') == environment.get('ATL_DB_MINIDLE')
+    assert xml.findtext('.//pool-max-idle') == environment.get('ATL_DB_MAXIDLE')
+    assert xml.findtext('.//pool-max-wait') == environment.get('ATL_DB_MAXWAITMILLIS')
+    assert xml.findtext('.//validation-query') == environment.get('ATL_DB_VALIDATIONQUERY')
+    assert xml.findtext('.//validation-query-timeout') == environment.get('ATL_DB_VALIDATIONQUERYTIMEOUT')
     assert xml.findtext('.//time-between-eviction-runs-millis') == environment.get('ATL_DB_TIMEBETWEENEVICTIONRUNSMILLIS')
     assert xml.findtext('.//min-evictable-idle-time-millis') == environment.get('ATL_DB_MINEVICTABLEIDLETIMEMILLIS')
     assert xml.findtext('.//pool-remove-abandoned') == environment.get('ATL_DB_REMOVEABANDONED')

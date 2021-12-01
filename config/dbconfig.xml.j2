@@ -29,6 +29,9 @@
 
     <pool-max-wait>{{ atl_db_maxwaitmillis | default('30000') }}</pool-max-wait>
     <validation-query>{{ atl_db_validationquery | default('select 1') }}</validation-query>
+    {% if atl_db_type in ['mysql', 'mysql57', 'mysql8'] %}
+      <validation-query-timeout>{{ atl_db_validationquerytimeout | default('3') }}</validation-query-timeout>
+    {% endif %}
     <time-between-eviction-runs-millis>{{ atl_db_timebetweenevictionrunsmillis | default('30000') }}</time-between-eviction-runs-millis>
     <min-evictable-idle-time-millis>{{ atl_db_minevictableidletimemillis | default('5000') }}</min-evictable-idle-time-millis>
     <pool-remove-abandoned>{{ atl_db_removeabandoned | default('true') }}</pool-remove-abandoned>
