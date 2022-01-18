@@ -35,7 +35,6 @@ RUN groupadd --gid ${RUN_GID} ${RUN_GROUP} \
     && useradd --uid ${RUN_UID} --gid ${RUN_GID} --home-dir ${JIRA_HOME} --shell /bin/bash ${RUN_USER} \
     && echo PATH=$PATH > /etc/environment \
     && mkdir -p ${JIRA_INSTALL_DIR} \
-    && mkdir -p ${JIRA_INSTALL_DIR}/conf/Catalina/localhost \
     \
     && curl -Ls ${DOWNLOAD_URL} | tar -xz --strip-components=1 -C "${JIRA_INSTALL_DIR}" \
     \
@@ -44,6 +43,7 @@ RUN groupadd --gid ${RUN_GID} ${RUN_GROUP} \
     && chown -R ${RUN_USER}:${RUN_GROUP}            ${JIRA_INSTALL_DIR}/logs \
     && chown -R ${RUN_USER}:${RUN_GROUP}            ${JIRA_INSTALL_DIR}/temp \
     && chown -R ${RUN_USER}:${RUN_GROUP}            ${JIRA_INSTALL_DIR}/work \
+    && chown -R ${RUN_USER}:${RUN_GROUP}            ${JIRA_INSTALL_DIR}/conf \
     \
     && sed -i -e 's/^JVM_SUPPORT_RECOMMENDED_ARGS=""$/: \${JVM_SUPPORT_RECOMMENDED_ARGS:=""}/g' ${JIRA_INSTALL_DIR}/bin/setenv.sh \
     && sed -i -e 's/^JVM_\(.*\)_MEMORY="\(.*\)"$/: \${JVM_\1_MEMORY:=\2}/g' ${JIRA_INSTALL_DIR}/bin/setenv.sh \
