@@ -37,7 +37,7 @@ pipelines:
                 python /usr/src/app/make-releases.py \
                   --update \
                   --start-version='8.7' \
-                  --end-version='9' \
+                  --end-version='10' \
                   --default-release \
                   --dockerfile-buildargs='ARTEFACT_NAME=atlassian-jira-software,BASE_IMAGE=adoptopenjdk/openjdk11' \
                   --dockerfile-version-arg='JIRA_VERSION' \
@@ -61,7 +61,7 @@ pipelines:
                 python /usr/src/app/make-releases.py \
                   --update \
                   --start-version='8.7' \
-                  --end-version='9' \
+                  --end-version='10' \
                   --default-release \
                   --dockerfile-buildargs='ARTEFACT_NAME=atlassian-jira-software,BASE_IMAGE=adoptopenjdk/openjdk11' \
                   --dockerfile-version-arg='JIRA_VERSION' \
@@ -85,7 +85,7 @@ pipelines:
                 python /usr/src/app/make-releases.py \
                   --update \
                   --start-version='8.7' \
-                  --end-version='9' \
+                  --end-version='10' \
                   --default-release \
                   --dockerfile-buildargs='ARTEFACT_NAME=atlassian-jira-software,BASE_IMAGE=adoptopenjdk/openjdk11' \
                   --dockerfile-version-arg='JIRA_VERSION' \
@@ -109,7 +109,7 @@ pipelines:
                 python /usr/src/app/make-releases.py \
                   --update \
                   --start-version='8.7' \
-                  --end-version='9' \
+                  --end-version='10' \
                   --default-release \
                   --dockerfile-buildargs='ARTEFACT_NAME=atlassian-jira-software,BASE_IMAGE=adoptopenjdk/openjdk11' \
                   --dockerfile-version-arg='JIRA_VERSION' \
@@ -133,7 +133,7 @@ pipelines:
                 python /usr/src/app/make-releases.py \
                   --update \
                   --start-version='8.7' \
-                  --end-version='9' \
+                  --end-version='10' \
                   --default-release \
                   --dockerfile-buildargs='ARTEFACT_NAME=atlassian-jira-software,BASE_IMAGE=adoptopenjdk/openjdk11' \
                   --dockerfile-version-arg='JIRA_VERSION' \
@@ -157,7 +157,7 @@ pipelines:
                 python /usr/src/app/make-releases.py \
                   --update \
                   --start-version='8.7' \
-                  --end-version='9' \
+                  --end-version='10' \
                   --default-release \
                   --dockerfile-buildargs='ARTEFACT_NAME=atlassian-jira-software,BASE_IMAGE=adoptopenjdk/openjdk11' \
                   --dockerfile-version-arg='JIRA_VERSION' \
@@ -181,7 +181,7 @@ pipelines:
                 python /usr/src/app/make-releases.py \
                   --update \
                   --start-version='8.7' \
-                  --end-version='9' \
+                  --end-version='10' \
                   --default-release \
                   --dockerfile-buildargs='ARTEFACT_NAME=atlassian-jira-software,BASE_IMAGE=adoptopenjdk/openjdk11' \
                   --dockerfile-version-arg='JIRA_VERSION' \
@@ -205,7 +205,7 @@ pipelines:
                 python /usr/src/app/make-releases.py \
                   --update \
                   --start-version='8.7' \
-                  --end-version='9' \
+                  --end-version='10' \
                   --default-release \
                   --dockerfile-buildargs='ARTEFACT_NAME=atlassian-jira-software,BASE_IMAGE=adoptopenjdk/openjdk11' \
                   --dockerfile-version-arg='JIRA_VERSION' \
@@ -229,7 +229,7 @@ pipelines:
                 python /usr/src/app/make-releases.py \
                   --update \
                   --start-version='8.7' \
-                  --end-version='9' \
+                  --end-version='10' \
                   --default-release \
                   --dockerfile-buildargs='ARTEFACT_NAME=atlassian-jira-software,BASE_IMAGE=adoptopenjdk/openjdk11' \
                   --dockerfile-version-arg='JIRA_VERSION' \
@@ -253,7 +253,7 @@ pipelines:
                 python /usr/src/app/make-releases.py \
                   --update \
                   --start-version='8.7' \
-                  --end-version='9' \
+                  --end-version='10' \
                   --default-release \
                   --dockerfile-buildargs='ARTEFACT_NAME=atlassian-jira-software,BASE_IMAGE=adoptopenjdk/openjdk11' \
                   --dockerfile-version-arg='JIRA_VERSION' \
@@ -277,7 +277,7 @@ pipelines:
                 python /usr/src/app/make-releases.py \
                   --update \
                   --start-version='8.7' \
-                  --end-version='9' \
+                  --end-version='10' \
                   --default-release \
                   --dockerfile-buildargs='ARTEFACT_NAME=atlassian-jira-software,BASE_IMAGE=adoptopenjdk/openjdk11' \
                   --dockerfile-version-arg='JIRA_VERSION' \
@@ -301,7 +301,7 @@ pipelines:
                 python /usr/src/app/make-releases.py \
                   --update \
                   --start-version='8.7' \
-                  --end-version='9' \
+                  --end-version='10' \
                   --default-release \
                   --dockerfile-buildargs='ARTEFACT_NAME=atlassian-jira-software,BASE_IMAGE=adoptopenjdk/openjdk11' \
                   --dockerfile-version-arg='JIRA_VERSION' \
@@ -613,7 +613,7 @@ pipelines:
                 python /usr/src/app/make-releases.py \
                   --update \
                   --start-version='8.7' \
-                  --end-version='9' \
+                  --end-version='10' \
                   --default-release \
                   --dockerfile-buildargs='ARTEFACT_NAME=atlassian-jira-core,BASE_IMAGE=adoptopenjdk/openjdk11' \
                   --dockerfile-version-arg='JIRA_VERSION' \
@@ -637,7 +637,7 @@ pipelines:
                 python /usr/src/app/make-releases.py \
                   --update \
                   --start-version='8.7' \
-                  --end-version='9' \
+                  --end-version='10' \
                   --default-release \
                   --dockerfile-buildargs='ARTEFACT_NAME=atlassian-jira-core,BASE_IMAGE=adoptopenjdk/openjdk11' \
                   --dockerfile-version-arg='JIRA_VERSION' \
@@ -661,7 +661,7 @@ pipelines:
                 python /usr/src/app/make-releases.py \
                   --update \
                   --start-version='8.7' \
-                  --end-version='9' \
+                  --end-version='10' \
                   --default-release \
                   --dockerfile-buildargs='ARTEFACT_NAME=atlassian-jira-core,BASE_IMAGE=adoptopenjdk/openjdk11' \
                   --dockerfile-version-arg='JIRA_VERSION' \
@@ -685,7 +685,7 @@ pipelines:
                 python /usr/src/app/make-releases.py \
                   --update \
                   --start-version='8.7' \
-                  --end-version='9' \
+                  --end-version='10' \
                   --default-release \
                   --dockerfile-buildargs='ARTEFACT_NAME=atlassian-jira-core,BASE_IMAGE=adoptopenjdk/openjdk11' \
                   --dockerfile-version-arg='JIRA_VERSION' \
@@ -709,7 +709,7 @@ pipelines:
                 python /usr/src/app/make-releases.py \
                   --update \
                   --start-version='8.7' \
-                  --end-version='9' \
+                  --end-version='10' \
                   --default-release \
                   --dockerfile-buildargs='ARTEFACT_NAME=atlassian-jira-core,BASE_IMAGE=adoptopenjdk/openjdk11' \
                   --dockerfile-version-arg='JIRA_VERSION' \
@@ -733,7 +733,7 @@ pipelines:
                 python /usr/src/app/make-releases.py \
                   --update \
                   --start-version='8.7' \
-                  --end-version='9' \
+                  --end-version='10' \
                   --default-release \
                   --dockerfile-buildargs='ARTEFACT_NAME=atlassian-jira-core,BASE_IMAGE=adoptopenjdk/openjdk11' \
                   --dockerfile-version-arg='JIRA_VERSION' \
@@ -757,7 +757,7 @@ pipelines:
                 python /usr/src/app/make-releases.py \
                   --update \
                   --start-version='8.7' \
-                  --end-version='9' \
+                  --end-version='10' \
                   --default-release \
                   --dockerfile-buildargs='ARTEFACT_NAME=atlassian-jira-core,BASE_IMAGE=adoptopenjdk/openjdk11' \
                   --dockerfile-version-arg='JIRA_VERSION' \
@@ -781,7 +781,7 @@ pipelines:
                 python /usr/src/app/make-releases.py \
                   --update \
                   --start-version='8.7' \
-                  --end-version='9' \
+                  --end-version='10' \
                   --default-release \
                   --dockerfile-buildargs='ARTEFACT_NAME=atlassian-jira-core,BASE_IMAGE=adoptopenjdk/openjdk11' \
                   --dockerfile-version-arg='JIRA_VERSION' \
@@ -805,7 +805,7 @@ pipelines:
                 python /usr/src/app/make-releases.py \
                   --update \
                   --start-version='8.7' \
-                  --end-version='9' \
+                  --end-version='10' \
                   --default-release \
                   --dockerfile-buildargs='ARTEFACT_NAME=atlassian-jira-core,BASE_IMAGE=adoptopenjdk/openjdk11' \
                   --dockerfile-version-arg='JIRA_VERSION' \
@@ -829,7 +829,7 @@ pipelines:
                 python /usr/src/app/make-releases.py \
                   --update \
                   --start-version='8.7' \
-                  --end-version='9' \
+                  --end-version='10' \
                   --default-release \
                   --dockerfile-buildargs='ARTEFACT_NAME=atlassian-jira-core,BASE_IMAGE=adoptopenjdk/openjdk11' \
                   --dockerfile-version-arg='JIRA_VERSION' \
@@ -853,7 +853,7 @@ pipelines:
                 python /usr/src/app/make-releases.py \
                   --update \
                   --start-version='8.7' \
-                  --end-version='9' \
+                  --end-version='10' \
                   --default-release \
                   --dockerfile-buildargs='ARTEFACT_NAME=atlassian-jira-core,BASE_IMAGE=adoptopenjdk/openjdk11' \
                   --dockerfile-version-arg='JIRA_VERSION' \
@@ -877,7 +877,7 @@ pipelines:
                 python /usr/src/app/make-releases.py \
                   --update \
                   --start-version='8.7' \
-                  --end-version='9' \
+                  --end-version='10' \
                   --default-release \
                   --dockerfile-buildargs='ARTEFACT_NAME=atlassian-jira-core,BASE_IMAGE=adoptopenjdk/openjdk11' \
                   --dockerfile-version-arg='JIRA_VERSION' \
@@ -966,7 +966,7 @@ pipelines:
                 python /usr/src/app/make-releases.py \
                   --create --create-eap \
                   --start-version='8.7' \
-                  --end-version='9' \
+                  --end-version='10' \
                   --default-release \
                   --dockerfile-buildargs='ARTEFACT_NAME=atlassian-jira-software,BASE_IMAGE=adoptopenjdk/openjdk11' \
                   --dockerfile-version-arg='JIRA_VERSION' \
@@ -990,7 +990,7 @@ pipelines:
                 python /usr/src/app/make-releases.py \
                   --create --create-eap \
                   --start-version='8.7' \
-                  --end-version='9' \
+                  --end-version='10' \
                   --default-release \
                   --dockerfile-buildargs='ARTEFACT_NAME=atlassian-jira-software,BASE_IMAGE=adoptopenjdk/openjdk11' \
                   --dockerfile-version-arg='JIRA_VERSION' \
@@ -1014,7 +1014,7 @@ pipelines:
                 python /usr/src/app/make-releases.py \
                   --create --create-eap \
                   --start-version='8.7' \
-                  --end-version='9' \
+                  --end-version='10' \
                   --default-release \
                   --dockerfile-buildargs='ARTEFACT_NAME=atlassian-jira-software,BASE_IMAGE=adoptopenjdk/openjdk11' \
                   --dockerfile-version-arg='JIRA_VERSION' \
@@ -1038,7 +1038,7 @@ pipelines:
                 python /usr/src/app/make-releases.py \
                   --create --create-eap \
                   --start-version='8.7' \
-                  --end-version='9' \
+                  --end-version='10' \
                   --default-release \
                   --dockerfile-buildargs='ARTEFACT_NAME=atlassian-jira-software,BASE_IMAGE=adoptopenjdk/openjdk11' \
                   --dockerfile-version-arg='JIRA_VERSION' \
@@ -1062,7 +1062,7 @@ pipelines:
                 python /usr/src/app/make-releases.py \
                   --create --create-eap \
                   --start-version='8.7' \
-                  --end-version='9' \
+                  --end-version='10' \
                   --default-release \
                   --dockerfile-buildargs='ARTEFACT_NAME=atlassian-jira-software,BASE_IMAGE=adoptopenjdk/openjdk11' \
                   --dockerfile-version-arg='JIRA_VERSION' \
@@ -1086,7 +1086,7 @@ pipelines:
                 python /usr/src/app/make-releases.py \
                   --create --create-eap \
                   --start-version='8.7' \
-                  --end-version='9' \
+                  --end-version='10' \
                   --default-release \
                   --dockerfile-buildargs='ARTEFACT_NAME=atlassian-jira-software,BASE_IMAGE=adoptopenjdk/openjdk11' \
                   --dockerfile-version-arg='JIRA_VERSION' \
@@ -1110,7 +1110,7 @@ pipelines:
                 python /usr/src/app/make-releases.py \
                   --create --create-eap \
                   --start-version='8.7' \
-                  --end-version='9' \
+                  --end-version='10' \
                   --default-release \
                   --dockerfile-buildargs='ARTEFACT_NAME=atlassian-jira-software,BASE_IMAGE=adoptopenjdk/openjdk11' \
                   --dockerfile-version-arg='JIRA_VERSION' \
@@ -1134,7 +1134,7 @@ pipelines:
                 python /usr/src/app/make-releases.py \
                   --create --create-eap \
                   --start-version='8.7' \
-                  --end-version='9' \
+                  --end-version='10' \
                   --default-release \
                   --dockerfile-buildargs='ARTEFACT_NAME=atlassian-jira-software,BASE_IMAGE=adoptopenjdk/openjdk11' \
                   --dockerfile-version-arg='JIRA_VERSION' \
@@ -1158,7 +1158,7 @@ pipelines:
                 python /usr/src/app/make-releases.py \
                   --create --create-eap \
                   --start-version='8.7' \
-                  --end-version='9' \
+                  --end-version='10' \
                   --default-release \
                   --dockerfile-buildargs='ARTEFACT_NAME=atlassian-jira-software,BASE_IMAGE=adoptopenjdk/openjdk11' \
                   --dockerfile-version-arg='JIRA_VERSION' \
@@ -1182,7 +1182,7 @@ pipelines:
                 python /usr/src/app/make-releases.py \
                   --create --create-eap \
                   --start-version='8.7' \
-                  --end-version='9' \
+                  --end-version='10' \
                   --default-release \
                   --dockerfile-buildargs='ARTEFACT_NAME=atlassian-jira-software,BASE_IMAGE=adoptopenjdk/openjdk11' \
                   --dockerfile-version-arg='JIRA_VERSION' \
@@ -1206,7 +1206,7 @@ pipelines:
                 python /usr/src/app/make-releases.py \
                   --create --create-eap \
                   --start-version='8.7' \
-                  --end-version='9' \
+                  --end-version='10' \
                   --default-release \
                   --dockerfile-buildargs='ARTEFACT_NAME=atlassian-jira-software,BASE_IMAGE=adoptopenjdk/openjdk11' \
                   --dockerfile-version-arg='JIRA_VERSION' \
@@ -1230,7 +1230,7 @@ pipelines:
                 python /usr/src/app/make-releases.py \
                   --create --create-eap \
                   --start-version='8.7' \
-                  --end-version='9' \
+                  --end-version='10' \
                   --default-release \
                   --dockerfile-buildargs='ARTEFACT_NAME=atlassian-jira-software,BASE_IMAGE=adoptopenjdk/openjdk11' \
                   --dockerfile-version-arg='JIRA_VERSION' \
@@ -1542,7 +1542,7 @@ pipelines:
                 python /usr/src/app/make-releases.py \
                   --create --create-eap \
                   --start-version='8.7' \
-                  --end-version='9' \
+                  --end-version='10' \
                   --default-release \
                   --dockerfile-buildargs='ARTEFACT_NAME=atlassian-jira-core,BASE_IMAGE=adoptopenjdk/openjdk11' \
                   --dockerfile-version-arg='JIRA_VERSION' \
@@ -1566,7 +1566,7 @@ pipelines:
                 python /usr/src/app/make-releases.py \
                   --create --create-eap \
                   --start-version='8.7' \
-                  --end-version='9' \
+                  --end-version='10' \
                   --default-release \
                   --dockerfile-buildargs='ARTEFACT_NAME=atlassian-jira-core,BASE_IMAGE=adoptopenjdk/openjdk11' \
                   --dockerfile-version-arg='JIRA_VERSION' \
@@ -1590,7 +1590,7 @@ pipelines:
                 python /usr/src/app/make-releases.py \
                   --create --create-eap \
                   --start-version='8.7' \
-                  --end-version='9' \
+                  --end-version='10' \
                   --default-release \
                   --dockerfile-buildargs='ARTEFACT_NAME=atlassian-jira-core,BASE_IMAGE=adoptopenjdk/openjdk11' \
                   --dockerfile-version-arg='JIRA_VERSION' \
@@ -1614,7 +1614,7 @@ pipelines:
                 python /usr/src/app/make-releases.py \
                   --create --create-eap \
                   --start-version='8.7' \
-                  --end-version='9' \
+                  --end-version='10' \
                   --default-release \
                   --dockerfile-buildargs='ARTEFACT_NAME=atlassian-jira-core,BASE_IMAGE=adoptopenjdk/openjdk11' \
                   --dockerfile-version-arg='JIRA_VERSION' \
@@ -1638,7 +1638,7 @@ pipelines:
                 python /usr/src/app/make-releases.py \
                   --create --create-eap \
                   --start-version='8.7' \
-                  --end-version='9' \
+                  --end-version='10' \
                   --default-release \
                   --dockerfile-buildargs='ARTEFACT_NAME=atlassian-jira-core,BASE_IMAGE=adoptopenjdk/openjdk11' \
                   --dockerfile-version-arg='JIRA_VERSION' \
@@ -1662,7 +1662,7 @@ pipelines:
                 python /usr/src/app/make-releases.py \
                   --create --create-eap \
                   --start-version='8.7' \
-                  --end-version='9' \
+                  --end-version='10' \
                   --default-release \
                   --dockerfile-buildargs='ARTEFACT_NAME=atlassian-jira-core,BASE_IMAGE=adoptopenjdk/openjdk11' \
                   --dockerfile-version-arg='JIRA_VERSION' \
@@ -1686,7 +1686,7 @@ pipelines:
                 python /usr/src/app/make-releases.py \
                   --create --create-eap \
                   --start-version='8.7' \
-                  --end-version='9' \
+                  --end-version='10' \
                   --default-release \
                   --dockerfile-buildargs='ARTEFACT_NAME=atlassian-jira-core,BASE_IMAGE=adoptopenjdk/openjdk11' \
                   --dockerfile-version-arg='JIRA_VERSION' \
@@ -1710,7 +1710,7 @@ pipelines:
                 python /usr/src/app/make-releases.py \
                   --create --create-eap \
                   --start-version='8.7' \
-                  --end-version='9' \
+                  --end-version='10' \
                   --default-release \
                   --dockerfile-buildargs='ARTEFACT_NAME=atlassian-jira-core,BASE_IMAGE=adoptopenjdk/openjdk11' \
                   --dockerfile-version-arg='JIRA_VERSION' \
@@ -1734,7 +1734,7 @@ pipelines:
                 python /usr/src/app/make-releases.py \
                   --create --create-eap \
                   --start-version='8.7' \
-                  --end-version='9' \
+                  --end-version='10' \
                   --default-release \
                   --dockerfile-buildargs='ARTEFACT_NAME=atlassian-jira-core,BASE_IMAGE=adoptopenjdk/openjdk11' \
                   --dockerfile-version-arg='JIRA_VERSION' \
@@ -1758,7 +1758,7 @@ pipelines:
                 python /usr/src/app/make-releases.py \
                   --create --create-eap \
                   --start-version='8.7' \
-                  --end-version='9' \
+                  --end-version='10' \
                   --default-release \
                   --dockerfile-buildargs='ARTEFACT_NAME=atlassian-jira-core,BASE_IMAGE=adoptopenjdk/openjdk11' \
                   --dockerfile-version-arg='JIRA_VERSION' \
@@ -1782,7 +1782,7 @@ pipelines:
                 python /usr/src/app/make-releases.py \
                   --create --create-eap \
                   --start-version='8.7' \
-                  --end-version='9' \
+                  --end-version='10' \
                   --default-release \
                   --dockerfile-buildargs='ARTEFACT_NAME=atlassian-jira-core,BASE_IMAGE=adoptopenjdk/openjdk11' \
                   --dockerfile-version-arg='JIRA_VERSION' \
@@ -1806,7 +1806,7 @@ pipelines:
                 python /usr/src/app/make-releases.py \
                   --create --create-eap \
                   --start-version='8.7' \
-                  --end-version='9' \
+                  --end-version='10' \
                   --default-release \
                   --dockerfile-buildargs='ARTEFACT_NAME=atlassian-jira-core,BASE_IMAGE=adoptopenjdk/openjdk11' \
                   --dockerfile-version-arg='JIRA_VERSION' \
