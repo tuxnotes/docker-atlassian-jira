@@ -28,7 +28,7 @@ images = {
         11: {
             'mac_key': 'jira-servicedesk',
             'artefact': 'atlassian-servicedesk',
-            'start_version': '4.9',
+            'start_version': '4.8',
             'end_version': '5',
             'default_release': True,
             'tag_suffixes': ['jdk11', 'ubuntu-jdk11'],

@@ -324,7 +324,7 @@ pipelines:
               - >
                 python /usr/src/app/make-releases.py \
                   --update \
-                  --start-version='4.9' \
+                  --start-version='4.8' \
                   --end-version='5' \
                   --default-release \
                   --dockerfile-buildargs='ARTEFACT_NAME=atlassian-servicedesk,BASE_IMAGE=adoptopenjdk/openjdk11' \
@@ -348,7 +348,7 @@ pipelines:
               - >
                 python /usr/src/app/make-releases.py \
                   --update \
-                  --start-version='4.9' \
+                  --start-version='4.8' \
                   --end-version='5' \
                   --default-release \
                   --dockerfile-buildargs='ARTEFACT_NAME=atlassian-servicedesk,BASE_IMAGE=adoptopenjdk/openjdk11' \
@@ -372,7 +372,7 @@ pipelines:
               - >
                 python /usr/src/app/make-releases.py \
                   --update \
-                  --start-version='4.9' \
+                  --start-version='4.8' \
                   --end-version='5' \
                   --default-release \
                   --dockerfile-buildargs='ARTEFACT_NAME=atlassian-servicedesk,BASE_IMAGE=adoptopenjdk/openjdk11' \
@@ -396,7 +396,7 @@ pipelines:
               - >
                 python /usr/src/app/make-releases.py \
                   --update \
-                  --start-version='4.9' \
+                  --start-version='4.8' \
                   --end-version='5' \
                   --default-release \
                   --dockerfile-buildargs='ARTEFACT_NAME=atlassian-servicedesk,BASE_IMAGE=adoptopenjdk/openjdk11' \
@@ -420,7 +420,7 @@ pipelines:
               - >
                 python /usr/src/app/make-releases.py \
                   --update \
-                  --start-version='4.9' \
+                  --start-version='4.8' \
                   --end-version='5' \
                   --default-release \
                   --dockerfile-buildargs='ARTEFACT_NAME=atlassian-servicedesk,BASE_IMAGE=adoptopenjdk/openjdk11' \
@@ -444,7 +444,7 @@ pipelines:
               - >
                 python /usr/src/app/make-releases.py \
                   --update \
-                  --start-version='4.9' \
+                  --start-version='4.8' \
                   --end-version='5' \
                   --default-release \
                   --dockerfile-buildargs='ARTEFACT_NAME=atlassian-servicedesk,BASE_IMAGE=adoptopenjdk/openjdk11' \
@@ -468,7 +468,7 @@ pipelines:
               - >
                 python /usr/src/app/make-releases.py \
                   --update \
-                  --start-version='4.9' \
+                  --start-version='4.8' \
                   --end-version='5' \
                   --default-release \
                   --dockerfile-buildargs='ARTEFACT_NAME=atlassian-servicedesk,BASE_IMAGE=adoptopenjdk/openjdk11' \
@@ -492,7 +492,7 @@ pipelines:
               - >
                 python /usr/src/app/make-releases.py \
                   --update \
-                  --start-version='4.9' \
+                  --start-version='4.8' \
                   --end-version='5' \
                   --default-release \
                   --dockerfile-buildargs='ARTEFACT_NAME=atlassian-servicedesk,BASE_IMAGE=adoptopenjdk/openjdk11' \
@@ -516,7 +516,7 @@ pipelines:
               - >
                 python /usr/src/app/make-releases.py \
                   --update \
-                  --start-version='4.9' \
+                  --start-version='4.8' \
                   --end-version='5' \
                   --default-release \
                   --dockerfile-buildargs='ARTEFACT_NAME=atlassian-servicedesk,BASE_IMAGE=adoptopenjdk/openjdk11' \
@@ -540,7 +540,7 @@ pipelines:
               - >
                 python /usr/src/app/make-releases.py \
                   --update \
-                  --start-version='4.9' \
+                  --start-version='4.8' \
                   --end-version='5' \
                   --default-release \
                   --dockerfile-buildargs='ARTEFACT_NAME=atlassian-servicedesk,BASE_IMAGE=adoptopenjdk/openjdk11' \
@@ -564,7 +564,7 @@ pipelines:
               - >
                 python /usr/src/app/make-releases.py \
                   --update \
-                  --start-version='4.9' \
+                  --start-version='4.8' \
                   --end-version='5' \
                   --default-release \
                   --dockerfile-buildargs='ARTEFACT_NAME=atlassian-servicedesk,BASE_IMAGE=adoptopenjdk/openjdk11' \
@@ -588,7 +588,7 @@ pipelines:
               - >
                 python /usr/src/app/make-releases.py \
                   --update \
-                  --start-version='4.9' \
+                  --start-version='4.8' \
                   --end-version='5' \
                   --default-release \
                   --dockerfile-buildargs='ARTEFACT_NAME=atlassian-servicedesk,BASE_IMAGE=adoptopenjdk/openjdk11' \
@@ -1253,7 +1253,7 @@ pipelines:
               - >
                 python /usr/src/app/make-releases.py \
                   --create --create-eap \
-                  --start-version='4.9' \
+                  --start-version='4.8' \
                   --end-version='5' \
                   --default-release \
                   --dockerfile-buildargs='ARTEFACT_NAME=atlassian-servicedesk,BASE_IMAGE=adoptopenjdk/openjdk11' \
@@ -1277,7 +1277,7 @@ pipelines:
               - >
                 python /usr/src/app/make-releases.py \
                   --create --create-eap \
-                  --start-version='4.9' \
+                  --start-version='4.8' \
                   --end-version='5' \
                   --default-release \
                   --dockerfile-buildargs='ARTEFACT_NAME=atlassian-servicedesk,BASE_IMAGE=adoptopenjdk/openjdk11' \
@@ -1301,7 +1301,7 @@ pipelines:
               - >
                 python /usr/src/app/make-releases.py \
                   --create --create-eap \
-                  --start-version='4.9' \
+                  --start-version='4.8' \
                   --end-version='5' \
                   --default-release \
                   --dockerfile-buildargs='ARTEFACT_NAME=atlassian-servicedesk,BASE_IMAGE=adoptopenjdk/openjdk11' \
@@ -1325,7 +1325,7 @@ pipelines:
               - >
                 python /usr/src/app/make-releases.py \
                   --create --create-eap \
-                  --start-version='4.9' \
+                  --start-version='4.8' \
                   --end-version='5' \
                   --default-release \
                   --dockerfile-buildargs='ARTEFACT_NAME=atlassian-servicedesk,BASE_IMAGE=adoptopenjdk/openjdk11' \
@@ -1349,7 +1349,7 @@ pipelines:
               - >
                 python /usr/src/app/make-releases.py \
                   --create --create-eap \
-                  --start-version='4.9' \
+                  --start-version='4.8' \
                   --end-version='5' \
                   --default-release \
                   --dockerfile-buildargs='ARTEFACT_NAME=atlassian-servicedesk,BASE_IMAGE=adoptopenjdk/openjdk11' \
@@ -1373,7 +1373,7 @@ pipelines:
               - >
                 python /usr/src/app/make-releases.py \
                   --create --create-eap \
-                  --start-version='4.9' \
+                  --start-version='4.8' \
                   --end-version='5' \
                   --default-release \
                   --dockerfile-buildargs='ARTEFACT_NAME=atlassian-servicedesk,BASE_IMAGE=adoptopenjdk/openjdk11' \
@@ -1397,7 +1397,7 @@ pipelines:
               - >
                 python /usr/src/app/make-releases.py \
                   --create --create-eap \
-                  --start-version='4.9' \
+                  --start-version='4.8' \
                   --end-version='5' \
                   --default-release \
                   --dockerfile-buildargs='ARTEFACT_NAME=atlassian-servicedesk,BASE_IMAGE=adoptopenjdk/openjdk11' \
@@ -1421,7 +1421,7 @@ pipelines:
               - >
                 python /usr/src/app/make-releases.py \
                   --create --create-eap \
-                  --start-version='4.9' \
+                  --start-version='4.8' \
                   --end-version='5' \
                   --default-release \
                   --dockerfile-buildargs='ARTEFACT_NAME=atlassian-servicedesk,BASE_IMAGE=adoptopenjdk/openjdk11' \
@@ -1445,7 +1445,7 @@ pipelines:
               - >
                 python /usr/src/app/make-releases.py \
                   --create --create-eap \
-                  --start-version='4.9' \
+                  --start-version='4.8' \
                   --end-version='5' \
                   --default-release \
                   --dockerfile-buildargs='ARTEFACT_NAME=atlassian-servicedesk,BASE_IMAGE=adoptopenjdk/openjdk11' \
@@ -1469,7 +1469,7 @@ pipelines:
               - >
                 python /usr/src/app/make-releases.py \
                   --create --create-eap \
-                  --start-version='4.9' \
+                  --start-version='4.8' \
                   --end-version='5' \
                   --default-release \
                   --dockerfile-buildargs='ARTEFACT_NAME=atlassian-servicedesk,BASE_IMAGE=adoptopenjdk/openjdk11' \
@@ -1493,7 +1493,7 @@ pipelines:
               - >
                 python /usr/src/app/make-releases.py \
                   --create --create-eap \
-                  --start-version='4.9' \
+                  --start-version='4.8' \
                   --end-version='5' \
                   --default-release \
                   --dockerfile-buildargs='ARTEFACT_NAME=atlassian-servicedesk,BASE_IMAGE=adoptopenjdk/openjdk11' \
@@ -1517,7 +1517,7 @@ pipelines:
               - >
                 python /usr/src/app/make-releases.py \
                   --create --create-eap \
-                  --start-version='4.9' \
+                  --start-version='4.8' \
                   --end-version='5' \
                   --default-release \
                   --dockerfile-buildargs='ARTEFACT_NAME=atlassian-servicedesk,BASE_IMAGE=adoptopenjdk/openjdk11' \
