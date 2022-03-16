@@ -58,21 +58,6 @@ pipelines:
   {% endfor %}
 {% endfor %}
 
-      - step:
-          name: Update README
-          script:
-            - apk add --no-cache git
-            - git submodule update --init --recursive
-            - pip install -q requests
-            - export DOCKER_REPO='atlassian/jira-software'
-            - python shared-components/image/push-readme.py
-            - export DOCKER_REPO='atlassian/jira-servicemanagement'
-            - python shared-components/image/push-readme.py
-            - export DOCKER_REPO='atlassian/jira-servicedesk'
-            - python shared-components/image/push-readme.py
-            - export DOCKER_REPO='atlassian/jira-core'
-            - python shared-components/image/push-readme.py
-
     ######################################################################
     # All other branches & PRs; run unit tests & functional tests
     # against latest app version
