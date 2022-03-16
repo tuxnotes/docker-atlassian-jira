@@ -45,7 +45,7 @@ pipelines:
                   --tag-suffixes='jdk11,ubuntu-jdk11' \
                   --concurrent-builds='1' \
                   --job-offset='0' \
-                  --jobs-total='12' \
+                  --jobs-total='8' \
                   --docker-repos='atlassian/jira-software' \
                   --push
  
@@ -69,7 +69,7 @@ pipelines:
                   --tag-suffixes='jdk11,ubuntu-jdk11' \
                   --concurrent-builds='1' \
                   --job-offset='1' \
-                  --jobs-total='12' \
+                  --jobs-total='8' \
                   --docker-repos='atlassian/jira-software' \
                   --push
  
@@ -93,7 +93,7 @@ pipelines:
                   --tag-suffixes='jdk11,ubuntu-jdk11' \
                   --concurrent-builds='1' \
                   --job-offset='2' \
-                  --jobs-total='12' \
+                  --jobs-total='8' \
                   --docker-repos='atlassian/jira-software' \
                   --push
  
@@ -117,7 +117,7 @@ pipelines:
                   --tag-suffixes='jdk11,ubuntu-jdk11' \
                   --concurrent-builds='1' \
                   --job-offset='3' \
-                  --jobs-total='12' \
+                  --jobs-total='8' \
                   --docker-repos='atlassian/jira-software' \
                   --push
  
@@ -141,7 +141,7 @@ pipelines:
                   --tag-suffixes='jdk11,ubuntu-jdk11' \
                   --concurrent-builds='1' \
                   --job-offset='4' \
-                  --jobs-total='12' \
+                  --jobs-total='8' \
                   --docker-repos='atlassian/jira-software' \
                   --push
  
@@ -165,7 +165,7 @@ pipelines:
                   --tag-suffixes='jdk11,ubuntu-jdk11' \
                   --concurrent-builds='1' \
                   --job-offset='5' \
-                  --jobs-total='12' \
+                  --jobs-total='8' \
                   --docker-repos='atlassian/jira-software' \
                   --push
  
@@ -189,7 +189,7 @@ pipelines:
                   --tag-suffixes='jdk11,ubuntu-jdk11' \
                   --concurrent-builds='1' \
                   --job-offset='6' \
-                  --jobs-total='12' \
+                  --jobs-total='8' \
                   --docker-repos='atlassian/jira-software' \
                   --push
  
@@ -213,103 +213,7 @@ pipelines:
                   --tag-suffixes='jdk11,ubuntu-jdk11' \
                   --concurrent-builds='1' \
                   --job-offset='7' \
-                  --jobs-total='12' \
-                  --docker-repos='atlassian/jira-software' \
-                  --push
- 
-
-        - step:
-            name: Jira Software JDK 11 - Batch 9
-            services:
-              - docker
-            script:
-              - git submodule update --init --recursive
-              - echo ${DOCKER_BOT_PASSWORD} | docker login ${DOCKER_REGISTRY} --username ${DOCKER_BOT_USERNAME} --password-stdin
-              - >
-                python /usr/src/app/make-releases.py \
-                  --update \
-                  --start-version='8.8' \
-                  --end-version='10' \
-                  --default-release \
-                  --dockerfile-buildargs='ARTEFACT_NAME=atlassian-jira-software,BASE_IMAGE=adoptopenjdk/openjdk11' \
-                  --dockerfile-version-arg='JIRA_VERSION' \
-                  --mac-product-key='jira-software' \
-                  --tag-suffixes='jdk11,ubuntu-jdk11' \
-                  --concurrent-builds='1' \
-                  --job-offset='8' \
-                  --jobs-total='12' \
-                  --docker-repos='atlassian/jira-software' \
-                  --push
- 
-
-        - step:
-            name: Jira Software JDK 11 - Batch 10
-            services:
-              - docker
-            script:
-              - git submodule update --init --recursive
-              - echo ${DOCKER_BOT_PASSWORD} | docker login ${DOCKER_REGISTRY} --username ${DOCKER_BOT_USERNAME} --password-stdin
-              - >
-                python /usr/src/app/make-releases.py \
-                  --update \
-                  --start-version='8.8' \
-                  --end-version='10' \
-                  --default-release \
-                  --dockerfile-buildargs='ARTEFACT_NAME=atlassian-jira-software,BASE_IMAGE=adoptopenjdk/openjdk11' \
-                  --dockerfile-version-arg='JIRA_VERSION' \
-                  --mac-product-key='jira-software' \
-                  --tag-suffixes='jdk11,ubuntu-jdk11' \
-                  --concurrent-builds='1' \
-                  --job-offset='9' \
-                  --jobs-total='12' \
-                  --docker-repos='atlassian/jira-software' \
-                  --push
- 
-
-        - step:
-            name: Jira Software JDK 11 - Batch 11
-            services:
-              - docker
-            script:
-              - git submodule update --init --recursive
-              - echo ${DOCKER_BOT_PASSWORD} | docker login ${DOCKER_REGISTRY} --username ${DOCKER_BOT_USERNAME} --password-stdin
-              - >
-                python /usr/src/app/make-releases.py \
-                  --update \
-                  --start-version='8.8' \
-                  --end-version='10' \
-                  --default-release \
-                  --dockerfile-buildargs='ARTEFACT_NAME=atlassian-jira-software,BASE_IMAGE=adoptopenjdk/openjdk11' \
-                  --dockerfile-version-arg='JIRA_VERSION' \
-                  --mac-product-key='jira-software' \
-                  --tag-suffixes='jdk11,ubuntu-jdk11' \
-                  --concurrent-builds='1' \
-                  --job-offset='10' \
-                  --jobs-total='12' \
-                  --docker-repos='atlassian/jira-software' \
-                  --push
- 
-
-        - step:
-            name: Jira Software JDK 11 - Batch 12
-            services:
-              - docker
-            script:
-              - git submodule update --init --recursive
-              - echo ${DOCKER_BOT_PASSWORD} | docker login ${DOCKER_REGISTRY} --username ${DOCKER_BOT_USERNAME} --password-stdin
-              - >
-                python /usr/src/app/make-releases.py \
-                  --update \
-                  --start-version='8.8' \
-                  --end-version='10' \
-                  --default-release \
-                  --dockerfile-buildargs='ARTEFACT_NAME=atlassian-jira-software,BASE_IMAGE=adoptopenjdk/openjdk11' \
-                  --dockerfile-version-arg='JIRA_VERSION' \
-                  --mac-product-key='jira-software' \
-                  --tag-suffixes='jdk11,ubuntu-jdk11' \
-                  --concurrent-builds='1' \
-                  --job-offset='11' \
-                  --jobs-total='12' \
+                  --jobs-total='8' \
                   --docker-repos='atlassian/jira-software' \
                   --push
  
@@ -333,7 +237,7 @@ pipelines:
                   --tag-suffixes='jdk11,ubuntu-jdk11' \
                   --concurrent-builds='1' \
                   --job-offset='0' \
-                  --jobs-total='12' \
+                  --jobs-total='8' \
                   --docker-repos='atlassian/jira-servicemanagement,atlassian/jira-servicedesk' \
                   --push
  
@@ -357,7 +261,7 @@ pipelines:
                   --tag-suffixes='jdk11,ubuntu-jdk11' \
                   --concurrent-builds='1' \
                   --job-offset='1' \
-                  --jobs-total='12' \
+                  --jobs-total='8' \
                   --docker-repos='atlassian/jira-servicemanagement,atlassian/jira-servicedesk' \
                   --push
  
@@ -381,7 +285,7 @@ pipelines:
                   --tag-suffixes='jdk11,ubuntu-jdk11' \
                   --concurrent-builds='1' \
                   --job-offset='2' \
-                  --jobs-total='12' \
+                  --jobs-total='8' \
                   --docker-repos='atlassian/jira-servicemanagement,atlassian/jira-servicedesk' \
                   --push
  
@@ -405,7 +309,7 @@ pipelines:
                   --tag-suffixes='jdk11,ubuntu-jdk11' \
                   --concurrent-builds='1' \
                   --job-offset='3' \
-                  --jobs-total='12' \
+                  --jobs-total='8' \
                   --docker-repos='atlassian/jira-servicemanagement,atlassian/jira-servicedesk' \
                   --push
  
@@ -429,7 +333,7 @@ pipelines:
                   --tag-suffixes='jdk11,ubuntu-jdk11' \
                   --concurrent-builds='1' \
                   --job-offset='4' \
-                  --jobs-total='12' \
+                  --jobs-total='8' \
                   --docker-repos='atlassian/jira-servicemanagement,atlassian/jira-servicedesk' \
                   --push
  
@@ -453,7 +357,7 @@ pipelines:
                   --tag-suffixes='jdk11,ubuntu-jdk11' \
                   --concurrent-builds='1' \
                   --job-offset='5' \
-                  --jobs-total='12' \
+                  --jobs-total='8' \
                   --docker-repos='atlassian/jira-servicemanagement,atlassian/jira-servicedesk' \
                   --push
  
@@ -477,7 +381,7 @@ pipelines:
                   --tag-suffixes='jdk11,ubuntu-jdk11' \
                   --concurrent-builds='1' \
                   --job-offset='6' \
-                  --jobs-total='12' \
+                  --jobs-total='8' \
                   --docker-repos='atlassian/jira-servicemanagement,atlassian/jira-servicedesk' \
                   --push
  
@@ -501,103 +405,7 @@ pipelines:
                   --tag-suffixes='jdk11,ubuntu-jdk11' \
                   --concurrent-builds='1' \
                   --job-offset='7' \
-                  --jobs-total='12' \
-                  --docker-repos='atlassian/jira-servicemanagement,atlassian/jira-servicedesk' \
-                  --push
- 
-
-        - step:
-            name: Jira Service Management JDK 11 - Batch 9
-            services:
-              - docker
-            script:
-              - git submodule update --init --recursive
-              - echo ${DOCKER_BOT_PASSWORD} | docker login ${DOCKER_REGISTRY} --username ${DOCKER_BOT_USERNAME} --password-stdin
-              - >
-                python /usr/src/app/make-releases.py \
-                  --update \
-                  --start-version='4.8' \
-                  --end-version='5' \
-                  --default-release \
-                  --dockerfile-buildargs='ARTEFACT_NAME=atlassian-servicedesk,BASE_IMAGE=adoptopenjdk/openjdk11' \
-                  --dockerfile-version-arg='JIRA_VERSION' \
-                  --mac-product-key='jira-servicedesk' \
-                  --tag-suffixes='jdk11,ubuntu-jdk11' \
-                  --concurrent-builds='1' \
-                  --job-offset='8' \
-                  --jobs-total='12' \
-                  --docker-repos='atlassian/jira-servicemanagement,atlassian/jira-servicedesk' \
-                  --push
- 
-
-        - step:
-            name: Jira Service Management JDK 11 - Batch 10
-            services:
-              - docker
-            script:
-              - git submodule update --init --recursive
-              - echo ${DOCKER_BOT_PASSWORD} | docker login ${DOCKER_REGISTRY} --username ${DOCKER_BOT_USERNAME} --password-stdin
-              - >
-                python /usr/src/app/make-releases.py \
-                  --update \
-                  --start-version='4.8' \
-                  --end-version='5' \
-                  --default-release \
-                  --dockerfile-buildargs='ARTEFACT_NAME=atlassian-servicedesk,BASE_IMAGE=adoptopenjdk/openjdk11' \
-                  --dockerfile-version-arg='JIRA_VERSION' \
-                  --mac-product-key='jira-servicedesk' \
-                  --tag-suffixes='jdk11,ubuntu-jdk11' \
-                  --concurrent-builds='1' \
-                  --job-offset='9' \
-                  --jobs-total='12' \
-                  --docker-repos='atlassian/jira-servicemanagement,atlassian/jira-servicedesk' \
-                  --push
- 
-
-        - step:
-            name: Jira Service Management JDK 11 - Batch 11
-            services:
-              - docker
-            script:
-              - git submodule update --init --recursive
-              - echo ${DOCKER_BOT_PASSWORD} | docker login ${DOCKER_REGISTRY} --username ${DOCKER_BOT_USERNAME} --password-stdin
-              - >
-                python /usr/src/app/make-releases.py \
-                  --update \
-                  --start-version='4.8' \
-                  --end-version='5' \
-                  --default-release \
-                  --dockerfile-buildargs='ARTEFACT_NAME=atlassian-servicedesk,BASE_IMAGE=adoptopenjdk/openjdk11' \
-                  --dockerfile-version-arg='JIRA_VERSION' \
-                  --mac-product-key='jira-servicedesk' \
-                  --tag-suffixes='jdk11,ubuntu-jdk11' \
-                  --concurrent-builds='1' \
-                  --job-offset='10' \
-                  --jobs-total='12' \
-                  --docker-repos='atlassian/jira-servicemanagement,atlassian/jira-servicedesk' \
-                  --push
- 
-
-        - step:
-            name: Jira Service Management JDK 11 - Batch 12
-            services:
-              - docker
-            script:
-              - git submodule update --init --recursive
-              - echo ${DOCKER_BOT_PASSWORD} | docker login ${DOCKER_REGISTRY} --username ${DOCKER_BOT_USERNAME} --password-stdin
-              - >
-                python /usr/src/app/make-releases.py \
-                  --update \
-                  --start-version='4.8' \
-                  --end-version='5' \
-                  --default-release \
-                  --dockerfile-buildargs='ARTEFACT_NAME=atlassian-servicedesk,BASE_IMAGE=adoptopenjdk/openjdk11' \
-                  --dockerfile-version-arg='JIRA_VERSION' \
-                  --mac-product-key='jira-servicedesk' \
-                  --tag-suffixes='jdk11,ubuntu-jdk11' \
-                  --concurrent-builds='1' \
-                  --job-offset='11' \
-                  --jobs-total='12' \
+                  --jobs-total='8' \
                   --docker-repos='atlassian/jira-servicemanagement,atlassian/jira-servicedesk' \
                   --push
  
@@ -621,7 +429,7 @@ pipelines:
                   --tag-suffixes='jdk11,ubuntu-jdk11' \
                   --concurrent-builds='1' \
                   --job-offset='0' \
-                  --jobs-total='12' \
+                  --jobs-total='8' \
                   --docker-repos='atlassian/jira-core' \
                   --push
  
@@ -645,7 +453,7 @@ pipelines:
                   --tag-suffixes='jdk11,ubuntu-jdk11' \
                   --concurrent-builds='1' \
                   --job-offset='1' \
-                  --jobs-total='12' \
+                  --jobs-total='8' \
                   --docker-repos='atlassian/jira-core' \
                   --push
  
@@ -669,7 +477,7 @@ pipelines:
                   --tag-suffixes='jdk11,ubuntu-jdk11' \
                   --concurrent-builds='1' \
                   --job-offset='2' \
-                  --jobs-total='12' \
+                  --jobs-total='8' \
                   --docker-repos='atlassian/jira-core' \
                   --push
  
@@ -693,7 +501,7 @@ pipelines:
                   --tag-suffixes='jdk11,ubuntu-jdk11' \
                   --concurrent-builds='1' \
                   --job-offset='3' \
-                  --jobs-total='12' \
+                  --jobs-total='8' \
                   --docker-repos='atlassian/jira-core' \
                   --push
  
@@ -717,7 +525,7 @@ pipelines:
                   --tag-suffixes='jdk11,ubuntu-jdk11' \
                   --concurrent-builds='1' \
                   --job-offset='4' \
-                  --jobs-total='12' \
+                  --jobs-total='8' \
                   --docker-repos='atlassian/jira-core' \
                   --push
  
@@ -741,7 +549,7 @@ pipelines:
                   --tag-suffixes='jdk11,ubuntu-jdk11' \
                   --concurrent-builds='1' \
                   --job-offset='5' \
-                  --jobs-total='12' \
+                  --jobs-total='8' \
                   --docker-repos='atlassian/jira-core' \
                   --push
  
@@ -765,7 +573,7 @@ pipelines:
                   --tag-suffixes='jdk11,ubuntu-jdk11' \
                   --concurrent-builds='1' \
                   --job-offset='6' \
-                  --jobs-total='12' \
+                  --jobs-total='8' \
                   --docker-repos='atlassian/jira-core' \
                   --push
  
@@ -789,103 +597,7 @@ pipelines:
                   --tag-suffixes='jdk11,ubuntu-jdk11' \
                   --concurrent-builds='1' \
                   --job-offset='7' \
-                  --jobs-total='12' \
-                  --docker-repos='atlassian/jira-core' \
-                  --push
- 
-
-        - step:
-            name: Jira Core JDK 11 - Batch 9
-            services:
-              - docker
-            script:
-              - git submodule update --init --recursive
-              - echo ${DOCKER_BOT_PASSWORD} | docker login ${DOCKER_REGISTRY} --username ${DOCKER_BOT_USERNAME} --password-stdin
-              - >
-                python /usr/src/app/make-releases.py \
-                  --update \
-                  --start-version='8.8' \
-                  --end-version='10' \
-                  --default-release \
-                  --dockerfile-buildargs='ARTEFACT_NAME=atlassian-jira-core,BASE_IMAGE=adoptopenjdk/openjdk11' \
-                  --dockerfile-version-arg='JIRA_VERSION' \
-                  --mac-product-key='jira' \
-                  --tag-suffixes='jdk11,ubuntu-jdk11' \
-                  --concurrent-builds='1' \
-                  --job-offset='8' \
-                  --jobs-total='12' \
-                  --docker-repos='atlassian/jira-core' \
-                  --push
- 
-
-        - step:
-            name: Jira Core JDK 11 - Batch 10
-            services:
-              - docker
-            script:
-              - git submodule update --init --recursive
-              - echo ${DOCKER_BOT_PASSWORD} | docker login ${DOCKER_REGISTRY} --username ${DOCKER_BOT_USERNAME} --password-stdin
-              - >
-                python /usr/src/app/make-releases.py \
-                  --update \
-                  --start-version='8.8' \
-                  --end-version='10' \
-                  --default-release \
-                  --dockerfile-buildargs='ARTEFACT_NAME=atlassian-jira-core,BASE_IMAGE=adoptopenjdk/openjdk11' \
-                  --dockerfile-version-arg='JIRA_VERSION' \
-                  --mac-product-key='jira' \
-                  --tag-suffixes='jdk11,ubuntu-jdk11' \
-                  --concurrent-builds='1' \
-                  --job-offset='9' \
-                  --jobs-total='12' \
-                  --docker-repos='atlassian/jira-core' \
-                  --push
- 
-
-        - step:
-            name: Jira Core JDK 11 - Batch 11
-            services:
-              - docker
-            script:
-              - git submodule update --init --recursive
-              - echo ${DOCKER_BOT_PASSWORD} | docker login ${DOCKER_REGISTRY} --username ${DOCKER_BOT_USERNAME} --password-stdin
-              - >
-                python /usr/src/app/make-releases.py \
-                  --update \
-                  --start-version='8.8' \
-                  --end-version='10' \
-                  --default-release \
-                  --dockerfile-buildargs='ARTEFACT_NAME=atlassian-jira-core,BASE_IMAGE=adoptopenjdk/openjdk11' \
-                  --dockerfile-version-arg='JIRA_VERSION' \
-                  --mac-product-key='jira' \
-                  --tag-suffixes='jdk11,ubuntu-jdk11' \
-                  --concurrent-builds='1' \
-                  --job-offset='10' \
-                  --jobs-total='12' \
-                  --docker-repos='atlassian/jira-core' \
-                  --push
- 
-
-        - step:
-            name: Jira Core JDK 11 - Batch 12
-            services:
-              - docker
-            script:
-              - git submodule update --init --recursive
-              - echo ${DOCKER_BOT_PASSWORD} | docker login ${DOCKER_REGISTRY} --username ${DOCKER_BOT_USERNAME} --password-stdin
-              - >
-                python /usr/src/app/make-releases.py \
-                  --update \
-                  --start-version='8.8' \
-                  --end-version='10' \
-                  --default-release \
-                  --dockerfile-buildargs='ARTEFACT_NAME=atlassian-jira-core,BASE_IMAGE=adoptopenjdk/openjdk11' \
-                  --dockerfile-version-arg='JIRA_VERSION' \
-                  --mac-product-key='jira' \
-                  --tag-suffixes='jdk11,ubuntu-jdk11' \
-                  --concurrent-builds='1' \
-                  --job-offset='11' \
-                  --jobs-total='12' \
+                  --jobs-total='8' \
                   --docker-repos='atlassian/jira-core' \
                   --push
  
@@ -959,7 +671,7 @@ pipelines:
                   --tag-suffixes='jdk11,ubuntu-jdk11' \
                   --concurrent-builds='1' \
                   --job-offset='0' \
-                  --jobs-total='12' \
+                  --jobs-total='8' \
                   --docker-repos='atlassian/jira-software' \
                   --push
 
@@ -983,7 +695,7 @@ pipelines:
                   --tag-suffixes='jdk11,ubuntu-jdk11' \
                   --concurrent-builds='1' \
                   --job-offset='1' \
-                  --jobs-total='12' \
+                  --jobs-total='8' \
                   --docker-repos='atlassian/jira-software' \
                   --push
 
@@ -1007,7 +719,7 @@ pipelines:
                   --tag-suffixes='jdk11,ubuntu-jdk11' \
                   --concurrent-builds='1' \
                   --job-offset='2' \
-                  --jobs-total='12' \
+                  --jobs-total='8' \
                   --docker-repos='atlassian/jira-software' \
                   --push
 
@@ -1031,7 +743,7 @@ pipelines:
                   --tag-suffixes='jdk11,ubuntu-jdk11' \
                   --concurrent-builds='1' \
                   --job-offset='3' \
-                  --jobs-total='12' \
+                  --jobs-total='8' \
                   --docker-repos='atlassian/jira-software' \
                   --push
 
@@ -1055,7 +767,7 @@ pipelines:
                   --tag-suffixes='jdk11,ubuntu-jdk11' \
                   --concurrent-builds='1' \
                   --job-offset='4' \
-                  --jobs-total='12' \
+                  --jobs-total='8' \
                   --docker-repos='atlassian/jira-software' \
                   --push
 
@@ -1079,7 +791,7 @@ pipelines:
                   --tag-suffixes='jdk11,ubuntu-jdk11' \
                   --concurrent-builds='1' \
                   --job-offset='5' \
-                  --jobs-total='12' \
+                  --jobs-total='8' \
                   --docker-repos='atlassian/jira-software' \
                   --push
 
@@ -1103,7 +815,7 @@ pipelines:
                   --tag-suffixes='jdk11,ubuntu-jdk11' \
                   --concurrent-builds='1' \
                   --job-offset='6' \
-                  --jobs-total='12' \
+                  --jobs-total='8' \
                   --docker-repos='atlassian/jira-software' \
                   --push
 
@@ -1127,103 +839,7 @@ pipelines:
                   --tag-suffixes='jdk11,ubuntu-jdk11' \
                   --concurrent-builds='1' \
                   --job-offset='7' \
-                  --jobs-total='12' \
-                  --docker-repos='atlassian/jira-software' \
-                  --push
-
-
-        - step:
-            name: Jira Software JDK 11 - Batch 9
-            services:
-              - docker
-            script:
-              - git submodule update --init --recursive
-              - echo ${DOCKER_BOT_PASSWORD} | docker ${DOCKER_REGISTRY} --username ${DOCKER_BOT_USERNAME} --password-stdin
-              - >
-                python /usr/src/app/make-releases.py \
-                  --create --create-eap \
-                  --start-version='8.8' \
-                  --end-version='10' \
-                  --default-release \
-                  --dockerfile-buildargs='ARTEFACT_NAME=atlassian-jira-software,BASE_IMAGE=adoptopenjdk/openjdk11' \
-                  --dockerfile-version-arg='JIRA_VERSION' \
-                  --mac-product-key='jira-software' \
-                  --tag-suffixes='jdk11,ubuntu-jdk11' \
-                  --concurrent-builds='1' \
-                  --job-offset='8' \
-                  --jobs-total='12' \
-                  --docker-repos='atlassian/jira-software' \
-                  --push
-
-
-        - step:
-            name: Jira Software JDK 11 - Batch 10
-            services:
-              - docker
-            script:
-              - git submodule update --init --recursive
-              - echo ${DOCKER_BOT_PASSWORD} | docker ${DOCKER_REGISTRY} --username ${DOCKER_BOT_USERNAME} --password-stdin
-              - >
-                python /usr/src/app/make-releases.py \
-                  --create --create-eap \
-                  --start-version='8.8' \
-                  --end-version='10' \
-                  --default-release \
-                  --dockerfile-buildargs='ARTEFACT_NAME=atlassian-jira-software,BASE_IMAGE=adoptopenjdk/openjdk11' \
-                  --dockerfile-version-arg='JIRA_VERSION' \
-                  --mac-product-key='jira-software' \
-                  --tag-suffixes='jdk11,ubuntu-jdk11' \
-                  --concurrent-builds='1' \
-                  --job-offset='9' \
-                  --jobs-total='12' \
-                  --docker-repos='atlassian/jira-software' \
-                  --push
-
-
-        - step:
-            name: Jira Software JDK 11 - Batch 11
-            services:
-              - docker
-            script:
-              - git submodule update --init --recursive
-              - echo ${DOCKER_BOT_PASSWORD} | docker ${DOCKER_REGISTRY} --username ${DOCKER_BOT_USERNAME} --password-stdin
-              - >
-                python /usr/src/app/make-releases.py \
-                  --create --create-eap \
-                  --start-version='8.8' \
-                  --end-version='10' \
-                  --default-release \
-                  --dockerfile-buildargs='ARTEFACT_NAME=atlassian-jira-software,BASE_IMAGE=adoptopenjdk/openjdk11' \
-                  --dockerfile-version-arg='JIRA_VERSION' \
-                  --mac-product-key='jira-software' \
-                  --tag-suffixes='jdk11,ubuntu-jdk11' \
-                  --concurrent-builds='1' \
-                  --job-offset='10' \
-                  --jobs-total='12' \
-                  --docker-repos='atlassian/jira-software' \
-                  --push
-
-
-        - step:
-            name: Jira Software JDK 11 - Batch 12
-            services:
-              - docker
-            script:
-              - git submodule update --init --recursive
-              - echo ${DOCKER_BOT_PASSWORD} | docker ${DOCKER_REGISTRY} --username ${DOCKER_BOT_USERNAME} --password-stdin
-              - >
-                python /usr/src/app/make-releases.py \
-                  --create --create-eap \
-                  --start-version='8.8' \
-                  --end-version='10' \
-                  --default-release \
-                  --dockerfile-buildargs='ARTEFACT_NAME=atlassian-jira-software,BASE_IMAGE=adoptopenjdk/openjdk11' \
-                  --dockerfile-version-arg='JIRA_VERSION' \
-                  --mac-product-key='jira-software' \
-                  --tag-suffixes='jdk11,ubuntu-jdk11' \
-                  --concurrent-builds='1' \
-                  --job-offset='11' \
-                  --jobs-total='12' \
+                  --jobs-total='8' \
                   --docker-repos='atlassian/jira-software' \
                   --push
 
@@ -1247,7 +863,7 @@ pipelines:
                   --tag-suffixes='jdk11,ubuntu-jdk11' \
                   --concurrent-builds='1' \
                   --job-offset='0' \
-                  --jobs-total='12' \
+                  --jobs-total='8' \
                   --docker-repos='atlassian/jira-servicemanagement,atlassian/jira-servicedesk' \
                   --push
 
@@ -1271,7 +887,7 @@ pipelines:
                   --tag-suffixes='jdk11,ubuntu-jdk11' \
                   --concurrent-builds='1' \
                   --job-offset='1' \
-                  --jobs-total='12' \
+                  --jobs-total='8' \
                   --docker-repos='atlassian/jira-servicemanagement,atlassian/jira-servicedesk' \
                   --push
 
@@ -1295,7 +911,7 @@ pipelines:
                   --tag-suffixes='jdk11,ubuntu-jdk11' \
                   --concurrent-builds='1' \
                   --job-offset='2' \
-                  --jobs-total='12' \
+                  --jobs-total='8' \
                   --docker-repos='atlassian/jira-servicemanagement,atlassian/jira-servicedesk' \
                   --push
 
@@ -1319,7 +935,7 @@ pipelines:
                   --tag-suffixes='jdk11,ubuntu-jdk11' \
                   --concurrent-builds='1' \
                   --job-offset='3' \
-                  --jobs-total='12' \
+                  --jobs-total='8' \
                   --docker-repos='atlassian/jira-servicemanagement,atlassian/jira-servicedesk' \
                   --push
 
@@ -1343,7 +959,7 @@ pipelines:
                   --tag-suffixes='jdk11,ubuntu-jdk11' \
                   --concurrent-builds='1' \
                   --job-offset='4' \
-                  --jobs-total='12' \
+                  --jobs-total='8' \
                   --docker-repos='atlassian/jira-servicemanagement,atlassian/jira-servicedesk' \
                   --push
 
@@ -1367,7 +983,7 @@ pipelines:
                   --tag-suffixes='jdk11,ubuntu-jdk11' \
                   --concurrent-builds='1' \
                   --job-offset='5' \
-                  --jobs-total='12' \
+                  --jobs-total='8' \
                   --docker-repos='atlassian/jira-servicemanagement,atlassian/jira-servicedesk' \
                   --push
 
@@ -1391,7 +1007,7 @@ pipelines:
                   --tag-suffixes='jdk11,ubuntu-jdk11' \
                   --concurrent-builds='1' \
                   --job-offset='6' \
-                  --jobs-total='12' \
+                  --jobs-total='8' \
                   --docker-repos='atlassian/jira-servicemanagement,atlassian/jira-servicedesk' \
                   --push
 
@@ -1415,103 +1031,7 @@ pipelines:
                   --tag-suffixes='jdk11,ubuntu-jdk11' \
                   --concurrent-builds='1' \
                   --job-offset='7' \
-                  --jobs-total='12' \
-                  --docker-repos='atlassian/jira-servicemanagement,atlassian/jira-servicedesk' \
-                  --push
-
-
-        - step:
-            name: Jira Service Management JDK 11 - Batch 9
-            services:
-              - docker
-            script:
-              - git submodule update --init --recursive
-              - echo ${DOCKER_BOT_PASSWORD} | docker ${DOCKER_REGISTRY} --username ${DOCKER_BOT_USERNAME} --password-stdin
-              - >
-                python /usr/src/app/make-releases.py \
-                  --create --create-eap \
-                  --start-version='4.8' \
-                  --end-version='5' \
-                  --default-release \
-                  --dockerfile-buildargs='ARTEFACT_NAME=atlassian-servicedesk,BASE_IMAGE=adoptopenjdk/openjdk11' \
-                  --dockerfile-version-arg='JIRA_VERSION' \
-                  --mac-product-key='jira-servicedesk' \
-                  --tag-suffixes='jdk11,ubuntu-jdk11' \
-                  --concurrent-builds='1' \
-                  --job-offset='8' \
-                  --jobs-total='12' \
-                  --docker-repos='atlassian/jira-servicemanagement,atlassian/jira-servicedesk' \
-                  --push
-
-
-        - step:
-            name: Jira Service Management JDK 11 - Batch 10
-            services:
-              - docker
-            script:
-              - git submodule update --init --recursive
-              - echo ${DOCKER_BOT_PASSWORD} | docker ${DOCKER_REGISTRY} --username ${DOCKER_BOT_USERNAME} --password-stdin
-              - >
-                python /usr/src/app/make-releases.py \
-                  --create --create-eap \
-                  --start-version='4.8' \
-                  --end-version='5' \
-                  --default-release \
-                  --dockerfile-buildargs='ARTEFACT_NAME=atlassian-servicedesk,BASE_IMAGE=adoptopenjdk/openjdk11' \
-                  --dockerfile-version-arg='JIRA_VERSION' \
-                  --mac-product-key='jira-servicedesk' \
-                  --tag-suffixes='jdk11,ubuntu-jdk11' \
-                  --concurrent-builds='1' \
-                  --job-offset='9' \
-                  --jobs-total='12' \
-                  --docker-repos='atlassian/jira-servicemanagement,atlassian/jira-servicedesk' \
-                  --push
-
-
-        - step:
-            name: Jira Service Management JDK 11 - Batch 11
-            services:
-              - docker
-            script:
-              - git submodule update --init --recursive
-              - echo ${DOCKER_BOT_PASSWORD} | docker ${DOCKER_REGISTRY} --username ${DOCKER_BOT_USERNAME} --password-stdin
-              - >
-                python /usr/src/app/make-releases.py \
-                  --create --create-eap \
-                  --start-version='4.8' \
-                  --end-version='5' \
-                  --default-release \
-                  --dockerfile-buildargs='ARTEFACT_NAME=atlassian-servicedesk,BASE_IMAGE=adoptopenjdk/openjdk11' \
-                  --dockerfile-version-arg='JIRA_VERSION' \
-                  --mac-product-key='jira-servicedesk' \
-                  --tag-suffixes='jdk11,ubuntu-jdk11' \
-                  --concurrent-builds='1' \
-                  --job-offset='10' \
-                  --jobs-total='12' \
-                  --docker-repos='atlassian/jira-servicemanagement,atlassian/jira-servicedesk' \
-                  --push
-
-
-        - step:
-            name: Jira Service Management JDK 11 - Batch 12
-            services:
-              - docker
-            script:
-              - git submodule update --init --recursive
-              - echo ${DOCKER_BOT_PASSWORD} | docker ${DOCKER_REGISTRY} --username ${DOCKER_BOT_USERNAME} --password-stdin
-              - >
-                python /usr/src/app/make-releases.py \
-                  --create --create-eap \
-                  --start-version='4.8' \
-                  --end-version='5' \
-                  --default-release \
-                  --dockerfile-buildargs='ARTEFACT_NAME=atlassian-servicedesk,BASE_IMAGE=adoptopenjdk/openjdk11' \
-                  --dockerfile-version-arg='JIRA_VERSION' \
-                  --mac-product-key='jira-servicedesk' \
-                  --tag-suffixes='jdk11,ubuntu-jdk11' \
-                  --concurrent-builds='1' \
-                  --job-offset='11' \
-                  --jobs-total='12' \
+                  --jobs-total='8' \
                   --docker-repos='atlassian/jira-servicemanagement,atlassian/jira-servicedesk' \
                   --push
 
@@ -1535,7 +1055,7 @@ pipelines:
                   --tag-suffixes='jdk11,ubuntu-jdk11' \
                   --concurrent-builds='1' \
                   --job-offset='0' \
-                  --jobs-total='12' \
+                  --jobs-total='8' \
                   --docker-repos='atlassian/jira-core' \
                   --push
 
@@ -1559,7 +1079,7 @@ pipelines:
                   --tag-suffixes='jdk11,ubuntu-jdk11' \
                   --concurrent-builds='1' \
                   --job-offset='1' \
-                  --jobs-total='12' \
+                  --jobs-total='8' \
                   --docker-repos='atlassian/jira-core' \
                   --push
 
@@ -1583,7 +1103,7 @@ pipelines:
                   --tag-suffixes='jdk11,ubuntu-jdk11' \
                   --concurrent-builds='1' \
                   --job-offset='2' \
-                  --jobs-total='12' \
+                  --jobs-total='8' \
                   --docker-repos='atlassian/jira-core' \
                   --push
 
@@ -1607,7 +1127,7 @@ pipelines:
                   --tag-suffixes='jdk11,ubuntu-jdk11' \
                   --concurrent-builds='1' \
                   --job-offset='3' \
-                  --jobs-total='12' \
+                  --jobs-total='8' \
                   --docker-repos='atlassian/jira-core' \
                   --push
 
@@ -1631,7 +1151,7 @@ pipelines:
                   --tag-suffixes='jdk11,ubuntu-jdk11' \
                   --concurrent-builds='1' \
                   --job-offset='4' \
-                  --jobs-total='12' \
+                  --jobs-total='8' \
                   --docker-repos='atlassian/jira-core' \
                   --push
 
@@ -1655,7 +1175,7 @@ pipelines:
                   --tag-suffixes='jdk11,ubuntu-jdk11' \
                   --concurrent-builds='1' \
                   --job-offset='5' \
-                  --jobs-total='12' \
+                  --jobs-total='8' \
                   --docker-repos='atlassian/jira-core' \
                   --push
 
@@ -1679,7 +1199,7 @@ pipelines:
                   --tag-suffixes='jdk11,ubuntu-jdk11' \
                   --concurrent-builds='1' \
                   --job-offset='6' \
-                  --jobs-total='12' \
+                  --jobs-total='8' \
                   --docker-repos='atlassian/jira-core' \
                   --push
 
@@ -1703,103 +1223,7 @@ pipelines:
                   --tag-suffixes='jdk11,ubuntu-jdk11' \
                   --concurrent-builds='1' \
                   --job-offset='7' \
-                  --jobs-total='12' \
-                  --docker-repos='atlassian/jira-core' \
-                  --push
-
-
-        - step:
-            name: Jira Core JDK 11 - Batch 9
-            services:
-              - docker
-            script:
-              - git submodule update --init --recursive
-              - echo ${DOCKER_BOT_PASSWORD} | docker ${DOCKER_REGISTRY} --username ${DOCKER_BOT_USERNAME} --password-stdin
-              - >
-                python /usr/src/app/make-releases.py \
-                  --create --create-eap \
-                  --start-version='8.8' \
-                  --end-version='10' \
-                  --default-release \
-                  --dockerfile-buildargs='ARTEFACT_NAME=atlassian-jira-core,BASE_IMAGE=adoptopenjdk/openjdk11' \
-                  --dockerfile-version-arg='JIRA_VERSION' \
-                  --mac-product-key='jira' \
-                  --tag-suffixes='jdk11,ubuntu-jdk11' \
-                  --concurrent-builds='1' \
-                  --job-offset='8' \
-                  --jobs-total='12' \
-                  --docker-repos='atlassian/jira-core' \
-                  --push
-
-
-        - step:
-            name: Jira Core JDK 11 - Batch 10
-            services:
-              - docker
-            script:
-              - git submodule update --init --recursive
-              - echo ${DOCKER_BOT_PASSWORD} | docker ${DOCKER_REGISTRY} --username ${DOCKER_BOT_USERNAME} --password-stdin
-              - >
-                python /usr/src/app/make-releases.py \
-                  --create --create-eap \
-                  --start-version='8.8' \
-                  --end-version='10' \
-                  --default-release \
-                  --dockerfile-buildargs='ARTEFACT_NAME=atlassian-jira-core,BASE_IMAGE=adoptopenjdk/openjdk11' \
-                  --dockerfile-version-arg='JIRA_VERSION' \
-                  --mac-product-key='jira' \
-                  --tag-suffixes='jdk11,ubuntu-jdk11' \
-                  --concurrent-builds='1' \
-                  --job-offset='9' \
-                  --jobs-total='12' \
-                  --docker-repos='atlassian/jira-core' \
-                  --push
-
-
-        - step:
-            name: Jira Core JDK 11 - Batch 11
-            services:
-              - docker
-            script:
-              - git submodule update --init --recursive
-              - echo ${DOCKER_BOT_PASSWORD} | docker ${DOCKER_REGISTRY} --username ${DOCKER_BOT_USERNAME} --password-stdin
-              - >
-                python /usr/src/app/make-releases.py \
-                  --create --create-eap \
-                  --start-version='8.8' \
-                  --end-version='10' \
-                  --default-release \
-                  --dockerfile-buildargs='ARTEFACT_NAME=atlassian-jira-core,BASE_IMAGE=adoptopenjdk/openjdk11' \
-                  --dockerfile-version-arg='JIRA_VERSION' \
-                  --mac-product-key='jira' \
-                  --tag-suffixes='jdk11,ubuntu-jdk11' \
-                  --concurrent-builds='1' \
-                  --job-offset='10' \
-                  --jobs-total='12' \
-                  --docker-repos='atlassian/jira-core' \
-                  --push
-
-
-        - step:
-            name: Jira Core JDK 11 - Batch 12
-            services:
-              - docker
-            script:
-              - git submodule update --init --recursive
-              - echo ${DOCKER_BOT_PASSWORD} | docker ${DOCKER_REGISTRY} --username ${DOCKER_BOT_USERNAME} --password-stdin
-              - >
-                python /usr/src/app/make-releases.py \
-                  --create --create-eap \
-                  --start-version='8.8' \
-                  --end-version='10' \
-                  --default-release \
-                  --dockerfile-buildargs='ARTEFACT_NAME=atlassian-jira-core,BASE_IMAGE=adoptopenjdk/openjdk11' \
-                  --dockerfile-version-arg='JIRA_VERSION' \
-                  --mac-product-key='jira' \
-                  --tag-suffixes='jdk11,ubuntu-jdk11' \
-                  --concurrent-builds='1' \
-                  --job-offset='11' \
-                  --jobs-total='12' \
+                  --jobs-total='8' \
                   --docker-repos='atlassian/jira-core' \
                   --push
 
