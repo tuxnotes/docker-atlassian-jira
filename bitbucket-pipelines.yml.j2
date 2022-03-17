@@ -117,7 +117,7 @@ pipelines:
               - docker
             script:
               - git submodule update --init --recursive
-              - echo ${DOCKER_BOT_PASSWORD} | docker ${DOCKER_REGISTRY} --username ${DOCKER_BOT_USERNAME} --password-stdin
+              - echo ${DOCKER_BOT_PASSWORD} | docker login ${DOCKER_REGISTRY} --username ${DOCKER_BOT_USERNAME} --password-stdin
               - >
                 python /usr/src/app/make-releases.py \
                   --create --create-eap \
