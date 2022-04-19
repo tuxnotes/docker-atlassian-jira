@@ -462,3 +462,34 @@ def test_seraph_xml_params(docker_cli, image):
     xml = parse_xml(container, f'{get_app_install_dir(container)}/atlassian-jira/WEB-INF/classes/seraph-config.xml')
     assert [el.findtext('.//param-value') for el in xml.findall('.//init-param')
             if el.findtext('.//param-name') == 'autologin.cookie.age'][0] == environment.get('ATL_AUTOLOGIN_COOKIE_AGE')
+
+def test_dbconfig_xml_force_overwrite(docker_cli, image, run_user):
+    environment = {
+        'ATL_DB_TYPE': 'postgres72',
+        'ATL_DB_DRIVER': 'org.postgresql.Driver',
+        'ATL_JDBC_URL': 'jdbc:postgresql://mypostgres.mycompany.org:5432/jiradb',
+        'ATL_JDBC_USER': 'jiradbuser',
+        'ATL_JDBC_PASSWORD': 'jiradbpassword',
+        'ATL_FORCE_CFG_UPDATE': 'y',
+    }
+
+    container = docker_cli.containers.run(image, detach=True, user=run_user, environment=environment)
+    tihost = testinfra.get_host("docker://"+container.id)
+    _jvm = wait_for_proc(tihost, get_bootstrap_proc(tihost))
+    cfg = f'{get_app_home(tihost)}/dbconfig.xml'
+
+    xml = parse_xml(tihost, cfg)
+    assert xml.findtext('.//jdbc-datasource/username') == 'jiradbuser'
+
+    container.exec_run(f"sed -i 's/jiradbuser/differentuser/' {cfg}")
+
+    xml = parse_xml(tihost, cfg)
+    assert xml.findtext('.//jdbc-datasource/username') == 'differentuser'
+
+    container.stop(timeout=60)
+    container.start()
+    _jvm = wait_for_proc(tihost, get_bootstrap_proc(tihost))
+
+    xml = parse_xml(tihost, cfg)
+    assert xml.findtext('.//jdbc-datasource/username') == 'jiradbuser'
+
