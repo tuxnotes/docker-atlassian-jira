@@ -14,6 +14,14 @@ Then install required packages. (Note that for local testing, we'll be using req
 pipenv install -r shared-components/tests/requirements-3.9.txt
 ```
 
+Set the required environment variables:
+```
+export DOCKERFILE='Dockerfile'
+export DOCKERFILE_BUILDARGS='ARTEFACT_NAME=atlassian-jira-software'
+export DOCKERFILE_VERSION_ARG='JIRA_VERSION'
+export MAC_PRODUCT_KEY='jira-software'
+```
+
 To run the tests, 
 ```
 pipenv run py.test -v tests
