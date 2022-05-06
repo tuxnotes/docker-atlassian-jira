@@ -566,6 +566,11 @@ forum for discussion on running Atlassian Data Center products in containers.
 See [Development](DEVELOPMENT.md) for details on setting up a development
 environment and running tests.
 
+# Changelog
+
+For a detailed list of changes to the Docker image configuration see [the Git
+commit history](https://bitbucket.org/atlassian-docker/docker-atlassian-jira/commits/).
+
 # License
 
 Copyright © 2020 Atlassian Corporation Pty Ltd.
