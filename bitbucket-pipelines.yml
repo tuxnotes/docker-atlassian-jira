@@ -39,7 +39,7 @@ pipelines:
                   --start-version='8.8' \
                   --end-version='10' \
                   --default-release \
-                  --dockerfile-buildargs='ARTEFACT_NAME=atlassian-jira-software,BASE_IMAGE=adoptopenjdk/openjdk11' \
+                  --dockerfile-buildargs='ARTEFACT_NAME=atlassian-jira-software,BASE_IMAGE=eclipse-temurin:11' \
                   --dockerfile-version-arg='JIRA_VERSION' \
                   --mac-product-key='jira-software' \
                   --tag-suffixes='jdk11,ubuntu-jdk11' \
@@ -48,7 +48,7 @@ pipelines:
                   --jobs-total='12' \
                   --docker-repos='atlassian/jira-software' \
                   --push
- 
+
 
         - step:
             name: Jira Software JDK 11 - Batch 2
@@ -63,7 +63,7 @@ pipelines:
                   --start-version='8.8' \
                   --end-version='10' \
                   --default-release \
-                  --dockerfile-buildargs='ARTEFACT_NAME=atlassian-jira-software,BASE_IMAGE=adoptopenjdk/openjdk11' \
+                  --dockerfile-buildargs='ARTEFACT_NAME=atlassian-jira-software,BASE_IMAGE=eclipse-temurin:11' \
                   --dockerfile-version-arg='JIRA_VERSION' \
                   --mac-product-key='jira-software' \
                   --tag-suffixes='jdk11,ubuntu-jdk11' \
@@ -72,7 +72,7 @@ pipelines:
                   --jobs-total='12' \
                   --docker-repos='atlassian/jira-software' \
                   --push
- 
+
 
         - step:
             name: Jira Software JDK 11 - Batch 3
@@ -87,7 +87,7 @@ pipelines:
                   --start-version='8.8' \
                   --end-version='10' \
                   --default-release \
-                  --dockerfile-buildargs='ARTEFACT_NAME=atlassian-jira-software,BASE_IMAGE=adoptopenjdk/openjdk11' \
+                  --dockerfile-buildargs='ARTEFACT_NAME=atlassian-jira-software,BASE_IMAGE=eclipse-temurin:11' \
                   --dockerfile-version-arg='JIRA_VERSION' \
                   --mac-product-key='jira-software' \
                   --tag-suffixes='jdk11,ubuntu-jdk11' \
@@ -96,7 +96,7 @@ pipelines:
                   --jobs-total='12' \
                   --docker-repos='atlassian/jira-software' \
                   --push
- 
+
 
         - step:
             name: Jira Software JDK 11 - Batch 4
@@ -111,7 +111,7 @@ pipelines:
                   --start-version='8.8' \
                   --end-version='10' \
                   --default-release \
-                  --dockerfile-buildargs='ARTEFACT_NAME=atlassian-jira-software,BASE_IMAGE=adoptopenjdk/openjdk11' \
+                  --dockerfile-buildargs='ARTEFACT_NAME=atlassian-jira-software,BASE_IMAGE=eclipse-temurin:11' \
                   --dockerfile-version-arg='JIRA_VERSION' \
                   --mac-product-key='jira-software' \
                   --tag-suffixes='jdk11,ubuntu-jdk11' \
@@ -120,7 +120,7 @@ pipelines:
                   --jobs-total='12' \
                   --docker-repos='atlassian/jira-software' \
                   --push
- 
+
 
         - step:
             name: Jira Software JDK 11 - Batch 5
@@ -135,7 +135,7 @@ pipelines:
                   --start-version='8.8' \
                   --end-version='10' \
                   --default-release \
-                  --dockerfile-buildargs='ARTEFACT_NAME=atlassian-jira-software,BASE_IMAGE=adoptopenjdk/openjdk11' \
+                  --dockerfile-buildargs='ARTEFACT_NAME=atlassian-jira-software,BASE_IMAGE=eclipse-temurin:11' \
                   --dockerfile-version-arg='JIRA_VERSION' \
                   --mac-product-key='jira-software' \
                   --tag-suffixes='jdk11,ubuntu-jdk11' \
@@ -144,7 +144,7 @@ pipelines:
                   --jobs-total='12' \
                   --docker-repos='atlassian/jira-software' \
                   --push
- 
+
 
         - step:
             name: Jira Software JDK 11 - Batch 6
@@ -159,7 +159,7 @@ pipelines:
                   --start-version='8.8' \
                   --end-version='10' \
                   --default-release \
-                  --dockerfile-buildargs='ARTEFACT_NAME=atlassian-jira-software,BASE_IMAGE=adoptopenjdk/openjdk11' \
+                  --dockerfile-buildargs='ARTEFACT_NAME=atlassian-jira-software,BASE_IMAGE=eclipse-temurin:11' \
                   --dockerfile-version-arg='JIRA_VERSION' \
                   --mac-product-key='jira-software' \
                   --tag-suffixes='jdk11,ubuntu-jdk11' \
@@ -168,7 +168,7 @@ pipelines:
                   --jobs-total='12' \
                   --docker-repos='atlassian/jira-software' \
                   --push
- 
+
 
         - step:
             name: Jira Software JDK 11 - Batch 7
@@ -183,7 +183,7 @@ pipelines:
                   --start-version='8.8' \
                   --end-version='10' \
                   --default-release \
-                  --dockerfile-buildargs='ARTEFACT_NAME=atlassian-jira-software,BASE_IMAGE=adoptopenjdk/openjdk11' \
+                  --dockerfile-buildargs='ARTEFACT_NAME=atlassian-jira-software,BASE_IMAGE=eclipse-temurin:11' \
                   --dockerfile-version-arg='JIRA_VERSION' \
                   --mac-product-key='jira-software' \
                   --tag-suffixes='jdk11,ubuntu-jdk11' \
@@ -192,7 +192,7 @@ pipelines:
                   --jobs-total='12' \
                   --docker-repos='atlassian/jira-software' \
                   --push
- 
+
 
         - step:
             name: Jira Software JDK 11 - Batch 8
@@ -207,7 +207,7 @@ pipelines:
                   --start-version='8.8' \
                   --end-version='10' \
                   --default-release \
-                  --dockerfile-buildargs='ARTEFACT_NAME=atlassian-jira-software,BASE_IMAGE=adoptopenjdk/openjdk11' \
+                  --dockerfile-buildargs='ARTEFACT_NAME=atlassian-jira-software,BASE_IMAGE=eclipse-temurin:11' \
                   --dockerfile-version-arg='JIRA_VERSION' \
                   --mac-product-key='jira-software' \
                   --tag-suffixes='jdk11,ubuntu-jdk11' \
@@ -216,7 +216,7 @@ pipelines:
                   --jobs-total='12' \
                   --docker-repos='atlassian/jira-software' \
                   --push
- 
+
 
         - step:
             name: Jira Software JDK 11 - Batch 9
@@ -231,7 +231,7 @@ pipelines:
                   --start-version='8.8' \
                   --end-version='10' \
                   --default-release \
-                  --dockerfile-buildargs='ARTEFACT_NAME=atlassian-jira-software,BASE_IMAGE=adoptopenjdk/openjdk11' \
+                  --dockerfile-buildargs='ARTEFACT_NAME=atlassian-jira-software,BASE_IMAGE=eclipse-temurin:11' \
                   --dockerfile-version-arg='JIRA_VERSION' \
                   --mac-product-key='jira-software' \
                   --tag-suffixes='jdk11,ubuntu-jdk11' \
@@ -240,7 +240,7 @@ pipelines:
                   --jobs-total='12' \
                   --docker-repos='atlassian/jira-software' \
                   --push
- 
+
 
         - step:
             name: Jira Software JDK 11 - Batch 10
@@ -255,7 +255,7 @@ pipelines:
                   --start-version='8.8' \
                   --end-version='10' \
                   --default-release \
-                  --dockerfile-buildargs='ARTEFACT_NAME=atlassian-jira-software,BASE_IMAGE=adoptopenjdk/openjdk11' \
+                  --dockerfile-buildargs='ARTEFACT_NAME=atlassian-jira-software,BASE_IMAGE=eclipse-temurin:11' \
                   --dockerfile-version-arg='JIRA_VERSION' \
                   --mac-product-key='jira-software' \
                   --tag-suffixes='jdk11,ubuntu-jdk11' \
@@ -264,7 +264,7 @@ pipelines:
                   --jobs-total='12' \
                   --docker-repos='atlassian/jira-software' \
                   --push
- 
+
 
         - step:
             name: Jira Software JDK 11 - Batch 11
@@ -279,7 +279,7 @@ pipelines:
                   --start-version='8.8' \
                   --end-version='10' \
                   --default-release \
-                  --dockerfile-buildargs='ARTEFACT_NAME=atlassian-jira-software,BASE_IMAGE=adoptopenjdk/openjdk11' \
+                  --dockerfile-buildargs='ARTEFACT_NAME=atlassian-jira-software,BASE_IMAGE=eclipse-temurin:11' \
                   --dockerfile-version-arg='JIRA_VERSION' \
                   --mac-product-key='jira-software' \
                   --tag-suffixes='jdk11,ubuntu-jdk11' \
@@ -288,7 +288,7 @@ pipelines:
                   --jobs-total='12' \
                   --docker-repos='atlassian/jira-software' \
                   --push
- 
+
 
         - step:
             name: Jira Software JDK 11 - Batch 12
@@ -303,7 +303,7 @@ pipelines:
                   --start-version='8.8' \
                   --end-version='10' \
                   --default-release \
-                  --dockerfile-buildargs='ARTEFACT_NAME=atlassian-jira-software,BASE_IMAGE=adoptopenjdk/openjdk11' \
+                  --dockerfile-buildargs='ARTEFACT_NAME=atlassian-jira-software,BASE_IMAGE=eclipse-temurin:11' \
                   --dockerfile-version-arg='JIRA_VERSION' \
                   --mac-product-key='jira-software' \
                   --tag-suffixes='jdk11,ubuntu-jdk11' \
@@ -312,7 +312,7 @@ pipelines:
                   --jobs-total='12' \
                   --docker-repos='atlassian/jira-software' \
                   --push
- 
+
 
         - step:
             name: Jira Service Management JDK 11 - Batch 1
@@ -327,7 +327,7 @@ pipelines:
                   --start-version='4.8' \
                   --end-version='5' \
                   --default-release \
-                  --dockerfile-buildargs='ARTEFACT_NAME=atlassian-servicedesk,BASE_IMAGE=adoptopenjdk/openjdk11' \
+                  --dockerfile-buildargs='ARTEFACT_NAME=atlassian-servicedesk,BASE_IMAGE=eclipse-temurin:11' \
                   --dockerfile-version-arg='JIRA_VERSION' \
                   --mac-product-key='jira-servicedesk' \
                   --tag-suffixes='jdk11,ubuntu-jdk11' \
@@ -336,7 +336,7 @@ pipelines:
                   --jobs-total='12' \
                   --docker-repos='atlassian/jira-servicemanagement,atlassian/jira-servicedesk' \
                   --push
- 
+
 
         - step:
             name: Jira Service Management JDK 11 - Batch 2
@@ -351,7 +351,7 @@ pipelines:
                   --start-version='4.8' \
                   --end-version='5' \
                   --default-release \
-                  --dockerfile-buildargs='ARTEFACT_NAME=atlassian-servicedesk,BASE_IMAGE=adoptopenjdk/openjdk11' \
+                  --dockerfile-buildargs='ARTEFACT_NAME=atlassian-servicedesk,BASE_IMAGE=eclipse-temurin:11' \
                   --dockerfile-version-arg='JIRA_VERSION' \
                   --mac-product-key='jira-servicedesk' \
                   --tag-suffixes='jdk11,ubuntu-jdk11' \
@@ -360,7 +360,7 @@ pipelines:
                   --jobs-total='12' \
                   --docker-repos='atlassian/jira-servicemanagement,atlassian/jira-servicedesk' \
                   --push
- 
+
 
         - step:
             name: Jira Service Management JDK 11 - Batch 3
@@ -375,7 +375,7 @@ pipelines:
                   --start-version='4.8' \
                   --end-version='5' \
                   --default-release \
-                  --dockerfile-buildargs='ARTEFACT_NAME=atlassian-servicedesk,BASE_IMAGE=adoptopenjdk/openjdk11' \
+                  --dockerfile-buildargs='ARTEFACT_NAME=atlassian-servicedesk,BASE_IMAGE=eclipse-temurin:11' \
                   --dockerfile-version-arg='JIRA_VERSION' \
                   --mac-product-key='jira-servicedesk' \
                   --tag-suffixes='jdk11,ubuntu-jdk11' \
@@ -384,7 +384,7 @@ pipelines:
                   --jobs-total='12' \
                   --docker-repos='atlassian/jira-servicemanagement,atlassian/jira-servicedesk' \
                   --push
- 
+
 
         - step:
             name: Jira Service Management JDK 11 - Batch 4
@@ -399,7 +399,7 @@ pipelines:
                   --start-version='4.8' \
                   --end-version='5' \
                   --default-release \
-                  --dockerfile-buildargs='ARTEFACT_NAME=atlassian-servicedesk,BASE_IMAGE=adoptopenjdk/openjdk11' \
+                  --dockerfile-buildargs='ARTEFACT_NAME=atlassian-servicedesk,BASE_IMAGE=eclipse-temurin:11' \
                   --dockerfile-version-arg='JIRA_VERSION' \
                   --mac-product-key='jira-servicedesk' \
                   --tag-suffixes='jdk11,ubuntu-jdk11' \
@@ -408,7 +408,7 @@ pipelines:
                   --jobs-total='12' \
                   --docker-repos='atlassian/jira-servicemanagement,atlassian/jira-servicedesk' \
                   --push
- 
+
 
         - step:
             name: Jira Service Management JDK 11 - Batch 5
@@ -423,7 +423,7 @@ pipelines:
                   --start-version='4.8' \
                   --end-version='5' \
                   --default-release \
-                  --dockerfile-buildargs='ARTEFACT_NAME=atlassian-servicedesk,BASE_IMAGE=adoptopenjdk/openjdk11' \
+                  --dockerfile-buildargs='ARTEFACT_NAME=atlassian-servicedesk,BASE_IMAGE=eclipse-temurin:11' \
                   --dockerfile-version-arg='JIRA_VERSION' \
                   --mac-product-key='jira-servicedesk' \
                   --tag-suffixes='jdk11,ubuntu-jdk11' \
@@ -432,7 +432,7 @@ pipelines:
                   --jobs-total='12' \
                   --docker-repos='atlassian/jira-servicemanagement,atlassian/jira-servicedesk' \
                   --push
- 
+
 
         - step:
             name: Jira Service Management JDK 11 - Batch 6
@@ -447,7 +447,7 @@ pipelines:
                   --start-version='4.8' \
                   --end-version='5' \
                   --default-release \
-                  --dockerfile-buildargs='ARTEFACT_NAME=atlassian-servicedesk,BASE_IMAGE=adoptopenjdk/openjdk11' \
+                  --dockerfile-buildargs='ARTEFACT_NAME=atlassian-servicedesk,BASE_IMAGE=eclipse-temurin:11' \
                   --dockerfile-version-arg='JIRA_VERSION' \
                   --mac-product-key='jira-servicedesk' \
                   --tag-suffixes='jdk11,ubuntu-jdk11' \
@@ -456,7 +456,7 @@ pipelines:
                   --jobs-total='12' \
                   --docker-repos='atlassian/jira-servicemanagement,atlassian/jira-servicedesk' \
                   --push
- 
+
 
         - step:
             name: Jira Service Management JDK 11 - Batch 7
@@ -471,7 +471,7 @@ pipelines:
                   --start-version='4.8' \
                   --end-version='5' \
                   --default-release \
-                  --dockerfile-buildargs='ARTEFACT_NAME=atlassian-servicedesk,BASE_IMAGE=adoptopenjdk/openjdk11' \
+                  --dockerfile-buildargs='ARTEFACT_NAME=atlassian-servicedesk,BASE_IMAGE=eclipse-temurin:11' \
                   --dockerfile-version-arg='JIRA_VERSION' \
                   --mac-product-key='jira-servicedesk' \
                   --tag-suffixes='jdk11,ubuntu-jdk11' \
@@ -480,7 +480,7 @@ pipelines:
                   --jobs-total='12' \
                   --docker-repos='atlassian/jira-servicemanagement,atlassian/jira-servicedesk' \
                   --push
- 
+
 
         - step:
             name: Jira Service Management JDK 11 - Batch 8
@@ -495,7 +495,7 @@ pipelines:
                   --start-version='4.8' \
                   --end-version='5' \
                   --default-release \
-                  --dockerfile-buildargs='ARTEFACT_NAME=atlassian-servicedesk,BASE_IMAGE=adoptopenjdk/openjdk11' \
+                  --dockerfile-buildargs='ARTEFACT_NAME=atlassian-servicedesk,BASE_IMAGE=eclipse-temurin:11' \
                   --dockerfile-version-arg='JIRA_VERSION' \
                   --mac-product-key='jira-servicedesk' \
                   --tag-suffixes='jdk11,ubuntu-jdk11' \
@@ -504,7 +504,7 @@ pipelines:
                   --jobs-total='12' \
                   --docker-repos='atlassian/jira-servicemanagement,atlassian/jira-servicedesk' \
                   --push
- 
+
 
         - step:
             name: Jira Service Management JDK 11 - Batch 9
@@ -519,7 +519,7 @@ pipelines:
                   --start-version='4.8' \
                   --end-version='5' \
                   --default-release \
-                  --dockerfile-buildargs='ARTEFACT_NAME=atlassian-servicedesk,BASE_IMAGE=adoptopenjdk/openjdk11' \
+                  --dockerfile-buildargs='ARTEFACT_NAME=atlassian-servicedesk,BASE_IMAGE=eclipse-temurin:11' \
                   --dockerfile-version-arg='JIRA_VERSION' \
                   --mac-product-key='jira-servicedesk' \
                   --tag-suffixes='jdk11,ubuntu-jdk11' \
@@ -528,7 +528,7 @@ pipelines:
                   --jobs-total='12' \
                   --docker-repos='atlassian/jira-servicemanagement,atlassian/jira-servicedesk' \
                   --push
- 
+
 
         - step:
             name: Jira Service Management JDK 11 - Batch 10
@@ -543,7 +543,7 @@ pipelines:
                   --start-version='4.8' \
                   --end-version='5' \
                   --default-release \
-                  --dockerfile-buildargs='ARTEFACT_NAME=atlassian-servicedesk,BASE_IMAGE=adoptopenjdk/openjdk11' \
+                  --dockerfile-buildargs='ARTEFACT_NAME=atlassian-servicedesk,BASE_IMAGE=eclipse-temurin:11' \
                   --dockerfile-version-arg='JIRA_VERSION' \
                   --mac-product-key='jira-servicedesk' \
                   --tag-suffixes='jdk11,ubuntu-jdk11' \
@@ -552,7 +552,7 @@ pipelines:
                   --jobs-total='12' \
                   --docker-repos='atlassian/jira-servicemanagement,atlassian/jira-servicedesk' \
                   --push
- 
+
 
         - step:
             name: Jira Service Management JDK 11 - Batch 11
@@ -567,7 +567,7 @@ pipelines:
                   --start-version='4.8' \
                   --end-version='5' \
                   --default-release \
-                  --dockerfile-buildargs='ARTEFACT_NAME=atlassian-servicedesk,BASE_IMAGE=adoptopenjdk/openjdk11' \
+                  --dockerfile-buildargs='ARTEFACT_NAME=atlassian-servicedesk,BASE_IMAGE=eclipse-temurin:11' \
                   --dockerfile-version-arg='JIRA_VERSION' \
                   --mac-product-key='jira-servicedesk' \
                   --tag-suffixes='jdk11,ubuntu-jdk11' \
@@ -576,7 +576,7 @@ pipelines:
                   --jobs-total='12' \
                   --docker-repos='atlassian/jira-servicemanagement,atlassian/jira-servicedesk' \
                   --push
- 
+
 
         - step:
             name: Jira Service Management JDK 11 - Batch 12
@@ -591,7 +591,7 @@ pipelines:
                   --start-version='4.8' \
                   --end-version='5' \
                   --default-release \
-                  --dockerfile-buildargs='ARTEFACT_NAME=atlassian-servicedesk,BASE_IMAGE=adoptopenjdk/openjdk11' \
+                  --dockerfile-buildargs='ARTEFACT_NAME=atlassian-servicedesk,BASE_IMAGE=eclipse-temurin:11' \
                   --dockerfile-version-arg='JIRA_VERSION' \
                   --mac-product-key='jira-servicedesk' \
                   --tag-suffixes='jdk11,ubuntu-jdk11' \
@@ -600,7 +600,7 @@ pipelines:
                   --jobs-total='12' \
                   --docker-repos='atlassian/jira-servicemanagement,atlassian/jira-servicedesk' \
                   --push
- 
+
 
         - step:
             name: Jira Core JDK 11 - Batch 1
@@ -615,7 +615,7 @@ pipelines:
                   --start-version='8.8' \
                   --end-version='10' \
                   --default-release \
-                  --dockerfile-buildargs='ARTEFACT_NAME=atlassian-jira-core,BASE_IMAGE=adoptopenjdk/openjdk11' \
+                  --dockerfile-buildargs='ARTEFACT_NAME=atlassian-jira-core,BASE_IMAGE=eclipse-temurin:11' \
                   --dockerfile-version-arg='JIRA_VERSION' \
                   --mac-product-key='jira' \
                   --tag-suffixes='jdk11,ubuntu-jdk11' \
@@ -624,7 +624,7 @@ pipelines:
                   --jobs-total='12' \
                   --docker-repos='atlassian/jira-core' \
                   --push
- 
+
 
         - step:
             name: Jira Core JDK 11 - Batch 2
@@ -639,7 +639,7 @@ pipelines:
                   --start-version='8.8' \
                   --end-version='10' \
                   --default-release \
-                  --dockerfile-buildargs='ARTEFACT_NAME=atlassian-jira-core,BASE_IMAGE=adoptopenjdk/openjdk11' \
+                  --dockerfile-buildargs='ARTEFACT_NAME=atlassian-jira-core,BASE_IMAGE=eclipse-temurin:11' \
                   --dockerfile-version-arg='JIRA_VERSION' \
                   --mac-product-key='jira' \
                   --tag-suffixes='jdk11,ubuntu-jdk11' \
@@ -648,7 +648,7 @@ pipelines:
                   --jobs-total='12' \
                   --docker-repos='atlassian/jira-core' \
                   --push
- 
+
 
         - step:
             name: Jira Core JDK 11 - Batch 3
@@ -663,7 +663,7 @@ pipelines:
                   --start-version='8.8' \
                   --end-version='10' \
                   --default-release \
-                  --dockerfile-buildargs='ARTEFACT_NAME=atlassian-jira-core,BASE_IMAGE=adoptopenjdk/openjdk11' \
+                  --dockerfile-buildargs='ARTEFACT_NAME=atlassian-jira-core,BASE_IMAGE=eclipse-temurin:11' \
                   --dockerfile-version-arg='JIRA_VERSION' \
                   --mac-product-key='jira' \
                   --tag-suffixes='jdk11,ubuntu-jdk11' \
@@ -672,7 +672,7 @@ pipelines:
                   --jobs-total='12' \
                   --docker-repos='atlassian/jira-core' \
                   --push
- 
+
 
         - step:
             name: Jira Core JDK 11 - Batch 4
@@ -687,7 +687,7 @@ pipelines:
                   --start-version='8.8' \
                   --end-version='10' \
                   --default-release \
-                  --dockerfile-buildargs='ARTEFACT_NAME=atlassian-jira-core,BASE_IMAGE=adoptopenjdk/openjdk11' \
+                  --dockerfile-buildargs='ARTEFACT_NAME=atlassian-jira-core,BASE_IMAGE=eclipse-temurin:11' \
                   --dockerfile-version-arg='JIRA_VERSION' \
                   --mac-product-key='jira' \
                   --tag-suffixes='jdk11,ubuntu-jdk11' \
@@ -696,7 +696,7 @@ pipelines:
                   --jobs-total='12' \
                   --docker-repos='atlassian/jira-core' \
                   --push
- 
+
 
         - step:
             name: Jira Core JDK 11 - Batch 5
@@ -711,7 +711,7 @@ pipelines:
                   --start-version='8.8' \
                   --end-version='10' \
                   --default-release \
-                  --dockerfile-buildargs='ARTEFACT_NAME=atlassian-jira-core,BASE_IMAGE=adoptopenjdk/openjdk11' \
+                  --dockerfile-buildargs='ARTEFACT_NAME=atlassian-jira-core,BASE_IMAGE=eclipse-temurin:11' \
                   --dockerfile-version-arg='JIRA_VERSION' \
                   --mac-product-key='jira' \
                   --tag-suffixes='jdk11,ubuntu-jdk11' \
@@ -720,7 +720,7 @@ pipelines:
                   --jobs-total='12' \
                   --docker-repos='atlassian/jira-core' \
                   --push
- 
+
 
         - step:
             name: Jira Core JDK 11 - Batch 6
@@ -735,7 +735,7 @@ pipelines:
                   --start-version='8.8' \
                   --end-version='10' \
                   --default-release \
-                  --dockerfile-buildargs='ARTEFACT_NAME=atlassian-jira-core,BASE_IMAGE=adoptopenjdk/openjdk11' \
+                  --dockerfile-buildargs='ARTEFACT_NAME=atlassian-jira-core,BASE_IMAGE=eclipse-temurin:11' \
                   --dockerfile-version-arg='JIRA_VERSION' \
                   --mac-product-key='jira' \
                   --tag-suffixes='jdk11,ubuntu-jdk11' \
@@ -744,7 +744,7 @@ pipelines:
                   --jobs-total='12' \
                   --docker-repos='atlassian/jira-core' \
                   --push
- 
+
 
         - step:
             name: Jira Core JDK 11 - Batch 7
@@ -759,7 +759,7 @@ pipelines:
                   --start-version='8.8' \
                   --end-version='10' \
                   --default-release \
-                  --dockerfile-buildargs='ARTEFACT_NAME=atlassian-jira-core,BASE_IMAGE=adoptopenjdk/openjdk11' \
+                  --dockerfile-buildargs='ARTEFACT_NAME=atlassian-jira-core,BASE_IMAGE=eclipse-temurin:11' \
                   --dockerfile-version-arg='JIRA_VERSION' \
                   --mac-product-key='jira' \
                   --tag-suffixes='jdk11,ubuntu-jdk11' \
@@ -768,7 +768,7 @@ pipelines:
                   --jobs-total='12' \
                   --docker-repos='atlassian/jira-core' \
                   --push
- 
+
 
         - step:
             name: Jira Core JDK 11 - Batch 8
@@ -783,7 +783,7 @@ pipelines:
                   --start-version='8.8' \
                   --end-version='10' \
                   --default-release \
-                  --dockerfile-buildargs='ARTEFACT_NAME=atlassian-jira-core,BASE_IMAGE=adoptopenjdk/openjdk11' \
+                  --dockerfile-buildargs='ARTEFACT_NAME=atlassian-jira-core,BASE_IMAGE=eclipse-temurin:11' \
                   --dockerfile-version-arg='JIRA_VERSION' \
                   --mac-product-key='jira' \
                   --tag-suffixes='jdk11,ubuntu-jdk11' \
@@ -792,7 +792,7 @@ pipelines:
                   --jobs-total='12' \
                   --docker-repos='atlassian/jira-core' \
                   --push
- 
+
 
         - step:
             name: Jira Core JDK 11 - Batch 9
@@ -807,7 +807,7 @@ pipelines:
                   --start-version='8.8' \
                   --end-version='10' \
                   --default-release \
-                  --dockerfile-buildargs='ARTEFACT_NAME=atlassian-jira-core,BASE_IMAGE=adoptopenjdk/openjdk11' \
+                  --dockerfile-buildargs='ARTEFACT_NAME=atlassian-jira-core,BASE_IMAGE=eclipse-temurin:11' \
                   --dockerfile-version-arg='JIRA_VERSION' \
                   --mac-product-key='jira' \
                   --tag-suffixes='jdk11,ubuntu-jdk11' \
@@ -816,7 +816,7 @@ pipelines:
                   --jobs-total='12' \
                   --docker-repos='atlassian/jira-core' \
                   --push
- 
+
 
         - step:
             name: Jira Core JDK 11 - Batch 10
@@ -831,7 +831,7 @@ pipelines:
                   --start-version='8.8' \
                   --end-version='10' \
                   --default-release \
-                  --dockerfile-buildargs='ARTEFACT_NAME=atlassian-jira-core,BASE_IMAGE=adoptopenjdk/openjdk11' \
+                  --dockerfile-buildargs='ARTEFACT_NAME=atlassian-jira-core,BASE_IMAGE=eclipse-temurin:11' \
                   --dockerfile-version-arg='JIRA_VERSION' \
                   --mac-product-key='jira' \
                   --tag-suffixes='jdk11,ubuntu-jdk11' \
@@ -840,7 +840,7 @@ pipelines:
                   --jobs-total='12' \
                   --docker-repos='atlassian/jira-core' \
                   --push
- 
+
 
         - step:
             name: Jira Core JDK 11 - Batch 11
@@ -855,7 +855,7 @@ pipelines:
                   --start-version='8.8' \
                   --end-version='10' \
                   --default-release \
-                  --dockerfile-buildargs='ARTEFACT_NAME=atlassian-jira-core,BASE_IMAGE=adoptopenjdk/openjdk11' \
+                  --dockerfile-buildargs='ARTEFACT_NAME=atlassian-jira-core,BASE_IMAGE=eclipse-temurin:11' \
                   --dockerfile-version-arg='JIRA_VERSION' \
                   --mac-product-key='jira' \
                   --tag-suffixes='jdk11,ubuntu-jdk11' \
@@ -864,7 +864,7 @@ pipelines:
                   --jobs-total='12' \
                   --docker-repos='atlassian/jira-core' \
                   --push
- 
+
 
         - step:
             name: Jira Core JDK 11 - Batch 12
@@ -879,7 +879,7 @@ pipelines:
                   --start-version='8.8' \
                   --end-version='10' \
                   --default-release \
-                  --dockerfile-buildargs='ARTEFACT_NAME=atlassian-jira-core,BASE_IMAGE=adoptopenjdk/openjdk11' \
+                  --dockerfile-buildargs='ARTEFACT_NAME=atlassian-jira-core,BASE_IMAGE=eclipse-temurin:11' \
                   --dockerfile-version-arg='JIRA_VERSION' \
                   --mac-product-key='jira' \
                   --tag-suffixes='jdk11,ubuntu-jdk11' \
@@ -888,7 +888,7 @@ pipelines:
                   --jobs-total='12' \
                   --docker-repos='atlassian/jira-core' \
                   --push
- 
+
 
     ######################################################################
     # All other branches & PRs; run unit tests & functional tests
@@ -915,9 +915,6 @@ pipelines:
               - export DOCKERFILE_BUILDARGS='ARTEFACT_NAME=atlassian-jira-software'
               - export DOCKERFILE_VERSION_ARG='JIRA_VERSION'
               - export MAC_PRODUCT_KEY='jira-software'
-              - py.test -v tests/
-              - py.test -v shared-components/tests/
-              - export DOCKERFILE_BUILDARGS='ARTEFACT_NAME=atlassian-jira-software,BASE_IMAGE=adoptopenjdk/openjdk11'
               - py.test -v tests/
               - py.test -v shared-components/tests/
         - step:
@@ -953,7 +950,7 @@ pipelines:
                   --start-version='8.8' \
                   --end-version='10' \
                   --default-release \
-                  --dockerfile-buildargs='ARTEFACT_NAME=atlassian-jira-software,BASE_IMAGE=adoptopenjdk/openjdk11' \
+                  --dockerfile-buildargs='ARTEFACT_NAME=atlassian-jira-software,BASE_IMAGE=eclipse-temurin:11' \
                   --dockerfile-version-arg='JIRA_VERSION' \
                   --mac-product-key='jira-software' \
                   --tag-suffixes='jdk11,ubuntu-jdk11' \
@@ -977,7 +974,7 @@ pipelines:
                   --start-version='8.8' \
                   --end-version='10' \
                   --default-release \
-                  --dockerfile-buildargs='ARTEFACT_NAME=atlassian-jira-software,BASE_IMAGE=adoptopenjdk/openjdk11' \
+                  --dockerfile-buildargs='ARTEFACT_NAME=atlassian-jira-software,BASE_IMAGE=eclipse-temurin:11' \
                   --dockerfile-version-arg='JIRA_VERSION' \
                   --mac-product-key='jira-software' \
                   --tag-suffixes='jdk11,ubuntu-jdk11' \
@@ -1001,7 +998,7 @@ pipelines:
                   --start-version='8.8' \
                   --end-version='10' \
                   --default-release \
-                  --dockerfile-buildargs='ARTEFACT_NAME=atlassian-jira-software,BASE_IMAGE=adoptopenjdk/openjdk11' \
+                  --dockerfile-buildargs='ARTEFACT_NAME=atlassian-jira-software,BASE_IMAGE=eclipse-temurin:11' \
                   --dockerfile-version-arg='JIRA_VERSION' \
                   --mac-product-key='jira-software' \
                   --tag-suffixes='jdk11,ubuntu-jdk11' \
@@ -1025,7 +1022,7 @@ pipelines:
                   --start-version='8.8' \
                   --end-version='10' \
                   --default-release \
-                  --dockerfile-buildargs='ARTEFACT_NAME=atlassian-jira-software,BASE_IMAGE=adoptopenjdk/openjdk11' \
+                  --dockerfile-buildargs='ARTEFACT_NAME=atlassian-jira-software,BASE_IMAGE=eclipse-temurin:11' \
                   --dockerfile-version-arg='JIRA_VERSION' \
                   --mac-product-key='jira-software' \
                   --tag-suffixes='jdk11,ubuntu-jdk11' \
@@ -1049,7 +1046,7 @@ pipelines:
                   --start-version='8.8' \
                   --end-version='10' \
                   --default-release \
-                  --dockerfile-buildargs='ARTEFACT_NAME=atlassian-jira-software,BASE_IMAGE=adoptopenjdk/openjdk11' \
+                  --dockerfile-buildargs='ARTEFACT_NAME=atlassian-jira-software,BASE_IMAGE=eclipse-temurin:11' \
                   --dockerfile-version-arg='JIRA_VERSION' \
                   --mac-product-key='jira-software' \
                   --tag-suffixes='jdk11,ubuntu-jdk11' \
@@ -1073,7 +1070,7 @@ pipelines:
                   --start-version='8.8' \
                   --end-version='10' \
                   --default-release \
-                  --dockerfile-buildargs='ARTEFACT_NAME=atlassian-jira-software,BASE_IMAGE=adoptopenjdk/openjdk11' \
+                  --dockerfile-buildargs='ARTEFACT_NAME=atlassian-jira-software,BASE_IMAGE=eclipse-temurin:11' \
                   --dockerfile-version-arg='JIRA_VERSION' \
                   --mac-product-key='jira-software' \
                   --tag-suffixes='jdk11,ubuntu-jdk11' \
@@ -1097,7 +1094,7 @@ pipelines:
                   --start-version='8.8' \
                   --end-version='10' \
                   --default-release \
-                  --dockerfile-buildargs='ARTEFACT_NAME=atlassian-jira-software,BASE_IMAGE=adoptopenjdk/openjdk11' \
+                  --dockerfile-buildargs='ARTEFACT_NAME=atlassian-jira-software,BASE_IMAGE=eclipse-temurin:11' \
                   --dockerfile-version-arg='JIRA_VERSION' \
                   --mac-product-key='jira-software' \
                   --tag-suffixes='jdk11,ubuntu-jdk11' \
@@ -1121,7 +1118,7 @@ pipelines:
                   --start-version='8.8' \
                   --end-version='10' \
                   --default-release \
-                  --dockerfile-buildargs='ARTEFACT_NAME=atlassian-jira-software,BASE_IMAGE=adoptopenjdk/openjdk11' \
+                  --dockerfile-buildargs='ARTEFACT_NAME=atlassian-jira-software,BASE_IMAGE=eclipse-temurin:11' \
                   --dockerfile-version-arg='JIRA_VERSION' \
                   --mac-product-key='jira-software' \
                   --tag-suffixes='jdk11,ubuntu-jdk11' \
@@ -1145,7 +1142,7 @@ pipelines:
                   --start-version='8.8' \
                   --end-version='10' \
                   --default-release \
-                  --dockerfile-buildargs='ARTEFACT_NAME=atlassian-jira-software,BASE_IMAGE=adoptopenjdk/openjdk11' \
+                  --dockerfile-buildargs='ARTEFACT_NAME=atlassian-jira-software,BASE_IMAGE=eclipse-temurin:11' \
                   --dockerfile-version-arg='JIRA_VERSION' \
                   --mac-product-key='jira-software' \
                   --tag-suffixes='jdk11,ubuntu-jdk11' \
@@ -1169,7 +1166,7 @@ pipelines:
                   --start-version='8.8' \
                   --end-version='10' \
                   --default-release \
-                  --dockerfile-buildargs='ARTEFACT_NAME=atlassian-jira-software,BASE_IMAGE=adoptopenjdk/openjdk11' \
+                  --dockerfile-buildargs='ARTEFACT_NAME=atlassian-jira-software,BASE_IMAGE=eclipse-temurin:11' \
                   --dockerfile-version-arg='JIRA_VERSION' \
                   --mac-product-key='jira-software' \
                   --tag-suffixes='jdk11,ubuntu-jdk11' \
@@ -1193,7 +1190,7 @@ pipelines:
                   --start-version='8.8' \
                   --end-version='10' \
                   --default-release \
-                  --dockerfile-buildargs='ARTEFACT_NAME=atlassian-jira-software,BASE_IMAGE=adoptopenjdk/openjdk11' \
+                  --dockerfile-buildargs='ARTEFACT_NAME=atlassian-jira-software,BASE_IMAGE=eclipse-temurin:11' \
                   --dockerfile-version-arg='JIRA_VERSION' \
                   --mac-product-key='jira-software' \
                   --tag-suffixes='jdk11,ubuntu-jdk11' \
@@ -1217,7 +1214,7 @@ pipelines:
                   --start-version='8.8' \
                   --end-version='10' \
                   --default-release \
-                  --dockerfile-buildargs='ARTEFACT_NAME=atlassian-jira-software,BASE_IMAGE=adoptopenjdk/openjdk11' \
+                  --dockerfile-buildargs='ARTEFACT_NAME=atlassian-jira-software,BASE_IMAGE=eclipse-temurin:11' \
                   --dockerfile-version-arg='JIRA_VERSION' \
                   --mac-product-key='jira-software' \
                   --tag-suffixes='jdk11,ubuntu-jdk11' \
@@ -1241,7 +1238,7 @@ pipelines:
                   --start-version='4.8' \
                   --end-version='5' \
                   --default-release \
-                  --dockerfile-buildargs='ARTEFACT_NAME=atlassian-servicedesk,BASE_IMAGE=adoptopenjdk/openjdk11' \
+                  --dockerfile-buildargs='ARTEFACT_NAME=atlassian-servicedesk,BASE_IMAGE=eclipse-temurin:11' \
                   --dockerfile-version-arg='JIRA_VERSION' \
                   --mac-product-key='jira-servicedesk' \
                   --tag-suffixes='jdk11,ubuntu-jdk11' \
@@ -1265,7 +1262,7 @@ pipelines:
                   --start-version='4.8' \
                   --end-version='5' \
                   --default-release \
-                  --dockerfile-buildargs='ARTEFACT_NAME=atlassian-servicedesk,BASE_IMAGE=adoptopenjdk/openjdk11' \
+                  --dockerfile-buildargs='ARTEFACT_NAME=atlassian-servicedesk,BASE_IMAGE=eclipse-temurin:11' \
                   --dockerfile-version-arg='JIRA_VERSION' \
                   --mac-product-key='jira-servicedesk' \
                   --tag-suffixes='jdk11,ubuntu-jdk11' \
@@ -1289,7 +1286,7 @@ pipelines:
                   --start-version='4.8' \
                   --end-version='5' \
                   --default-release \
-                  --dockerfile-buildargs='ARTEFACT_NAME=atlassian-servicedesk,BASE_IMAGE=adoptopenjdk/openjdk11' \
+                  --dockerfile-buildargs='ARTEFACT_NAME=atlassian-servicedesk,BASE_IMAGE=eclipse-temurin:11' \
                   --dockerfile-version-arg='JIRA_VERSION' \
                   --mac-product-key='jira-servicedesk' \
                   --tag-suffixes='jdk11,ubuntu-jdk11' \
@@ -1313,7 +1310,7 @@ pipelines:
                   --start-version='4.8' \
                   --end-version='5' \
                   --default-release \
-                  --dockerfile-buildargs='ARTEFACT_NAME=atlassian-servicedesk,BASE_IMAGE=adoptopenjdk/openjdk11' \
+                  --dockerfile-buildargs='ARTEFACT_NAME=atlassian-servicedesk,BASE_IMAGE=eclipse-temurin:11' \
                   --dockerfile-version-arg='JIRA_VERSION' \
                   --mac-product-key='jira-servicedesk' \
                   --tag-suffixes='jdk11,ubuntu-jdk11' \
@@ -1337,7 +1334,7 @@ pipelines:
                   --start-version='4.8' \
                   --end-version='5' \
                   --default-release \
-                  --dockerfile-buildargs='ARTEFACT_NAME=atlassian-servicedesk,BASE_IMAGE=adoptopenjdk/openjdk11' \
+                  --dockerfile-buildargs='ARTEFACT_NAME=atlassian-servicedesk,BASE_IMAGE=eclipse-temurin:11' \
                   --dockerfile-version-arg='JIRA_VERSION' \
                   --mac-product-key='jira-servicedesk' \
                   --tag-suffixes='jdk11,ubuntu-jdk11' \
@@ -1361,7 +1358,7 @@ pipelines:
                   --start-version='4.8' \
                   --end-version='5' \
                   --default-release \
-                  --dockerfile-buildargs='ARTEFACT_NAME=atlassian-servicedesk,BASE_IMAGE=adoptopenjdk/openjdk11' \
+                  --dockerfile-buildargs='ARTEFACT_NAME=atlassian-servicedesk,BASE_IMAGE=eclipse-temurin:11' \
                   --dockerfile-version-arg='JIRA_VERSION' \
                   --mac-product-key='jira-servicedesk' \
                   --tag-suffixes='jdk11,ubuntu-jdk11' \
@@ -1385,7 +1382,7 @@ pipelines:
                   --start-version='4.8' \
                   --end-version='5' \
                   --default-release \
-                  --dockerfile-buildargs='ARTEFACT_NAME=atlassian-servicedesk,BASE_IMAGE=adoptopenjdk/openjdk11' \
+                  --dockerfile-buildargs='ARTEFACT_NAME=atlassian-servicedesk,BASE_IMAGE=eclipse-temurin:11' \
                   --dockerfile-version-arg='JIRA_VERSION' \
                   --mac-product-key='jira-servicedesk' \
                   --tag-suffixes='jdk11,ubuntu-jdk11' \
@@ -1409,7 +1406,7 @@ pipelines:
                   --start-version='4.8' \
                   --end-version='5' \
                   --default-release \
-                  --dockerfile-buildargs='ARTEFACT_NAME=atlassian-servicedesk,BASE_IMAGE=adoptopenjdk/openjdk11' \
+                  --dockerfile-buildargs='ARTEFACT_NAME=atlassian-servicedesk,BASE_IMAGE=eclipse-temurin:11' \
                   --dockerfile-version-arg='JIRA_VERSION' \
                   --mac-product-key='jira-servicedesk' \
                   --tag-suffixes='jdk11,ubuntu-jdk11' \
@@ -1433,7 +1430,7 @@ pipelines:
                   --start-version='4.8' \
                   --end-version='5' \
                   --default-release \
-                  --dockerfile-buildargs='ARTEFACT_NAME=atlassian-servicedesk,BASE_IMAGE=adoptopenjdk/openjdk11' \
+                  --dockerfile-buildargs='ARTEFACT_NAME=atlassian-servicedesk,BASE_IMAGE=eclipse-temurin:11' \
                   --dockerfile-version-arg='JIRA_VERSION' \
                   --mac-product-key='jira-servicedesk' \
                   --tag-suffixes='jdk11,ubuntu-jdk11' \
@@ -1457,7 +1454,7 @@ pipelines:
                   --start-version='4.8' \
                   --end-version='5' \
                   --default-release \
-                  --dockerfile-buildargs='ARTEFACT_NAME=atlassian-servicedesk,BASE_IMAGE=adoptopenjdk/openjdk11' \
+                  --dockerfile-buildargs='ARTEFACT_NAME=atlassian-servicedesk,BASE_IMAGE=eclipse-temurin:11' \
                   --dockerfile-version-arg='JIRA_VERSION' \
                   --mac-product-key='jira-servicedesk' \
                   --tag-suffixes='jdk11,ubuntu-jdk11' \
@@ -1481,7 +1478,7 @@ pipelines:
                   --start-version='4.8' \
                   --end-version='5' \
                   --default-release \
-                  --dockerfile-buildargs='ARTEFACT_NAME=atlassian-servicedesk,BASE_IMAGE=adoptopenjdk/openjdk11' \
+                  --dockerfile-buildargs='ARTEFACT_NAME=atlassian-servicedesk,BASE_IMAGE=eclipse-temurin:11' \
                   --dockerfile-version-arg='JIRA_VERSION' \
                   --mac-product-key='jira-servicedesk' \
                   --tag-suffixes='jdk11,ubuntu-jdk11' \
@@ -1505,7 +1502,7 @@ pipelines:
                   --start-version='4.8' \
                   --end-version='5' \
                   --default-release \
-                  --dockerfile-buildargs='ARTEFACT_NAME=atlassian-servicedesk,BASE_IMAGE=adoptopenjdk/openjdk11' \
+                  --dockerfile-buildargs='ARTEFACT_NAME=atlassian-servicedesk,BASE_IMAGE=eclipse-temurin:11' \
                   --dockerfile-version-arg='JIRA_VERSION' \
                   --mac-product-key='jira-servicedesk' \
                   --tag-suffixes='jdk11,ubuntu-jdk11' \
@@ -1529,7 +1526,7 @@ pipelines:
                   --start-version='8.8' \
                   --end-version='10' \
                   --default-release \
-                  --dockerfile-buildargs='ARTEFACT_NAME=atlassian-jira-core,BASE_IMAGE=adoptopenjdk/openjdk11' \
+                  --dockerfile-buildargs='ARTEFACT_NAME=atlassian-jira-core,BASE_IMAGE=eclipse-temurin:11' \
                   --dockerfile-version-arg='JIRA_VERSION' \
                   --mac-product-key='jira' \
                   --tag-suffixes='jdk11,ubuntu-jdk11' \
@@ -1553,7 +1550,7 @@ pipelines:
                   --start-version='8.8' \
                   --end-version='10' \
                   --default-release \
-                  --dockerfile-buildargs='ARTEFACT_NAME=atlassian-jira-core,BASE_IMAGE=adoptopenjdk/openjdk11' \
+                  --dockerfile-buildargs='ARTEFACT_NAME=atlassian-jira-core,BASE_IMAGE=eclipse-temurin:11' \
                   --dockerfile-version-arg='JIRA_VERSION' \
                   --mac-product-key='jira' \
                   --tag-suffixes='jdk11,ubuntu-jdk11' \
@@ -1577,7 +1574,7 @@ pipelines:
                   --start-version='8.8' \
                   --end-version='10' \
                   --default-release \
-                  --dockerfile-buildargs='ARTEFACT_NAME=atlassian-jira-core,BASE_IMAGE=adoptopenjdk/openjdk11' \
+                  --dockerfile-buildargs='ARTEFACT_NAME=atlassian-jira-core,BASE_IMAGE=eclipse-temurin:11' \
                   --dockerfile-version-arg='JIRA_VERSION' \
                   --mac-product-key='jira' \
                   --tag-suffixes='jdk11,ubuntu-jdk11' \
@@ -1601,7 +1598,7 @@ pipelines:
                   --start-version='8.8' \
                   --end-version='10' \
                   --default-release \
-                  --dockerfile-buildargs='ARTEFACT_NAME=atlassian-jira-core,BASE_IMAGE=adoptopenjdk/openjdk11' \
+                  --dockerfile-buildargs='ARTEFACT_NAME=atlassian-jira-core,BASE_IMAGE=eclipse-temurin:11' \
                   --dockerfile-version-arg='JIRA_VERSION' \
                   --mac-product-key='jira' \
                   --tag-suffixes='jdk11,ubuntu-jdk11' \
@@ -1625,7 +1622,7 @@ pipelines:
                   --start-version='8.8' \
                   --end-version='10' \
                   --default-release \
-                  --dockerfile-buildargs='ARTEFACT_NAME=atlassian-jira-core,BASE_IMAGE=adoptopenjdk/openjdk11' \
+                  --dockerfile-buildargs='ARTEFACT_NAME=atlassian-jira-core,BASE_IMAGE=eclipse-temurin:11' \
                   --dockerfile-version-arg='JIRA_VERSION' \
                   --mac-product-key='jira' \
                   --tag-suffixes='jdk11,ubuntu-jdk11' \
@@ -1649,7 +1646,7 @@ pipelines:
                   --start-version='8.8' \
                   --end-version='10' \
                   --default-release \
-                  --dockerfile-buildargs='ARTEFACT_NAME=atlassian-jira-core,BASE_IMAGE=adoptopenjdk/openjdk11' \
+                  --dockerfile-buildargs='ARTEFACT_NAME=atlassian-jira-core,BASE_IMAGE=eclipse-temurin:11' \
                   --dockerfile-version-arg='JIRA_VERSION' \
                   --mac-product-key='jira' \
                   --tag-suffixes='jdk11,ubuntu-jdk11' \
@@ -1673,7 +1670,7 @@ pipelines:
                   --start-version='8.8' \
                   --end-version='10' \
                   --default-release \
-                  --dockerfile-buildargs='ARTEFACT_NAME=atlassian-jira-core,BASE_IMAGE=adoptopenjdk/openjdk11' \
+                  --dockerfile-buildargs='ARTEFACT_NAME=atlassian-jira-core,BASE_IMAGE=eclipse-temurin:11' \
                   --dockerfile-version-arg='JIRA_VERSION' \
                   --mac-product-key='jira' \
                   --tag-suffixes='jdk11,ubuntu-jdk11' \
@@ -1697,7 +1694,7 @@ pipelines:
                   --start-version='8.8' \
                   --end-version='10' \
                   --default-release \
-                  --dockerfile-buildargs='ARTEFACT_NAME=atlassian-jira-core,BASE_IMAGE=adoptopenjdk/openjdk11' \
+                  --dockerfile-buildargs='ARTEFACT_NAME=atlassian-jira-core,BASE_IMAGE=eclipse-temurin:11' \
                   --dockerfile-version-arg='JIRA_VERSION' \
                   --mac-product-key='jira' \
                   --tag-suffixes='jdk11,ubuntu-jdk11' \
@@ -1721,7 +1718,7 @@ pipelines:
                   --start-version='8.8' \
                   --end-version='10' \
                   --default-release \
-                  --dockerfile-buildargs='ARTEFACT_NAME=atlassian-jira-core,BASE_IMAGE=adoptopenjdk/openjdk11' \
+                  --dockerfile-buildargs='ARTEFACT_NAME=atlassian-jira-core,BASE_IMAGE=eclipse-temurin:11' \
                   --dockerfile-version-arg='JIRA_VERSION' \
                   --mac-product-key='jira' \
                   --tag-suffixes='jdk11,ubuntu-jdk11' \
@@ -1745,7 +1742,7 @@ pipelines:
                   --start-version='8.8' \
                   --end-version='10' \
                   --default-release \
-                  --dockerfile-buildargs='ARTEFACT_NAME=atlassian-jira-core,BASE_IMAGE=adoptopenjdk/openjdk11' \
+                  --dockerfile-buildargs='ARTEFACT_NAME=atlassian-jira-core,BASE_IMAGE=eclipse-temurin:11' \
                   --dockerfile-version-arg='JIRA_VERSION' \
                   --mac-product-key='jira' \
                   --tag-suffixes='jdk11,ubuntu-jdk11' \
@@ -1769,7 +1766,7 @@ pipelines:
                   --start-version='8.8' \
                   --end-version='10' \
                   --default-release \
-                  --dockerfile-buildargs='ARTEFACT_NAME=atlassian-jira-core,BASE_IMAGE=adoptopenjdk/openjdk11' \
+                  --dockerfile-buildargs='ARTEFACT_NAME=atlassian-jira-core,BASE_IMAGE=eclipse-temurin:11' \
                   --dockerfile-version-arg='JIRA_VERSION' \
                   --mac-product-key='jira' \
                   --tag-suffixes='jdk11,ubuntu-jdk11' \
@@ -1793,7 +1790,7 @@ pipelines:
                   --start-version='8.8' \
                   --end-version='10' \
                   --default-release \
-                  --dockerfile-buildargs='ARTEFACT_NAME=atlassian-jira-core,BASE_IMAGE=adoptopenjdk/openjdk11' \
+                  --dockerfile-buildargs='ARTEFACT_NAME=atlassian-jira-core,BASE_IMAGE=eclipse-temurin:11' \
                   --dockerfile-version-arg='JIRA_VERSION' \
                   --mac-product-key='jira' \
                   --tag-suffixes='jdk11,ubuntu-jdk11' \

@@ -44,7 +44,7 @@ pipelines:
                   {% if appdata.default_release %}
                   --default-release \
                   {% endif %}
-                  --dockerfile-buildargs='ARTEFACT_NAME={{ appdata.artefact }},BASE_IMAGE=adoptopenjdk/openjdk{{ jdkver }}' \
+                  --dockerfile-buildargs='ARTEFACT_NAME={{ appdata.artefact }},BASE_IMAGE={{ appdata.base_image }}' \
                   --dockerfile-version-arg='JIRA_VERSION' \
                   --mac-product-key='{{ appdata.mac_key }}' \
                   --tag-suffixes='{{ appdata.tag_suffixes|join(',') }}' \
@@ -53,7 +53,7 @@ pipelines:
                   --jobs-total='{{ batches }}' \
                   --docker-repos='{{ appdata.docker_repos|join(',') }}' \
                   --push
- 
+
     {% endfor %}
   {% endfor %}
 {% endfor %}
@@ -83,9 +83,6 @@ pipelines:
               - export DOCKERFILE_BUILDARGS='ARTEFACT_NAME=atlassian-jira-software'
               - export DOCKERFILE_VERSION_ARG='JIRA_VERSION'
               - export MAC_PRODUCT_KEY='jira-software'
-              - py.test -v tests/
-              - py.test -v shared-components/tests/
-              - export DOCKERFILE_BUILDARGS='ARTEFACT_NAME=atlassian-jira-software,BASE_IMAGE=adoptopenjdk/openjdk11'
               - py.test -v tests/
               - py.test -v shared-components/tests/
         - step:
@@ -126,7 +123,7 @@ pipelines:
                   {% if appdata.default_release %}
                   --default-release \
                   {% endif %}
-                  --dockerfile-buildargs='ARTEFACT_NAME={{ appdata.artefact }},BASE_IMAGE=adoptopenjdk/openjdk{{ jdkver }}' \
+                  --dockerfile-buildargs='ARTEFACT_NAME={{ appdata.artefact }},BASE_IMAGE={{ appdata.base_image }}' \
                   --dockerfile-version-arg='JIRA_VERSION' \
                   --mac-product-key='{{ appdata.mac_key }}' \
                   --tag-suffixes='{{ appdata.tag_suffixes|join(',') }}' \
