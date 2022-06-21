@@ -15,7 +15,9 @@ def test_plugins(ctx):
     sysinfo = requests.get(ctx.base_url+'/rest/api/2/serverInfo/', auth=ctx.admin_auth)
     assert sysinfo.status_code == 200
     version = sysinfo.json()['version']
-    if int(version.split(".")[0]) >= 0:
+    # As `/rest/plugins/1.0/` API is not available right after provisioning in Jira 9 because of lazy loading,
+    # to avoid build failure we skip this test for Jira versions 9+
+    if int(version.split(".")[0]) >= 9:
         return
     resp = requests.get(ctx.base_url+'/rest/plugins/1.0/', auth=ctx.admin_auth)
     assert resp.status_code == 200
