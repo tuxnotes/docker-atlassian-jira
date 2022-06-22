@@ -357,9 +357,9 @@ as a non-root user.
    configuration is purely specified through the environment (e.g. Kubernetes)
    this behaviour may be undesirable; this flag forces an update of all
    generated files.
-   
+
    In Jira the affected files are: `dbconfig.xml`
-   
+
    See [the entrypoint code](entrypoint.py) for the details of how configuration
    files are generated.
 
@@ -463,14 +463,14 @@ Alternatively you can use a specific major, major.minor, or major.minor.patch ve
 * `atlassian/jira-core:8.14`
 * `atlassian/jira-core:8.14.0`
 
-All Jira versions from 7.13+ (Software/Core) / 3.16+ (Service Management) are available. 
+All Jira versions from 7.13+ (Software/Core) / 3.16+ (Service Management) are available.
 
 Note: All Jira Service Management 4.x versions are also available as `atlassian/jira-servicedesk`. This namespace has been deprecated and versions from 5+ onwards will only be available as `atlassian/jira-servicemanagement`.
 
 # Supported JDK versions
 
 All the Atlassian Docker images are now JDK11 only, and generated from the
-[official AdoptOpenJDK Docker images](https://hub.docker.com/r/adoptopenjdk/openjdk11).
+[official Eclipse Temurin OpenJDK Docker images](https://hub.docker.com/_/eclipse-temurin).
 
 The Docker images follow the [Atlassian Support end-of-life
 policy](https://confluence.atlassian.com/support/atlassian-support-end-of-life-policy-201851003.html);

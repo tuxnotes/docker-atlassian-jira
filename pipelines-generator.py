@@ -20,7 +20,7 @@ images = {
             'end_version': '10',
             'default_release': True,
             'tag_suffixes': ['jdk11', 'ubuntu-jdk11'],
-            'base_image': 'adoptopenjdk:11-hotspot',
+            'base_image': 'eclipse-temurin:11',
             'docker_repos': SOFTWARE_REPOS,
         }
     },
@@ -32,6 +32,7 @@ images = {
             'end_version': '5',
             'default_release': True,
             'tag_suffixes': ['jdk11', 'ubuntu-jdk11'],
+            'base_image': 'eclipse-temurin:11',
             'docker_repos': SD_REPOS,
         }
     },
@@ -43,7 +44,7 @@ images = {
             'end_version': '10',
             'default_release': True,
             'tag_suffixes': ['jdk11', 'ubuntu-jdk11'],
-            'base_image': 'adoptopenjdk:11-hotspot',
+            'base_image': 'eclipse-temurin:11',
             'docker_repos': CORE_REPOS,
         }
     }
