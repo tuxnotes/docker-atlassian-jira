@@ -24,7 +24,7 @@ def test_plugins(ctx):
 
     #  all of the plugins should be enabled however while jira 9 introduced lazy loading feature,
     #  we have some plugins disabled right after provisioning so we can skip the following assert
-    #  to avoid build failure the test for Jira versions 9+
+    #  to avoid build failure for Jira versions 9+
     if int(version.split(".")[0]) < 9:
         assert reduce(lambda a, b: a and b, map(lambda x: x['enabled'], plugins))
 
