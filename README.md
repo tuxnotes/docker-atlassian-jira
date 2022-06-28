@@ -23,14 +23,16 @@ Jira Core is a project and task management solution built for business teams.
 
 This Docker container makes it easy to get an instance of Jira Software, Service Management or Core up and running.
 
-Note: Jira Software will be referenced in the examples provided.
+Note: ** Jira Software will be referenced in the examples provided. **
+
+** Use docker version >= 20.10.9. **
 
 # Quick Start
 
 For the `JIRA_HOME` directory that is used to store application data (amongst
 other things) we recommend mounting a host directory as a [data
 volume](https://docs.docker.com/engine/tutorials/dockervolumes/#/data-volumes),
-or via a named volume if using a docker version >= 1.9.
+or via a named volume.
 
 Additionally, if running Jira in Data Center mode it is required that a shared
 filesystem is mounted. The mountpoint (inside the container) can be configured
