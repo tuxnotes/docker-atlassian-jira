@@ -37,7 +37,6 @@ pipelines:
                 python /usr/src/app/make-releases.py \
                   --update \
                   --start-version='8.11' \
-                  --end-version='10' \
                   --default-release \
                   --dockerfile-buildargs='ARTEFACT_NAME=atlassian-jira-software,BASE_IMAGE=eclipse-temurin:11' \
                   --dockerfile-version-arg='JIRA_VERSION' \
@@ -61,7 +60,6 @@ pipelines:
                 python /usr/src/app/make-releases.py \
                   --update \
                   --start-version='8.11' \
-                  --end-version='10' \
                   --default-release \
                   --dockerfile-buildargs='ARTEFACT_NAME=atlassian-jira-software,BASE_IMAGE=eclipse-temurin:11' \
                   --dockerfile-version-arg='JIRA_VERSION' \
@@ -85,7 +83,6 @@ pipelines:
                 python /usr/src/app/make-releases.py \
                   --update \
                   --start-version='8.11' \
-                  --end-version='10' \
                   --default-release \
                   --dockerfile-buildargs='ARTEFACT_NAME=atlassian-jira-software,BASE_IMAGE=eclipse-temurin:11' \
                   --dockerfile-version-arg='JIRA_VERSION' \
@@ -109,7 +106,6 @@ pipelines:
                 python /usr/src/app/make-releases.py \
                   --update \
                   --start-version='8.11' \
-                  --end-version='10' \
                   --default-release \
                   --dockerfile-buildargs='ARTEFACT_NAME=atlassian-jira-software,BASE_IMAGE=eclipse-temurin:11' \
                   --dockerfile-version-arg='JIRA_VERSION' \
@@ -133,7 +129,6 @@ pipelines:
                 python /usr/src/app/make-releases.py \
                   --update \
                   --start-version='8.11' \
-                  --end-version='10' \
                   --default-release \
                   --dockerfile-buildargs='ARTEFACT_NAME=atlassian-jira-software,BASE_IMAGE=eclipse-temurin:11' \
                   --dockerfile-version-arg='JIRA_VERSION' \
@@ -157,7 +152,6 @@ pipelines:
                 python /usr/src/app/make-releases.py \
                   --update \
                   --start-version='8.11' \
-                  --end-version='10' \
                   --default-release \
                   --dockerfile-buildargs='ARTEFACT_NAME=atlassian-jira-software,BASE_IMAGE=eclipse-temurin:11' \
                   --dockerfile-version-arg='JIRA_VERSION' \
@@ -181,7 +175,6 @@ pipelines:
                 python /usr/src/app/make-releases.py \
                   --update \
                   --start-version='8.11' \
-                  --end-version='10' \
                   --default-release \
                   --dockerfile-buildargs='ARTEFACT_NAME=atlassian-jira-software,BASE_IMAGE=eclipse-temurin:11' \
                   --dockerfile-version-arg='JIRA_VERSION' \
@@ -205,7 +198,6 @@ pipelines:
                 python /usr/src/app/make-releases.py \
                   --update \
                   --start-version='8.11' \
-                  --end-version='10' \
                   --default-release \
                   --dockerfile-buildargs='ARTEFACT_NAME=atlassian-jira-software,BASE_IMAGE=eclipse-temurin:11' \
                   --dockerfile-version-arg='JIRA_VERSION' \
@@ -229,7 +221,6 @@ pipelines:
                 python /usr/src/app/make-releases.py \
                   --update \
                   --start-version='8.11' \
-                  --end-version='10' \
                   --default-release \
                   --dockerfile-buildargs='ARTEFACT_NAME=atlassian-jira-software,BASE_IMAGE=eclipse-temurin:11' \
                   --dockerfile-version-arg='JIRA_VERSION' \
@@ -253,7 +244,6 @@ pipelines:
                 python /usr/src/app/make-releases.py \
                   --update \
                   --start-version='8.11' \
-                  --end-version='10' \
                   --default-release \
                   --dockerfile-buildargs='ARTEFACT_NAME=atlassian-jira-software,BASE_IMAGE=eclipse-temurin:11' \
                   --dockerfile-version-arg='JIRA_VERSION' \
@@ -277,7 +267,6 @@ pipelines:
                 python /usr/src/app/make-releases.py \
                   --update \
                   --start-version='8.11' \
-                  --end-version='10' \
                   --default-release \
                   --dockerfile-buildargs='ARTEFACT_NAME=atlassian-jira-software,BASE_IMAGE=eclipse-temurin:11' \
                   --dockerfile-version-arg='JIRA_VERSION' \
@@ -301,7 +290,6 @@ pipelines:
                 python /usr/src/app/make-releases.py \
                   --update \
                   --start-version='8.11' \
-                  --end-version='10' \
                   --default-release \
                   --dockerfile-buildargs='ARTEFACT_NAME=atlassian-jira-software,BASE_IMAGE=eclipse-temurin:11' \
                   --dockerfile-version-arg='JIRA_VERSION' \
@@ -325,7 +313,6 @@ pipelines:
                 python /usr/src/app/make-releases.py \
                   --update \
                   --start-version='4.11' \
-                  --end-version='5' \
                   --default-release \
                   --dockerfile-buildargs='ARTEFACT_NAME=atlassian-servicedesk,BASE_IMAGE=eclipse-temurin:11' \
                   --dockerfile-version-arg='JIRA_VERSION' \
@@ -349,7 +336,6 @@ pipelines:
                 python /usr/src/app/make-releases.py \
                   --update \
                   --start-version='4.11' \
-                  --end-version='5' \
                   --default-release \
                   --dockerfile-buildargs='ARTEFACT_NAME=atlassian-servicedesk,BASE_IMAGE=eclipse-temurin:11' \
                   --dockerfile-version-arg='JIRA_VERSION' \
@@ -373,7 +359,6 @@ pipelines:
                 python /usr/src/app/make-releases.py \
                   --update \
                   --start-version='4.11' \
-                  --end-version='5' \
                   --default-release \
                   --dockerfile-buildargs='ARTEFACT_NAME=atlassian-servicedesk,BASE_IMAGE=eclipse-temurin:11' \
                   --dockerfile-version-arg='JIRA_VERSION' \
@@ -397,7 +382,6 @@ pipelines:
                 python /usr/src/app/make-releases.py \
                   --update \
                   --start-version='4.11' \
-                  --end-version='5' \
                   --default-release \
                   --dockerfile-buildargs='ARTEFACT_NAME=atlassian-servicedesk,BASE_IMAGE=eclipse-temurin:11' \
                   --dockerfile-version-arg='JIRA_VERSION' \
@@ -421,7 +405,6 @@ pipelines:
                 python /usr/src/app/make-releases.py \
                   --update \
                   --start-version='4.11' \
-                  --end-version='5' \
                   --default-release \
                   --dockerfile-buildargs='ARTEFACT_NAME=atlassian-servicedesk,BASE_IMAGE=eclipse-temurin:11' \
                   --dockerfile-version-arg='JIRA_VERSION' \
@@ -445,7 +428,6 @@ pipelines:
                 python /usr/src/app/make-releases.py \
                   --update \
                   --start-version='4.11' \
-                  --end-version='5' \
                   --default-release \
                   --dockerfile-buildargs='ARTEFACT_NAME=atlassian-servicedesk,BASE_IMAGE=eclipse-temurin:11' \
                   --dockerfile-version-arg='JIRA_VERSION' \
@@ -469,7 +451,6 @@ pipelines:
                 python /usr/src/app/make-releases.py \
                   --update \
                   --start-version='4.11' \
-                  --end-version='5' \
                   --default-release \
                   --dockerfile-buildargs='ARTEFACT_NAME=atlassian-servicedesk,BASE_IMAGE=eclipse-temurin:11' \
                   --dockerfile-version-arg='JIRA_VERSION' \
@@ -493,7 +474,6 @@ pipelines:
                 python /usr/src/app/make-releases.py \
                   --update \
                   --start-version='4.11' \
-                  --end-version='5' \
                   --default-release \
                   --dockerfile-buildargs='ARTEFACT_NAME=atlassian-servicedesk,BASE_IMAGE=eclipse-temurin:11' \
                   --dockerfile-version-arg='JIRA_VERSION' \
@@ -517,7 +497,6 @@ pipelines:
                 python /usr/src/app/make-releases.py \
                   --update \
                   --start-version='4.11' \
-                  --end-version='5' \
                   --default-release \
                   --dockerfile-buildargs='ARTEFACT_NAME=atlassian-servicedesk,BASE_IMAGE=eclipse-temurin:11' \
                   --dockerfile-version-arg='JIRA_VERSION' \
@@ -541,7 +520,6 @@ pipelines:
                 python /usr/src/app/make-releases.py \
                   --update \
                   --start-version='4.11' \
-                  --end-version='5' \
                   --default-release \
                   --dockerfile-buildargs='ARTEFACT_NAME=atlassian-servicedesk,BASE_IMAGE=eclipse-temurin:11' \
                   --dockerfile-version-arg='JIRA_VERSION' \
@@ -565,7 +543,6 @@ pipelines:
                 python /usr/src/app/make-releases.py \
                   --update \
                   --start-version='4.11' \
-                  --end-version='5' \
                   --default-release \
                   --dockerfile-buildargs='ARTEFACT_NAME=atlassian-servicedesk,BASE_IMAGE=eclipse-temurin:11' \
                   --dockerfile-version-arg='JIRA_VERSION' \
@@ -589,7 +566,6 @@ pipelines:
                 python /usr/src/app/make-releases.py \
                   --update \
                   --start-version='4.11' \
-                  --end-version='5' \
                   --default-release \
                   --dockerfile-buildargs='ARTEFACT_NAME=atlassian-servicedesk,BASE_IMAGE=eclipse-temurin:11' \
                   --dockerfile-version-arg='JIRA_VERSION' \
@@ -613,7 +589,6 @@ pipelines:
                 python /usr/src/app/make-releases.py \
                   --update \
                   --start-version='8.11' \
-                  --end-version='10' \
                   --default-release \
                   --dockerfile-buildargs='ARTEFACT_NAME=atlassian-jira-core,BASE_IMAGE=eclipse-temurin:11' \
                   --dockerfile-version-arg='JIRA_VERSION' \
@@ -637,7 +612,6 @@ pipelines:
                 python /usr/src/app/make-releases.py \
                   --update \
                   --start-version='8.11' \
-                  --end-version='10' \
                   --default-release \
                   --dockerfile-buildargs='ARTEFACT_NAME=atlassian-jira-core,BASE_IMAGE=eclipse-temurin:11' \
                   --dockerfile-version-arg='JIRA_VERSION' \
@@ -661,7 +635,6 @@ pipelines:
                 python /usr/src/app/make-releases.py \
                   --update \
                   --start-version='8.11' \
-                  --end-version='10' \
                   --default-release \
                   --dockerfile-buildargs='ARTEFACT_NAME=atlassian-jira-core,BASE_IMAGE=eclipse-temurin:11' \
                   --dockerfile-version-arg='JIRA_VERSION' \
@@ -685,7 +658,6 @@ pipelines:
                 python /usr/src/app/make-releases.py \
                   --update \
                   --start-version='8.11' \
-                  --end-version='10' \
                   --default-release \
                   --dockerfile-buildargs='ARTEFACT_NAME=atlassian-jira-core,BASE_IMAGE=eclipse-temurin:11' \
                   --dockerfile-version-arg='JIRA_VERSION' \
@@ -709,7 +681,6 @@ pipelines:
                 python /usr/src/app/make-releases.py \
                   --update \
                   --start-version='8.11' \
-                  --end-version='10' \
                   --default-release \
                   --dockerfile-buildargs='ARTEFACT_NAME=atlassian-jira-core,BASE_IMAGE=eclipse-temurin:11' \
                   --dockerfile-version-arg='JIRA_VERSION' \
@@ -733,7 +704,6 @@ pipelines:
                 python /usr/src/app/make-releases.py \
                   --update \
                   --start-version='8.11' \
-                  --end-version='10' \
                   --default-release \
                   --dockerfile-buildargs='ARTEFACT_NAME=atlassian-jira-core,BASE_IMAGE=eclipse-temurin:11' \
                   --dockerfile-version-arg='JIRA_VERSION' \
@@ -757,7 +727,6 @@ pipelines:
                 python /usr/src/app/make-releases.py \
                   --update \
                   --start-version='8.11' \
-                  --end-version='10' \
                   --default-release \
                   --dockerfile-buildargs='ARTEFACT_NAME=atlassian-jira-core,BASE_IMAGE=eclipse-temurin:11' \
                   --dockerfile-version-arg='JIRA_VERSION' \
@@ -781,7 +750,6 @@ pipelines:
                 python /usr/src/app/make-releases.py \
                   --update \
                   --start-version='8.11' \
-                  --end-version='10' \
                   --default-release \
                   --dockerfile-buildargs='ARTEFACT_NAME=atlassian-jira-core,BASE_IMAGE=eclipse-temurin:11' \
                   --dockerfile-version-arg='JIRA_VERSION' \
@@ -805,7 +773,6 @@ pipelines:
                 python /usr/src/app/make-releases.py \
                   --update \
                   --start-version='8.11' \
-                  --end-version='10' \
                   --default-release \
                   --dockerfile-buildargs='ARTEFACT_NAME=atlassian-jira-core,BASE_IMAGE=eclipse-temurin:11' \
                   --dockerfile-version-arg='JIRA_VERSION' \
@@ -829,7 +796,6 @@ pipelines:
                 python /usr/src/app/make-releases.py \
                   --update \
                   --start-version='8.11' \
-                  --end-version='10' \
                   --default-release \
                   --dockerfile-buildargs='ARTEFACT_NAME=atlassian-jira-core,BASE_IMAGE=eclipse-temurin:11' \
                   --dockerfile-version-arg='JIRA_VERSION' \
@@ -853,7 +819,6 @@ pipelines:
                 python /usr/src/app/make-releases.py \
                   --update \
                   --start-version='8.11' \
-                  --end-version='10' \
                   --default-release \
                   --dockerfile-buildargs='ARTEFACT_NAME=atlassian-jira-core,BASE_IMAGE=eclipse-temurin:11' \
                   --dockerfile-version-arg='JIRA_VERSION' \
@@ -877,7 +842,6 @@ pipelines:
                 python /usr/src/app/make-releases.py \
                   --update \
                   --start-version='8.11' \
-                  --end-version='10' \
                   --default-release \
                   --dockerfile-buildargs='ARTEFACT_NAME=atlassian-jira-core,BASE_IMAGE=eclipse-temurin:11' \
                   --dockerfile-version-arg='JIRA_VERSION' \
@@ -948,7 +912,6 @@ pipelines:
                 python /usr/src/app/make-releases.py \
                   --create --create-eap \
                   --start-version='8.11' \
-                  --end-version='10' \
                   --default-release \
                   --dockerfile-buildargs='ARTEFACT_NAME=atlassian-jira-software,BASE_IMAGE=eclipse-temurin:11' \
                   --dockerfile-version-arg='JIRA_VERSION' \
@@ -972,7 +935,6 @@ pipelines:
                 python /usr/src/app/make-releases.py \
                   --create --create-eap \
                   --start-version='8.11' \
-                  --end-version='10' \
                   --default-release \
                   --dockerfile-buildargs='ARTEFACT_NAME=atlassian-jira-software,BASE_IMAGE=eclipse-temurin:11' \
                   --dockerfile-version-arg='JIRA_VERSION' \
@@ -996,7 +958,6 @@ pipelines:
                 python /usr/src/app/make-releases.py \
                   --create --create-eap \
                   --start-version='8.11' \
-                  --end-version='10' \
                   --default-release \
                   --dockerfile-buildargs='ARTEFACT_NAME=atlassian-jira-software,BASE_IMAGE=eclipse-temurin:11' \
                   --dockerfile-version-arg='JIRA_VERSION' \
@@ -1020,7 +981,6 @@ pipelines:
                 python /usr/src/app/make-releases.py \
                   --create --create-eap \
                   --start-version='8.11' \
-                  --end-version='10' \
                   --default-release \
                   --dockerfile-buildargs='ARTEFACT_NAME=atlassian-jira-software,BASE_IMAGE=eclipse-temurin:11' \
                   --dockerfile-version-arg='JIRA_VERSION' \
@@ -1044,7 +1004,6 @@ pipelines:
                 python /usr/src/app/make-releases.py \
                   --create --create-eap \
                   --start-version='8.11' \
-                  --end-version='10' \
                   --default-release \
                   --dockerfile-buildargs='ARTEFACT_NAME=atlassian-jira-software,BASE_IMAGE=eclipse-temurin:11' \
                   --dockerfile-version-arg='JIRA_VERSION' \
@@ -1068,7 +1027,6 @@ pipelines:
                 python /usr/src/app/make-releases.py \
                   --create --create-eap \
                   --start-version='8.11' \
-                  --end-version='10' \
                   --default-release \
                   --dockerfile-buildargs='ARTEFACT_NAME=atlassian-jira-software,BASE_IMAGE=eclipse-temurin:11' \
                   --dockerfile-version-arg='JIRA_VERSION' \
@@ -1092,7 +1050,6 @@ pipelines:
                 python /usr/src/app/make-releases.py \
                   --create --create-eap \
                   --start-version='8.11' \
-                  --end-version='10' \
                   --default-release \
                   --dockerfile-buildargs='ARTEFACT_NAME=atlassian-jira-software,BASE_IMAGE=eclipse-temurin:11' \
                   --dockerfile-version-arg='JIRA_VERSION' \
@@ -1116,7 +1073,6 @@ pipelines:
                 python /usr/src/app/make-releases.py \
                   --create --create-eap \
                   --start-version='8.11' \
-                  --end-version='10' \
                   --default-release \
                   --dockerfile-buildargs='ARTEFACT_NAME=atlassian-jira-software,BASE_IMAGE=eclipse-temurin:11' \
                   --dockerfile-version-arg='JIRA_VERSION' \
@@ -1140,7 +1096,6 @@ pipelines:
                 python /usr/src/app/make-releases.py \
                   --create --create-eap \
                   --start-version='8.11' \
-                  --end-version='10' \
                   --default-release \
                   --dockerfile-buildargs='ARTEFACT_NAME=atlassian-jira-software,BASE_IMAGE=eclipse-temurin:11' \
                   --dockerfile-version-arg='JIRA_VERSION' \
@@ -1164,7 +1119,6 @@ pipelines:
                 python /usr/src/app/make-releases.py \
                   --create --create-eap \
                   --start-version='8.11' \
-                  --end-version='10' \
                   --default-release \
                   --dockerfile-buildargs='ARTEFACT_NAME=atlassian-jira-software,BASE_IMAGE=eclipse-temurin:11' \
                   --dockerfile-version-arg='JIRA_VERSION' \
@@ -1188,7 +1142,6 @@ pipelines:
                 python /usr/src/app/make-releases.py \
                   --create --create-eap \
                   --start-version='8.11' \
-                  --end-version='10' \
                   --default-release \
                   --dockerfile-buildargs='ARTEFACT_NAME=atlassian-jira-software,BASE_IMAGE=eclipse-temurin:11' \
                   --dockerfile-version-arg='JIRA_VERSION' \
@@ -1212,7 +1165,6 @@ pipelines:
                 python /usr/src/app/make-releases.py \
                   --create --create-eap \
                   --start-version='8.11' \
-                  --end-version='10' \
                   --default-release \
                   --dockerfile-buildargs='ARTEFACT_NAME=atlassian-jira-software,BASE_IMAGE=eclipse-temurin:11' \
                   --dockerfile-version-arg='JIRA_VERSION' \
@@ -1236,7 +1188,6 @@ pipelines:
                 python /usr/src/app/make-releases.py \
                   --create --create-eap \
                   --start-version='4.11' \
-                  --end-version='5' \
                   --default-release \
                   --dockerfile-buildargs='ARTEFACT_NAME=atlassian-servicedesk,BASE_IMAGE=eclipse-temurin:11' \
                   --dockerfile-version-arg='JIRA_VERSION' \
@@ -1260,7 +1211,6 @@ pipelines:
                 python /usr/src/app/make-releases.py \
                   --create --create-eap \
                   --start-version='4.11' \
-                  --end-version='5' \
                   --default-release \
                   --dockerfile-buildargs='ARTEFACT_NAME=atlassian-servicedesk,BASE_IMAGE=eclipse-temurin:11' \
                   --dockerfile-version-arg='JIRA_VERSION' \
@@ -1284,7 +1234,6 @@ pipelines:
                 python /usr/src/app/make-releases.py \
                   --create --create-eap \
                   --start-version='4.11' \
-                  --end-version='5' \
                   --default-release \
                   --dockerfile-buildargs='ARTEFACT_NAME=atlassian-servicedesk,BASE_IMAGE=eclipse-temurin:11' \
                   --dockerfile-version-arg='JIRA_VERSION' \
@@ -1308,7 +1257,6 @@ pipelines:
                 python /usr/src/app/make-releases.py \
                   --create --create-eap \
                   --start-version='4.11' \
-                  --end-version='5' \
                   --default-release \
                   --dockerfile-buildargs='ARTEFACT_NAME=atlassian-servicedesk,BASE_IMAGE=eclipse-temurin:11' \
                   --dockerfile-version-arg='JIRA_VERSION' \
@@ -1332,7 +1280,6 @@ pipelines:
                 python /usr/src/app/make-releases.py \
                   --create --create-eap \
                   --start-version='4.11' \
-                  --end-version='5' \
                   --default-release \
                   --dockerfile-buildargs='ARTEFACT_NAME=atlassian-servicedesk,BASE_IMAGE=eclipse-temurin:11' \
                   --dockerfile-version-arg='JIRA_VERSION' \
@@ -1356,7 +1303,6 @@ pipelines:
                 python /usr/src/app/make-releases.py \
                   --create --create-eap \
                   --start-version='4.11' \
-                  --end-version='5' \
                   --default-release \
                   --dockerfile-buildargs='ARTEFACT_NAME=atlassian-servicedesk,BASE_IMAGE=eclipse-temurin:11' \
                   --dockerfile-version-arg='JIRA_VERSION' \
@@ -1380,7 +1326,6 @@ pipelines:
                 python /usr/src/app/make-releases.py \
                   --create --create-eap \
                   --start-version='4.11' \
-                  --end-version='5' \
                   --default-release \
                   --dockerfile-buildargs='ARTEFACT_NAME=atlassian-servicedesk,BASE_IMAGE=eclipse-temurin:11' \
                   --dockerfile-version-arg='JIRA_VERSION' \
@@ -1404,7 +1349,6 @@ pipelines:
                 python /usr/src/app/make-releases.py \
                   --create --create-eap \
                   --start-version='4.11' \
-                  --end-version='5' \
                   --default-release \
                   --dockerfile-buildargs='ARTEFACT_NAME=atlassian-servicedesk,BASE_IMAGE=eclipse-temurin:11' \
                   --dockerfile-version-arg='JIRA_VERSION' \
@@ -1428,7 +1372,6 @@ pipelines:
                 python /usr/src/app/make-releases.py \
                   --create --create-eap \
                   --start-version='4.11' \
-                  --end-version='5' \
                   --default-release \
                   --dockerfile-buildargs='ARTEFACT_NAME=atlassian-servicedesk,BASE_IMAGE=eclipse-temurin:11' \
                   --dockerfile-version-arg='JIRA_VERSION' \
@@ -1452,7 +1395,6 @@ pipelines:
                 python /usr/src/app/make-releases.py \
                   --create --create-eap \
                   --start-version='4.11' \
-                  --end-version='5' \
                   --default-release \
                   --dockerfile-buildargs='ARTEFACT_NAME=atlassian-servicedesk,BASE_IMAGE=eclipse-temurin:11' \
                   --dockerfile-version-arg='JIRA_VERSION' \
@@ -1476,7 +1418,6 @@ pipelines:
                 python /usr/src/app/make-releases.py \
                   --create --create-eap \
                   --start-version='4.11' \
-                  --end-version='5' \
                   --default-release \
                   --dockerfile-buildargs='ARTEFACT_NAME=atlassian-servicedesk,BASE_IMAGE=eclipse-temurin:11' \
                   --dockerfile-version-arg='JIRA_VERSION' \
@@ -1500,7 +1441,6 @@ pipelines:
                 python /usr/src/app/make-releases.py \
                   --create --create-eap \
                   --start-version='4.11' \
-                  --end-version='5' \
                   --default-release \
                   --dockerfile-buildargs='ARTEFACT_NAME=atlassian-servicedesk,BASE_IMAGE=eclipse-temurin:11' \
                   --dockerfile-version-arg='JIRA_VERSION' \
@@ -1524,7 +1464,6 @@ pipelines:
                 python /usr/src/app/make-releases.py \
                   --create --create-eap \
                   --start-version='8.11' \
-                  --end-version='10' \
                   --default-release \
                   --dockerfile-buildargs='ARTEFACT_NAME=atlassian-jira-core,BASE_IMAGE=eclipse-temurin:11' \
                   --dockerfile-version-arg='JIRA_VERSION' \
@@ -1548,7 +1487,6 @@ pipelines:
                 python /usr/src/app/make-releases.py \
                   --create --create-eap \
                   --start-version='8.11' \
-                  --end-version='10' \
                   --default-release \
                   --dockerfile-buildargs='ARTEFACT_NAME=atlassian-jira-core,BASE_IMAGE=eclipse-temurin:11' \
                   --dockerfile-version-arg='JIRA_VERSION' \
@@ -1572,7 +1510,6 @@ pipelines:
                 python /usr/src/app/make-releases.py \
                   --create --create-eap \
                   --start-version='8.11' \
-                  --end-version='10' \
                   --default-release \
                   --dockerfile-buildargs='ARTEFACT_NAME=atlassian-jira-core,BASE_IMAGE=eclipse-temurin:11' \
                   --dockerfile-version-arg='JIRA_VERSION' \
@@ -1596,7 +1533,6 @@ pipelines:
                 python /usr/src/app/make-releases.py \
                   --create --create-eap \
                   --start-version='8.11' \
-                  --end-version='10' \
                   --default-release \
                   --dockerfile-buildargs='ARTEFACT_NAME=atlassian-jira-core,BASE_IMAGE=eclipse-temurin:11' \
                   --dockerfile-version-arg='JIRA_VERSION' \
@@ -1620,7 +1556,6 @@ pipelines:
                 python /usr/src/app/make-releases.py \
                   --create --create-eap \
                   --start-version='8.11' \
-                  --end-version='10' \
                   --default-release \
                   --dockerfile-buildargs='ARTEFACT_NAME=atlassian-jira-core,BASE_IMAGE=eclipse-temurin:11' \
                   --dockerfile-version-arg='JIRA_VERSION' \
@@ -1644,7 +1579,6 @@ pipelines:
                 python /usr/src/app/make-releases.py \
                   --create --create-eap \
                   --start-version='8.11' \
-                  --end-version='10' \
                   --default-release \
                   --dockerfile-buildargs='ARTEFACT_NAME=atlassian-jira-core,BASE_IMAGE=eclipse-temurin:11' \
                   --dockerfile-version-arg='JIRA_VERSION' \
@@ -1668,7 +1602,6 @@ pipelines:
                 python /usr/src/app/make-releases.py \
                   --create --create-eap \
                   --start-version='8.11' \
-                  --end-version='10' \
                   --default-release \
                   --dockerfile-buildargs='ARTEFACT_NAME=atlassian-jira-core,BASE_IMAGE=eclipse-temurin:11' \
                   --dockerfile-version-arg='JIRA_VERSION' \
@@ -1692,7 +1625,6 @@ pipelines:
                 python /usr/src/app/make-releases.py \
                   --create --create-eap \
                   --start-version='8.11' \
-                  --end-version='10' \
                   --default-release \
                   --dockerfile-buildargs='ARTEFACT_NAME=atlassian-jira-core,BASE_IMAGE=eclipse-temurin:11' \
                   --dockerfile-version-arg='JIRA_VERSION' \
@@ -1716,7 +1648,6 @@ pipelines:
                 python /usr/src/app/make-releases.py \
                   --create --create-eap \
                   --start-version='8.11' \
-                  --end-version='10' \
                   --default-release \
                   --dockerfile-buildargs='ARTEFACT_NAME=atlassian-jira-core,BASE_IMAGE=eclipse-temurin:11' \
                   --dockerfile-version-arg='JIRA_VERSION' \
@@ -1740,7 +1671,6 @@ pipelines:
                 python /usr/src/app/make-releases.py \
                   --create --create-eap \
                   --start-version='8.11' \
-                  --end-version='10' \
                   --default-release \
                   --dockerfile-buildargs='ARTEFACT_NAME=atlassian-jira-core,BASE_IMAGE=eclipse-temurin:11' \
                   --dockerfile-version-arg='JIRA_VERSION' \
@@ -1764,7 +1694,6 @@ pipelines:
                 python /usr/src/app/make-releases.py \
                   --create --create-eap \
                   --start-version='8.11' \
-                  --end-version='10' \
                   --default-release \
                   --dockerfile-buildargs='ARTEFACT_NAME=atlassian-jira-core,BASE_IMAGE=eclipse-temurin:11' \
                   --dockerfile-version-arg='JIRA_VERSION' \
@@ -1788,7 +1717,6 @@ pipelines:
                 python /usr/src/app/make-releases.py \
                   --create --create-eap \
                   --start-version='8.11' \
-                  --end-version='10' \
                   --default-release \
                   --dockerfile-buildargs='ARTEFACT_NAME=atlassian-jira-core,BASE_IMAGE=eclipse-temurin:11' \
                   --dockerfile-version-arg='JIRA_VERSION' \
