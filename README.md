@@ -25,7 +25,7 @@ This Docker container makes it easy to get an instance of Jira Software, Service
 
 Note: ** Jira Software will be referenced in the examples provided. **
 
-** Use docker version >= 20.10.9. **
+** Use docker version >= 20.10.10 **
 
 # Quick Start
 
